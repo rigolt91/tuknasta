@@ -1,0 +1,20 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\OrderStatus;
+
+class OrderStatusTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        OrderStatus::create(['name' => 'Processing']);
+        OrderStatus::create(['name' => 'Sent']);
+        OrderStatus::create(['name' => 'Delivered']);
+    }
+}

@@ -1,4 +1,10 @@
-<x-guest-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Forgot Password') }}
+        </h2>
+    </x-slot>
+
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -19,7 +25,7 @@
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
-            <div class="block">
+            <div class="block relative">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
@@ -31,4 +37,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-app-layout>

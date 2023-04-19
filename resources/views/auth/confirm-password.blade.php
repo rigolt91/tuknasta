@@ -1,4 +1,10 @@
-<x-guest-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Confirm Password') }}
+        </h2>
+    </x-slot>
+
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -13,7 +19,7 @@
         <form method="POST" action="{{ route('password.confirm') }}">
             @csrf
 
-            <div>
+            <div class="relative">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" autofocus />
             </div>
@@ -25,4 +31,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-app-layout>
