@@ -1,4 +1,4 @@
-<div class="sm:p-6 p-4 my-4 shadow sm:rounded-lg">
+<div class="p-4 sm:p-6 my-4 shadow sm:rounded-lg">
     <x-card-body>
         <a wire:click="$emit('openModal', 'politics.delivery-policy')" class="flex items-center text-md hover:text-green-800 active:text-green-900 hover:cursor-pointer">
             <svg fill="currentColor" class="bi bi-truck h-5 mr-2" viewBox="0 0 16 16">

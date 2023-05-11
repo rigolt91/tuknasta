@@ -8,13 +8,13 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
             @if($products->count() > 0)
-                <div class="mx-2 mb-4">
+                <div class="mx-4 sm:mx-2 mb-4">
                     <div class="pb-2 mb-4 text-lg font-bold text-gray-700 border-b">{{__('Recommended Products')}}</div>
                     <livewire:product.prefer-product>
                 </div>
             @endif
 
-            <div class="flex py-2 mx-2 mb-4 border-y">
+            <div class="flex py-2 mx-4 sm:mx-2 mb-4 border-y">
                 <div class="hidden sm:w-1/3 sm:block">
                     <div class="text-lg font-bold text-gray-700">{{__('Product Listing')}}</div>
                 </div>
@@ -37,21 +37,21 @@
                 </div>
             </div>
 
-            @if($products->count() > 0)
-                <div class="grid sm:grid-cols-3 lg:grid-cols-5" wire:loading.class='opacity-60'>
-                    @foreach ($products as $product)
-                        <livewire:product.card :product="$product" :key="$product->id">
-                    @endforeach
-                </div>
-            @else
-                <div class="mx-2">
+            <div>
+                @if($products->count() > 0)
+                    <div class="grid sm:grid-cols-3 lg:grid-cols-5" wire:loading.class='opacity-60'>
+                        @foreach ($products as $product)
+                            <livewire:product.card :product="$product" :key="$product->id">
+                        @endforeach
+                    </div>
+                @else
                     <x-card>
                         <x-card-body>
                             <div class="text-gray-700">{{__('There are no products available at the moment.')}}</div>
                         </x-card-body>
                     </x-card>
-                </div>
-            @endif
+                @endif
+            </div>
         </div>
     </div>
 

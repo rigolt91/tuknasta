@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-        <div class="mx-2">
+        <div class="mx-4 sm:mx-2">
             <div class="mb-4">
                 @include('livewire.payment.steps.steps-bars-payment')
             </div>
@@ -14,52 +14,50 @@
                 @csrf
                 <div class="sm:flex">
                     <div class="sm:mx-2 sm:w-9/12">
-                        <div class="px-6 py-6 mb-4 rounded-lg shadow">
+                        <div class="px-4 py-6 mb-4 shadow sm:px-6 sm:rounded-lg">
                             <x-card-header>
                                 <span class="font-bold text-gray-600">{{__('Card Information')}}</span>
                             </x-card-header>
                             <x-card-body>
-
-
-                                    <div class="mt-4 sm:flex">
-                                        <div class="w-full mb-4 sm:mr-2">
-                                            <div class="relative">
-                                                <x-label for="number" :value="__('Card Number')" />
-                                                <x-input wire:model.lazy='number' type="text" class="block w-full mt-1" :value="old('number', $number)" placeholder="Card number" autocomplete="number" />
-                                            </div>
-                                            <x-input-error class="mt-2" for="number" />
+                                <div class="mt-4 sm:flex">
+                                    <div class="w-full mb-4 sm:mr-2">
+                                        <div class="relative">
+                                            <x-label for="number" :value="__('Card Number')" />
+                                            <x-input wire:model.lazy='number' type="text" class="block w-full mt-1" :value="old('number', $number)" placeholder="Card number" autocomplete="number" />
                                         </div>
-
-                                        <div class="w-full mb-4 sm:ml-2">
-                                            <div class="relative">
-                                                <x-label for="cvv" :value="__('CVV')" />
-                                                <x-input wire:model.lazy='cvv' type="text" min="1" class="block w-full mt-1" :value="old('cvv', $cvv)" placeholder="Security code" autocomplete="cvv" />
-                                            </div>
-                                            <x-input-error class="mt-2" for="cvv" />
-                                        </div>
+                                        <x-input-error class="mt-2" for="number" />
                                     </div>
 
-                                    <div class="sm:flex">
-                                        <div class="w-full mb-4 sm:mr-2">
-                                            <div class="relative">
-                                                <x-label for="expiryMonth" :value="__('Expiry Month')" />
-                                                <x-input wire:model.lazy='expiryMonth' type="text" class="block w-full mt-1" :value="old('expiryMonth', $expiryMonth)" placeholder="Expiry month" autocomplete="expiryMonth" />
-                                            </div>
-                                            <x-input-error class="mt-2" for="expiryMonth" />
+                                    <div class="w-full mb-4 sm:ml-2">
+                                        <div class="relative">
+                                            <x-label for="cvv" :value="__('CVV')" />
+                                            <x-input wire:model.lazy='cvv' type="text" min="1" class="block w-full mt-1" :value="old('cvv', $cvv)" placeholder="Security code" autocomplete="cvv" />
                                         </div>
-
-                                        <div class="w-full mb-4 sm:ml-2">
-                                            <div class="relative">
-                                                <x-label for="expiryYear" :value="__('Expiration Year')" />
-                                                <x-input wire:model.lazy='expiryYear' type="text" class="block w-full mt-1" :value="old('expiryYear', $expiryYear)" placeholder="Expiration year" autocomplete="expiryYear" />
-                                            </div>
-                                            <x-input-error class="mt-2" for="expiryYear" />
-                                        </div>
+                                        <x-input-error class="mt-2" for="cvv" />
                                     </div>
+                                </div>
+
+                                <div class="sm:flex">
+                                    <div class="w-full mb-4 sm:mr-2">
+                                        <div class="relative">
+                                            <x-label for="expiryMonth" :value="__('Expiry Month')" />
+                                            <x-input wire:model.lazy='expiryMonth' type="text" class="block w-full mt-1" :value="old('expiryMonth', $expiryMonth)" placeholder="Expiry month" autocomplete="expiryMonth" />
+                                        </div>
+                                        <x-input-error class="mt-2" for="expiryMonth" />
+                                    </div>
+
+                                    <div class="w-full mb-4 sm:ml-2">
+                                        <div class="relative">
+                                            <x-label for="expiryYear" :value="__('Expiration Year')" />
+                                            <x-input wire:model.lazy='expiryYear' type="text" class="block w-full mt-1" :value="old('expiryYear', $expiryYear)" placeholder="Expiration year" autocomplete="expiryYear" />
+                                        </div>
+                                        <x-input-error class="mt-2" for="expiryYear" />
+                                    </div>
+                                </div>
                             </x-card-body>
                         </div>
 
-                        <div class="px-6 py-6 mb-4 rounded-lg shadow">
+                        <div class="px-4 py-6 mb-4 shadow sm:px-6 sm:rounded-lg">
                             <div class="items-center pt-1 pb-3 border-b">
                                 <span class="font-semibold text-gray-600 text-md ">{{__('Receiver Information')}}</span>
 
@@ -79,7 +77,7 @@
 
                     <div class="sm:mx-2 sm:w-3/12">
 
-                        <x-button type="submit" class="w-full mb-4 disabled:opacity-60" wire:loading.attr="disabled" wire:loading.class="opacity-50">
+                        <x-button type="submit" class="w-full mb-4 rounded-none disabled:opacity-60 sm:rounded" wire:loading.attr="disabled" wire:loading.class="opacity-50">
                             <svg fill="currentColor" class="h-5 mr-2 bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
                             </svg>
@@ -91,7 +89,7 @@
                             </div>
                         </x-button>
 
-                        <div class="px-6 py-4 mb-4 rounded-lg shadow">
+                        <div class="px-4 py-4 mb-4 shadow sm:rounded-lg sm:px-6">
                             <x-card-header class="font-bold">{{ __('Purshase Details') }}</x-card-header>
 
                             <x-card-body>
@@ -106,7 +104,7 @@
                             </x-card-body>
                         </div>
 
-                        <div class="px-6 py-4 mb-4 rounded-lg shadow">
+                        <div class="px-4 py-4 mb-4 shadow sm:rounded-lg sm:px-6">
                             @include('livewire.payment.component.products')
                         </div>
 

@@ -6,12 +6,12 @@
     </x-slot>
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-        <div class="w-full pr-4 sm:flex sm:pr-0">
-            <div class="w-full mx-2 border border-gray-100 sm:w-2/5 sm:rounded">
+        <div class="w-full pr-8 sm:flex sm:pr-0">
+            <div class="w-full mx-4 sm:mx-2 border border-gray-100 sm:w-2/5 sm:rounded">
                 <img src="{{ Storage::url($image) }}" class="object-cover object-center w-full text-sm text-center transition duration-700 ease-in-out bg-white lg:h-auto sm:rounded hover:scale-125 hover:shadow-2xl hover:cursor-pointer" alt="{{ $name }}">
             </div>
 
-            <div class="w-full mx-2 sm:flex">
+            <div class="w-full mx-4 sm:mx-2 sm:flex">
                 <div class="w-full p-6 border border-gray-100 sm:rounded">
                     <h4 class="mt-2 mb-2 font-semibold text-gray-600 uppercase text-md">{{__('Product Details')}}</h4>
                     <h2 class="text-2xl font-bold text-gray-700">{{ $name }}</h2>
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="p-2 mt-2">
+        <div class="p-2 mt-2 mx-2 sm:mx-0">
             <h2 class="py-2 mb-4 text-lg font-bold text-gray-700 border-b">{{__('Related Products')}}</h2>
 
             <div class="flex items-center -my-2">
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="p-2 mt-4">
+        <div class="p-2 mt-4 mx-2 sm:mx-0">
             <h2 class="pb-2 mb-2 text-xl font-bold text-gray-700 border-b">{{__('Products Listing')}}</h2>
 
             <div class="flex items-center">

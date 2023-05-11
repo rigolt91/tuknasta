@@ -1,8 +1,8 @@
 <div class="mt-8">
-    <div class="grid grid-cols-2">
+    <div class="sm:grid sm:grid-cols-2">
         <div class="mr-2">
-            <div class="my-2 flex">
-                <div class="mr-4 w-40 text-sm text-gray-500 border border-green-400 rounded-md flex items-center justify-center" style="height: 112px; width:140px;">
+            <div class="flex my-2">
+                <div class="flex items-center justify-center w-40 mr-4 text-sm text-gray-500 border border-green-400 rounded-md" style="height: 112px; width:140px;">
                     @if($image)
                         @isset($product)
                             <img wire:loading.class='opacity-25' wire:target='image' src="{{ ($image !== $product->image) ? $image->temporaryUrl() : Storage::url($product->image) }}" class="rounded-md" style="height: 100 px;  width:118px;">
@@ -27,29 +27,29 @@
                     <div class="mt-2 mb-4">
                         <div class="relative">
                             <x-label for="name" :value="__('Name')" />
-                            <x-input wire:model.lazy='name' type="text" class="mt-1 block w-full" :value="old('name', $name)" placeholder="{{__('Product name')}}" autocomplete="name" />
+                            <x-input wire:model.lazy='name' type="text" class="block w-full mt-1" :value="old('name', $name)" placeholder="{{__('Product name')}}" autocomplete="name" />
                         </div>
                         <x-input-error for="name" class="mt-2" />
                     </div>
                 </div>
             </div>
-            <div class="-mt-2 mb-4">
+            <div class="mb-4 -mt-2">
                 <div class="relative">
                     <x-label for="sku" :value="__('Inventory')" />
-                    <x-input wire:model.lazy='sku' type="text" class="mt-1 block w-full" :value="old('sku', $sku)" placeholder="{{__('Warehouse inventory')}}" autocomplete="sku" />
+                    <x-input wire:model.lazy='sku' type="text" class="block w-full mt-1" :value="old('sku', $sku)" placeholder="{{__('Warehouse inventory')}}" autocomplete="sku" />
                 </div>
                 <x-input-error for="sku" class="mt-2" />
             </div>
             <div class="my-2 mb-4">
                 <div class="relative">
                     <x-label for="slug" :value="__('Slug')" />
-                    <x-input wire:model.lazy='slug' type="text" class="mt-1 block w-full" :value="old('slug', $slug)" placeholder="{{__('Product slug')}}" autocomplete="slug" />
+                    <x-input wire:model.lazy='slug' type="text" class="block w-full mt-1" :value="old('slug', $slug)" placeholder="{{__('Product slug')}}" autocomplete="slug" />
                 </div>
                 <x-input-error for="slug" class="mt-2" />
             </div>
             <div class="my-2 mb-4">
                 <div class="relative">
-                    <x-label for="short_description" :value="__('Short Description')" class="mt-1 block" />
+                    <x-label for="short_description" :value="__('Short Description')" class="block mt-1" />
                     <x-textarea wire:model.lazy='short_description' class="mt-1" placeholder="{{__('Short product description')}}" autocomplete="short_description" />
                 </div>
                 <x-input-error for="short_description" class="mt-2" />
@@ -67,18 +67,18 @@
                 <x-input-error for="branch_id" class="mt-2" />
             </div>
         </div>
-        <div class="ml-2">
+        <div class="sm:ml-2">
             <div class="my-2 mb-4">
                 <div class="relative">
                     <x-label for="price" :value="__('Price')" />
-                    <x-input wire:model.lazy='price' type="number" step="any" min="0" class="mt-1 block w-full" :value="old('price', $price)" placeholder="{{__('Price of the product')}}" autocomplete="price" />
+                    <x-input wire:model.lazy='price' type="number" step="any" min="0" class="block w-full mt-1" :value="old('price', $price)" placeholder="{{__('Price of the product')}}" autocomplete="price" />
                 </div>
                 <x-input-error for="price" class="mt-2" />
             </div>
             <div class="my-2 mb-4">
                 <div class="relative">
                     <x-label for="stock" :value="__('Stock')" />
-                    <x-input wire:model.lazy='stock' type="number" class="mt-1 block w-full" :value="old('stock', $stock)" placeholder="{{__('Number of units in stock')}}" autocomplete="stock" />
+                    <x-input wire:model.lazy='stock' type="number" class="block w-full mt-1" :value="old('stock', $stock)" placeholder="{{__('Number of units in stock')}}" autocomplete="stock" />
                 </div>
                 <x-input-error for="stock" class="mt-2" />
             </div>
@@ -108,8 +108,8 @@
             </div>
             <div class="my-2 mb-4">
                 <div class="relative">
-                    <x-label for="description" :value="__('Description')" class="mt-1 block" />
-                    <x-textarea wire:model.lazy='description' class="mt-1" placeholder="{{__('Product description')}}" autocomplete="description" />
+                    <x-label for="description" :value="__('Description')" class="block mt-1" />
+                    <x-textarea wire:model.lazy='description' class="h-32 mt-1" placeholder="{{__('Product description')}}" autocomplete="description" />
                 </div>
                 <x-input-error for="description" class="mt-2" />
             </div>
@@ -121,6 +121,11 @@
         </x-button-danger>
         <x-button type="submit" class="ml-2">
             {{ __('Save') }}
+            <div class="flex justify-end w-full">
+                <svg wire:loading class="h-3" stroke="white" viewBox="0 0 24 24">
+                    <style>.spinner_V8m1{transform-origin:center;animation:spinner_zKoa 2s linear infinite}.spinner_V8m1 circle{stroke-linecap:round;animation:spinner_YpZS 1.5s ease-in-out infinite}@keyframes spinner_zKoa{100%{transform:rotate(360deg)}}@keyframes spinner_YpZS{0%{stroke-dasharray:0 150;stroke-dashoffset:0}47.5%{stroke-dasharray:42 150;stroke-dashoffset:-16}95%,100%{stroke-dasharray:42 150;stroke-dashoffset:-59}}</style><g class="spinner_V8m1"><circle cx="12" cy="12" r="9.5" fill="none" stroke-width="3"></circle></g>
+                </svg>
+            </div>
         </x-button>
     </div>
 </div>

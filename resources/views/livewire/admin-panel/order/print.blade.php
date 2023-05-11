@@ -15,23 +15,30 @@
             table tr {
                 text-align: left;
             }
-
             table th, td {
                 text-align: left;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 12px;
                 padding: 5px 5px 5px 5px;
             }
-
             .w-full {
                 width: 100%;
             }
-
             .py-1 {
                 padding-top: 5px;
                 padding-bottom: 5px;
             }
-
             .mr-1 {
                 margin-right: 5px;
+            }
+            h2 {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            h3 {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            h5 {
+                font-family: Arial, Helvetica, sans-serif;
             }
         </style>
     </head>
@@ -44,7 +51,7 @@
             <h5>{{__('Date')}}: {{ $created_at->format('d/m/Y') }}</h5>
 
             <table style="border:solid 1px rgb(195, 188, 188);">
-                <thead>
+                <thead style="border-bottom: 2px solid gray">
                     <tr>
                         <th colspan="4" style="background-color: rgb(185, 181, 181);">
                             {{__('Products')}} ({{ $total_products }})
@@ -59,7 +66,7 @@
                 </thead>
                 <tbody>
                     @foreach ($products as $key => $product)
-                    <tr>
+                    <tr style="border-bottom: 1px solid rgb(195, 188, 188)">
                         <td>{{ ++$key }}</td>
                         <td>{{ $product->product->name }}</td>
                         <td>{{ $product->units }}</td>

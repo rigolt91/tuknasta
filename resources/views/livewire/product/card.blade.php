@@ -1,20 +1,20 @@
-<div class="m-2">
-    <div wire:loading.class='opacity-60' class="w-full p-6 transition ease-in-out border border-gray-100 sm:rounded-lg hover:shadow-2xl hover:-translate-y-1 duration-400">
-        <x-card-header class="-mx-6 -mt-6">
+<div class="mx-4 my-2 sm:mx-2">
+    <div wire:loading.class='opacity-60' class="w-full p-2 transition ease-in-out border border-gray-100 sm:p-6 sm:rounded-lg hover:shadow-2xl hover:-translate-y-1 duration-400">
+        <x-card-header class="sm:-mt-6 sm:-mx-6">
             <a href="{{ route('product.details', $slug) }}">
                 <img class="w-full h-full sm:rounded-t-md" src="{{ Storage::url($image) }}" />
             </a>
         </x-card-header>
 
         <x-card-body>
-            <div class="sm:h-16">
+            <div class="sm:h-16 sm:-mx-2">
                 <h6 class="font-bold text-gray-900 text-md">{{ $name }}</h6>
                 <h5 class="text-sm text-gray-800">{{ substr($short_description, 0, 50) }}...</h5>
             </div>
         </x-card-body>
 
-        <x-card-footer class="-mx-6">
-            <div class="flex items-center h-8 mx-2 mt-2 -mb-4">
+        <x-card-footer class="sm:-mx-6">
+            <div class="flex items-center h-8 mt-2 -mx-4 sm:mx-0 sm:-mb-4">
                 <div class="font-bold">
                     <span class="text-lg">${{ number_format($price, 2) }}</span>
                     <p class="-mt-2 text-sm text-gray-500">{{ !empty($previous_price) ? '$'.number_format($previous_price, 2) : ''}}</p>

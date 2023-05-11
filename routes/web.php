@@ -6,6 +6,10 @@ use App\Http\Livewire\AdminPanel\Branch\Branch;
 use App\Http\Livewire\AdminPanel\Category\Category;
 use App\Http\Livewire\AdminPanel\Order\Order;
 use App\Http\Livewire\AdminPanel\Product\Product;
+use App\Http\Livewire\AdminPanel\Reports\YearSales;
+use App\Http\Livewire\AdminPanel\Reports\DailySales;
+use App\Http\Livewire\AdminPanel\Reports\MonthlySales;
+use App\Http\Livewire\AdminPanel\Reports\WeeklySales;
 use App\Http\Livewire\AdminPanel\SubCategory\SubCategory;
 use App\Http\Livewire\Cart\CartDetails;
 use App\Http\Livewire\Dashboard;
@@ -61,6 +65,10 @@ Route::middleware([
     Route::get('/admin-panel/subcategories', SubCategory::class)->name('admin-panel.subcategories');
     Route::get('/admin-panel/branches', Branch::class)->name('admin-panel.branches');
     Route::get('/admin-panel/orders', Order::class)->name('admin-panel.orders');
+    Route::get('/admin-panel/report/year-sales', YearSales::class)->name('admin-panel.report.year-sales');
+    Route::get('/admin-panel/report/daily-sales', DailySales::class)->name('admin-panel.report.daily-sales');
+    Route::get('/admin-panel/report/weekly-sales', WeeklySales::class)->name('admin-panel.report.weekly-sales');
+    Route::get('/admin-panel/report/monthly-sales', MonthlySales::class)->name('admin-panel.report.monthly-sales');
 });
 
 Route::get('/{search?}', Dashboard::class)->name('dashboard');

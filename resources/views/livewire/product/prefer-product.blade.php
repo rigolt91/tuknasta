@@ -4,7 +4,7 @@
         <div class="m-2">
             <div class="flex h-full transition ease-in-out border border-gray-100 sm:rounded hover:shadow-xl hover:-translate-y-1 duration-450">
                 <a href="{{ route('product.details', $product->slug) }}" class="bg-white rounded sm:w-4/12"  wire:loading.class="animation-pulse">
-                    <img src="{{ Storage::url($product->image) }}" class="w-full h-24 text-sm text-center sm:h-full sm:rounded-l" alt="{{ $product->name }}">
+                    <img src="{{ Storage::url($product->image) }}" class="w-full h-32 text-sm text-center sm:rounded-l" alt="{{ $product->name }}">
                 </a>
                 <div class="w-8/12 mx-2 my-1">
                     <div class="py-2 text-sm font-bold text-gray-800 border-b sm:text-md ">

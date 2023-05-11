@@ -51,6 +51,21 @@ class Product extends Model
         return $this->hasMany(UserPurchasedProduct::class);
     }
 
+    public function purchasedUnits($date = '')
+    {
+        return $this->userPurchasedProduct()->where('created_at', 'like', '%'.$date.'%')->sum('units');
+    }
+
+    public function purchasedPrice($date = '')
+    {
+        return $this->userPurchasedProduct()->where('created_at', 'like', '%'.$date.'%')->groupBy('price');
+    }
+
+    public function purchasedAmount($date = '')
+    {
+        return $this->userPurchasedProduct()->where('created_at', 'like', '%'.$date.'%')->selectRaw('units * price as total_cost')->get()->sum('total_cost');
+    }
+
     public function branch()
     {
         return $this->belongsTo(Branch::class);
