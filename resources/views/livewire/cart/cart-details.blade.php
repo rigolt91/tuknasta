@@ -1,10 +1,4 @@
-<div class="py-6">
-    <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md">
-            {{ __('Shopping cart') }}
-        </h2>
-    </x-slot>
-
+<div class="py-8">
     @if($total_products == 0)
         @include('livewire.cart.empty-cart')
     @else
@@ -75,6 +69,9 @@
                             <div>
                                 <x-button-payment route="{{ route('payment.payment') }}">
                                     {{ __('Payment') }}
+                                    <div class="flex justify-end w-full">
+                                        <x-icon-spin wire:loading class="ml-1" />
+                                    </div>
                                 </x-button-payment>
 
                                 @include('livewire.cart.component.btn-empty-cart')

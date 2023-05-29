@@ -35,6 +35,11 @@ class Edit extends ModalComponent
         $this->closeModalWithEvents([ Category::getName() => 'refreshCategories' ]);
     }
 
+    public static function modalMaxWidth(): string
+    {
+        return 'lg';
+    }
+
     public function render()
     {
         return view('livewire.admin-panel.category.edit');

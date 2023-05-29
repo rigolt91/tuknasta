@@ -1,14 +1,8 @@
-<div class="py-6">
-    <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md">
-            {{ __('Product Details') }}
-        </h2>
-    </x-slot>
-
+<div class="py-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="w-full pr-8 sm:flex sm:pr-0" wire:loading.class='opacity-60'>
             <div class="w-full mx-4 sm:mx-2 sm:w-2/5 sm:rounded">
-                <img src="{{ Storage::url($image) }}" class="object-cover object-center w-full border border-gray-100 text-sm text-center transition duration-700 ease-in-out bg-white lg:h-auto sm:rounded hover:scale-125 hover:shadow-2xl hover:cursor-pointer" alt="{{ $name }}">
+                <img src="{{ Storage::url($image) }}" class="object-cover object-center w-full text-sm text-center transition duration-700 ease-in-out bg-white border border-gray-100 lg:h-auto sm:rounded hover:scale-125 hover:shadow-2xl hover:cursor-pointer" alt="{{ $name }}">
             </div>
 
             <div class="w-full mx-4 sm:mx-2 sm:flex">
@@ -27,19 +21,19 @@
                     </div>
                     <div class="pt-4 sm:pb-8">
                         <span class="text-2xl font-bold text-gray-700 sm:float-left">${{ number_format($price, 2) }}</span>
-                        <span class="ml-2 text-lg font-bold text-gray-500 sm:float-left">{{ ($previous_price > 0) ? '$'.number_format($previous_price, 2) : '' }}</span>
-                        <x-button wire:click="$emit('addProductCart', [{{ $product->id }}])" wire:loading.attr='disabled' class="flex items-center float-right disabled:opacity-60">
+                        <span class="ml-2 text-lg font-bold text-gray-500 sm:float-left">{{ $previous_price ? '$'.number_format($previous_price, 2) : '' }}</span>
+                        <x-button wire:click='addProductCart' wire:loading.attr='disabled' class="flex items-center float-right disabled:opacity-60">
                             <svg fill="white" class="h-5 text-gray-100 bi bi-cart4" viewBox="0 0 16 16">
                                 <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                             </svg>
-                            <span class="ml-2">{{__('Add to cart')}}</span>
+                            <span class="ml-2">{{__('Add')}}</span>
                         </x-button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="p-2 mt-2 mx-2 sm:mx-0">
+        <div class="p-2 mx-2 mt-2 sm:mx-0">
             <h2 class="py-2 mb-4 text-lg font-bold text-gray-700 border-b">{{__('Related Products')}}</h2>
 
             <div class="flex items-center -my-2">
@@ -47,7 +41,7 @@
             </div>
         </div>
 
-        <div class="p-2 mt-4 mx-2 sm:mx-0">
+        <div class="p-2 mx-2 mt-4 sm:mx-0">
             <h2 class="pb-2 mb-2 text-xl font-bold text-gray-700 border-b">{{__('List of products')}}</h2>
 
             <div class="flex items-center">

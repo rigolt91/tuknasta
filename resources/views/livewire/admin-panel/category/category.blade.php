@@ -36,7 +36,7 @@
                                 @foreach ($categories as $key => $category)
                                     <x-tr wire:loading.class="opacity-60">
                                         <x-td>{{ ++$key }}</x-td>
-                                        <x-td>{{ __($category->name) }}</x-td>
+                                        <x-td>{{ $category->name }}</x-td>
                                         <x-td>{{ $category->description }}</x-td>
                                         <x-td>{{ $category->subcategory->count() }}</x-td>
                                         <x-td>{{ $category->product->count() }}</x-td>

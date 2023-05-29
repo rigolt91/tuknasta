@@ -1,10 +1,4 @@
-<div class="my-6">
-    <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md">
-            {{ __('Delivery') }}
-        </h2>
-    </x-slot>
-
+<div class="my-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 mb-4 sm:mx-2">
             @include('livewire.payment.steps.steps-bars-delivery')
@@ -63,7 +57,9 @@
             <div class="mx-4 sm:mx-2 sm:w-3/12">
                 <x-button-payment wire:click="paymentConfirm" class="mb-4 cursor-pointer">
                     {{ __('Payment') }}
-                    <x-icon-spin wire:loading wire:target="paymentConfirm" class="ml-1" />
+                    <div class="flex justify-end w-full">
+                        <x-icon-spin wire:loading wire:target="paymentConfirm" class="ml-1" />
+                    </div>
                 </x-button-payment>
 
                 @include('livewire.cart.component.total-cost')

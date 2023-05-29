@@ -3,7 +3,7 @@
         <div class="mt-2 mb-4">
             <div class="relative">
                 <x-label for="name" :value="__('Name')" />
-                <x-input wire:model.lazy='name' type="text" class="mt-1 block w-full" :value="old('name', $name)" placeholder="{{__('Subcategory name')}}" autofocus autocomplete="name" />
+                <x-input wire:model.lazy='name' type="text" class="block w-full mt-1" :value="old('name', $name)" placeholder="{{__('Subcategory name')}}" autofocus autocomplete="name" />
             </div>
             <x-input-error for="name" class="mt-2" />
         </div>

@@ -1,8 +1,8 @@
 <div>
     <x-card>
-        <x-card-header  class="bg-green-700 -m-6">
-            <div class="py-3 mx-4 text-lg text-white font-bold flex">
-                <x-icon-file-plus class="h-6 w-6" />
+        <x-card-header  class="-m-6 bg-green-700">
+            <div class="flex py-3 mx-4 text-lg font-bold text-white">
+                <x-icon-file-plus class="w-6 h-6" />
                 <span class="ml-2">{{ __('Add Product') }}</span>
 
                 <button wire:click="$emit('closeModal')" type="button" class="float-right ml-auto -mx-1.5 text-gray-800 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-100 hover:text-green-900 inline-flex h-8 w-8"  aria-label="Close">

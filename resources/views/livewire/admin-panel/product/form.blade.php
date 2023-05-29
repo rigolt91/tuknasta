@@ -88,7 +88,7 @@
                     <x-select wire:model='category_id' class="mt-1">
                         <option value="" selected disabled>{{__('Product categories')}}</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ __($category->name) }}</option>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -100,7 +100,7 @@
                     <x-select wire:model='subcategory_id' class="mt-1.5">
                         <option value="" selected disabled>{{__('Product subcategories')}}</option>
                         @foreach ($subcategories as $subcategory)
-                            <option value="{{ $subcategory->id }}">{{ __($subcategory->name) }}</option>
+                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                         @endforeach
                     </x-select>
                 </div>

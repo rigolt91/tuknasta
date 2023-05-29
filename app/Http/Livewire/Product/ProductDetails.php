@@ -32,6 +32,11 @@ class ProductDetails extends Component
         $this->subcategory_id = $product->subcategory_id;
     }
 
+    public function addProductCart()
+    {
+        $this->emit('addProductCart', $this->product->id);
+    }
+
     public function render()
     {
         $this->starts = $this->getStarts();

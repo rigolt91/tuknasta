@@ -36,8 +36,8 @@
                                 @foreach ($subcategories as $key => $subcategory)
                                     <x-tr wire:loading.class="opacity-60">
                                         <x-td>{{ ++$key }}</x-td>
-                                        <x-td>{{ __($subcategory->name) }}</x-td>
-                                        <x-td>{{ __($subcategory->category->name) }}</x-td>
+                                        <x-td>{{ $subcategory->name }}</x-td>
+                                        <x-td>{{ $subcategory->category->name }}</x-td>
                                         <x-td>{{ $subcategory->product->count() }}</x-td>
                                         @hasrole('administrator')
                                             <x-td>

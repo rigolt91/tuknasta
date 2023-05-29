@@ -1,11 +1,11 @@
-<nav x-data="{ open: false }" class="bg-green-700 border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-green-700 border-b border-green-700 shadow-md">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 border-b mb-1 sm:mb-0 sm:border-none">
+        <div class="flex items-center justify-between h-16 mb-1 border-b sm:mb-0 sm:border-none">
             <div class="flex w-auto">
                 <!-- Hamburger -->
                 <div class="flex items-center mr-1 sm:hidden">
-                    <button @click="open = ! open" class="inline-flex items-center border-2 justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
+                    <button @click="open = ! open" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out border-2 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
                         <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -16,8 +16,8 @@
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="w-auto h-9 hidden sm:block" />
-                        <img src="{{ asset('logo1.png') }}" class="sm:hidden bg-white rounded-md py-1 px-2" width="84" alt="TuKanasta">
+                        <x-application-mark class="hidden w-auto h-9 sm:block" />
+                        <img src="{{ asset('logo1.png') }}" class="px-2 py-1 bg-white rounded-md sm:hidden" width="84" alt="TuKanasta">
                     </a>
                 </div>
 
@@ -39,7 +39,7 @@
 
             <div class="flex items-center justify-center w-4/12 md:w-6/12">
                 <!-- Searh -->
-                <div class="items-center justify-center w-full hidden sm:block">
+                <div class="items-center justify-center hidden w-full sm:block">
                     <form action="{{ route('dashboard') }}" class="flex" method="get">
                         <input name="search" type="search" class="w-full px-2 border-white rounded rounded-r-none focus:border-white focus:ring-green-500" placeholder="{{ __('Search products') }}" />
                         <x-button-inline type="submit" class="bg-green-900 border border-green-100 rounded-l-none">
@@ -53,12 +53,12 @@
 
             <div class="flex items-center w-auto">
                 <!--Idioma -->
-                <div class="my-5 mx-2">
+                <div class="mx-2 my-5">
                     @livewire('lang-app')
                 </div>
 
                 <!--Shopping Cart-->
-                <div class="flex items-center justify-end md:-mr-10 -mr-10">
+                <div class="flex items-center justify-end -mr-10 md:-mr-10">
                     @livewire('cart.cart')
                 </div>
 
@@ -74,7 +74,7 @@
                                         </button>
                                     @else
                                         <span class="inline-flex rounded-md">
-                                            <button type="button" class="inline-flex items-center my-4 ml-8 sm:ml-6 sm:px-2 sm:py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-full sm:rounded-md hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
+                                            <button type="button" class="inline-flex items-center my-4 ml-8 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-full sm:ml-6 sm:px-2 sm:py-2 sm:rounded-md hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
                                                 <svg fill="currentColor" class="sm:h-5 h-7 sm:mr-1 bi bi-person-fill" viewBox="0 0 16 16">
                                                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                                                 </svg>
@@ -168,7 +168,7 @@
                             </x-dropdown>
                         @else
                             <div class="flex h-16">
-                                <div class="space-x-4 my-4 ml-7 sm:ml-4 md:ml-10 sm:flex">
+                                <div class="my-4 space-x-4 ml-7 sm:ml-4 md:ml-10 sm:flex">
                                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                                         <svg fill="currentColor" class="h-6 mr-1 bi bi-person-fill" viewBox="0 0 16 16">
                                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
@@ -198,7 +198,7 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class=" pt-2 pb-3 space-y-1">
+        <div class="pt-2 pb-3 space-y-1 ">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Products') }}
             </x-responsive-nav-link>

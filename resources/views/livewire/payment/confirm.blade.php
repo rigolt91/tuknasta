@@ -1,10 +1,4 @@
-<div class="my-6">
-    <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md">
-            {{ __('Confirm Payment') }}
-        </h2>
-    </x-slot>
-
+<div class="my-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 sm:mx-2">
             <div class="mb-4">
@@ -82,7 +76,9 @@
                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
                             </svg>
                             {{ __('Payment') }}
-                            <x-icon-spin wire:loading wire:target="paymentConfirm" class="ml-1" />
+                            <div class="flex justify-end w-full">
+                                <x-icon-spin wire:loading wire:target="paymentConfirm" class="ml-1" />
+                            </div>
                         </x-button>
 
                         <div class="px-4 py-4 mb-4 shadow sm:rounded-lg sm:px-6">

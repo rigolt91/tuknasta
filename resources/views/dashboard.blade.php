@@ -1,18 +1,12 @@
 <div>
-    <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md">
-            {{ __('Products') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-6">
+    <div class="py-8">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-            <div class="mx-4 sm:mx-2 mb-4">
+            <div class="mx-4 mb-4 sm:mx-2">
                 <div class="pb-2 mb-4 text-lg font-bold text-gray-700 border-b">{{__('Recommended Products')}}</div>
                 <livewire:product.prefer-product>
             </div>
 
-            <div class="flex py-2 mx-4 sm:mx-2 mb-4 border-y">
+            <div class="flex py-2 mx-4 mb-4 sm:mx-2 border-y">
                 <div class="hidden sm:w-1/3 sm:block">
                     <div class="text-lg font-bold text-gray-700">{{__('List of products')}}</div>
                 </div>

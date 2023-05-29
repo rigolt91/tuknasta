@@ -1,7 +1,7 @@
 <div>
     <div class="bg-white border-t">
         <footer class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="md:flex items-center md:justify-between">
+            <div class="items-center md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <a href="#" class="flex items-center">
                         <img src="{{ asset('logo1.png') }}" width="150" height="100" alt="TuKanasta">
@@ -56,7 +56,7 @@
                                     <svg width="16" height="16" fill-rule="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
                                         <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
                                     </svg>
-                                    <span class="pl-2">dirgeneral@eialt.geg.cu</span>
+                                    <span class="pl-2"><a href="mailto:tukanasta@nauta.cu">tukanasta@nauta.cu</a></span>
                                 </div>
                             </li>
                         </ul>
