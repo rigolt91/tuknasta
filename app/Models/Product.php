@@ -9,6 +9,7 @@ use App\Models\Subcategory;
 use App\Models\Cart;
 use App\Models\UserPurchasedProduct;
 use App\Models\Branch;
+use App\Models\ProductStart;
 
 class Product extends Model
 {
@@ -25,6 +26,7 @@ class Product extends Model
         'previous_price',
         'stock',
         'show',
+        'starts',
         'recommend',
         'category_id',
         'subcategory_id',
@@ -69,5 +71,10 @@ class Product extends Model
     public function branch()
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    public function productStart()
+    {
+        return $this->hasOne(ProductStart::class);
     }
 }

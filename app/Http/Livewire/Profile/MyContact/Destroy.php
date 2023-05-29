@@ -4,9 +4,12 @@ namespace App\Http\Livewire\Profile\MyContact;
 
 use LivewireUI\Modal\ModalComponent;
 use App\Models\UserContact;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Destroy extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $contact;
 
     public function mount(UserContact $contact)
@@ -17,9 +20,13 @@ class Destroy extends ModalComponent
     public function destroy()
     {
         try {
-            $this->contact->delete();
+            $this->authorize('update', $this->contact);
+
+            $this->contact->update([ 'trash' => true ]);
+
+            $this->closeModalWithEvents([MyContact::getName() => 'refreshMyContacts']);
         } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
+            $this->emit('openModal', 'error-modal', ['Operation failed']);
         }
     }
 

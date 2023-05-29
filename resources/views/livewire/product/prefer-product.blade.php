@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 -mx-2 sm:grid-cols-3">
         @foreach ($products as $product)
         <div class="m-2">
-            <div class="flex h-full transition ease-in-out border border-gray-100 sm:rounded hover:shadow-xl hover:-translate-y-1 duration-450">
+            <div class="flex h-full transition ease-in-out bg-white border border-gray-100 sm:rounded hover:shadow-xl hover:-translate-y-1 duration-450">
                 <a href="{{ route('product.details', $product->slug) }}" class="bg-white rounded sm:w-4/12"  wire:loading.class="animation-pulse">
                     <img src="{{ Storage::url($product->image) }}" class="w-full h-32 text-sm text-center sm:rounded-l" alt="{{ $product->name }}">
                 </a>
@@ -22,7 +22,9 @@
 
                     <div class="flex items-center">
                         <div class="font-bold text-gray-800 text-md">${{ number_format($product->price, 2) }}</div>
-                        <div class="ml-2 text-sm font-bold text-gray-500">${{ number_format($product->previous_price, 2) }}</div>
+                        @if($product->previous_price)
+                            <div class="ml-2 text-sm font-bold text-gray-500">${{ number_format($product->previous_price, 2) }}</div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\AdminPanel\Category;
 
 use LivewireUI\Modal\ModalComponent;
-use App\Models\Category;
+use App\Models\Category as MCategory;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Create extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $name;
     public $description;
 
@@ -15,19 +18,13 @@ class Create extends ModalComponent
         'description' => 'required|string|max:255',
     ];
 
-    public function store()
+    public function store(MCategory $category)
     {
-        $validate = $this->validate();
+        $this->authorize('create', $category);
 
-        try {
-            Category::create($validate);
+        $category->create($this->validate());
 
-            $this->emit('refreshCategories');
-
-            $this->closeModal();
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
-        }
+        $this->closeModalWithEvents([ Category::getName() => 'refreshCategories' ]);
     }
 
     public static function modalMaxWidth(): string

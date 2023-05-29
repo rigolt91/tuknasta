@@ -42,7 +42,7 @@
                             <header class="px-4 sm:px-6">
                                 <div class="flex items-start justify-between border-b-2 border-green-300">
                                     <h2 class="text-lg font-medium text-gray-900 pb-2" id="slide-over-title">
-                                        {{ $this->title }}
+                                        {{ __($this->title) }}
                                     </h2>
                                     <div class="ml-3 flex h-7 items-center">
                                         <button

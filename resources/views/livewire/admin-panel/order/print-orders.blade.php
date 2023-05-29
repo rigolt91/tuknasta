@@ -54,10 +54,10 @@
                 <thead style="border-bottom: 2px solid gray">
                     <tr>
                         <th>{{__('#')}}</th>
-                        <th>{{__('NUMBER')}}</th>
-                        <th>{{__('RECEIVE')}}</th>
-                        <th>{{__('PRODUCTS')}}</th>
-                        <th>{{__('DATE')}}</th>
+                        <th>{{__('Number')}}</th>
+                        <th>{{__('Receive')}}</th>
+                        <th>{{__('Products')}}</th>
+                        <th>{{__('Date')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,7 +71,7 @@
                         </td>
                         <td>
                             @foreach ($order->userPurchasedProduct as $purchased_product)
-                                <span>{{ $purchased_product->product->name }} ({{ $purchased_product->units }}), </span>
+                                <span>{{ __($purchased_product->product->name) }} ({{ $purchased_product->units }}), </span>
                             @endforeach
                         </td>
                         <td>{{ $order->created_at->format('Y/m/d') }}</td>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Product;
 
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Product;
 
 class Filter extends Component
 {
@@ -32,6 +33,9 @@ class Filter extends Component
 
     public function filterPrice()
     {
+        $this->price_min = !empty($this->price_min) ? $this->price_min : Product::select('price')->orderBy('price')->get()->first()->price;
+        $this->price_max = !empty($this->price_max) ? $this->price_max : Product::select('price')->orderBy('price')->get()->last()->price;
+
         $this->emit('filterProduct', $this->price_min, $this->price_max, $this->category_selected);
     }
 

@@ -3,13 +3,16 @@
 namespace App\Http\Livewire\AdminPanel\Category;
 
 use LivewireUI\Modal\ModalComponent;
-use App\Models\Category;
+use App\Models\Category as MCategory;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Destroy extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $category;
 
-    public function mount(Category $category)
+    public function mount(MCategory $category)
     {
         $this->category = $category;
     }
@@ -17,13 +20,13 @@ class Destroy extends ModalComponent
     public function destroy()
     {
         try {
+            $this->authorize('delete', $this->category);
+
             $this->category->delete();
 
-            $this->emit('refreshCategories');
-
-            $this->closeModal();
+            $this->closeModalWithEvents([ Category::getName() => 'refreshCategories' ]);
         } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
+            $this->emit('openModal', 'error-modal', ['Operation failed.']);
         }
     }
 

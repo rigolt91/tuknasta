@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <x-slot name="header">
         <h2 class="font-semibold text-md text-gray-800 leading-tight">
             {{ __('Abaut Us') }}

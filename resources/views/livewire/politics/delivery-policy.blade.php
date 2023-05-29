@@ -42,8 +42,7 @@
             </p>
 
             <p class="mb-2 text-sm text-gray-700 text-justify">
-                {{__('
-                This site reserves the right to modify this Delivery Policy at its discretion or against any client that is considered to have made an abusive use of it. Any revision or change will be binding, contractual, and effective immediately upon posting.')}}
+                {{__('This site reserves the right to modify this Delivery Policy at its discretion or against any client that is considered to have made an abusive use of it. Any revision or change will be binding, contractual, and effective immediately upon posting.')}}
             </p>
 
             <p class="text-sm text-gray-700 text-justify">

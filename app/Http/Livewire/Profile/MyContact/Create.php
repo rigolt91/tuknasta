@@ -6,10 +6,12 @@ use LivewireUI\Modal\ModalComponent;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Province;
 use App\Models\Municipality;
+use App\Models\UserContact;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Create extends ModalComponent
 {
-    public $contact;
+    public $user;
     public $name;
     public $last_name;
     public $email;
@@ -35,31 +37,25 @@ class Create extends ModalComponent
         'municipality_id' => 'required|integer',
     ];
 
-    public function store()
+    public function mount()
     {
-        $validate = $this->validate();
-
-        try {
-            Auth::user()->userContact()->create($validate);
-
-            $this->emit('refreshMyContacts');
-
-            $this->closeModal();
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
-        }
+        $this->user = Auth::user();
     }
 
-    public static function modalMaxWidth(): string
+    public function store(UserContact $userContact)
     {
-        return '2xl';
+        $user = $this->user->userContact()->where('email', $this->email)->first();
+
+        $user ? $user->update([ 'trash' => false ]) : $this->user->userContact()->create($this->validate());
+
+        $this->closeModalWithEvents([MyContact::getName() => 'refreshMyContacts']);
     }
 
     public function render()
     {
         return view('livewire.profile.my-contact.create', [
             'provinces' => Province::select('id', 'name')->get(),
-            'municipalities' => Municipality::select('id', 'name', 'province_id')->where('province_id', 'LIKE', '%'.$this->province_id.'%')->get(),
+            'municipalities' => Municipality::select('id', 'name', 'province_id')->where('province_id', $this->province_id)->get(),
         ]);
     }
 }

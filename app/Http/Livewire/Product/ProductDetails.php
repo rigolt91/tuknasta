@@ -2,16 +2,20 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Http\Traits\ProductStartTrait;
 use Livewire\Component;
 use App\Models\Product as MProduct;
 
 class ProductDetails extends Component
 {
-    public $product_id;
+    use ProductStartTrait;
+
+    public $product;
     public $image;
     public $name;
     public $description;
     public $price;
+    public $starts;
     public $previous_price;
     public $subcategory_id;
 
@@ -19,7 +23,7 @@ class ProductDetails extends Component
     {
         $product = MProduct::where('slug', $slug)->first();
 
-        $this->product_id = $product->id;
+        $this->product = $product;
         $this->image = $product->image;
         $this->name = $product->name;
         $this->description = $product->description;
@@ -30,8 +34,10 @@ class ProductDetails extends Component
 
     public function render()
     {
+        $this->starts = $this->getStarts();
+
         return view('livewire.product.product-details', [
-            'products' => MProduct::select('id', 'name', 'short_description', 'price', 'slug', 'image')->where('id', $this->product_id)->where('show', true)->get(),
+            'products' => MProduct::select('id', 'name', 'short_description', 'price', 'slug', 'image')->where('id', $this->product->id)->where('show', true)->get(),
         ]);
     }
 }

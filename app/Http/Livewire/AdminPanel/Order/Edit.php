@@ -19,12 +19,9 @@ class Edit extends ModalComponent
 
     public function update()
     {
-        $this->order->update([
-            'order_status_id' => $this->order_status,
-        ]);
+        $this->order->update([ 'order_status_id' => $this->order_status ]);
 
-        $this->emit('refreshOrders');
-        $this->closeModal();
+        $this->closeModalWithEvents([ Order::getName() => 'refreshOrders' ]);
     }
 
     public static function modalMaxWidth(): string

@@ -18,6 +18,13 @@
             <form wire:submit.prevent='update' method="post">
                 @csrf
                 @include('livewire.admin-panel.branch.form')
+
+                <div class="flex justify-end -mb-4">
+                    <x-button type="submit" wire:loading.attr="disabled" class="ml-2 disabled:opacity-60">
+                        {{ __('Update') }}
+                        <x-icon-spin wire:loading wire:target="update" class="ml-1" />
+                    </x-button>
+                </div>
             </form>
         </x-card-body>
     </x-card>

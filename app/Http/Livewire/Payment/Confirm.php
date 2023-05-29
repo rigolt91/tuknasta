@@ -35,13 +35,18 @@ class Confirm extends Component
     public function mount($method = 1)
     {
         $this->delivery_method = DeliveryMethod::findOrFail($method);
+
         $this->order_number = $this->generateOrderNumber();
     }
 
     public function mountConfirm()
     {
         $this->cartsTrait();
-        if($this->total_products == 0) return redirect()->route('cart.details');
+
+        if($this->total_products == 0)
+        {
+            return redirect()->route('cart.details');
+        }
     }
 
     public function generateOrderNumber()
@@ -78,8 +83,6 @@ class Confirm extends Component
                 ->cc($this->contact)
                 ->bcc(config('mail.from.address'))
                 ->send(new OrderShipped($user_order));
-
-            $this->emit('openModal', 'payment.success-payment', ['message' => $payment]);
 
         } catch (\Throwable $th) {
             $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);

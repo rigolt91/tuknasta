@@ -21,11 +21,9 @@ class Destroy extends ModalComponent
 
             $this->order->delete();
 
-            $this->emit('refreshOrders');
-
-            $this->closeModal();
+            $this->closeModalWithEvents([ Order::getName() => 'refreshOrders' ]);
         } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
+            $this->emit('openModal', 'error-modal', ['Operation failed.']);
         }
     }
 

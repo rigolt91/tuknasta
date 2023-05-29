@@ -4,8 +4,7 @@ namespace App\Http\Traits;
 
 use Illuminate\Support\Facades\Auth;
 
-trait CartTrait
-{
+trait CartTrait {
     public $user;
     public $email;
     public $contact;

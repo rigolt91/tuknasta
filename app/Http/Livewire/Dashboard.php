@@ -30,12 +30,14 @@ class Dashboard extends Component
 
         $this->price_min = $products->count() > 0 ? $products->first()->price : 0;
         $this->price_max = $products->count() > 0 ? $products->last()->price : 0;
+
         $this->order = 'name';
     }
 
     public function filterProduct($price_min, $price_max, $categories)
     {
         $this->categories = $categories;
+
         $this->price_min  = $price_min ?: $this->price_min;
         $this->price_max  = $price_max ?: $this->price_max;
     }

@@ -6,9 +6,12 @@ use LivewireUI\Modal\ModalComponent;
 use App\Models\Province;
 use App\Models\Municipality;
 use App\Models\UserContact;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Edit extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $contact;
     public $name;
     public $last_name;
@@ -51,29 +54,18 @@ class Edit extends ModalComponent
 
     public function update()
     {
-        $validate = $this->validate();
+        $this->authorize('update', $this->contact);
 
-        try {
-            $this->contact->update($this->validate());
+        $this->contact->update($this->validate());
 
-            $this->emit('refreshMyContacts');
-
-            $this->closeModal();
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
-        }
-    }
-
-    public static function modalMaxWidth(): string
-    {
-        return '2xl';
+        $this->closeModalWithEvents([MyContact::getName() => 'refreshMyContacts']);
     }
 
     public function render()
     {
         return view('livewire.profile.my-contact.edit', [
             'provinces' => Province::select('id', 'name')->get(),
-            'municipalities' => Municipality::select('id', 'name', 'province_id')->where('province_id', 'LIKE', '%'.$this->province_id.'%')->get(),
+            'municipalities' => Municipality::select('id', 'name', 'province_id')->where('province_id', $this->province_id)->get(),
         ]);
     }
 }

@@ -30,6 +30,7 @@
 
                         <x-button type="submit" wire:loading.attr='disabled' class="ml-2 disabled:opacity-60">
                             {{ __('Accept') }}
+                            <x-icon-spin wire:loading wire:target="destroy" class="ml-1" />
                         </x-button>
                     </div>
                 </form>

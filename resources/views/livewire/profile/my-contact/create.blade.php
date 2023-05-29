@@ -20,8 +20,9 @@
                 @include('livewire.profile.my-contact.form')
 
                 <div class="flex justify-end">
-                    <x-button type="submit" class="-mb-4 flex">
+                    <x-button type="submit" wire:loading.attr="disabled" class="disabled:opacity-60 -mb-4 flex">
                         {{ __('Save') }}
+                        <x-icon-spin wire:loading wire:target="store" class="ml-1" />
                     </x-button>
                 </div>
             </form>

@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <x-slot name="header">
         @livewire('admin-panel.nav-panel')
     </x-slot>
@@ -10,10 +10,12 @@
                     <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
                         {{ __('List of Subcategories') }}
 
-                        <x-button-inline wire:click="$emit('openModal', 'admin-panel.sub-category.create')" class="flex float-right -mt-2">
-                            <x-icon-file-plus />
-                            <span class="ml-1">{{ __('New') }}</span>
-                        </x-button-inline>
+                        @hasrole('administrator')
+                            <x-button-inline wire:click="$emit('openModal', 'admin-panel.sub-category.create')" class="flex float-right -mt-2">
+                                <x-icon-file-plus />
+                                <span class="ml-1">{{ __('Add') }}</span>
+                            </x-button-inline>
+                        @endhasrole
                     </div>
 
                     <div class="relative overflow-x-auto">
@@ -24,44 +26,38 @@
                                     <x-th>{{ __('Name') }}</x-th>
                                     <x-th>{{ __('Category') }}</x-th>
                                     <x-th>{{ __('Products') }}</x-th>
-                                    <x-th>{{ __('Show') }}</x-th>
-                                    <x-th class="float-right">{{ __('Options') }}</x-th>
+                                    @hasrole('administrator')
+                                        <x-th>{{ __('Show') }}</x-th>
+                                        <x-th class="float-right">{{ __('Options') }}</x-th>
+                                    @endhasrole
                                 </x-tr>
                             </x-thead>
                             <tbody>
                                 @foreach ($subcategories as $key => $subcategory)
                                     <x-tr wire:loading.class="opacity-60">
                                         <x-td>{{ ++$key }}</x-td>
-                                        <x-td>{{ $subcategory->name }}</x-td>
-                                        <x-td>{{ $subcategory->category->name }}</x-td>
+                                        <x-td>{{ __($subcategory->name) }}</x-td>
+                                        <x-td>{{ __($subcategory->category->name) }}</x-td>
                                         <x-td>{{ $subcategory->product->count() }}</x-td>
-                                        <x-td>
-                                            <label class="relative inline-flex items-center mr-5 cursor-pointer">
-                                                <input type="checkbox" wire:click="setShow({{ $subcategory->id }})" class="sr-only peer" @if($subcategory->show) checked @endif >
-                                                <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
-                                            </label>
-                                        </x-td>
-                                        <x-td class="float-right">
-                                            <x-dropdown align="right" width="48">
-                                                <x-slot name="trigger">
-                                                    <x-button-inline>
-                                                        <x-icon-points class="-ml-2 -mr-2" />
-                                                    </x-button-inline>
-                                                </x-slot>
+                                        @hasrole('administrator')
+                                            <x-td>
+                                                <label class="relative inline-flex items-center mr-5 cursor-pointer">
+                                                    <input type="checkbox" wire:click="setShow({{ $subcategory->id }})" wire:loading.attr="disabled" class="sr-only peer disabled:opacity-60" @if($subcategory->show) checked @endif >
+                                                    <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                                                </label>
+                                            </x-td>
+                                            <x-td class="flex float-right">
+                                                <x-button wire:click="$emit('openModal', 'admin-panel.sub-category.edit', [{{$subcategory->id}}])" wire:loading.attr="disabled" class="flex items-center mr-1 disabled:opacity-60">
+                                                    <x-icon-edit />
+                                                    <span class="hidden ml-2 sm:block">{{ __('Edit') }}</span>
+                                                </x-button>
 
-                                                <x-slot name="content">
-                                                    <x-dropdown-link wire:click="$emit('openModal', 'admin-panel.sub-category.edit', [{{$subcategory->id}}])" class="flex items-center" style="cursor:pointer">
-                                                        <x-icon-edit />
-                                                        <span class="ml-2">{{ __('Edit') }}</span>
-                                                    </x-dropdown-link>
-
-                                                    <x-dropdown-link wire:click="$emit('openModal', 'admin-panel.sub-category.destroy', [{{$subcategory->id}}])" class="flex items-center" style="cursor: pointer">
-                                                        <x-icon-trash />
-                                                        <span class="ml-2">{{ __('Delete') }}</span>
-                                                    </x-dropdown-link>
-                                                </x-slot>
-                                            </x-dropdown>
-                                        </x-td>
+                                                <x-button-danger wire:click="$emit('openModal', 'admin-panel.sub-category.destroy', [{{$subcategory->id}}])" wire:loading.attr="disabled" class="flex items-center disabled:opacity-60">
+                                                    <x-icon-trash />
+                                                    <span class="hidden ml-2 sm:block">{{ __('Delete') }}</span>
+                                                </x-button-danger>
+                                            </x-td>
+                                        @endhasrole
                                     </x-tr>
                                 @endforeach
                             </tbody>

@@ -11,14 +11,9 @@ class CartDetails extends Component
 
     protected $listeners = ['refreshCartDetails' => '$refresh'];
 
-    public function mountCartDetails()
-    {
-        $this->cartsTrait();
-    }
-
     public function render()
     {
-        $this->mountCartDetails();
+        $this->cartsTrait();
 
         return view('livewire.cart.cart-details');
     }

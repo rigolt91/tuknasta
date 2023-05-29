@@ -5,7 +5,7 @@
                 <svg fill="white" class="h-6 bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
-                <span class="ml-2">{{ __('Dialy Sales') }}</span>
+                <span class="ml-2">{{ __('Daily Sales') }}</span>
 
                 <button wire:click="$emit('closeModal')" type="button" class="float-right ml-auto -mx-1.5 text-gray-800 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-100 hover:text-green-900 inline-flex h-8 w-8"  aria-label="Close">
                     <span class="sr-only">{{__('Close')}}</span>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <x-button type="submit">
+                    <x-button type="submit" wire:loading.attr="disabled" class="disabled:opacity-60">
                         {{ __('Search') }}
                     </x-button>
                 </div>

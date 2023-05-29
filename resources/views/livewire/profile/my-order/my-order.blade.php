@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <x-slot name="header">
         <h2 class="font-semibold leading-tight text-gray-800 text-md">
             {{ __('My Orders') }}
@@ -64,8 +64,9 @@
                                         </x-td>
                                         <x-td>{{ $order->created_at }}</x-td>
                                         <x-td class="float-right">
-                                            <x-button wire:click="$emit('openModal', 'admin-panel.order.show', [{{$order->id}}])" type="button" class="flex items-center cursor-pointer">
-                                                <x-icon-eye class="-mx-2" />
+                                            <x-button wire:click="$emit('openModal', 'admin-panel.order.show', [{{$order->id}}])" wire:loading.attr="disabled" type="button" class="flex disabled:opacity-60 items-center cursor-pointer">
+                                                <x-icon-eye />
+                                                <span class="hidden ml-1 sm:block">{{ __('Show') }}</span>
                                             </x-button>
                                         </x-td>
                                     </x-tr>

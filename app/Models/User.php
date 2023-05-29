@@ -14,6 +14,7 @@ use App\Models\Cart;
 use App\Models\UserContact;
 use App\Models\UserOrder;
 use App\Models\UserJob;
+use App\Models\ModelHasRole;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -33,7 +34,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'last_name',
         'email',
+        'email_verified_at',
         'password',
+        'block',
+        'trash',
     ];
 
     /**
@@ -71,6 +75,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Cart::class);
     }
 
+    public function cartAmount()
+    {
+        return $this->cart()->selectRaw('units * price as total_amount')->get()->sum('total_amount');
+    }
+
     public function userContact()
     {
         return $this->hasMany(UserContact::class);
@@ -84,5 +93,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userJob()
     {
         return $this->hasMany(UserJob::class);
+    }
+
+    public function modelHasRole()
+    {
+        return $this->belongsTo(ModelHasRole::class, 'id', 'model_id');
     }
 }

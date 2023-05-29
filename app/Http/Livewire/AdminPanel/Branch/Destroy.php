@@ -3,13 +3,16 @@
 namespace App\Http\Livewire\AdminPanel\Branch;
 
 use LivewireUI\Modal\ModalComponent;
-use App\Models\Branch;
+use App\Models\Branch as MBranch;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Destroy extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $branch;
 
-    public function mount(Branch $branch)
+    public function mount(MBranch $branch)
     {
         $this->branch = $branch;
     }
@@ -17,13 +20,13 @@ class Destroy extends ModalComponent
     public function destroy()
     {
         try {
+            $this->authorize('delete', $this->branch);
+
             $this->branch->delete();
 
-            $this->emit('refreshBranches');
-
-            $this->closeModal();
+            $this->closeModalWithEvents([ Branch::getName() => 'refreshBranches' ]);
         } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
+            $this->emit('openModal', 'error-modal', ['Operation failed.']);
         }
     }
 

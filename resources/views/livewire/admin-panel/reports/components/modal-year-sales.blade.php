@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <x-button type="submit">
+                    <x-button type="submit" wire:loading.attr="disabled" class="disabled:opacity-60">
                         {{ __('Search') }}
                     </x-button>
                 </div>

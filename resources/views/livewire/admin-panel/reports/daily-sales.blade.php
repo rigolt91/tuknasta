@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <x-slot name="header">
         @livewire('admin-panel.nav-panel')
     </x-slot>
@@ -6,7 +6,7 @@
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6" wire:loading.class='opacity-60 animation-pulse'>
         <div class="mx-2">
             <div class="pb-2 mb-4 font-bold border-b">
-                {{'Daily Sales'}}
+                {{__('Daily Sales')}}
 
                 <div class="flex float-right text-gray-600">
                     {{ __('Date') }}: <span class="ml-2">{{ $date }}</span>
@@ -40,7 +40,7 @@
                             <x-thead>
                                 <x-tr>
                                     <x-th>Nro</x-th>
-                                    <x-th>{{ __('Namephics') }}</x-th>
+                                    <x-th>{{ __('Products') }}</x-th>
                                     <x-th>{{ __('Units') }}</x-th>
                                     <x-th>{{ __('Price') }}</x-th>
                                     <x-th>{{ __('Amount') }}</x-th>

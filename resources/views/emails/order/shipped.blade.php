@@ -1,5 +1,5 @@
 <div>
-    <h2 style="font-size: 40px;">Superbuy</h2>
+    <h2 style="font-size: 40px;">{{ config('app.name') }}</h2>
 
     <h4>{{ __('Thank you for comparing in our store, these are the details of your purchase:') }}</h4>
 

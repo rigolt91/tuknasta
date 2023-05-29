@@ -97,8 +97,7 @@
                     {{__('You are required to have an account name and password for certain activities on this Web site.')}}
                 </p>
                 <p class="mb-2 text-gray-700 text-justify text-sm">
-                    {{__('
-                    The data provided by you is incorporated into our database, being used solely for registration authentication and processing the order. ')}} <span class="font-bold uppercase text-green-700">Superbuy.cu</span> {{__('undertakes not to disclose the data to third parties and to use it only for exchange purposes between us and you. The data can be modified.')}}
+                    {{__('The data provided by you is incorporated into our database, being used solely for registration authentication and processing the order.')}} <span class="font-bold uppercase text-green-700">Superbuy.cu</span> {{__('undertakes not to disclose the data to third parties and to use it only for exchange purposes between us and you. The data can be modified at any time you wish.')}}
                 </p>
                 <p class="mb-2 text-gray-700 text-justify text-sm">
                     {{__('We may terminate or suspend your account name and password at any time without notice to you or any other person if we believe that you have breached our policies, terms and conditions. We are under no obligation to verify the current identity or authorization of any person using the account name and password to access and use the Website.')}}
@@ -136,8 +135,6 @@
             </p>
 
             <p class="text-gray-700 text-justify text-sm mb-2 mt-2">
-                <span class="border-b border-green-400 font-bold">{{__('Limitations of Liability.')}}</span>
-
                 <p class="mb-2 text-gray-700 text-justify text-sm">
                     {{__('These Terms and Conditions may be revised at any time and from time to time to update this posting. You should visit this page frequently to review the current terms and conditions, as they are important to you. Certain provisions of these Terms and Conditions may be superseded by conditions or legal notices found on particular pages of this Website. Your continued use of this site following each form of notice will indicate your acceptance of the revised terms of this Agreement.')}}
                 </p>
@@ -155,7 +152,7 @@
                 <span class="border-b border-green-400 font-bold">{{__('Additional Assistance.')}}</span>
 
                 <p class="mb-2 text-gray-700 text-justify text-sm">
-                    {{__('If you do not understand any of the Terms and Conditions or if you have any questions or comments, we invite you to contact us at dirgeneral@eialt.geg.cu.')}}
+                    {{__('If you do not understand any of the Terms and Conditions or if you have any questions or comments, we invite you to contact us at tukanasta@nauta.cu')}}.
                 </p>
             </p>
         </x-card-body>

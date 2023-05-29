@@ -28,8 +28,9 @@
                             {{ __('Cancel') }}
                         </x-button-danger>
 
-                        <x-button type="submit" class="ml-2">
+                        <x-button type="submit" wire:loading.attr="disabled" class="disabled:opacity-60 ml-2">
                             {{ __('Accept') }}
+                            <x-icon-spin wire:loading wire:target="destroy" class="ml-1" />
                         </x-button>
                     </div>
                 </form>

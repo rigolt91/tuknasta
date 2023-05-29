@@ -15,7 +15,10 @@ class Payment extends Component
     {
         $this->cartsTrait();
 
-        if($this->total_products == 0) return redirect()->route('cart.details');
+        if($this->total_products == 0)
+        {
+            return redirect()->route('cart.details');
+        }
     }
 
     public function paymentDelivery()

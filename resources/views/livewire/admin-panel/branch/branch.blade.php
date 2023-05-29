@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <x-slot name="header">
         @livewire('admin-panel.nav-panel')
     </x-slot>
@@ -8,12 +8,14 @@
             <x-card>
                 <x-card-body>
                     <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
-                        {{ __('List of branches') }}
+                        {{ __('List of Branches') }}
 
-                        <x-button-inline wire:click="$emit('openModal', 'admin-panel.branch.create')" class="flex float-right -mt-2">
-                            <x-icon-file-plus />
-                            <span class="ml-1">{{ __('New') }}</span>
-                        </x-button-inline>
+                        @hasrole('administrator')
+                            <x-button-inline wire:click="$emit('openModal', 'admin-panel.branch.create')" class="flex float-right -mt-2">
+                                <x-icon-file-plus />
+                                <span class="ml-1">{{ __('Add') }}</span>
+                            </x-button-inline>
+                        @endhasrole
                     </div>
 
                     <div class="relative overflow-x-auto">
@@ -27,7 +29,7 @@
                                     <x-th>{{ __('Contract Number') }}</x-th>
                                     <x-th>{{ __('Person Contact') }}</x-th>
                                     <x-th>{{ __('Products') }}</x-th>
-                                    <x-th class="float-right">{{ __('Options') }}</x-th>
+                                    <x-th></x-th>
                                 </x-tr>
                             </x-thead>
                             <tbody>
@@ -40,27 +42,19 @@
                                         <x-td>{{ $branch->contract_number }}</x-td>
                                         <x-td>{{ $branch->person_contact }}</x-td>
                                         <x-td>{{ $branch->product->count() }}</x-td>
-                                        <x-td class="float-right">
-                                            <x-dropdown align="right" width="48">
-                                                <x-slot name="trigger">
-                                                    <x-button-inline>
-                                                        <x-icon-points class="-ml-2 -mr-2" />
-                                                    </x-button-inline>
-                                                </x-slot>
+                                        @hasrole('administrator')
+                                            <x-td class="flex float-right">
+                                                <x-button wire:click="$emit('openModal', 'admin-panel.branch.edit', [{{$branch->id}}])" wire:loading.attr="disabled" class="flex items-center mx-1 disabled:opacity-60">
+                                                    <x-icon-edit />
+                                                    <span class="hidden sm:ml-2 sm:block">{{ __('Edit') }}</span>
+                                                </x-button>
 
-                                                <x-slot name="content">
-                                                    <x-dropdown-link wire:click="$emit('openModal', 'admin-panel.branch.edit', [{{$branch->id}}])" class="flex items-center" style="cursor:pointer">
-                                                        <x-icon-edit />
-                                                        <span class="ml-2">{{ __('Edit') }}</span>
-                                                    </x-dropdown-link>
-
-                                                    <x-dropdown-link wire:click="$emit('openModal', 'admin-panel.branch.destroy', [{{$branch->id}}])" class="flex items-center" style="cursor: pointer">
-                                                        <x-icon-trash />
-                                                        <span class="ml-2">{{ __('Delete') }}</span>
-                                                    </x-dropdown-link>
-                                                </x-slot>
-                                            </x-dropdown>
-                                        </x-td>
+                                                <x-button-danger wire:click="$emit('openModal', 'admin-panel.branch.destroy', [{{$branch->id}}])" wire:loading.attr="disabled" class="flex items-center disabled:opacity-60">
+                                                    <x-icon-trash />
+                                                    <span class="hidden sm:ml-2 sm:block">{{ __('Delete') }}</span>
+                                                </x-button-danger>
+                                            </x-td>
+                                        @endhasrole
                                     </x-tr>
                                 @endforeach
                             </tbody>

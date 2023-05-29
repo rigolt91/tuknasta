@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('province_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('province_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,7 +24,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('municipalities');
-        $table->dropForeign('provinces_province_id_foreign');
+        Schema::dropIfExists('municipalities', function (Blueprint $table) {
+            $table->dropForeign(['province_id']);
+        });
     }
 };

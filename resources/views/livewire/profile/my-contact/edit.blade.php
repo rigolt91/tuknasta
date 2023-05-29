@@ -22,6 +22,7 @@
                 <div class="flex justify-end">
                     <x-button type="submit" class="flex -mb-4">
                         {{ __('Update') }}
+                        <x-icon-spin wire:loading wire:target="update" class="ml-1" />
                     </x-button>
                 </div>
             </form>

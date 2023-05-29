@@ -45,7 +45,7 @@
                 @endforeach
             @else
                 <div class="py-2 px-4 text-gray-700 flex justify-center border-b">
-                    {{ __('Añada productos al carrito') }}
+                    {{ __('Add products to cart') }}
                 </div>
             @endif
             <div class="flex text-gray-700 justify-center font-bold overflow-hidden border-b-2 mt-2 px-6 py-1">

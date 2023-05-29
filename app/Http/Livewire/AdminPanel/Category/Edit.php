@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\AdminPanel\Category;
 
 use LivewireUI\Modal\ModalComponent;
-use App\Models\Category;
+use App\Models\Category as MCategory;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Edit extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $category;
     public $name;
     public $description;
@@ -16,7 +19,7 @@ class Edit extends ModalComponent
         'description' => 'required|string|max:255',
     ];
 
-    public function mount(Category $category)
+    public function mount(MCategory $category)
     {
         $this->category = $category;
         $this->name = $category->name;
@@ -25,17 +28,11 @@ class Edit extends ModalComponent
 
     public function update()
     {
-        $validate = $this->validate();
+        $this->authorize('update', $this->category);
 
-        try {
-            $this->category->update($validate);
+        $this->category->update($this->validate());
 
-            $this->emit('refreshCategories');
-
-            $this->closeModal();
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
-        }
+        $this->closeModalWithEvents([ Category::getName() => 'refreshCategories' ]);
     }
 
     public function render()

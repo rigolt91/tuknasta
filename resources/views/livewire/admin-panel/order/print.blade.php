@@ -68,14 +68,14 @@
                     @foreach ($products as $key => $product)
                     <tr style="border-bottom: 1px solid rgb(195, 188, 188)">
                         <td>{{ ++$key }}</td>
-                        <td>{{ $product->product->name }}</td>
+                        <td>{{ __($product->product->name) }}</td>
                         <td>{{ $product->units }}</td>
                         <td>${{ number_format($product->units * $product->price, 2) }}</td>
                     </tr>
                     @endforeach
 
                     <tr style="border:solid 1px rgb(195, 188, 188);">
-                        <th colspan="3">{{__('Total Cost:')}}</th>
+                        <th colspan="3">{{__('Total Cost')}}:</th>
                         <th>${{ number_format($total_cost, 2) }}</th>
                     </tr>
                 </tbody>
@@ -91,8 +91,8 @@
                     <td>{{ __('Name') }}: {{ $contact->name.' '.$contact->last_name }}</td>
                 </tr>
                 <tr>
-                    <td>{{ __('Firma') }}:</td>
-                    <td>{{ __('Firma') }}:</td>
+                    <td>{{ __('Signature') }}:</td>
+                    <td>{{ __('Signature') }}:</td>
                 </tr>
             </table>
         </div>

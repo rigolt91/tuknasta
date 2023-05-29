@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('user_orders', function (Blueprint $table) {
             $table->id();
             $table->string('number')->unique();
-            $table->foreignId('order_status_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('delivery_method_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_contact_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('order_status_id')->constrained();
+            $table->foreignId('delivery_method_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_contact_id')->constrained();
             $table->boolean('payment')->default(false);
             $table->timestamps();
         });
@@ -28,11 +28,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_orders');
-        $table->dropForeign('users_user_id_foreign');
-        $table->dropForeign('user_contacts_user_contact_id_foreign');
-        $table->dropForeign('order_statuses_order_status_id_foreign');
-        $table->dropForeign('delivery_methods_delivery_method_id_foreign');
-        $table->dropForeign('products_product_id_foreign');
+        Schema::dropIfExists('user_orders', function (Blueprint $table) {
+            $table->dropForeign(['order_status_id']);
+            $table->dropForeign(['delivery_method_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['user_contact_id']);
+        });
     }
 };

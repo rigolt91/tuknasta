@@ -24,9 +24,9 @@ return new class extends Migration
             $table->integer('stock');
             $table->boolean('show')->default(true);
             $table->boolean('recommend')->default(false);
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('subcategory_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('branch_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('subcategory_id')->constrained();
+            $table->foreignId('branch_id')->constrained();
             $table->timestamps();
         });
     }
@@ -36,9 +36,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
-        $table->dropForeign('categories_category_id_foreign');
-        $table->dropForeign('subcategories_subcategory_id_foreign');
-        $table->dropForeign('branches_branch_id_foreign');
+        Schema::dropIfExists('products', function (Blueprint $table) {
+            $table->dropForeign(['category_id']);
+            $table->dropForeign(['subcategory_id']);
+            $table->dropForeign(['branch_id']);
+        });
     }
 };

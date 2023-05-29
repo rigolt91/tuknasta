@@ -7,7 +7,7 @@ use LivewireUI\Modal\ModalComponent;
 use Livewire\WithFileUploads;
 use App\Models\Category;
 use App\Models\Subcategory;
-use App\Models\Product;
+use App\Models\Product as MProduct;
 
 class Create extends ModalComponent
 {
@@ -41,31 +41,25 @@ class Create extends ModalComponent
 
     public function store()
     {
-        $validate = $this->validate();
+        $this->validate();
 
-        try {
-            $image = $this->image->storeAs("public/products/$this->sku", substr(sha1(rand(1,999)),0,-30).'.jpg');
+        $image = $this->image->storeAs("public/products/$this->sku", substr(sha1(rand(1,999)),0,-30).'.jpg');
 
-            Product::create([
-                'image' => $image,
-                'name'  => $this->name,
-                'sku'   => $this->sku,
-                'slug'  => $this->slug ?: strtolower(str_replace(' ', '-', $this->name)),
-                'short_description' => $this->short_description,
-                'description' => $this->description,
-                'price' => $this->price,
-                'stock' => $this->stock,
-                'category_id' => $this->category_id,
-                'subcategory_id' => $this->subcategory_id,
-                'branch_id' => $this->branch_id,
-            ]);
+        MProduct::create([
+            'image' => $image,
+            'name'  => $this->name,
+            'sku'   => $this->sku,
+            'slug'  => $this->slug ?: strtolower(str_replace(' ', '-', $this->name)),
+            'short_description' => $this->short_description,
+            'description' => $this->description,
+            'price' => $this->price,
+            'stock' => $this->stock,
+            'category_id' => $this->category_id,
+            'subcategory_id' => $this->subcategory_id,
+            'branch_id' => $this->branch_id,
+        ]);
 
-            $this->emit('refreshProducts');
-
-            $this->closeModal();
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
-        }
+        $this->closeModalWithEvents([ Product::getName() => 'refreshProducts' ]);
     }
 
     public static function modalMaxWidth(): string

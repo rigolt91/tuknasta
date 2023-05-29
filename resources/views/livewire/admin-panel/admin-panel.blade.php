@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <x-slot name="header">
         @livewire('admin-panel.nav-panel')
     </x-slot>

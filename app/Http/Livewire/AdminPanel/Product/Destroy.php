@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\AdminPanel\Product;
 
 use LivewireUI\Modal\ModalComponent;
-use App\Models\Product;
+use App\Models\Product as MProduct;
 
 class Destroy extends ModalComponent
 {
     public $product;
 
-    public function mount(Product $product)
+    public function mount(MProduct $product)
     {
         $this->product = $product;
     }
@@ -19,11 +19,9 @@ class Destroy extends ModalComponent
         try {
             $this->product->delete();
 
-            $this->emit('refreshProducts');
-
-            $this->closeModal();
+            $this->closeModalWithEvents([ Product::getName() => 'refreshProducts' ]);
         } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
+            $this->emit('openModal', 'error-modal', ['Operation failed.']);
         }
     }
 

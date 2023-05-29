@@ -7,8 +7,13 @@
         </x-card-header>
 
         <x-card-body>
-            <div class="sm:h-16 sm:-mx-2">
+            <div class="sm:-mx-2">
                 <h6 class="font-bold text-gray-900 text-md">{{ $name }}</h6>
+                <div class="flex border-y">
+                    @for($i=1; $i<=5; $i++)
+                        <x-icon-star wire:click='setStarts({{ $i }})' class="w-5 h-5 cursor-pointer" color="{{ ($starts>=$i ? 'green' : 'gray') }}" />
+                    @endfor
+                </div>
                 <h5 class="text-sm text-gray-800">{{ substr($short_description, 0, 50) }}...</h5>
             </div>
         </x-card-body>
@@ -21,8 +26,8 @@
                 </div>
 
                 <div class="w-full">
-                    <x-button wire:click="$emit('addProductCart', {{ $product }})" wire:loading.attr='disabled' class="float-right duration-150 disabled:opacity-25 hover:scale-110">
-                        <svg fill="white" class="h-5 -mx-2 text-gray-100 bi bi-cart4" viewBox="0 0 16 16">
+                    <x-button wire:click="$emit('addProductCart', {{ $product->id }})" wire:loading.attr='disabled' class="float-right duration-150 disabled:opacity-60 hover:scale-110">
+                        <svg fill="white" class="h-5 text-gray-100 bi bi-cart4" viewBox="0 0 16 16">
                             <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                         </svg>
                     </x-button>

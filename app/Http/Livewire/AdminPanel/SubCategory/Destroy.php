@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\AdminPanel\SubCategory;
 
 use LivewireUI\Modal\ModalComponent;
-use App\Models\Subcategory;
+use App\Models\Subcategory as MSubcategory;
 
 class Destroy extends ModalComponent
 {
     public $subcategory;
 
-    public function mount(Subcategory $subcategory)
+    public function mount(MSubcategory $subcategory)
     {
         $this->subcategory = $subcategory;
     }
@@ -19,11 +19,9 @@ class Destroy extends ModalComponent
         try {
             $this->subcategory->delete();
 
-            $this->emit('refreshSubcategories');
-
-            $this->closeModal();
+            $this->closeModalWithEvents([ SubCategory::getName() => 'refreshSubcategories' ]);
         } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
+            $this->emit('openModal', 'error-modal', ['Operation failed.']);
         }
     }
 
@@ -31,7 +29,6 @@ class Destroy extends ModalComponent
     {
         return 'md';
     }
-
 
     public function render()
     {

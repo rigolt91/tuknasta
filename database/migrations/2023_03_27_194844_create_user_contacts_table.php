@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->string('last_name');
             $table->string('email');
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('street')->nullable();
             $table->string('between_streets')->nullable();
             $table->string('number')->nullable();
-            $table->foreignId('province_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('municipality_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('province_id')->nullable()->constrained();
+            $table->foreignId('municipality_id')->nullable()->constrained();
             $table->boolean('prefer')->default(false);
             $table->timestamps();
         });
@@ -34,9 +34,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_contacts');
-        $table->dropForeign('provinces_province_id_foreign');
-        $table->dropForeign('municipalities_municipality_id_foreign');
-        $table->dropForeign('users_user_id_foreign');
+        Schema::dropIfExists('user_contacts', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['province_id']);
+            $table->dropForeign(['municipality_id']);
+        });
     }
 };

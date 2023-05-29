@@ -15,9 +15,9 @@
 
         <x-card-body class="mt-6 sm:mx-2">
             @if($contacts->count() ==  0)
-                <div class="text-gray-700 text-md">Add contacts to your list.</div>
+                <div class="text-gray-700 text-md">{{__('Add contacts to your list')}}.</div>
             @else
-                <x-table class="text-md">
+                <x-table wire:loading.class="opacity-60" class="text-md">
                     <x-thead>
                         <x-tr>
                             <x-th>#</x-th>
@@ -33,14 +33,14 @@
                                 <x-td>{{ $contact->name.' '.$contact->last_name }}</x-td>
                                 <x-td>
                                     <label class="relative inline-flex items-center mr-5 cursor-pointer">
-                                        <input wire:click='setFavorite({{ $contact->id }})' wire:loading.attr='disabled' type="checkbox" class="sr-only peer" @if($contact->prefer) checked @endif />
+                                        <input wire:click='setPrefer({{ $contact->id }})' wire:loading.attr='disabled' type="checkbox" class="sr-only peer" @if($contact->prefer) checked @endif />
                                         <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
                                     </label>
                                 </x-td>
                                 <x-td>
                                     <div class="flex items-center">
-                                        <x-icon-edit wire:click="$emit('openModal', 'profile.my-contact.edit', [{{$contact->id}}])" class="mr-1 text-green-700 rounded hover:text-green-400 hover:cursor-pointer" width="24" height="24"/>
-                                        <x-icon-trash wire:click="$emit('openModal', 'profile.my-contact.destroy', [{{$contact->id}}])" class="ml-1 text-red-700 rounded hover:text-red-500 hover:cursor-pointer" width="24" height="24" />
+                                        <x-icon-edit wire:click="$emit('openModal', 'profile.my-contact.edit', [{{$contact->id}}])" wire:loading.attr="disabled" class="mr-1 text-green-700 rounded disabled:opacity-60 hover:text-green-400 hover:cursor-pointer" width="24" height="24"/>
+                                        <x-icon-trash wire:click="$emit('openModal', 'profile.my-contact.destroy', [{{$contact->id}}])" wire:loading.attr="disabled" class="ml-1 text-red-700 rounded disabled:opacity-60 hover:text-red-500 hover:cursor-pointer" width="24" height="24" />
                                     </div>
                                 </x-td>
                             </x-tr>
@@ -50,7 +50,7 @@
             @endif
 
             <div class="flex justify-end">
-                <x-button wire:click="$emit('openModal', 'profile.my-contact.create')" type="button" class="flex mt-4 -mb-4">
+                <x-button wire:click="$emit('openModal', 'profile.my-contact.create')" wire:loading.attr="disabled" type="button" class="flex mt-4 -mb-4 disabled:opacity-60">
                     <svg fill="currentColor" class="h-4 mr-1 bi bi-pencil-fill" viewBox="0 0 16 16">
                         <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                     </svg>

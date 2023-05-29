@@ -22,7 +22,7 @@
                         <x-label for="order_status" :value="__('Order Status')" />
                         <x-select wire:model='order_status'>
                             @foreach ($order_statuses as $order_status)
-                                <option value="{{ $order_status->id }}">{{ $order_status->name }}</option>
+                                <option value="{{ $order_status->id }}">{{ __($order_status->name) }}</option>
                             @endforeach
                         </x-select>
                     </div>
@@ -30,11 +30,9 @@
                 </div>
 
                 <div class="flex justify-end -mb-4">
-                    <x-button-danger type="button" wire:click="$emit('closeModal')" wire:loading.attr='disabled' class="float-end disabled:opacity-60">
-                        {{ __('Cancel') }}
-                    </x-button-danger>
                     <x-button type="submit" wire:loading.attr='disabled' class="ml-2 disabled:opacity-60" >
-                        {{ __('Accept') }}
+                        {{ __('Update') }}
+                        <x-icon-spin wire:loading wire:target="update" class="ml-1" />
                     </x-button>
                 </div>
             </form>

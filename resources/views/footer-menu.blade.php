@@ -9,7 +9,7 @@
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                     <div>
-                        <h3 class="mb-6 text-sm font-semibold text-gray-800 uppercase">Links</h3>
+                        <h3 class="mb-6 text-sm font-semibold text-gray-800 uppercase">{{__('Links')}}</h3>
                         <ul>
                             <li class="mb-4">
                                 <a href="{{ route('dashboard') }}" class="text-gray-600 hover:underlin">
@@ -24,7 +24,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 class="mb-6 text-sm font-semibold text-gray-800 uppercase">Legal</h3>
+                        <h3 class="mb-6 text-sm font-semibold text-gray-800 uppercase">{{__('Legal')}}</h3>
                         <ul>
                             <li class="mb-4">
                                 <a wire:click="$emit('openModal', 'politics.privacy-policy')" class="text-gray-600 hover:underline hover:cursor-pointer">

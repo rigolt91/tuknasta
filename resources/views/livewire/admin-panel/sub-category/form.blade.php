@@ -20,13 +20,5 @@
             </div>
             <x-input-error for="category_id" class="mt-2" />
         </div>
-        <div class="flex justify-end -mb-4">
-            <x-button-danger wire:click="$emit('closeModal')" wire:loading.attr='disabled' type="button" class="float-end">
-                {{ __('Cancel') }}
-            </x-button-danger>
-            <x-button type="submit" class="ml-2">
-                {{ __('Accept') }}
-            </x-button>
-        </div>
     </div>
 </div>

@@ -11,6 +11,7 @@ use App\Providers\AddProductCart;
 
 class Cart extends Component
 {
+    public $mCart;
     public $user;
     public $product;
     public $units;
@@ -30,23 +31,13 @@ class Cart extends Component
 
     public function mountCart()
     {
-
-        if(isset(Auth::user()->id))
+        if(Auth::user())
         {
+            $this->mCart = new MCart;
             $this->user = Auth::user();
-            $this->carts = MCart::where('user_id', Auth::user()->id)->get();
+            $this->carts = $this->user->cart;
             $this->total_products = $this->carts->sum('units');
-            $this->totalAmount();
-        }
-    }
-
-    public function totalAmount()
-    {
-        $this->total_amount = 0;
-
-        foreach ($this->carts as $cart)
-        {
-            $this->total_amount += $cart->price * $cart->units;
+            $this->total_amount = $this->user->cartAmount();
         }
     }
 
@@ -129,6 +120,7 @@ class Cart extends Component
     public function removeProductCart(MCart $cart)
     {
         $cart->update(['units' => $cart->units - 1]);
+
         $cart->product()->update(['stock' => $cart->product->stock + 1]);
 
         $this->refresh();

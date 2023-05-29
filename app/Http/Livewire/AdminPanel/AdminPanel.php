@@ -45,7 +45,7 @@ class AdminPanel extends Component
     {
         $options = [
             'chart_title' => 'Orders',
-            'name' => 'Orders Per Month ',
+            'name' => 'Orders Per Month',
             'report_type' => 'group_by_date',
             'model' => 'App\Models\UserOrder',
             'group_by_field' => 'created_at',
@@ -64,7 +64,7 @@ class AdminPanel extends Component
     {
         $options = [
             'chart_title' => 'Sales',
-            'name' => 'Sales Per Month ',
+            'name' => 'Sales Per Month',
             'report_type' => 'group_by_date',
             'model' => 'App\Models\UserPurchasedProduct',
             'group_by_field' => 'created_at',

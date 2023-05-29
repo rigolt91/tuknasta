@@ -3,10 +3,14 @@
 namespace App\Http\Livewire\AdminPanel\Branch;
 
 use LivewireUI\Modal\ModalComponent;
-use App\Models\Branch;
+use App\Models\Branch as MBranch;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use PhpParser\Node\Expr\BinaryOp\Mul;
 
 class Create extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $name;
     public $phone;
     public $email;
@@ -21,19 +25,15 @@ class Create extends ModalComponent
         'person_contact' => 'required|string|unique:branches,person_contact',
     ];
 
-    public function store()
+    public function store(MBranch $branch)
     {
-        $validate = $this->validate();
+        $this->authorize('create', $branch);
 
-        try {
-            Branch::create($validate);
+        $branch->create($this->validate());
 
-            $this->emit('refreshBranches');
+        $this->emit('refreshBranches');
 
-            $this->closeModal();
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
-        }
+        $this->closeModalWithEvents([ Branch::getName() => 'refreshBranches' ]);
     }
 
     public static function modalMaxWidth(): string

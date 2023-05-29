@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="py-6">
     <x-slot name="header">
         <h2 class="font-semibold leading-tight text-gray-800 text-md">
             {{ __('Shopping cart') }}
@@ -40,13 +40,13 @@
 
                                             <div class="flex pt-2 mr-2 text-sm font-bold text-gray-700 text-md">
                                                 <x-button-inline wire:click="$emit('removeProductCart',[{{ $cart->id }}])" wire:loading.attr="disabled" class="flex items-center justify-center h-8 mr-1 text-green-800 hover:text-white">
-                                                    <svg fill="currentColor" class="h-5 -mx-3 bi bi-dash-square-fill" viewBox="0 0 16 16">
+                                                    <svg fill="currentColor" class="h-5 -m-1 bi bi-dash-square-fill" viewBox="0 0 16 16">
                                                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>
                                                       </svg>
                                                 </x-button-inline>
 
                                                 <x-button-inline wire:click="$emit('addProductCart', [{{ $cart->product_id }}])" wire:loading.attr="disabled" class="flex items-center justify-center h-8 mr-1 text-green-800 hover:text-white">
-                                                    <svg fill="currentColor" class="h-5 -mx-3 bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                                    <svg fill="currentColor" class="h-5 -m-1 bi bi-plus-square-fill" viewBox="0 0 16 16">
                                                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
                                                       </svg>
                                                 </x-button-inline>
@@ -80,7 +80,7 @@
                                 @include('livewire.cart.component.btn-empty-cart')
 
                                 <x-button-return route="{{ route('dashboard') }}">
-                                    {{ __('Keep Buying') }}
+                                    {{ __('Keep buying') }}
                                 </x-button-return>
                             </div>
 
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="mx-4 mt-4 sm:mx-2 w-12/12">
-                        <div class="pb-2 mb-2 text-lg font-bold text-gray-800 border-b">{{__('Product Listing')}}</div>
+                        <div class="pb-2 mb-2 text-lg font-bold text-gray-800 border-b">{{__('List of products')}}</div>
                         @livewire('product.product')
                     </div>
                 </div>

@@ -4,7 +4,7 @@ namespace App\Http\Livewire\AdminPanel\SubCategory;
 
 use LivewireUI\Modal\ModalComponent;
 use App\Models\Category;
-use App\Models\Subcategory;
+use App\Models\Subcategory as MSubcategory;
 
 class Create extends ModalComponent
 {
@@ -18,17 +18,9 @@ class Create extends ModalComponent
 
     public function store()
     {
-        $validate = $this->validate();
+            MSubcategory::create($this->validate());
 
-        try {
-            Subcategory::create($validate);
-
-            $this->emit('refreshSubcategories');
-
-            $this->closeModal();
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal', ['message' => $th->getMessage()]);
-        }
+            $this->closeModalWithEvents([ SubCategory::getName() => 'refreshSubcategories' ]);
     }
 
     public static function modalMaxWidth(): string

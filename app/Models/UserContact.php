@@ -21,6 +21,7 @@ class UserContact extends Model
         'phone',
         'street',
         'prefer',
+        'trash',
         'between_streets',
         'number',
         'province_id',

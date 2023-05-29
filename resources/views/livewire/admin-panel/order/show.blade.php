@@ -24,7 +24,7 @@
                         </x-tr>
                         <x-tr>
                             <x-th>{{__('Status')}}</x-th>
-                            <x-td>{{ $status }}</x-td>
+                            <x-td>{{ __($status) }}</x-td>
                         </x-tr>
                         <x-tr>
                             <x-th>{{__('Products')}} ({{ $total_products }})</x-th>
@@ -38,14 +38,14 @@
                                 @endforeach
 
                                 <div class="w-full text-left border-t">
-                                    <span class="font-semibold">{{__('Total Cost:')}}</span>
+                                    <span class="font-semibold">{{__('Total Cost')}}:</span>
                                     <span class="float-right font-semibold">${{ number_format($total_cost, 2) }}</span>
                                 </div>
                             </x-td>
                         </x-tr>
                         <x-tr>
                             <x-th>{{__('Delivery Method')}}</x-th>
-                            <x-td>{{ $delivery_method }}</x-td>
+                            <x-td>{{ __($delivery_method) }}</x-td>
                         </x-tr>
                         <x-tr>
                             <x-th>{{__('Date')}}</x-th>
@@ -75,12 +75,13 @@
                 </x-table>
 
                 <div class="pb-4">
-                    <x-button wire:click="generatePDF" wire:loading.attr='disabled' wire:loading.class='opacity-60' class="flex items-center float-right">
+                    <x-button wire:click="generatePDF" wire:loading.attr='disabled' class="flex items-center float-right disabled:opacity-60">
                         <svg width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
                             <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
                             <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
                         </svg>
                         <span class="ml-1">{{__('Print')}}</span>
+                        <x-icon-spin wire:loading wire:target="generatePDF" class="ml-1" />
                     </x-button>
                 </div>
             </div>

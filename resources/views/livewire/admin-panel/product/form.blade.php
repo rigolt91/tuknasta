@@ -19,7 +19,7 @@
                 <div class="w-full">
                     <div class="mb-4">
                         <div class="relative">
-                            <x-label for="image" :value="__('Photo')" />
+                            <x-label for="image" :value="__('Image')" />
                             <x-input wire:model='image' type="file" class="text-sm file:p-2 file:border-none file:bg-green-200 file:text-gray-500 file:cursor-pointer focus:outline-none focus:shadow-[0_0_0_1px] focus:shadow-green-500 hover:file:bg-green-700 hover:file:text-white block w-full" :value="old('image', $image)" autofocus autocomplete="image" />
                         </div>
                         <x-input-error for="image" class="mt-2" />
@@ -88,7 +88,7 @@
                     <x-select wire:model='category_id' class="mt-1">
                         <option value="" selected disabled>{{__('Product categories')}}</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}">{{ __($category->name) }}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -100,7 +100,7 @@
                     <x-select wire:model='subcategory_id' class="mt-1.5">
                         <option value="" selected disabled>{{__('Product subcategories')}}</option>
                         @foreach ($subcategories as $subcategory)
-                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                            <option value="{{ $subcategory->id }}">{{ __($subcategory->name) }}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -114,18 +114,5 @@
                 <x-input-error for="description" class="mt-2" />
             </div>
         </div>
-    </div>
-    <div class="flex justify-end -mb-4">
-        <x-button-danger wire:click="$emit('closeModal')" wire:loading.attr='disabled' type="button" class="float-end">
-            {{ __('Cancel') }}
-        </x-button-danger>
-        <x-button type="submit" class="ml-2">
-            {{ __('Save') }}
-            <div class="flex justify-end w-full">
-                <svg wire:loading class="h-3" stroke="white" viewBox="0 0 24 24">
-                    <style>.spinner_V8m1{transform-origin:center;animation:spinner_zKoa 2s linear infinite}.spinner_V8m1 circle{stroke-linecap:round;animation:spinner_YpZS 1.5s ease-in-out infinite}@keyframes spinner_zKoa{100%{transform:rotate(360deg)}}@keyframes spinner_YpZS{0%{stroke-dasharray:0 150;stroke-dashoffset:0}47.5%{stroke-dasharray:42 150;stroke-dashoffset:-16}95%,100%{stroke-dasharray:42 150;stroke-dashoffset:-59}}</style><g class="spinner_V8m1"><circle cx="12" cy="12" r="9.5" fill="none" stroke-width="3"></circle></g>
-                </svg>
-            </div>
-        </x-button>
     </div>
 </div>

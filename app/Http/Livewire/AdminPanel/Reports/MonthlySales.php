@@ -93,7 +93,7 @@ class MonthlySales extends Component
     {
         $options = [
             'chart_title' => 'Sales Per Day',
-            'name' => 'Sales Per Day ',
+            'name' => 'Sales Per Day',
             'chart_type' => 'pie',
             'model' => 'App\Models\UserPurchasedProduct',
             'report_type' => 'group_by_date',

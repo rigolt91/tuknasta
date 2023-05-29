@@ -5,47 +5,43 @@ namespace App\Http\Livewire\Profile\MyContact;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserContact;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class MyContact extends ModalComponent
 {
+    use AuthorizesRequests;
+
+    public $user;
     public $contacts;
 
     protected $listeners = ['refreshMyContacts' => '$refresh'];
 
-    public function mountMyContact()
+    public function mount()
     {
-        $this->contacts = Auth::user()->userContact()->get();
+        $this->user = Auth::user();
     }
 
-    public function setFavorite(UserContact $contact)
+    public function setPrefer(UserContact $contact)
     {
-        $this->userFavoriteFalse();
+        $this->authorize('update', $contact);
 
-        $contact->prefer = !$contact->prefer;
-        $contact->save();
+        $this->user->userContact()->update(['prefer' => false]);
+
+        $contact->update(['prefer' => !$contact->prefer]);
 
         $this->emit('refreshPayment');
         $this->emit('refreshDelivery');
         $this->emit('refreshConfirm');
     }
 
-    public function userFavoriteFalse()
-    {
-        foreach($this->contacts as $contact)
-        {
-            $contact->prefer = false;
-            $contact->save();
-        }
-    }
-
     public static function modalMaxWidth(): string
     {
-        return 'xl';
+        return 'lg';
     }
 
     public function render()
     {
-        $this->mountMyContact();
+        $this->contacts = $this->user->userContact()->where('trash', false)->get();
 
         return view('livewire.profile.my-contact.my-contact');
     }
