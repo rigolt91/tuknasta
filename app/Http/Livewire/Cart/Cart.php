@@ -62,7 +62,9 @@ class Cart extends Component
                     $this->emit('openModal', 'error-modal', ['message' => 'Sorry, the requested product is currently out of stock.']);
                 }
             } else {
-                $this->emit('openModal', 'error-modal', ['message' => 'You must first authenticate yourself to be able to add products to the cart.']);
+                $session = session()->getId();
+
+                $this->emit('openModal', 'error-modal', ['message' => 'You must first authenticate yourself to be able to add products to the cart. '.$session]);
             }
 
         } catch (\Throwable $th) {
