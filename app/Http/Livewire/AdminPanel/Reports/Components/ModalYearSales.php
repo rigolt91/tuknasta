@@ -14,7 +14,7 @@ class ModalYearSales extends ModalComponent
 
     public function mount()
     {
-        $this->years = UserPurchasedProduct::select(DB::raw('date_format(created_at, "%Y") as year'))->groupBy('year')->get();
+        $this->years = UserPurchasedProduct::groupByYear()->get();
         $this->date = Carbon::now()->format('Y');
     }
 

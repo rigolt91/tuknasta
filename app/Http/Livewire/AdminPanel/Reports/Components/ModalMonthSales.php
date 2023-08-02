@@ -12,22 +12,23 @@ class ModalMonthSales extends ModalComponent
 
     public function mount()
     {
-        $year = Carbon::now()->format('Y');
+        $yy = Carbon::now()->format('Y');
+
         $this->date = Carbon::now()->format('Y-m');
 
         $this->months = [
-            ['mm' => "$year-01", 'name'=>'January'],
-            ['mm' => "$year-02", 'name'=>'February'],
-            ['mm' => "$year-03", 'name'=>'March'],
-            ['mm' => "$year-04", 'name'=>'April'],
-            ['mm' => "$year-05", 'name'=>'May'],
-            ['mm' => "$year-06", 'name'=>'June'],
-            ['mm' => "$year-07", 'name'=>'July'],
-            ['mm' => "$year-08", 'name'=>'August'],
-            ['mm' => "$year-09", 'name'=>'September'],
-            ['mm' => "$year-10", 'name'=>'October'],
-            ['mm' => "$year-11", 'name'=>'November'],
-            ['mm' => "$year-12", 'name'=>'December'],
+            ['mm' => "$yy-01", 'name'=>'January'],
+            ['mm' => "$yy-02", 'name'=>'February'],
+            ['mm' => "$yy-03", 'name'=>'March'],
+            ['mm' => "$yy-04", 'name'=>'April'],
+            ['mm' => "$yy-05", 'name'=>'May'],
+            ['mm' => "$yy-06", 'name'=>'June'],
+            ['mm' => "$yy-07", 'name'=>'July'],
+            ['mm' => "$yy-08", 'name'=>'August'],
+            ['mm' => "$yy-09", 'name'=>'September'],
+            ['mm' => "$yy-10", 'name'=>'October'],
+            ['mm' => "$yy-11", 'name'=>'November'],
+            ['mm' => "$yy-12", 'name'=>'December'],
         ];
     }
 

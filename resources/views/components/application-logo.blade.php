@@ -1,1 +1,8 @@
-<img src="{{ asset('logoapp.png') }}" width="40" height="40" class="border-2 border-gray-300 rounded-full" alt="TuKanasta">
+@props([
+    'width' => '40',
+    'height' => '40',
+    'show' => '',
+])
+
+<img src="{{ asset('logo.png') }}" width="{{ $width }}" height="{{ $height }}"
+    {{ $attributes->merge(['class' => 'rounded-full']) }} alt="TuKanasta">

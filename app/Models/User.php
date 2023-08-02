@@ -15,6 +15,8 @@ use App\Models\UserContact;
 use App\Models\UserOrder;
 use App\Models\UserJob;
 use App\Models\ModelHasRole;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -24,6 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -36,8 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'email_verified_at',
         'password',
-        'block',
-        'trash',
+        'disabled',
     ];
 
     /**
@@ -69,6 +71,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function scopeCreateOrRestore(Builder $query, $user)
+    {
+        return $query->withTrashed() ? $query->restore($user) : $query->create($user);
+    }
 
     public function cart()
     {

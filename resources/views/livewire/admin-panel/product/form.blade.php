@@ -5,9 +5,9 @@
                 <div class="flex items-center justify-center w-40 mr-4 text-sm text-gray-500 border border-green-400 rounded-md" style="height: 112px; width:140px;">
                     @if($image)
                         @isset($product)
-                            <img wire:loading.class='opacity-25' wire:target='image' src="{{ ($image !== $product->image) ? $image->temporaryUrl() : Storage::url($product->image) }}" class="rounded-md" style="height: 100 px;  width:118px;">
+                            <img wire:loading.class='opacity-25' wire:target='image' src="{{ ($image !== $product->image) ? $image->temporaryUrl() : Storage::url($product->image) }}" class="rounded-md flex items-center justify-center text-xs w-full h-full" alt="{{ $product->name }}">
                         @else
-                            <img wire:loading.class='opacity-25' wire:target='image' src="{{ $image->temporaryUrl() }}" class="rounded-md" style="height: 100 px;  width:118px;">
+                            <img wire:loading.class='opacity-25' wire:target='image' src="{{ $image->temporaryUrl() }}" class="rounded-md flex items-center justify-center text-xs w-full h-full">
                         @endisset
 
                     @else

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'municipalities',
             'delivery_methods',
             'order_statuses',
+            'upagos_directs'
         ]);
 
         $this->call([
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             MunicipalityTableSeeder::class,
             DeliveryMethodTableSeeder::class,
             OrderStatusTableSeeder::class,
+            UpagosDirectTableSeeder::class,
         ]);
     }
 

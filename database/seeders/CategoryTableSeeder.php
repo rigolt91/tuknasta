@@ -14,17 +14,17 @@ class CategoryTableSeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Home appliances'],
-            ['name' => 'Electrical backup equipment'],
-            ['name' => 'Cell phones and accessories'],
-            ['name' => 'Computers and accessories'],
-            ['name' => 'Hardware store'],
-            ['name' => 'Transport'],
-            ['name' => 'Inputs for agriculture'],
-            ['name' => 'Food'],
-            ['name' => 'Personal hygiene'],
+            ['name' => 'Electrodomésticos'],
+            ['name' => 'Equipo eléctrico de respaldo'],
+            ['name' => 'Teléfonos celulares y accesorios'],
+            ['name' => 'Computadoras y accesorios'],
+            ['name' => 'Ferretería'],
+            ['name' => 'Transporte'],
+            ['name' => 'Insumos para la agricultura'],
+            ['name' => 'Comida'],
+            ['name' => 'Higiene personal'],
             ['name' => 'Home'],
-            ['name' => 'Flowers and gifts'],
+            ['name' => 'Flores y regalos'],
         ];
 
         foreach($categories as $category)

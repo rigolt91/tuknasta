@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained();
             $table->foreignId('subcategory_id')->constrained();
             $table->foreignId('branch_id')->constrained();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -40,6 +41,7 @@ return new class extends Migration
             $table->dropForeign(['category_id']);
             $table->dropForeign(['subcategory_id']);
             $table->dropForeign(['branch_id']);
+            $table->dropSoftDeletes();
         });
     }
 };

@@ -13,7 +13,7 @@ class DeliveryMethodTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DeliveryMethod::create(['name' => 'Store pickup']);
-        DeliveryMethod::create(['name' => 'Home delivery']);
+        DeliveryMethod::create(['name' => 'Recogida en Tienda']);
+        DeliveryMethod::create(['name' => 'Entrega Domicilio']);
     }
 }

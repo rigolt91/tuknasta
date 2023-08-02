@@ -13,8 +13,8 @@ class OrderStatusTableSeeder extends Seeder
      */
     public function run(): void
     {
-        OrderStatus::create(['name' => 'Processing']);
-        OrderStatus::create(['name' => 'Sent']);
-        OrderStatus::create(['name' => 'Delivered']);
+        OrderStatus::create(['name' => 'Procesando']);
+        OrderStatus::create(['name' => 'Enviada']);
+        OrderStatus::create(['name' => 'Entregada']);
     }
 }

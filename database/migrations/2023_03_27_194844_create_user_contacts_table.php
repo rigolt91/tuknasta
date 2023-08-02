@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignId('province_id')->nullable()->constrained();
             $table->foreignId('municipality_id')->nullable()->constrained();
             $table->boolean('prefer')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -38,6 +39,7 @@ return new class extends Migration
             $table->dropForeign(['user_id']);
             $table->dropForeign(['province_id']);
             $table->dropForeign(['municipality_id']);
+            $table->dropSoftDeletes();
         });
     }
 };
