@@ -350,16 +350,17 @@
                 }
 
                 const validateForm = async () => {
-                    let formData = new FormData();
-                    formData.append('first_name', document.getElementById('first_name').value);
-                    formData.append('last_name', document.getElementById('last_name').value);
-                    formData.append('address', document.getElementById('address').value);
-                    formData.append('postal_code', document.getElementById('postal_code').value);
-                    formData.append('order_number', document.getElementById('order_number').value);
-                    formData.append('card_number', document.getElementById('card_number').value);
-                    formData.append('exp_date', document.getElementById('exp_date').value);
-                    formData.append('cvv2cvv2', document.getElementById('cvv2cvv2').value);
-                    formData.append('amount', document.getElementById('amount').value);
+                    let formData = {
+                        first_name:document.getElementById('first_name').value,
+                        last_name:document.getElementById('last_name').value,
+                        address: document.getElementById('address').value,
+                        postal_code: document.getElementById('postal_code').value,
+                        order_number: document.getElementById('order_number').value,
+                        card_number: document.getElementById('card_number').value,
+                        exp_date: document.getElementById('exp_date').value,
+                        cvv2cvv2: document.getElementById('cvv2cvv2').value,
+                        amount: document.getElementById('amount').value,
+                    };
 
                     let response = await fetch("{{ url('/api/validateform') }}", {
                         method: "POST",
@@ -367,7 +368,7 @@
                             'Accept' : 'application/json',
                             'Content-Type' : 'application/json'
                         },
-                        body: formData,
+                        body: JSON.stringify(formData),
                     });
 
                     var data;
