@@ -8,7 +8,6 @@ trait CartTrait {
     public $user;
     public $email;
     public $contact;
-
     public $carts;
     public $total_amount;
     public $total_products;
@@ -26,7 +25,7 @@ trait CartTrait {
     {
         $this->user = Auth::user();
         $this->email = $this->user->email;
-        $this->contact = $this->user->userContact()->where('prefer', true)->first();
+        $this->contact = $this->user->userContact()->wherePrefer(true)->first();
     }
 
     public function userCart()

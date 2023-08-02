@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\UserOrder;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class OrderStatus extends Model
 {
@@ -13,6 +14,11 @@ class OrderStatus extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function scopeWhereName(Builder $query, $name): void
+    {
+        $query->where('name', $name);
+    }
 
     public function userOrder()
     {

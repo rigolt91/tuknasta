@@ -8,10 +8,13 @@ use App\Models\User;
 use App\Models\UserOrder;
 use App\Models\Province;
 use App\Models\Municipality;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserContact extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -27,6 +30,16 @@ class UserContact extends Model
         'province_id',
         'municipality_id',
     ];
+
+    public function scopeWherePrefer(Builder $query, $prefer)
+    {
+        return $query->where('prefer', $prefer);
+    }
+
+    public function scopeWhereContact(Builder $query, $contact)
+    {
+        return $query->where('id', $contact);
+    }
 
     public function user()
     {

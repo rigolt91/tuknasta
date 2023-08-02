@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('contract_number');
             $table->string('person_contact');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -27,6 +28,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('branches', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

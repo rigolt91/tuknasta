@@ -1,1 +1,1 @@
-<img src="{{ asset('logoapp.png') }}" width="46" height="46" class="border border-white bg-white shadow rounded-full hidden sm:block" alt="TuKanasta">
+<img src="{{ asset('logo.png') }}" width="128" {{ $attributes->merge(['class' => 'sm:block']) }} alt="TuKanasta">

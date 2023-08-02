@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->foreignId('category_id')->constrained();
             $table->boolean('show')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('subcategories', function(Blueprint $table) {
             $table->dropForeign(['category_id']);
+            $table->dropSoftDeletes();
         });
     }
 };

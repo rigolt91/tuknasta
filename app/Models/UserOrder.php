@@ -9,6 +9,7 @@ use App\Models\UserContact;
 use App\Models\DeliveryMethod;
 use App\Models\UserPurchasedProduct;
 use App\Models\OrderStatus;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class UserOrder extends Model
 {
@@ -22,6 +23,59 @@ class UserOrder extends Model
         'user_contact_id',
         'payment',
     ];
+
+    public function scopeWhereStatus(Builder $query, $status)
+    {
+        $query->when($status, function($query, $status) {
+            $query->where('order_status_id', $status);
+        });
+    }
+
+    public function scopeWhereMethod(Builder $query, $method)
+    {
+        $query->when($method, function($query, $method) {
+            $query->where('delivery_method_id', $method);
+        });
+    }
+
+    public function scopeWhereDate(Builder $query, $date)
+    {
+        $query->when($date, function($query, $date) {
+            $query->where('created_at', 'like', '%'.$date.'%');
+        });
+    }
+
+    public function scopeWhereDateBetween(Builder $query, $start, $end)
+    {
+        $query->whereBetween('created_at', [$start, $end]);
+    }
+
+    public function scopeWhereNumber(Builder $query, $number)
+    {
+        $query->when($number, function ($query, $number) {
+            $query->where('user_orders.number', 'like', '%'.$number.'%');
+        });
+    }
+
+    public function scopeJoinUserContact(Builder $query)
+    {
+        $query->join('user_contacts', 'user_contact_id', '=', 'user_contacts.id')
+            ->select('user_orders.*', 'user_contacts.dni', $this->raw("CONCAT(user_contacts.name,' ',user_contacts.last_name) AS contact"));
+    }
+
+    public function scopeWhereContact(Builder $query, $contact)
+    {
+        $query->when($contact, function ($query, $contact) {
+            $query->orWhere('user_contacts.name', 'like', '%'.$contact.'%');
+            $query->orWhere('user_contacts.last_name', 'like', '%'.$contact.'%');
+            $query->orWhere('user_contacts.dni', 'like', '%'.$contact.'%');
+        });
+    }
+
+    public function scopeWhereUser(Builder $query, $user)
+    {
+        $query->where('user_orders.user_id', $user);
+    }
 
     public function totalProducts()
     {

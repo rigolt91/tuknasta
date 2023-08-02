@@ -1,6 +1,6 @@
 <div>
     @if($contact)
-        <div>
+        <div wire:loading.class="opacity-60">
             <div class="mb-1">
                 <span class="text-gray-700 font-semibold">{{__('Receiver')}}: </span>
                 <span class="text-gray-700">{{ $contact->name.' '.$contact->last_name }}</span>

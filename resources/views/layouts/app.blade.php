@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
-        <style>
-            .clamp-3 {
-              overflow: hidden;
-              display: -webkit-box;
-              -webkit-line-clamp: 3;
-              -webkit-box-orient: vertical;
-            }
-            .to-cyan-400 {
-              --tw-gradient-to: #22d3ee;
-              }
-           .via-cyan-500 {
-              --tw-gradient-stops: var(--tw-gradient-from), #06b6d4, var(--tw-gradient-to, rgba(6, 182, 212, 0));
-              }
-          </style>
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="{{ asset('js/tukanasta.js') }}"></script>
 
-        <div class="min-h-screen bg-white">
-            @livewire('navigation-menu')
+    @livewireStyles
+</head>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow rounded-b-lg sm:rounded-none">
+<body class="font-sans antialiased">
+    <div id="content" class="min-h-screen bg-white hidden">
+        @livewire('navigation-menu')
+
+        <!-- Page Heading -->
+        @if (isset($header))
+            <div class="px-4 mx-auto max-w-7xl sm:px-8 -mt-1">
+                <header class="bg-white shadow rounded-b-lg ">
                     <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
-            @endif
+            </div>
+        @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
 
-            @livewire('livewire-ui-modal')
-            @livewire('footer-menu')
+        @livewire('livewire-ui-modal')
+        @livewire('footer-menu')
+
+        <button id="btnUp" type="button"
+            class="hidden fixed bottom-6 right-3 flex items-center justify-center rounded-full border-2 border-gray-100 text-white bg-green-700 h-12 w-12 shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" he0ght="16" fill="currentColor"
+                class="bi bi-chevron-double-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z" />
+                <path fill-rule="evenodd"
+                    d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+            </svg>
+        </button>
+    </div>
+
+    <div id="loadding" class="grid h-screen place-items-center">
+        <div class="flex items-center">
+            <svg fill="green" width="48" class="mr-2 animate-spin" height="48" viewBox="0 0 24 24">
+                <g>
+                    <circle cx="3" cy="12" r="2" />
+                    <circle cx="21" cy="12" r="2" />
+                    <circle cx="12" cy="21" r="2" />
+                    <circle cx="12" cy="3" r="2" />
+                    <circle cx="5.64" cy="5.64" r="2" />
+                    <circle cx="18.36" cy="18.36" r="2" />
+                    <circle cx="5.64" cy="18.36" r="2" />
+                    <circle cx="18.36" cy="5.64" r="2" />
+                    <animateTransform attributeName="transform" type="rotate" dur="2s" values="0 12 12;360 12 12"
+                        repeatCount="indefinite" />
+                </g>
+            </svg>
+            <div class="text-md text-green-700 font-bold uppercase">{{ __('Loadding') }}...</div>
         </div>
+    </div>
 
-        @stack('modals')
+    @stack('modals')
 
-        @livewireScripts
-        @yield('scripts')
-    </body>
+    @livewireScripts
+    @yield('scripts')
+</body>
+
 </html>
