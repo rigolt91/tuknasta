@@ -472,5 +472,12 @@
     "Follow Us": "Síguenos",
     "We use secure payments": "Usamos pagos seguros",
     "Postal code": "Código postal",
-    "Expiry date": "Fecha de caducidad"
+    "Expiry date": "Fecha de caducidad",
+    "Field validation error": "Error en la validación de los campos",
+    "Card verification error": "Error en la verificación de la tarjeta",
+    "An error has occurred": "Ha ocurrido un error",
+    "The payment was made successfully": "El pago se realizó de forma satisfactoria",
+    "Processing the payment": "Procesando el pago",
+    "Verifying card information": "Verificando informacion de la tarjeta",
+    "Completing the payment": "Completando el pago"
 }

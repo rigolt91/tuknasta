@@ -1,4 +1,4 @@
-<div x-data="{open: false}" class="my-8">
+<div class="my-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 mb-4 sm:mx-2">
             @include('livewire.payment.steps.steps-bars-payment')
@@ -21,7 +21,7 @@
                                             class="block w-full mt-1" :value="old('first_name', $first_name)"
                                             placeholder="{{ __('First name') }}" autocomplete="first_name" />
                                     </div>
-                                    <x-input-error class="mt-2" for="first_name" />
+                                    <div id="error_first_name" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
 
                                 <div class="w-full mb-2 sm:ml-2">
@@ -31,7 +31,7 @@
                                             class="block w-full mt-1" :value="old('last_name', $last_name)"
                                             placeholder="{{ __('Last name') }}" autocomplete="last_name" />
                                     </div>
-                                    <x-input-error class="mt-2" for="last_name" />
+                                    <div id="error_last_name" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
                             </div>
 
@@ -43,7 +43,7 @@
                                             class="block w-full mt-1" :value="old('address', $address)"
                                             placeholder="{{ __('Address') }}" autocomplete="address" />
                                     </div>
-                                    <x-input-error class="mt-2" for="address" />
+                                    <div id="error_address" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
 
                                 <div class="w-full mb-2 sm:ml-2">
@@ -53,7 +53,7 @@
                                             class="block w-full mt-1" :value="old('postal_code', $postal_code)"
                                             placeholder="{{ __('Postal code') }}" autocomplete="postal_code" />
                                     </div>
-                                    <x-input-error class="mt-2" for="postal_code" />
+                                    <div id="error_postal_code" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
                             </div>
 
@@ -66,7 +66,7 @@
                                             class="block w-full mt-1" :value="old('card_number', $card_number)"
                                             placeholder="{{ __('Card number') }}" autocomplete="card_number" />
                                     </div>
-                                    <x-input-error class="mt-2" for="card_number" />
+                                    <div id="error_card_number" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
                             </div>
 
@@ -78,7 +78,7 @@
                                             class="block w-full mt-1" :value="old('cvv2cvv2', $cvv2cvv2)"
                                             placeholder="{{ __('Security code') }}" autocomplete="cvv2cvv2" />
                                     </div>
-                                    <x-input-error class="ml-2" for="cvv2cvv2" />
+                                    <div id="error_cvv2cvv2" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
 
                                 <div class="w-full mb-4 sm:ml-2">
@@ -88,7 +88,7 @@
                                             class="block w-full mt-1" maxlength="5" :value="old('exp_date', $exp_date)"
                                             placeholder="{{ __('MM/YY') }}" autocomplete="exp_date" />
                                     </div>
-                                    <x-input-error class="mt-2" for="exp_date" />
+                                    <div id="error_exp_date" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
                             </div>
 
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="sm:mx-2 sm:w-3/12">
-                    <x-button id="paymentConfirm" @click="open = false" type="submit" wire:loading.attr="disabled"
+                    <x-button id="paymentConfirm" @click="open = false" type="submit"
                         class="w-full mb-4 rounded-none disabled:opacity-60 sm:rounded">
                         <svg fill="currentColor" class="h-5 mr-2 bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
                             <path
@@ -119,7 +119,7 @@
                         </svg>
                         {{ __('Confirmar') }}
                         <div class="flex justify-end w-full">
-                            <x-icon-spin wire:loading wire:target="paymentConfirm" class="ml-1" />
+                            <x-icon-spin  id="spinPayment" class="hidden ml-1" />
                         </div>
                     </x-button>
 
@@ -153,23 +153,28 @@
                 </div>
             </div>
 
-            <div x-show="open" class="bg-gray-200 opacity-60 absolute w-full h-full top-0 left-0"></div>
-            <div
-                    x-show="open"
-                    x-transition.duration.500ms
-                    id="notify"
-                    class="absolute z-50 top-1/2 left-1/2 bg-green-500 text-white shadow-lg border py-6 px-6 rounded-md flex items-center justicy-center text-center">
+            <div id="divPaymentProccess">
+                <div class="absolute top-0 left-0 w-full h-full bg-gray-200 opacity-60"></div>
+                <div class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-green-500 border rounded-md shadow-lg top-1/2 left-1/2 justicy-center">
                     <x-icon-spin class="mr-2" />
-                    {{ __('Procesando el Pago')}}
+                    <div id="divNotify"></div>
                 </div>
+            </div>
         </form>
     </div>
 
     @section('scripts')
         <script type="text/javascript" src="https://libs.fraud.elavongateway.com/sdk-web-js/1.2.0/3ds2-web-sdk.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script type="text/javascript" src="{{ asset('js/toast.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/geoinfo.js') }}"></script>
         <script>
             window.addEventListener('DOMContentLoaded', function(e) {
+                const divPaymentProccess = document.getElementById('divPaymentProccess');
+                const divNotify = document.getElementById('divNotify');
+                divPaymentProccess.classList.add('hidden');
+                divNotify.innerHTML = "{{'Processing the payment'}}";
+
                 const getExpiry = (reverse = false) => {
                     var expMM = document.getElementById("exp_date").value.substring(0, 2);
                     var expYY = document.getElementById("exp_date").value.substring(3, 5);
@@ -372,11 +377,9 @@
                     });
 
                     var data;
-
                     if (response.ok) {
                         data = await response.json();
-
-                        console.log(data);
+                        return data;
                     } else {
                         console.log('error');
                     }
@@ -386,50 +389,81 @@
 
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
+                    let btnPayment = document.getElementById('paymentConfirm');
+                    let spinPayment = document.getElementById('spinPayment');
+                    spinPayment.classList.toggle('hidden');
+                    btnPayment.toggleAttribute('disabled');
 
-                    validateForm();
+                    let validated = await validateForm();
 
-                    /*const verify = await performVerify();
-
-                    console.log(verify);
-
-                    if (verify.errorCode) {
-                        console.log(`Error verify ${verify.errorCode}: ${verify.errorMessage}`);
-                        return false;
-                    }
-
-                    if (verify && typeof verify.result === 'string' && verify.result === '0') {
-                        console.log('Verify');
-                        (async () => {
-                            try {
-                                if(bypass3ds2Country.includes(geoInfo.countryCode)) {
-                                    const paymentResult = await paymentWithout3DS2();
-                                } else {
-                                    const paymentResult = await paymentWith3DS2();
-                                }
-
-                                if (paymentResult.errorCode) {
-                                    console.log(
-                                        `Error payment ${paymentResult.errorCode}: ${paymentResult.errorMessage}`
-                                    );
-                                    return;
-                                }
-
-                                if (paymentResult && typeof paymentResult.result === 'string' &&
-                                    paymentResult.result === '0') {
-                                    window.location.href = "{{ url('/cart/cart-details') }}";
-                                } else {
-                                    console.log('Error: {{ __('response.somethingWentWrong') }}');
-                                }
-                            } catch (error) {
-                                return error;
-                            }
-                        })();
+                    if(!validated.status) {
+                        spinPayment.classList.toggle('hidden');
+                        btnPayment.toggleAttribute('disabled', '');
+                        toastInfo("{{__('Field validation error')}}");
+                        showErrorsValidatedForm(validated.errors);
+                        return;
                     } else {
-                        console.log('Not Verify');
-                    }*/
+                        divPaymentProccess.classList.toggle('hidden');
+                        divPaymentProccess.classList.toggle('fade');
 
+                        divNotify.innerHTML = "{{__('Verifying card information')}}";
+
+                        const verify = await performVerify();
+
+                        if (verify.errorCode) {
+                            toastError(`${verify.errorCode}: ${verify.errorMessage}`);
+                            return false;
+                        }
+
+                        if (verify && typeof verify.result === 'string' && verify.result === '0') {
+                            divNotify.innerHTML = "{{__('Completing the payment')}}";
+
+                            (async () => {
+                                try {
+                                    if(bypass3ds2Country.includes(geoInfo.countryCode)) {
+                                        const paymentResult = await paymentWithout3DS2();
+                                    } else {
+                                        const paymentResult = await paymentWith3DS2();
+                                    }
+
+                                    if (paymentResult.errorCode) {
+                                        toastError(`Error payment ${paymentResult.errorCode}: ${paymentResult.errorMessage}`);
+                                        return;
+                                    }
+
+                                    if (paymentResult && typeof paymentResult.result === 'string' && paymentResult.result === '0') {
+                                        divPaymentProccess.classList.toggle('hidden');
+                                        divPaymentProccess.classList.toggle('fade');
+                                        spinPayment.classList.toggle('hidden');
+                                        btnPayment.toggleAttribute('disabled', '');
+                                        toastSuccess("{{ __('The payment was made successfully') }}");
+                                        window.location.href = "{{ url('/cart/cart-details') }}";
+                                    } else {
+                                        toastError("{{__('An error has occurred')}}: {{ __('response.somethingWentWrong') }}");
+                                    }
+                                } catch (error) {
+                                    toastError(`${error}`);
+                                }
+                            })();
+                        } else {
+                            divPaymentProccess.classList.toggle('hidden');
+                            divPaymentProccess.classList.toggle('fade');
+                            spinPayment.classList.toggle('hidden');
+                            btnPayment.toggleAttribute('disabled', '');
+                            toastError("{{__('Card verification error')}}");
+                        }
+                    }
                 });
+
+                const showErrorsValidatedForm = (errors) => {
+                    errors.first_name ? document.getElementById('error_first_name').innerHTML=errors.first_name : '';
+                    errors.last_name ? document.getElementById('error_last_name').innerHTML=errors.last_name : '';
+                    errors.address ? document.getElementById('error_address').innerHTML=errors.address : '';
+                    errors.card_number ? document.getElementById('error_card_number').innerHTML=errors.card_number : '';
+                    errors.cvv2cvv2 ? document.getElementById('error_cvv2cvv2').innerHTML=errors.cvv2cvv2 : '';
+                    errors.exp_date ? document.getElementById('error_exp_date').innerHTML=errors.exp_date : '';
+                    errors.postal_code ? document.getElementById('error_postal_code').innerHTML=errors.postal_code : '';
+                }
             });
         </script>
     @endsection

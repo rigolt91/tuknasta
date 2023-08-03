@@ -27,19 +27,6 @@ class ConfirmComponent extends Component
 
     protected $listeners = ['refreshConfirm' => '$refresh'];
 
-    protected $rules = [
-        'first_name' => 'required|string',
-        'last_name' => 'required|string',
-        'address' => 'required|string',
-        'postal_code' => 'required|numeric|digits_between:0,10',
-        'order_number' => 'required|string',
-        'delivery_method' => 'required',
-        'card_number' => 'required|numeric|digits_between:8,16',
-        'exp_date' => 'required|string|digits_between:1,5',
-        'cvv2cvv2' => 'required',
-        'amount' => 'required',
-    ];
-
     public function mount($method = 1)
     {
         $this->delivery_method = DeliveryMethod::findOrFail($method);
@@ -71,44 +58,34 @@ class ConfirmComponent extends Component
 
     public function paymentConfirm()
     {
-        $this->validate();
+        $this->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'address' => 'required|string',
+            'postal_code' => 'required|numeric|digits_between:0,10',
+            'order_number' => 'required|string',
+            'card_number' => 'required|numeric|digits_between:8,16',
+            'exp_date' => 'required|date_format:m/y',
+            'cvv2cvv2' => 'required',
+            'amount' => 'required',
+        ]);
 
-        try {
-            /*$data = array(
-                'card_number' => $this->number,
-                'exp_date'    => $this->exp_date,
-                'cvv2cvv2'    => $this->cvv2cvv2,
-                'first_name'  => $this->user->name,
-                'last_name'   => $this->user->last_name,
-                'amount'      => $this->total_amount,
-                'description' => 'This is a test purchase transaction.',
-            );
+        $user_order = $this->user->userOrder()->create([
+            'card_number' => $this->generateOrderNumber(),
+            'order_status_id' => 1,
+            'delivery_method_id' => $this->delivery_method->id,
+            'payment' => false,
+            'user_contact_id' => $this->contact->id,
+        ]);
 
-            $response = $uPagosDirect->postData('creditcard/sale', $data);
+        $this->purchasedProduct($user_order);
 
-            if ($response->result == 0) {
-                $user_order = $this->user->userOrder()->create([
-                    'card_number' => $this->generateOrderNumber(),
-                    'order_status_id' => 1,
-                    'delivery_method_id' => $this->delivery_method->id,
-                    'payment' => false,
-                    'user_contact_id' => $this->contact->id,
-                ]);
+        $this->emit('deleteUserJob');
 
-                $this->purchasedProduct($user_order);
-
-                $this->emit('deleteUserJob');
-
-                Mail::to($this->user)
-                    ->cc($this->contact)
-                    ->bcc(config('mail.from.address'))
-                    ->send(new OrderShipped($user_order));
-            } else {
-                $this->emit('openModal', 'error-modal-component', ['message' => $response->result_message]);
-            }*/
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal-component', ['message' => 'Error calling µPagosDirect']);
-        }
+        Mail::to($this->user)
+            ->cc($this->contact)
+            ->bcc(config('mail.from.address'))
+            ->send(new OrderShipped($user_order));
     }
 
     public function purchasedProduct($user_order)

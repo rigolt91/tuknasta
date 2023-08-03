@@ -11,6 +11,15 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <style>
+        #slideSource {
+            opacity: 1;
+            transition: opacity 1s;
+        }        #slideSource.fade {
+            opacity: 0;
+        }
+    </style>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,13 +29,13 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div id="content" class="min-h-screen bg-white hidden">
+    <div id="content" class="hidden min-h-screen bg-white">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
         @if (isset($header))
-            <div class="px-4 mx-auto max-w-7xl sm:px-8 -mt-1">
-                <header class="bg-white shadow rounded-b-lg ">
+            <div class="px-4 mx-auto -mt-1 max-w-7xl sm:px-8">
+                <header class="bg-white rounded-b-lg shadow ">
                     <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
@@ -43,7 +52,7 @@
         @livewire('footer-menu')
 
         <button id="btnUp" type="button"
-            class="hidden fixed bottom-6 right-3 flex items-center justify-center rounded-full border-2 border-gray-100 text-white bg-green-700 h-12 w-12 shadow-md">
+            class="fixed flex items-center justify-center hidden w-12 h-12 text-white bg-green-700 border-2 border-gray-100 rounded-full shadow-md bottom-6 right-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" he0ght="16" fill="currentColor"
                 class="bi bi-chevron-double-up" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -70,7 +79,7 @@
                         repeatCount="indefinite" />
                 </g>
             </svg>
-            <div class="text-md text-green-700 font-bold uppercase">{{ __('Loadding') }}...</div>
+            <div class="font-bold text-green-700 uppercase text-md">{{ __('Loadding') }}...</div>
         </div>
     </div>
 
