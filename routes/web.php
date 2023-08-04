@@ -18,6 +18,8 @@ use App\Http\Livewire\DashboardComponent;
 use App\Http\Livewire\Payment\ConfirmComponent;
 use App\Http\Livewire\Payment\DeliveryComponent;
 use App\Http\Livewire\Payment\PaymentComponent;
+use App\Http\Livewire\Policy\AboutUs;
+use App\Http\Livewire\Policy\RefundPolicy;
 use App\Http\Livewire\Product\ProductDetailComponent;
 use App\Http\Livewire\Profile\MyOrder\MyOrderComponent;
 use App\Http\Livewire\WelcomeComponent;
@@ -82,3 +84,15 @@ Route::middleware([
 
 Route::get('/', WelcomeComponent::class)->name('dashboard');
 Route::get('/products/{search?}', DashboardComponent::class)->name('products');
+Route::get('/about-us', function () {
+    return view('about-us');
+})->name('about-us');
+Route::get('/customer-support', function () {
+    return view('policy.customer-support');
+})->name('customer-support');
+Route::get('/return-policy', function () {
+    return view('policy.return-policy');
+})->name('return-policy');
+Route::get('/delivery-policy', function () {
+    return view('policy.delivery-policy');
+})->name('delivery-policy');

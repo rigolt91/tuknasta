@@ -1,6 +1,6 @@
 <div class="p-4 sm:p-6 my-4 shadow sm:rounded-lg">
     <x-card-body>
-        <a wire:click="$emit('openModal', 'politics.delivery-policy-component')"
+        <a href="{{ route('delivery-policy') }}"
             class="flex items-center text-md hover:text-green-800 active:text-green-900 hover:cursor-pointer">
             <svg fill="currentColor" class="bi bi-truck h-5 mr-2" viewBox="0 0 16 16">
                 <path
@@ -8,15 +8,17 @@
             </svg>
             {{ __('Delivery Policy') }}
         </a>
-        <!--
-        <a wire:click="$emit('openModal', 'politics.return-policy-component')" class="flex items-center text-md hover:text-green-800 active:text-green-900 my-2 hover:cursor-pointer">
+
+        <a href="{{ route('return-policy') }}"
+            class="flex items-center text-md hover:text-green-800 active:text-green-900 my-2 hover:cursor-pointer">
             <svg fill="currentColor" class="bi bi-arrow-counterclockwise h-5 mr-2" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                <path
+                    d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
             </svg>
             {{ __('Return Policy') }}
         </a>
-        <a wire:click="$emit('openModal', 'politics.customer-support-component')"
+        <a href="{{ route('customer-support') }}"
             class="flex items-center text-md hover:text-green-800 active:text-green-900 hover:cursor-pointer">
             <svg fill="currentColor" class="bi bi-question-square h-5 mr-2" viewBox="0 0 16 16">
                 <path
@@ -26,6 +28,6 @@
             </svg>
             {{ __('Customer Support') }}
         </a>
-        -->
+
     </x-card-body>
 </div>
