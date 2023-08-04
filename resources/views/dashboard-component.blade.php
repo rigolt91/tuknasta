@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="flex items-center justify-center w-full sm:w-2/3 sm:justify-end">
-                    <div class="text-xs text-gray-700 font-bold uppercase mr-2">{{ __('Sort by') }}</div>
+                    <div class="mr-2 text-xs font-bold text-gray-700 uppercase">{{ __('Sort by') }}</div>
 
                     <x-button-inline wire:click="orderProducts('category_id')" wire:loading.attr='disabled'
                         class="disabled:opacity-60">

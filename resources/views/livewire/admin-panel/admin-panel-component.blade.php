@@ -159,7 +159,7 @@
                         {{ __($chart_orders->options['name']) }}
                     </x-card-header>
                     <x-card-body>
-                        {!! $chart_orders->renderHtml() !!}
+                        <div style="height: 175px;">{!! $chart_orders->renderHtml() !!}</div>
                     </x-card-body>
                 </x-card>
             </div>
@@ -176,7 +176,7 @@
                         {{ __($chart_sales->options['name']) }}
                     </x-card-header>
                     <x-card-body>
-                        {!! $chart_sales->renderHtml() !!}
+                        <div style="height: 175px;">{!! $chart_sales->renderHtml() !!}</div>
                     </x-card-body>
                 </x-card>
             </div>
@@ -190,7 +190,7 @@
                         {{ __($chart_products->options['name']) }}
                     </x-card-header>
                     <x-card-body>
-                        {!! $chart_products->renderHtml() !!}
+                        <div style="height: 175px;">{!! $chart_products->renderHtml() !!}</div>
                     </x-card-body>
                 </x-card>
             </div>

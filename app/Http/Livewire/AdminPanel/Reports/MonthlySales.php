@@ -48,7 +48,7 @@ class MonthlySales extends Component
         $options = [
             'chart_title' => 'Units',
             'name' => 'Units Per Product',
-            'chart_type' => 'polarArea',
+            'chart_type' => 'pie',
             'model' => 'App\Models\UserPurchasedProduct',
             'report_type' => 'group_by_relationship',
             'aggregate_function' => 'sum',

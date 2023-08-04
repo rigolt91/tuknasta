@@ -3,7 +3,7 @@
         <div class="w-full pr-8 sm:flex sm:pr-0" wire:loading.class='opacity-60'>
             <div class="w-full mx-4 sm:mx-2 sm:w-3/6 sm:rounded">
                 <img src="{{ Storage::url($image) }}" style="height:400px; width:400px;"
-                    class="object-cover object-center text-xs flex items-center justify-center transition duration-700 ease-in-out bg-white border border-gray-100 lg:h-auto sm:rounded hover:scale-125 hover:shadow-2xl hover:cursor-pointer"
+                    class="object-cover object-center text-xs flex items-center justify-center transition duration-700 ease-in-out bg-gray-200 border border-gray-100 h-[400px] w-[400px] sm:rounded hover:scale-125 hover:shadow-2xl hover:cursor-pointer"
                     alt="{{ $name }}">
             </div>
 

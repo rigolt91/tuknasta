@@ -56,25 +56,12 @@ class ConfirmComponent extends Component
         return $order->count() > 0 ? $this->generateOrderNumber() : $number;
     }
 
-    public function paymentConfirm()
-    {
-        $this->validate([
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'address' => 'required|string',
-            'postal_code' => 'required|numeric|digits_between:0,10',
-            'order_number' => 'required|string',
-            'card_number' => 'required|numeric|digits_between:8,16',
-            'exp_date' => 'required|date_format:m/y',
-            'cvv2cvv2' => 'required',
-            'amount' => 'required',
-        ]);
-
+    public function paymentConfirm() {
         $user_order = $this->user->userOrder()->create([
-            'card_number' => $this->generateOrderNumber(),
+            'number' => $this->order_number,
             'order_status_id' => 1,
             'delivery_method_id' => $this->delivery_method->id,
-            'payment' => false,
+            'payment' => true,
             'user_contact_id' => $this->contact->id,
         ]);
 

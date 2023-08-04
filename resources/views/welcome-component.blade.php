@@ -3,17 +3,15 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
             <livewire:slider-component />
 
-            <div class="flex items-center justify-center py-4 mx-4 mb-4 sm:mx-2 border-b">
-                <div class="hidden sm:w-1/3 sm:block">
-                    <div class="text-2xl font-bold text-gray-700 text-center uppercase">{{ __('Product Categories') }}
-                    </div>
+            <div class="mx-4 mb-4 sm:mx-2">
+                <div class="py-4 mb-8 text-2xl font-bold text-center text-gray-700 uppercase border-y">
+                    {{ __('Product Categories') }}
                 </div>
+                <livewire:category.card-category-component />
             </div>
 
-            <livewire:category.card-category-component />
-
-            <div class="mx-4 mb-4 sm:mx-2 pt-8">
-                <div class="py-4 mb-8 text-2xl text-center font-bold text-gray-700 border-y uppercase">
+            <div class="pt-8 mx-4 mb-4 sm:mx-2">
+                <div class="py-4 mb-8 text-2xl font-bold text-center text-gray-700 uppercase border-y">
                     {{ __('Featured Products') }}
                 </div>
                 <livewire:product.prefer-product-component>

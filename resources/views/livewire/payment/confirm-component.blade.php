@@ -14,7 +14,7 @@
                         </x-card-header>
                         <x-card-body>
                             <div class="mt-4 sm:flex">
-                                <div class="w-full mb-2 sm:mr-2">
+                                <div class="w-full mb-4 sm:mb-2 sm:mr-2">
                                     <div class="relative">
                                         <x-label for="first_name" :value="__('Name')" />
                                         <x-input name="first_name" id="first_name" wire:model.lazy='first_name' type="text"
@@ -24,7 +24,7 @@
                                     <div id="error_first_name" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
 
-                                <div class="w-full mb-2 sm:ml-2">
+                                <div class="w-full mb-4 sm:mb-2 sm:ml-2">
                                     <div class="relative">
                                         <x-label for="last_name" :value="__('Last name')" />
                                         <x-input name="last_name" id="last_name" wire:model.lazy='last_name' type="text"
@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="mt-2 sm:flex">
-                                <div class="w-full mb-2 sm:mr-2">
+                                <div class="w-full mb-4 sm:mb-2 sm:mr-2">
                                     <div class="relative">
                                         <x-label for="address" :value="__('Address')" />
                                         <x-input name="address" id="address" wire:model.lazy='address' type="text"
@@ -46,7 +46,7 @@
                                     <div id="error_address" class="mt-2 text-sm text-red-600" ></div>
                                 </div>
 
-                                <div class="w-full mb-2 sm:ml-2">
+                                <div class="w-full mb-4 sm:mb-2 sm:ml-2">
                                     <div class="relative">
                                         <x-label for="postal_code" :value="__('Postal code')" />
                                         <x-input name="postal_code" id="postal_code" wire:model.lazy='postal_code' type="text"
@@ -437,6 +437,7 @@
                                         spinPayment.classList.toggle('hidden');
                                         btnPayment.toggleAttribute('disabled', '');
                                         toastSuccess("{{ __('The payment was made successfully') }}");
+                                        @this.paymentConfirm();
                                         window.location.href = "{{ url('/cart/cart-details') }}";
                                     } else {
                                         toastError("{{__('An error has occurred')}}: {{ __('response.somethingWentWrong') }}");

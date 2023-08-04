@@ -1,12 +1,12 @@
 <div class="mx-4 my-2 sm:mx-2">
     <div wire:loading.class='opacity-60'
         class="w-full p-2 transition ease-in-out border border-gray-100 sm:p-6 sm:rounded-lg hover:shadow-2xl hover:-translate-y-1 duration-400">
-        <x-card-header class="sm:-mt-6 sm:-mx-6 flex items-center justify-center">
+        <x-card-header class="flex items-center justify-center sm:-mt-6 sm:-mx-6">
             <a href="{{ route('product.details', $slug) }}" class="relative">
-                <img class="sm:w-60 sm:h-56 object-cover object-center w-full sm:rounded-t-md text-xs flex items-center justify-center"
+                <img class="flex items-center justify-center object-cover object-center w-full text-xs bg-gray-200 sm:w-[230px] sm:h-[230px] sm:rounded-t-md"
                     src="{{ Storage::url($image) }}" alt="{{ $product->name }}" />
                 @if ($out_of_stock)
-                    <div class="absolute top-0 right-2 bg-green-700 px-1 uppercase text-sm text-white font-bold">
+                    <div class="absolute top-0 px-1 text-sm font-bold text-white uppercase bg-green-700 right-2">
                         {{ __('Out Of Stock') }}
                     </div>
                 @endif
@@ -15,7 +15,7 @@
 
         <x-card-body>
             <div class="sm:-mx-2">
-                <h6 class="font-bold text-sm text-gray-900 text-md">{{ $name }}</h6>
+                <h6 class="text-sm font-bold text-gray-900 text-md">{{ $name }}</h6>
                 <div class="flex border-y">
                     @for ($i = 1; $i <= 5; $i++)
                         <x-icon-star wire:click='setStarts({{ $i }})' class="w-5 h-5 cursor-pointer"

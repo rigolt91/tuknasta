@@ -38,7 +38,7 @@ class DashboardComponent extends Component
 
     public function orderProducts($order)
     {
-        $this->$order = $order;
+        $this->order = $order;
     }
 
     public function render()

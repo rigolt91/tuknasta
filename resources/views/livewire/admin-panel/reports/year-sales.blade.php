@@ -38,7 +38,7 @@
                             {{ __($chart_sales_per_day->options['name']) }}
                         </x-card-header>
                         <x-card-body>
-                            {!! $chart_sales_per_day->renderHtml() !!}
+                            <div style="height: 175px;">{!! $chart_sales_per_day->renderHtml() !!}</div>
                         </x-card-body>
                     </x-card>
                 </div>
@@ -49,7 +49,7 @@
                             {{ __($chart_units_products->options['name']) }}
                         </x-card-header>
                         <x-card-body>
-                                {!! $chart_units_products->renderHtml() !!}
+                            <div style="height: 175px;">{!! $chart_units_products->renderHtml() !!}</div>
                         </x-card-body>
                     </x-cards>
                 </div>
@@ -60,7 +60,7 @@
                             {{ __($chart_price_products->options['name']) }}
                         </x-card-header>
                         <x-card-body class="flex">
-                                {!! $chart_price_products->renderHtml() !!}
+                            <div style="height: 175px;">{!! $chart_price_products->renderHtml() !!}</div>
                         </x-card-body>
                     </x-card>
                 </div>

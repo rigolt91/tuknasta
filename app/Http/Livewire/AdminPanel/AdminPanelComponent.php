@@ -50,7 +50,7 @@ class AdminPanelComponent extends Component
             'group_by_field' => 'created_at',
             'date_format' => 'F',
             'group_by_period' => 'month',
-            'chart_type' => 'polarArea',
+            'chart_type' => 'pie',
             'chart_color' => 'rgb(0, 128, 0, .6)',
             'chart_height' => '200px',
             'legend_position' => 'left',
