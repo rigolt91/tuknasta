@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="my-8">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-            <div class="sm:mx-2">
-                <div class="p-6 mt-6 mb-4 bg-white shadow-md sm:rounded-lg">
+            <div class="mx-4 sm:mx-2">
+                <div class="p-2 mt-6 mb-4 bg-white shadow-md sm:p-6 sm:rounded-lg">
                     <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Delivery Policy') }}</p>
                     <p class="mb-4 text-sm font-bold text-justify text-gray-700">
                         {{ __('Important information about purchases on tuknasta.com') }}
