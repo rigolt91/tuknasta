@@ -7,7 +7,7 @@ use App\Models\UserPurchasedProduct;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use App\Http\Controllers\LaravelChart;
 
 
 class YearSales extends Component
@@ -59,7 +59,7 @@ class YearSales extends Component
             'filter_field' => 'created_at',
             'filter_period' => 'year',
             'filter_period_year' => $this->date,
-            'chart_height' => '300px',
+            'chart_height' => '150px',
             'legend_position' => 'left',
         ];
 
@@ -82,7 +82,7 @@ class YearSales extends Component
             'filter_field' => 'created_at',
             'filter_period' => 'year',
             'filter_period_year' => $this->date,
-            'chart_height' => '300px',
+            'chart_height' => '150px',
             'chart_color' => 'rgb(6, 78, 59, .6)',
             'legend_display' => false,
         ];
@@ -106,7 +106,7 @@ class YearSales extends Component
             'filter_field' => 'created_at',
             'filter_period' => 'year',
             'filter_period_year' => $this->date,
-            'chart_height' => '300px',
+            'chart_height' => '150px',
             'legend_position' => 'left',
         ];
 

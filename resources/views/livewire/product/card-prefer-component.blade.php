@@ -4,9 +4,7 @@
             class="flex h-full transition ease-in-out bg-white border border-gray-100 sm:rounded hover:shadow-xl hover:-translate-y-1 duration-450">
             <div class="flex items-center bg-white rounded sm:w-4/12">
                 <a href="{{ route('product.details', $slug) }}" wire:loading.class="animation-pulse">
-                    <img src="{{ Storage::url($product->image) }}"
-                        class="object-cover object-center w-32 h-32 text-xs flex items-center justify-center sm:rounded-l"
-                        alt="{{ $product->name }}">
+                    <img src="{{ Storage::url($product->image) }}" class="object-cover object-center w-32 h-32 text-xs flex items-center justify-center bg-gray-200 sm:rounded-l" alt="{{ $product->name }}">
                 </a>
             </div>
 

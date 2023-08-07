@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\UPagosDirectService;
+use App\Models\User;
 
 class PaymentController extends Controller
 {

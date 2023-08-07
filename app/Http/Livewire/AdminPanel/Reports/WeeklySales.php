@@ -7,7 +7,7 @@ use Livewire\Component;
 use Carbon\Carbon;
 use App\Models\UserPurchasedProduct;
 use Illuminate\Support\Facades\DB;
-use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use App\Http\Controllers\LaravelChart;
 
 class WeeklySales extends Component
 {
@@ -60,7 +60,7 @@ class WeeklySales extends Component
             'filter_field' => 'created_at',
             'range_date_start' => $this->start_date,
             'range_date_end' => $this->end_date,
-            'chart_height' => '300px',
+            'chart_height' => '150px',
             'legend_position' => 'left',
         ];
 
@@ -83,7 +83,7 @@ class WeeklySales extends Component
             'filter_field' => 'created_at',
             'range_date_start' => $this->start_date,
             'range_date_end' => $this->end_date,
-            'chart_height' => '300px',
+            'chart_height' => '150px',
             'chart_color' => 'rgb(6, 78, 59, .6)',
             'legend_display' => false,
         ];
@@ -108,7 +108,7 @@ class WeeklySales extends Component
             'filter_field' => 'created_at',
             'range_date_start' => $this->start_date,
             'range_date_end' => $this->end_date,
-            'chart_height' => '300px',
+            'chart_height' => '150px',
             'legend_position' => 'left',
         ];
 

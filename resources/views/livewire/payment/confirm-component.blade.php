@@ -93,8 +93,8 @@
                             </div>
 
                             <div class="sm:flex">
-                                <x-input type="hidden" id="amount" wire:model="amount" class="sm:mr-2" />
-                                <x-input type="hidden" id="order_number" wire:model="order_number"
+                                <x-input type="hidden" id="amount" wire:model.lazy="amount" class="sm:mr-2" />
+                                <x-input type="hidden" id="order_number" wire:model.lazy="order_number"
                                     class="sm:ml-2" />
                             </div>
                         </x-card-body>
@@ -153,12 +153,12 @@
                     </div>
                 </div>
             </div>
-            <div id="divPaymentProccess" class="fixed inset-0 overflow-hidden fadeIn">
+            <div id="divPaymentProccess" class="fixed inset-0 hidden overflow-hidden fadeIn">
                 <div class="absolute top-0 left-0 w-full h-full bg-gray-200 opacity-60"></div>
                 <div
                     class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-green-500 border rounded-md shadow-lg top-1/2 left-1/2 justicy-center">
                     <x-icon-spin class="mr-2" />
-                    <div id="divNotify"></div>
+                    <div id="divNotify">{{__('Processing the payment')}}</div>
                 </div>
             </div>
         </form>
@@ -171,17 +171,55 @@
         <script type="text/javascript" src="{{ asset('js/geoinfo.js') }}"></script>
         <script>
             window.addEventListener('DOMContentLoaded', function(e) {
+                //btn process payment
                 const divPaymentProccess = document.getElementById('divPaymentProccess');
                 const divNotify = document.getElementById('divNotify');
-                divPaymentProccess.classList.add('hidden');
-                divNotify.innerHTML = "{{ 'Processing the payment' }}";
-
+                const btnPayment = document.getElementById('paymentConfirm');
+                const spinPayment = document.getElementById('spinPayment');
+                const btnSubmit = document.getElementById('formData');
+                //data form
+                const expDate = document.getElementById("exp_date");
+                const cardNumber = document.getElementById('card_number');
+                const firstName = document.getElementById('first_name');
+                const lastName = document.getElementById('last_name');
+                const cvv2cvc2 = document.getElementById('cvv2cvc2');
+                const address = document.getElementById('address');
+                const postalCode = document.getElementById('postal_code');
+                const orderNumber = document.getElementById('order_number');
+                const amount = document.getElementById('amount');
+                //div message validation data form
+                const errorFirstName = document.getElementById('error_first_name');
+                const errorLastName =  document.getElementById('error_last_name');
+                const errorAddress = document.getElementById('error_address');
+                const errorCardNumber = document.getElementById('error_card_number');
+                const errorCvvCv2 = document.getElementById('error_cvv2cvc2');
+                const errorExpDate = document.getElementById('error_exp_date');
+                const errorPostalCode = document.getElementById('error_postal_code');
+                //function fetch
+                const fetchData = async (url, method, data='') => {
+                    var options = {
+                        method: method,
+                        headers: {
+                            'Accept': 'application.json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    }
+                    try {
+                        const response = await fetch(url, options);
+                        let data = await response.json();
+                        return data;
+                    } catch (error) {
+                        return error;
+                    }
+                }
+                //format expiry date
                 const getExpiry = (reverse = false) => {
-                    var expMM = document.getElementById("exp_date").value.substring(0, 2);
-                    var expYY = document.getElementById("exp_date").value.substring(3, 5);
+                    var expMM = expDate.value.substring(0, 2);
+                    var expYY = expDate.value.substring(3, 5);
                     return reverse ? expYY.concat(expMM) : expMM.concat(expYY);
                 };
-
+                //return value EFSECI
                 const getEFSEci = (eci) => {
                     if (eci === '01' || eci === '05') {
                         return '5';
@@ -191,113 +229,76 @@
                         return '7';
                     }
                 };
-
+                //get efsToken for payment 3dsecure
                 const getEfsToken = async () => {
                     try {
-                        const response = await fetch("{{ url('/api/efstoken') }}");
-                        var data;
-                        if (response.ok) {
-                            data = await response.json();
-                            return data['3ds2_token'];
-                        }
+                        const response = await fetchData("{{ url('/api/efstoken') }}", "GET");
+                        return response['3ds2_token'];
                     } catch (error) {
                         return error;
                     }
                 }
-
+                //country view site default
                 bypass3ds2Country = ['CU', 'UNKNOWN'];
-
+                //verify card data
                 const performVerify = async () => {
                     try {
                         var formData = {
-                            card_number: document.getElementById('card_number').value,
+                            card_number: cardNumber.value,
                             exp_date: getExpiry(),
-                            first_name: document.getElementById('first_name').value,
-                            last_name: document.getElementById('last_name').value,
-                            cvv2cvc2: document.getElementById('cvv2cvc2').value,
-                            avs_address: document.getElementById('address').value,
-                            avs_zip: document.getElementById('postal_code').value,
+                            cvv2cvc2: cvv2cvc2.value,
+                            avs_address: address.value,
+                            avs_zip: postalCode.value,
                         }
-
-                        const response = await fetch("{{ url('/api/verify') }}", {
-                            method: 'POST',
-                            headers: {
-                                'Accept': 'application.json',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(formData),
-                        });
-
-                        var data;
-                        if (response.ok) {
-                            data = await response.json();
-                            console.log(data);
-                            return data;
-                        }
+                        const response = await fetchData("{{ url('/api/verify') }}", "POST", formData);
+                        return response;
                     } catch (error) {
-                        console.log(error);
                         return error;
                     }
                 }
-
+                //payment without 3dsecure
                 const paymentWithout3DS2 = async () => {
                     try {
-                        let amount = parseFloat(document.getElementById('amount').value);
-
+                        let amountOrder = parseFloat(amount.value);
                         var formData = {
-                            amount: amount.toFixed(2),
-                            card_number: document.getElementById('card_number').value,
-                            first_name: document.getElementById('first_name').value,
-                            last_name: document.getElementById('last_name').value,
+                            amount: amountOrder.toFixed(2),
+                            card_number: cardNumber.value,
+                            first_name: firstName.value,
+                            last_name: lastName.value,
                             exp_date: getExpiry(),
-                            cvv2cvc2: document.getElementById('cvv2cvc2').value,
-                            description: 'Payment for Order ' + document.getElementById('order_number').value,
-                            merchant_txn_id: document.getElementById('order_number').value,
-                            avs_address: document.getElementById('address').value,
-                            avs_zip: document.getElementById('postal_code').value,
+                            cvv2cvc2: cvv2cvc2.value,
+                            description: `Payment for Order ${orderNumber.value}`,
+                            merchant_txn_id: orderNumber.value,
+                            avs_address: address.value,
+                            avs_zip: postalCode.value,
                         };
-
-                        console.log(formData);
-
-                        const response = await fetch("{{ url('/api/sale') }}", {
-                            method: 'POST',
-                            headers: {
-                                'Accept': 'application.json',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(formData),
-                        });
-                        var data;
-                        if (response.ok) {
-                            data = await response.json();
-                            console.log(data);
-                            return data;
-                        }
+                        const response = await fetchData("{{ url('/api/sale') }}", "POST", formData);
+                        return response;
                     } catch (error) {
-                        console.log(error);
                         return error;
                     }
                 }
-
+                //payment with 3dsecure
                 const paymentWith3DS2 = async () => {
                     try {
                         var efsUrl = "https://gw.fraud.elavongateway.com/3ds2";
                         var efsToken = await getEfsToken();
-
                         var sdk = new window.Elavon3DSWebSDK({
                             baseUrl: efsUrl,
                             token: efsToken,
                             el: 'holder'
                         });
-
+                        let amountOrder = parseFloat(amount.value);
                         var request = {
-                            purchaseAmount: parseInt(document.getElementById('amount').value * 100),
+                            purchaseAmount: parseInt(amountOrder.toFixed(2) * 100),
+                            acctNumber: cardNumber.value,
+                            first_name: firstName.value,
+                            last_name: lastName.value,
+                            cardExpiryDate: getExpiry(true),
+                            avs_address: address.value,
+                            avs_zip: postalCode.value,
                             purchaseCurrency: "840",
                             purchaseExponent: "2",
-                            acctNumber: document.getElementById('card_number').value,
-                            first_name: document.getElementById('first_name').value,
-                            last_name: document.getElementById('last_name').value,
-                            cardExpiryDate: getExpiry(true),
                             messageCategory: "01",
                             transType: "01",
                             threeDSRequestorAuthenticationInd: "01",
@@ -305,24 +306,20 @@
                             clientStartProtocolVersion: "2.1.0",
                             clientEndProtocolVersion: "2.2.0",
                             displayMode: "lightbox",
-                            avs_address: document.getElementById('address').value,
-                            avs_zip: document.getElementById('postal_code').value,
                         };
-
                         sdk.web3dsFlow(request).then(function success(response) {
                             var formData = {
-                                amount: document.getElementById('amount').value,
-                                card_number: document.getElementById('card_number').value,
+                                amount: amountOrder.toFixed(2),
+                                card_number: cardNumber.value,
                                 exp_date: getExpiry(),
-                                cvv2cvc2: document.getElementById('cvv2cvc2').value,
-                                description: 'Payment for Order ' + document.getElementById('order_number').value,
-                                merchant_txn_id: orderId,
-                                avs_address: document.getElementById('address').value,
-                                avs_zip: document.getElementById('postal_code').value,
+                                cvv2cvc2: cvv2cvc2.value,
+                                description: `Payment for Order ${orderNumber.value}`,
+                                merchant_txn_id: orderNumber.value,
+                                avs_address: address.value,
+                                avs_zip: postalCode.value,
                                 eci_ind: getEFSEci(response.eci),
                                 program_protocol: 2,
                             };
-
                             if (response.authenticationValue) {
                                 formData['3dsecure_value'] = response.authenticationValue;
                             }
@@ -341,147 +338,102 @@
                             if (response.messageVersion) {
                                 formData['3ds_message_version'] = response.messageVersion;
                             }
-
                             (async () => {
-                                let response = await fetch("{{ url('/api/sale') }}", {
-                                    method: "POST",
-                                    headers: {
-                                        'Accept': 'application.json',
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify(formData),
-                                });
-
-                                var data;
-                                if (response.ok) {
-                                    data = await response.json();
-                                    console.log(data);
-                                    return data;
-                                }
+                                let response = await fetchData("{{ url('/api/sale') }}", "POST", formData);
+                                return response;
                             })();
                         }, function error(response) {
                             return response;
                         });
                     } catch (error) {
-                        console.log(lerror);
                         return error;
                     }
                 }
-
+                //validate form data
                 const validateForm = async () => {
                     let formData = {
-                        first_name: document.getElementById('first_name').value,
-                        last_name: document.getElementById('last_name').value,
-                        address: document.getElementById('address').value,
-                        postal_code: document.getElementById('postal_code').value,
-                        order_number: document.getElementById('order_number').value,
-                        card_number: document.getElementById('card_number').value,
-                        exp_date: document.getElementById('exp_date').value,
-                        cvv2cvc2: document.getElementById('cvv2cvc2').value,
-                        amount: document.getElementById('amount').value,
+                        first_name: firstName.value,
+                        last_name: lastName.value,
+                        address: address.value,
+                        postal_code: postalCode.value,
+                        order_number: orderNumber.value,
+                        card_number: cardNumber.value,
+                        exp_date: expDate.value,
+                        cvv2cvc2: cvv2cvc2.value,
+                        amount: amount.value,
                     };
-
-                    let response = await fetch("{{ url('/api/validateform') }}", {
-                        method: "POST",
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData),
-                    });
-
-                    var data;
-                    if (response.ok) {
-                        data = await response.json();
-                        console.log(data);
-                        return data;
-                    } else {
-                        console.log('error');
-                    }
+                    let response = await fetchData("{{ url('/api/validateform') }}", "POST", formData);
+                    return response;
                 }
-
-                let form = document.getElementById('formData');
-
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    let btnPayment = document.getElementById('paymentConfirm');
-                    let spinPayment = document.getElementById('spinPayment');
+                //set style view process payment
+                const setStyle = () => {
                     spinPayment.classList.toggle('hidden');
+                    divPaymentProccess.classList.toggle('hidden');
+                }
+                //begin process the payment
+                btnSubmit.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    setStyle();
                     btnPayment.toggleAttribute('disabled');
-
                     let validated = await validateForm();
-
                     if (!validated.status) {
-                        spinPayment.classList.toggle('hidden');
+                        setStyle();
                         btnPayment.toggleAttribute('disabled', '');
-                        toastInfo("{{ __('Field validation error') }}");
                         showErrorsValidatedForm(validated.errors);
+                        toastInfo("{{ __('Field validation error') }}");
                         return;
                     } else {
-                        divPaymentProccess.classList.toggle('hidden');
-                        divPaymentProccess.classList.toggle('fade');
-
                         divNotify.innerHTML = "{{ __('Verifying card information') }}";
-
                         const verify = await performVerify();
-
-                        if (verify.errorCode) {
-                            toastError(`${verify.errorCode}: ${verify.errorMessage}`);
-                            return false;
-                        }
-
                         if (verify && typeof verify.result === 'string' && verify.result === '0') {
                             divNotify.innerHTML = "{{ __('Completing the payment') }}";
-
                             (async () => {
                                 try {
-                                    //if (bypass3ds2Country.includes(geoInfo.countryCode)) {
+                                    if (bypass3ds2Country.includes(geoInfo.countryCode)) {
                                         const paymentResult = await paymentWithout3DS2();
-                                    //} else {
-                                        //const paymentResult = await paymentWith3DS2();
-                                    //}
-
+                                    } else {
+                                        const paymentResult = await paymentWith3DS2();
+                                    }
                                     if (paymentResult.errorCode) {
-                                        toastError(
-                                            `Error payment ${paymentResult.errorCode}: ${paymentResult.errorMessage}`
-                                        );
+                                        setStyle();
+                                        btnPayment.toggleAttribute('disabled', '');
+                                        toastError(`Error payment ${paymentResult.errorCode}: ${paymentResult.errorMessage}`);
                                         return;
                                     }
-
-                                    if (paymentResult && typeof paymentResult.result === 'string' && paymentResult.result === '0') 
+                                    if (paymentResult && typeof paymentResult.result === 'string' && paymentResult.result === '0')
                                     {
-                                        divPaymentProccess.classList.toggle('hidden');
-                                        divPaymentProccess.classList.toggle('fade');
-                                        spinPayment.classList.toggle('hidden');
+                                        setStyle();
                                         btnPayment.toggleAttribute('disabled', '');
                                         toastSuccess("{{ __('The payment was made successfully') }}");
                                         @this.paymentConfirm();
                                         window.location.href = "{{ url('/cart/cart-details') }}";
                                     } else {
+                                        setStyle();
+                                        btnPayment.toggleAttribute('disabled', '');
                                         toastError("{{ __('An error has occurred') }}: {{ __('response.somethingWentWrong') }}");
                                     }
                                 } catch (error) {
+                                    setStyle();
+                                    btnPayment.toggleAttribute('disabled', '');
                                     toastError(`${error}`);
                                 }
                             })();
                         } else {
-                            divPaymentProccess.classList.toggle('hidden');
-                            divPaymentProccess.classList.toggle('fade');
-                            spinPayment.classList.toggle('hidden');
+                            setStyle();
                             btnPayment.toggleAttribute('disabled', '');
                             toastError("{{ __('Card verification error') }}");
                         }
                     }
                 });
-
+                //show error form validator
                 const showErrorsValidatedForm = (errors) => {
-                    errors.first_name ? document.getElementById('error_first_name').innerHTML = errors.first_name : '';
-                    errors.last_name ? document.getElementById('error_last_name').innerHTML = errors.last_name : '';
-                    errors.address ? document.getElementById('error_address').innerHTML = errors.address : '';
-                    errors.card_number ? document.getElementById('error_card_number').innerHTML = errors.card_number : '';
-                    errors.cvv2cvc2 ? document.getElementById('error_cvv2cvc2').innerHTML = errors.cvv2cvc2 : '';
-                    errors.exp_date ? document.getElementById('error_exp_date').innerHTML = errors.exp_date : '';
-                    errors.postal_code ? document.getElementById('error_postal_code').innerHTML = errors.postal_code : '';
+                    errors.first_name ? errorFirstName.innerHTML = errors.first_name : '';
+                    errors.last_name ? errorLastName.innerHTML = errors.last_name : '';
+                    errors.address ? errorAddress.innerHTML = errors.address : '';
+                    errors.card_number ? errorCardNumber.innerHTML = errors.card_number : '';
+                    errors.cvv2cvc2 ? errorCvvCv2.innerHTML = errors.cvv2cvc2 : '';
+                    errors.exp_date ? errorExpDate.innerHTML = errors.exp_date : '';
+                    errors.postal_code ? errorPostalCode.innerHTML = errors.postal_code : '';
                 }
             });
         </script>

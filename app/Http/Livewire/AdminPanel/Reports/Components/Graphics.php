@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\AdminPanel\Reports\Components;
 
 use Livewire\Component;
-use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use App\Http\Controllers\LaravelChart;
 
 class Graphics extends Component
 {
@@ -27,7 +27,7 @@ class Graphics extends Component
                 'filter_field' => 'created_at',
                 'filter_period' => 'day',
                 'filter_period_day' => $this->date,
-                'chart_height' => '300px',
+                'chart_height' => '150px',
                 'legend_position' => 'left',
             ];
         }elseif($this->start_date && $this->end_date){
@@ -44,7 +44,7 @@ class Graphics extends Component
                 'filter_field' => 'created_at',
                 'range_date_start' => $this->start_date,
                 'range_date_end' => $this->end_date,
-                'chart_height' => '300px',
+                'chart_height' => '150px',
                 'legend_position' => 'left',
             ];
         }
@@ -69,7 +69,7 @@ class Graphics extends Component
                 'filter_field' => 'created_at',
                 'filter_period' => 'day',
                 'filter_period_day' => $this->date,
-                'chart_height' => '300px',
+                'chart_height' => '150px',
                 'chart_color' => 'rgb(6, 78, 59, .6)',
                 'legend_display' => false,
             ];
@@ -88,7 +88,7 @@ class Graphics extends Component
                 'filter_field' => 'created_at',
                 'range_date_start' => $this->start_date,
                 'range_date_end' => $this->end_date,
-                'chart_height' => '300px',
+                'chart_height' => '150px',
                 'chart_color' => 'rgb(6, 78, 59, .6)',
                 'legend_display' => false,
             ];

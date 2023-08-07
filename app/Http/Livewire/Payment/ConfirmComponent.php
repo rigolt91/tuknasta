@@ -30,7 +30,6 @@ class ConfirmComponent extends Component
     public function mount($method = 1)
     {
         $this->delivery_method = DeliveryMethod::findOrFail($method);
-
         $this->order_number = $this->generateOrderNumber();
     }
 
@@ -50,9 +49,7 @@ class ConfirmComponent extends Component
     public function generateOrderNumber()
     {
         $number = strtoupper(substr(sha1(rand(1, 999)), 0, -30));
-
         $order = UserOrder::where('number', $number)->get();
-
         return $order->count() > 0 ? $this->generateOrderNumber() : $number;
     }
 
@@ -93,7 +90,6 @@ class ConfirmComponent extends Component
     public function render()
     {
         $this->mountConfirm();
-
         return view('livewire.payment.confirm-component');
     }
 }
