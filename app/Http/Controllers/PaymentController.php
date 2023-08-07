@@ -25,7 +25,7 @@ class PaymentController extends Controller
             'order_number' => 'required|string',
             'card_number' => 'required|numeric|digits_between:8,16',
             'exp_date' => 'required|date_format:m/y',
-            'cvv2cvv2' => 'required',
+            'cvv2cvc2' => 'required',
             'amount' => 'required'
         ]);
 

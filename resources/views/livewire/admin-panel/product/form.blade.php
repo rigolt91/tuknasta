@@ -56,9 +56,9 @@
             </div>
             <div class="my-2 mb-4">
                 <div class="relative">
-                    <x-label for="branch_id" :value="__('Branch')" />
+                    <x-label for="branch_id" :value="__('Supplier')" />
                     <x-select wire:model='branch_id' class="mt-1.5">
-                        <option value="" selected disabled>{{__('Branches')}}</option>
+                        <option value="" selected disabled>{{__('Suppliers')}}</option>
                         @foreach ($branches as $branch)
                             <option value="{{ $branch->id }}">{{ $branch->name }}</option>
                         @endforeach

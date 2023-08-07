@@ -8,7 +8,7 @@
             <x-card>
                 <x-card-body>
                     <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
-                        {{ __('List of Branches') }}
+                        {{ __('List of Suppliers') }}
 
                         @hasrole('administrator')
                             <x-button-inline wire:click="create" class="flex float-right -mt-2">

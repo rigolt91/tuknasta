@@ -115,6 +115,10 @@ class CartComponent extends Component
 
         $cart->product()->update(['stock' => $cart->product->stock + 1]);
 
+        if($cart->units == 0) {
+            $cart->delete();
+        }
+
         $this->refresh();
     }
 

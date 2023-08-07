@@ -2,18 +2,17 @@
     <div x-data="{ open: false }" class="flex items-center justify-center w-full h-200">
         <div @mouseover="open = true" @mouseout="open = false"
             class="w-full h-[270px] relative flex items-center justify-center">
-            <button x-show="open" aria-label="slide backward"
+            <button x-show="open"
                 :class="open == true ? 'block transition duration-300 easy-in-out' : 'sm:hidden'"
-                x-transition.duration.300ms
                 class="block absolute z-30 left-0 ml-5 py-2.5 px-3.5 rounded-md bg-white/20 hover:bg-white/50 text-white cursor-pointer"
-                id="prev">
+                id="btnPrev"
+            >
                 <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none">
-                    <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
+                    <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
             <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
-                <div id="slider"
+                <div id="sliderCategories"
                     class="flex items-center justify-start h-full mx-4 transition duration-700 ease-out gap-x-8">
                     @foreach ($categories as $category)
                         <div wire:click="getProducts({{ $category->id }})"
@@ -28,41 +27,39 @@
                     @endforeach
                 </div>
             </div>
-            <button x-show="open" aria-label="slide forward"
+            <button x-show="open"
                 :class="open == true ? 'block transition duration-300 easy-in-out' : 'sm:hidden'"
                 class="block absolute z-30 right-0 mr-5 py-2.5 px-3.5 rounded-md bg-white/20 hover:bg-white/50 text-white cursor-pointer"
-                id="next">
+                id="btnNext"
+            >
                 <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none">
-                    <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
+                    <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
         </div>
     </div>
 
     <script>
-        let next = document.getElementById('next');
-        let prev = document.getElementById('prev');
+        let next = document.getElementById('btnNext');
+        let prev = document.getElementById('btnPrev');
         let defaultTransform = 0;
-        let slider = document.getElementById('slider');
+        var sliderCategories = document.getElementById('sliderCategories');
 
         function goNext() {
-            defaultTransform = defaultTransform - 400;
-            var slider = document.getElementById("slider");
-            if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7) defaultTransform = 0;
-            slider.style.transform = "translateX(" + defaultTransform + "px)";
+            defaultTransform = defaultTransform - 399;
+            if (Math.abs(defaultTransform) >= sliderCategories.scrollWidth / 1.7) defaultTransform = 0;
+            sliderCategories.style.transform = "translateX(" + defaultTransform + "px)";
         }
         next.addEventListener("click", goNext);
 
         function goPrev() {
-            var slider = document.getElementById("slider");
             if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
-            else defaultTransform = defaultTransform + 400;
-            slider.style.transform = "translateX(" + defaultTransform + "px)";
+            else defaultTransform = defaultTransform + 399;
+            sliderCategories.style.transform = "translateX(" + defaultTransform + "px)";
         }
         prev.addEventListener("click", goPrev);
 
-        slider.addEventListener('mousedown', (e) => {
+        sliderCategories.addEventListener('mousedown', (e) => {
             let screenX = screen.width;
             let x = e.clientX;
             x > (screenX / 2) ? goNext() : goPrev();

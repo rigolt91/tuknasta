@@ -17,6 +17,7 @@ class UserPurchasedProduct extends Model
         'product_id',
         'units',
         'price',
+        'amount',
     ];
 
     public function scopeWhereDate(Builder $query, $date)

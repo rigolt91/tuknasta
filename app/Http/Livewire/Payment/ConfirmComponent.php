@@ -22,7 +22,7 @@ class ConfirmComponent extends Component
     public $delivery_method;
     public $card_number;
     public $exp_date;
-    public $cvv2cvv2;
+    public $cvv2cvc2;
     public $amount;
 
     protected $listeners = ['refreshConfirm' => '$refresh'];
@@ -68,6 +68,7 @@ class ConfirmComponent extends Component
         $this->purchasedProduct($user_order);
 
         $this->emit('deleteUserJob');
+        $this->emit('refreshCart');
 
         Mail::to($this->user)
             ->cc($this->contact)
@@ -80,8 +81,9 @@ class ConfirmComponent extends Component
         foreach ($this->user->cart as $cart) {
             $user_order->userPurchasedProduct()->create([
                 'product_id' => $cart->product_id,
-                'units' => $cart->units,
-                'price' => $cart->price,
+                'units'  => $cart->units,
+                'price'  => $cart->price,
+                'amount' => $cart->units*$cart->price,
             ]);
 
             $cart->delete();

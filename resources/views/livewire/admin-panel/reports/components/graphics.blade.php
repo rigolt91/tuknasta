@@ -6,7 +6,7 @@
                     {{ __($chart_units_products->options['name']) }}
                 </x-card-header>
                 <x-card-body>
-                    <div style="height: 175px;">{!! $chart_units_products->renderHtml() !!}</div>
+                        {!! $chart_units_products->renderHtml() !!}
                 </x-card-body>
             </x-cards>
         </div>
@@ -17,7 +17,7 @@
                     {{ __($chart_price_products->options['name']) }}
                 </x-card-header>
                 <x-card-body class="flex">
-                    <div style="height: 175px;">{!! $chart_price_products->renderHtml() !!}</div>
+                        {!! $chart_price_products->renderHtml() !!}
                 </x-card-body>
             </x-card>
         </div>

@@ -50,7 +50,7 @@ class WeeklySales extends Component
         $options = [
             'chart_title' => 'Units',
             'name' => 'Units Per Product',
-            'chart_type' => 'pie',
+            'chart_type' => 'polarArea',
             'model' => 'App\Models\UserPurchasedProduct',
             'report_type' => 'group_by_relationship',
             'aggregate_function' => 'sum',
@@ -60,7 +60,7 @@ class WeeklySales extends Component
             'filter_field' => 'created_at',
             'range_date_start' => $this->start_date,
             'range_date_end' => $this->end_date,
-            'chart_height' => '150px',
+            'chart_height' => '300px',
             'legend_position' => 'left',
         ];
 
@@ -83,7 +83,7 @@ class WeeklySales extends Component
             'filter_field' => 'created_at',
             'range_date_start' => $this->start_date,
             'range_date_end' => $this->end_date,
-            'chart_height' => '150px',
+            'chart_height' => '300px',
             'chart_color' => 'rgb(6, 78, 59, .6)',
             'legend_display' => false,
         ];
@@ -108,7 +108,7 @@ class WeeklySales extends Component
             'filter_field' => 'created_at',
             'range_date_start' => $this->start_date,
             'range_date_end' => $this->end_date,
-            'chart_height' => '150px',
+            'chart_height' => '300px',
             'legend_position' => 'left',
         ];
 

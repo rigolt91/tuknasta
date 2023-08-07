@@ -3,7 +3,7 @@
         <x-card-header  class="bg-red-700 -m-6">
             <div class="py-3 mx-4 text-lg text-white font-bold flex">
                 <x-icon-trash class="h-6 w-6" />
-                <span class="ml-2">{{ __('Delete Branch') }}</span>
+                <span class="ml-2">{{ __('Delete Suppliers') }}</span>
 
                 <button wire:click="$emit('closeModal')" type="button" class="float-right ml-auto -mx-1.5 text-gray-800 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-100 hover:text-green-900 inline-flex h-8 w-8"  aria-label="Close">
                     <span class="sr-only">{{__('Close')}}</span>
@@ -20,7 +20,7 @@
                     @csrf
 
                     <div class="mb-4">
-                        {{ __('Are you sure you want to delete this branch?') }}
+                        {{ __('Are you sure you want to delete this supplier?') }}
                     </div>
 
                     <div class="flex items-center justify-end -mb-4">

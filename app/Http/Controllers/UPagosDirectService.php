@@ -13,12 +13,12 @@ class UPagosDirectService extends Controller
 
     private $url = 'https://www.upagosdirect.com/api/';
 
-    private $demo_mode = false;
+    private $demo_mode = true;
 
     public function __construct()
     {
         $uPagosDirect = UpagosDirect::first();
-        $this->demo_mode = $uPagosDirect->mode;
+        //$this->demo_mode = $uPagosDirect->mode;
 
         $token = !empty($uPagosDirect->token) ? $uPagosDirect->token : 'qnZzK9PXG6XDjXouF9u14xveuBeuukHR8bcQwHCp';
 
@@ -49,6 +49,7 @@ class UPagosDirectService extends Controller
 
     public function postData($endpoint, $data)
     {
+        Log::debug($endpoint, $data);
         try {
             $response = $this->httpClient->post($endpoint, [
                 'json' => $data,

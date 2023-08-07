@@ -13,11 +13,25 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <style>
-        #slideSource {
-            opacity: 1;
-            transition: opacity 1s;
-        }        #slideSource.fade {
-            opacity: 0;
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .fadeIn {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
         }
     </style>
 
@@ -51,14 +65,10 @@
         @livewire('livewire-ui-modal')
         @livewire('footer-menu')
 
-        <button id="btnUp" type="button"
-            class="fixed flex items-center justify-center w-12 h-12 text-white bg-green-700 border-2 border-gray-100 rounded-full shadow-md bottom-6 right-3">
-            <svg width="16" he0ght="16" fill="white"
-                class="text-white bi bi-chevron-double-up" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z" />
-                <path fill-rule="evenodd"
-                    d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+        <button id="btnUp" type="button" class="fadeIn fixed flex items-center justify-center w-12 h-12 text-white bg-green-700 border-2 border-gray-100 rounded-full shadow-md bottom-6 right-3">
+            <svg width="16" he0ght="16" fill="white" class="text-white bi bi-chevron-double-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z" />
+                <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
             </svg>
         </button>
     </div>
@@ -75,8 +85,7 @@
                     <circle cx="18.36" cy="18.36" r="2" />
                     <circle cx="5.64" cy="18.36" r="2" />
                     <circle cx="18.36" cy="5.64" r="2" />
-                    <animateTransform attributeName="transform" type="rotate" dur="2s" values="0 12 12;360 12 12"
-                        repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" type="rotate" dur="2s" values="0 12 12;360 12 12" repeatCount="indefinite" />
                 </g>
             </svg>
             <div class="font-bold text-green-700 uppercase text-md">{{ __('Loadding') }}...</div>
@@ -84,7 +93,6 @@
     </div>
 
     @stack('modals')
-
     @livewireScripts
     @yield('scripts')
 </body>

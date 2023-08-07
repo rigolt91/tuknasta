@@ -50,9 +50,9 @@ class AdminPanelComponent extends Component
             'group_by_field' => 'created_at',
             'date_format' => 'F',
             'group_by_period' => 'month',
-            'chart_type' => 'pie',
+            'chart_type' => 'polarArea',
             'chart_color' => 'rgb(0, 128, 0, .6)',
-            'chart_height' => '200px',
+            'chart_height' => '300px',
             'legend_position' => 'left',
         ];
 
@@ -74,7 +74,7 @@ class AdminPanelComponent extends Component
             'aggregate_field' => 'amount',
             'chart_type' => 'bar',
             'chart_color' => 'rgb(6, 78, 59, .6)',
-            'chart_height' => '200px',
+            'chart_height' => '300px',
             'legend_display' => false,
         ];
 
@@ -93,7 +93,7 @@ class AdminPanelComponent extends Component
             'aggregate_field' => 'units',
             'relationship_name' => 'product',
             'group_by_field' => 'name',
-            'chart_height' => '200px',
+            'chart_height' => '300px',
             'legend_position' => 'left',
         ];
 

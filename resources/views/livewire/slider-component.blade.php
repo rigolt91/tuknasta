@@ -22,7 +22,7 @@
             @endforeach
 
             <!-- The previous button -->
-            <a x-show="open" :class="open == true ? 'transition duration-300 easy-in-out' : ''" x-transition.duration.300ms
+            <a x-show="open" :class="open == true ? 'transition duration-300 easy-in-out' : ''"
                 class="absolute left-4 top-1/2 py-2.5 px-3.5 rounded bg-white/20 bg-transparent hover:bg-white/50 text-white cursor-pointer"
                 onclick="moveSlide(-1)">
                 <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none">
@@ -32,7 +32,7 @@
             </a>
 
             <!-- The next button -->
-            <a x-show="open" :class="open == true ? 'transition duration-300 easy-in-out' : ''" x-transition.duration.300ms
+            <a x-show="open" :class="open == true ? 'transition duration-300 easy-in-out' : ''"
                 class="absolute right-4 top-1/2 py-2.5 px-3.5 rounded bg-white/20 bg-transparent hover:bg-white/50 text-white cursor-pointer"
                 onclick="moveSlide(1)">
                 <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none">
@@ -50,7 +50,6 @@
         </div>
 
         @section('scripts')
-            <!-- Javascript code -->
             <script>
                 let slideIndex = 1;
                 showSlide(slideIndex);
