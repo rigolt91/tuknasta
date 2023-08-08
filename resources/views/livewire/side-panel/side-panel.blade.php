@@ -8,7 +8,7 @@
 
         <div class="fixed inset-0 overflow-hidden">
             <div class="absolute inset-0 overflow-hidden">
-                <div class="fixed left-0 flex max-w-full pointer-events-none top-20 bottom-20">
+                <div class="fixed left-0 flex max-w-full pointer-events-none top-5 bottom-5">
                     <div x-show="open" x-cloak
                         x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
                         x-transition:enter-start="-translate-x-full" x-transition:enter-end="-translate-x-0"
