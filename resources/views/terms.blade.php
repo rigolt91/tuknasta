@@ -7,103 +7,243 @@
             <div class="w-full p-6 mt-6 overflow-hidden text-xs prose text-justify text-gray-700 bg-white shadow-md sm:max-w-2xl sm:rounded-lg">
                 <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Terms and Conditions') }}</p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('PLEASE READ THE TERMS AND CONDITIONS OF THIS WEBSITE CAREFULLY. YOUR USE CONFIRMS YOUR UNCONDITIONAL ACCEPTANCE OF THE FOLLOWING TERMS AND CONDITIONS. IF YOU DO NOT AGREE TO THE TERMS AND CONDITIONS, DO NOT USE THIS WEBSITE.')}}
+                    {{__('Tuknasta is an E-commerce website that markets products and services purchased from anywhere in the world for delivery or enjoyment by Cuban families, in accordance with the terms and conditions set forth herein.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('Products, Content and Specifications. All features, content, specifications, products and prices of products and services described or represented on tuknasta.com are subject to change at any time without notice. Certain weights, similar measurements and similar descriptions are approximate and provided for convenience only.')}}
+                    {{__('The companies that sell their products or services in tuknasta, have the permits and authorizations required by law, and guarantee to the clients the fulfillment of any obligation that they acquire before them, according to the terms and conditions expressed here.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('tuknasta.com, makes all reasonable efforts to correctly display the attributes of our products. The inclusion of products or services on this website at any given time does not imply or guarantee that such products or services will be available at any time. It is your responsibility to determine that all national laws (including minimum age requirements) are followed with respect to the possession, use and sale of any item purchased on this website. By placing an order, you declare that the products ordered will be used only in accordance with the established laws.')}}
-                </p>
-                <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Delivery Policy') }}</p>
-                <p class="mb-4 text-sm font-bold text-justify text-gray-700">
-                    {{ __('Important information about purchases on tuknasta.com') }}
+                    {{__('The terms established herein are valid to regulate commercial relationships that may arise between the provider, the client and the recipient, which will always be aimed at protecting the integrity and satisfaction of the client.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{ __('tuknasta, an e-commerce website where different businesses participate by marketing their products. Each of its suppliers establishes different delivery times and modes. We ask you to carefully read this information on your purchase receipts.') }}
+                    {{__('The user who uses our website accepts the terms and conditions agreed herein, and in turn declares that:')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('WARNING. If you order products from different suppliers, they will be distributed from different businesses and therefore may be delivered at different times.')}}
+                    {{__('a) Is a person of legal age,')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('tuknasta currently with scope in the province of Havana and the urban area of the municipality of Las Tunas, has a range of products that are available from different suppliers. We ask you to carefully read this information at the time of purchase.')}}
+                    {{__('b) read and accepts these conditions,')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('ATTENTION: The orders will be delivered to the beneficiary according to the data provided by the Client at the time of making the purchase, at the address or place specified when making the purchase. Exceptionally, if the beneficiary is not present at the time of delivery, the order can be delivered to another person as long as we have received approval from the client or beneficiary and a copy or photo of the identification will be requested.')}}
-                    <br>
-                    {{__('Contact us at info@tuknasta.com to coordinate the details.')}}
-                </p>
-                <p class="mb-4 text-sm font-bold text-justify text-gray-700">
-                    {{__('Delivery conditions:')}}
+                    {{__('c) knows that when placing orders through www.tuknasta.com, you must provide various personal data which will be confirmed and collected before the shipment is made.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('When placing the order, the customer may specify a person, delivery address and telephone contact. The Tuknasta team may contact the customer and/or beneficiary of each order to: inform about the order and confirm the address, check the payment information, inspect the delivery, assess the quality of the service provided or the products received.')}}
+                    {{__('1. FORM OF PURCHASE OF THE PRODUCTS:')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('At the time of delivery, the recipient must check together with the carrier that the products and the quantities declared on the invoice match the merchandise received. If any of the products described in the order is not delivered, the recipient reserves the right not to accept delivery at that time.')}}
+                    {{__('1.1.1.- The products can only be purchased through the tuknasta.com website. Orders by phone or any other means of communication will not be accepted.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('ATTENTION: Once the delivery order is signed and accepted by the beneficiary, claims for missing products that were not reflected in the delivery invoice will not be accepted.')}}
+                    {{__('1.1.2.- For the acquisition of the goods, the client will access the site, register and request the products that he wishes to acquire, declare the name of the recipient or his substitute and finally make the payment through credit or debit cards.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('ATTENTION: The orders will be delivered to the beneficiary according to the data provided by the Client at the time of making the purchase, at the address or place specified when making the purchase. Exceptionally, if the beneficiary is not present at the time of delivery, the order can be delivered to another person as long as we have received approval from the client or beneficiary and a copy or photo of the identification will be requested.')}}
+                    {{__('1.1.3.- The recipients to whom the purchase is directed must be over 18 years of age and be mentally fit to carry out this act.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('Orders that present errors or incomplete information that does not allow delivery to be made safely, will be temporarily withheld until the client provides the necessary information, if it is not corrected within a period of up to 48 hours, the order can be canceled and the money returned. to the buyer.')}}
+                    {{__('1.1.4.- The user and the recipient will receive an email by which they will be able to know the status of their purchase.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('The telephone data and/or email address of the beneficiary may be used by the carrier or the management team to coordinate the delivery schedule and other details of the service with the beneficiary.')}}
+                    {{__('1.1.5.- The offers and prices of the products will be valid while they are displayed on the website www.tuknasta.com, in correspondence with existing inventories.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('For protection against fraud and/or improper use of credit cards, tuknasta.com attributes the right to delay the delivery of products and/or services until the authenticity of the purchase is verified and, if deemed appropriate, it will deepen at the origin of any transaction carried out on the site, as established in the existing regulations.')}}
+                    {{__('1.1.6.- If an incident occurs related to the purchase of a product and that is not in stock at that time, Tuknasta undertakes to manage and/or provide alternative products that satisfy the customer.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('ATTENTION: The delivery times of the shipments or the provision of the purchased services, begin to apply from the approval of the order once its authenticity has been verified. If you need to ask any questions or comments, you can contact us by email info@tuknasta.com.')}}
-                </p>
-                <p class="mb-4 text-sm font-bold text-justify text-gray-700">
-                    {{__('Delivery Times and Costs')}}
+                    {{__("1.1.7.- The user can request the cancellation of the purchase within the first 24 hours of making it, by sending an email to the following address compras@tuknasta.com, with the Subject 'Cancellation of order', for this you must provide the order data.")}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('The times, costs and delivery areas vary according to the supplier and the type of product. This information can be found by consulting each of the products for sale. Home Delivery Time: Approximately between 48 hours and up to 5 business days. Rate: Las Tunas: 4 USD Havana: 8 USD')}}
-                </p>
-                <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Privacy Policy') }}</p>
-                <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('You are required to have an account name and password for certain activities on this Web site.')}}
+                    {{__('1.1.8.- When the cancellation occurs by decision of the user, and in which tuknasta had no involvement, a surcharge of 6% of the total amount of the order will be applied as compensation for bank charges and the payment gateway, Otherwise, when the cancellation is due to a Tuknasta error, the user will be reimbursed 100% of the amount paid.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('The data provided by you is incorporated into our database, being used solely for registration authentication and processing the order. Tuknasta undertakes not to disclose the data to third parties and to use it only for exchange purposes between us and you. The data can be modified at any time you wish.')}}
+                    {{__('1.2- Prices')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('We may terminate or suspend your account name and password at any time without notice to you or any other person if we believe that you have breached our policies, terms and conditions. We are under no obligation to verify the current identity or authorization of any person using the account name and password to access and use the Website.')}}
+                    {{__('1.2.1 The prices of the products and services that are marketed on the site, as well as the delivery costs are expressed in US dollars.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('We have the right at any time to demand proof of the identity of any person requesting access to and use of the Website, and we may deny access if we are not satisfied with such proof. You are fully responsible for the security of your account name and password and for all uses and/or abuses.')}}
+                    {{__('1.2.2 Delivery costs are added to the purchase price in accordance with the specifications given for each included product or service.')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('You agree to notify us immediately of any unauthorized use of your account. Tuknasta assumes no responsibility, and will not be liable, for any damages arising from or related to your failure to maintain the security of your password.')}}
-                </p>
-                <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Electronic Communications.') }}</p>
-                <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('When you visit this website or send us an email, you are communicating with us electronically. Therefore, you agree to receive electronic communications from us. We may communicate with you by email or by posting notices on this website. You agree that all agreements, notices and other communications that we send to you electronically satisfy any legal requirement as if such communications were in writing.')}}
-                </p>
-                <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Testimonials and reviews.') }}</p>
-                <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('Testimonials and ratings that you may provide from time to time to help us improve our service to you may be used in advertising and other forms of marketing. Your first or last name or other similar information may be used. By agreeing to these terms and conditions, you consent to the use of your information in marketing materials.')}}
-                </p>
-                <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Limitations of Liability.') }}</p>
-                <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('tuknasta.com does not assume any responsibility for damages and/or losses due to any virus that could infect your computer, or telecommunications equipment, or other assets derived from the access, use or browsing of this Website, or the information or material on this website.')}}
+                    {{__('1.3.- PAYMENTS:')}}
                 </p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('These Terms and Conditions may be revised at any time and from time to time to update this posting. You should visit this page frequently to review the current terms and conditions, as they are important to you. Certain provisions of these Terms and Conditions may be superseded by conditions or legal notices found on particular pages of this website. Your continued use of this site after each notification form will indicate your acceptance of the revised terms of this Agreement.')}}
+                    {{__('1.3.1.- Payments will be made through the following credit or debit cards:')}}
                 </p>
-                <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Termination.') }}</p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('You or we may suspend or terminate your account or your use of this website at any time for any or no reason. You are personally responsible for any orders placed or charges made through your account prior to termination. We reserve the right to change, suspend or discontinue all or part of this website at any time without notice.')}}
+                    {{__('a) Visa,')}}
                 </p>
-                <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Additional assistance..') }}</p>
                 <p class="mb-4 text-sm text-justify text-gray-700">
-                    {{__('If you do not understand any of the Terms and Conditions or if you have any questions or comments, we invite you to contact us at.')}}
+                    {{__('b) MasterCard,')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('c) Discovery, and')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('d) Union Pay.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.3.2.- To avoid fraud in online payment methods and protect our customers, the payment gateways used by tuknasta.com are verified by the associated financial entities and verify the reliability of the data provided during the execution of the transaction. the purchase.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__("1.3.3.- All the transactions that are carried out are in the most absolute confidentiality, not having any access to the user's bank details, nor does it register them on its servers.")}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.3.4.- If the user presents a problem when making the payment, they can contact us through our telephone numbers or write to us by email: compras@tuknasta.com.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.3.5.- If the purchase made exceeds 50 kilograms, then the user will be charged an additional amount:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('a) from 51 to 60 kilograms $3 US dollars;')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('b) from 51 to 70 kilograms $5 US dollars;')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('c) from 71 to 80 kilograms $10 US dollars,')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('d) from 81 to 90 kilograms $15 US dollars,')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('e) from 91 to 100 kilograms $20 US dollars, and')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('f) from 101 kilograms onwards $30 US dollars.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.3.6.- Household appliances are exempt from the application of this formula and do not have a cost for distribution, the delivery time will be extended to 10 business days because specialized transport is needed for their transfer.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.3.7 To protect the platform and guarantee secure transactions in case a suspicious payment is detected that cannot be clarified between the bank, financial entity and tuknasta.com and the products have been delivered without payment being received from it, The following action will be taken:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('a) The User, the card used for payment, and the recipient(s) will be banned and will not be able to make future purchases in the store.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4- DELIVERIES:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.1- The orders will be delivered to the addressee according to the data provided by the Client at the time of making the purchase, at the address or place specified when making the purchase. Exceptionally, if the recipient is not present at the time of delivery, the order can be delivered to another person as long as we have received approval from the customer or recipient and a copy or photo of the identification will be requested.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.2- Orders that present errors or incomplete information that does not allow delivery to be made safely, will be temporarily withheld until the client provides the necessary information, if it is not corrected within a period of up to 48 hours, the order can be canceled and the money returned to the buyer.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.3- The telephone data and/or email address of the recipient may be used by the carrier or the management team to coordinate the delivery schedule and other details of the service with the recipient.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.4- The delivery terms of the shipments or the provision of the purchased services, begin to apply from the approval of the order once its authenticity has been verified.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.5.- The delivery to the recipient after the purchase will be as follows:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.5.1.- In the case of users residing in the Las Tunas province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('a) users residing in the municipality of Las Tunas $5.00 US dollars,')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('b) for residents of the municipalities Jobabo, Majibacoa, Manatí and Puerto Padre $6.00 US dollars,')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('c) for residents in the municipalities of Amancio, Colombia and Jesús Menéndez $7.00 US dollars')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.5.2 In the case of users residing in the Havana province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.6.- At the time of delivery, the recipient must check together with the carrier that the products and the quantities declared on the invoice match the merchandise received to avoid subsequent claims for breakage, deterioration, shortages or quality problems and food safety.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.7.- The recipient will sign the delivery voucher with the products received.')}}
+                </p><p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.8.- Orders can be received at various times, taking into account if they include products that require special transportation or if they correspond to different suppliers.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('1.4.9.- Very large orders or orders that contain hardware, electronics or household appliances will be delivered as established in the previous section and the time to complete the delivery cannot exceed 10 business days.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.- COMMERCIAL GUARANTEES:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.1.- For electrical appliances and electronic products, the warranty period will depend on the type of equipment and will be specified in the product description in the certificate of ownership and warranty that the recipient will receive with the delivery of the product, in addition the following will be specified in these documents items:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('a) Warranty terms and conditions, and')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('b) contact numbers, and the address of the workshops to which you can go and make use of it.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.2.- In order for the recipient to be entitled to receive the warranty service, he must do the following:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('a) Allow specialists to diagnose the team;')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('b) Maintain the integrity of the equipment guarantee seal;')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('c) Keep and show the following documents when requesting warranty service:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('• Equipment Ownership Certificate;')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('• Guarantee Certificate, and')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('• The commercial invoice issued by the virtual store')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.3.- The recipient can establish a claim only for quality problems of the products within the term of 24 hours after receipt, to establish a claim you can direct your request to the following email ventas@tuknasta.com, and for this you must provide photo of the product with which you are dissatisfied.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.4.- When there are products in the order with which the recipient does not agree, he will proceed to reject it and sign the rest of the products, the store will replace the product within the next 24 hours.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.5.- This same procedure will be taken into account when products that are not physically found are reflected in the delivery voucher.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.6.- In the cases in which there is a claim, the store will offer you a credit so that at any other time you can buy any other product for the amount not consumed in the initial order.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.7.- Once the products have been received and the delivery voucher signed by the recipient, no claims for shortages, breakages or deterioration of the same will be accepted.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.8 Returns')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.8.1- Returns will be made for different reasons attributable to the buyer or recipient of the service, such as:')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('a) Product or Order not delivered')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('b) Product that does not correspond to its description')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('c) Product in poor condition')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('d) Delayed delivery of the Product or Order')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('For more information, consult the Return Policy expressed on this website.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.9.- The site is not responsible for the fraudulent, incorrect or unauthorized use of the magnetic card used to make the purchase, so no refund will be made for these reasons. This incident will be notified to the services of the card in question.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.10.- The products offered by tuknasta will be in accordance with the legislation in force for this type of service, both in the country of origin and the country of destination, so it will be guaranteed that the photographs and images, as well as their description, faithfully represent the product. offered.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.11.- The tuknasta.com site may be modified at any time by its operators, and the modification will correspond to the changes that may exist in terms, conditions or types of products, for which we urge users to users to constantly visit the site, so that they are kept updated and do not incur errors when using the site.')}}
+                </p>
+                <p class="mb-4 text-sm text-justify text-gray-700">
+                    {{__('2.12.- Any doubt, concern, suggestion or claim will be addressed by the tuknasta.com team, through the email atencionaclientes@tuknasta.com. You can also communicate by phone xxxxxx and xxxxxx and by WhatsApp associated with those lines.')}}
                 </p>
             </div>
         </div>
