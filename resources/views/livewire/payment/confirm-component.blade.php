@@ -153,7 +153,7 @@
                     </div>
                 </div>
             </div>
-            <div id="divPaymentProccess" class="fixed inset-0 hidden overflow-hidden fadeIn">
+            <div id="divPaymentProccess" class="fixed inset-0 overflow-hidden hidden fadeIn">
                 <div class="absolute top-0 left-0 w-full h-full bg-gray-200 opacity-60"></div>
                 <div
                     class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-green-500 border rounded-md shadow-lg top-1/2 left-1/2 justicy-center">
@@ -262,15 +262,15 @@
                         let amountOrder = parseFloat(amount.value);
                         var formData = {
                             amount: amountOrder.toFixed(2),
+                            merchant_txn_id: orderNumber.value,
                             card_number: cardNumber.value,
-                            first_name: firstName.value,
-                            last_name: lastName.value,
                             exp_date: getExpiry(),
                             cvv2cvc2: cvv2cvc2.value,
-                            description: `Payment for Order ${orderNumber.value}`,
-                            merchant_txn_id: orderNumber.value,
+                            first_name: firstName.value,
+                            last_name: lastName.value,
                             avs_address: address.value,
-                            avs_zip: postalCode.value,
+                            avs_zip: postalCode.value,                           
+                            description: `Payment for Order ${orderNumber.value}`,
                         };
                         const response = await fetchData("{{ url('/api/sale') }}", "POST", formData);
                         return response;
@@ -366,19 +366,23 @@
                     return response;
                 }
                 //set style view process payment
-                const setStyle = () => {
-                    spinPayment.classList.toggle('hidden');
-                    divPaymentProccess.classList.toggle('hidden');
+                const addStyle = () => {
+                    spinPayment.classList.remove('hidden');
+                    divPaymentProccess.classList.remove('hidden');
+                    btnPayment.toggleAttribute('disabled', '');
+                }
+                const removeStyle = () => {
+                    spinPayment.classList.add('hidden');
+                    divPaymentProccess.classList.add('hidden');
+                    btnPayment.toggleAttribute('disabled');
                 }
                 //begin process the payment
                 btnSubmit.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    setStyle();
-                    btnPayment.toggleAttribute('disabled');
+                    addStyle();
                     let validated = await validateForm();
                     if (!validated.status) {
-                        setStyle();
-                        btnPayment.toggleAttribute('disabled', '');
+                        removeStyle();
                         showErrorsValidatedForm(validated.errors);
                         toastInfo("{{ __('Field validation error') }}");
                         return;
@@ -389,38 +393,36 @@
                             divNotify.innerHTML = "{{ __('Completing the payment') }}";
                             (async () => {
                                 try {
-                                    if (bypass3ds2Country.includes(geoInfo.countryCode)) {
+                                    addStyle();
+                                    //if (bypass3ds2Country.includes(geoInfo.countryCode)) {
                                         const paymentResult = await paymentWithout3DS2();
-                                    } else {
-                                        const paymentResult = await paymentWith3DS2();
-                                    }
+                                    //} else {
+                                        //const paymentResult = await paymentWith3DS2();
+                                    //}
                                     if (paymentResult.errorCode) {
-                                        setStyle();
-                                        btnPayment.toggleAttribute('disabled', '');
+                                        removeStyle();
                                         toastError(`Error payment ${paymentResult.errorCode}: ${paymentResult.errorMessage}`);
                                         return;
                                     }
                                     if (paymentResult && typeof paymentResult.result === 'string' && paymentResult.result === '0')
                                     {
-                                        setStyle();
-                                        btnPayment.toggleAttribute('disabled', '');
+                                        removeStyle();
                                         toastSuccess("{{ __('The payment was made successfully') }}");
                                         @this.paymentConfirm();
                                         window.location.href = "{{ url('/cart/cart-details') }}";
-                                    } else {
-                                        setStyle();
-                                        btnPayment.toggleAttribute('disabled', '');
+                                    }else {
+                                        removeStyle();
                                         toastError("{{ __('An error has occurred') }}: {{ __('response.somethingWentWrong') }}");
+                                        return;
                                     }
                                 } catch (error) {
-                                    setStyle();
-                                    btnPayment.toggleAttribute('disabled', '');
+                                    removeStyle();
                                     toastError(`${error}`);
+                                    return;
                                 }
                             })();
                         } else {
-                            setStyle();
-                            btnPayment.toggleAttribute('disabled', '');
+                            removeStyle();
                             toastError("{{ __('Card verification error') }}");
                         }
                     }
