@@ -18,7 +18,7 @@ class SliderComponent extends Component
         'title' => 'nullable|string',
         'text'  => 'nullable|string',
         'link'  => 'nullable',
-        'image' => 'required|mimes:jpeg,png,bmp,gif|max: 2000'
+        'image' => 'required|mimes:jpeg,png,bmp,gif|max:4000'
     ];
 
     public function store()

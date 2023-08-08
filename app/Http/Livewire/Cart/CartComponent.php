@@ -43,14 +43,15 @@ class CartComponent extends Component
         try {
             if ($this->user) {
                 $stock = $product->stock - $units;
-
                 if ($stock >= 0) {
                     $this->reduceProductStock($product, $stock);
 
                     $product_cart = Cart::where('user_id', $this->user->id)->where('product_id', $product->id)->first();
-
-                    $product_cart ? $this->updateCart($product_cart, $units) : $this->createCart($product, $units);
-
+                    if(is_null($product_cart)) {
+                        $this->createCart($product, $units);
+                    } else {
+                        $this->updateCart($product_cart, $units);
+                    }
                     $this->refresh();
                 } else {
                     $this->emit('openModal', 'error-modal-component', ['message' => 'Sorry, the requested product is currently out of stock.']);
@@ -77,7 +78,7 @@ class CartComponent extends Component
         $product->update(['units' => $product->units + $units]);
     }
 
-    public function reduceProductStock($product, $stock)
+    public function reduceProductStock(Product $product, $stock)
     {
         $product->update(['stock' => $stock]);
     }
@@ -125,8 +126,9 @@ class CartComponent extends Component
     public function saveUserJob()
     {
         $job_id = DB::table('jobs')->whereQueue('default')->get()->last();
-
-        $this->user->userJob()->create(['job_id' => $job_id->id]);
+        if($job_id) {
+            $this->user->userJob()->create(['job_id' => $job_id->id]);
+        }
     }
 
     public function deleteUserJob()

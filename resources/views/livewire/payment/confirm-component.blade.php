@@ -153,10 +153,9 @@
                     </div>
                 </div>
             </div>
-            <div id="divPaymentProccess" class="fixed inset-0 overflow-hidden hidden fadeIn">
+            <div id="divPaymentProccess" class="fixed flex items-center justify-center inset-0 overflow-hidden hidden fadeIn">
                 <div class="absolute top-0 left-0 w-full h-full bg-gray-200 opacity-60"></div>
-                <div
-                    class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-green-500 border rounded-md shadow-lg top-1/2 left-1/2 justicy-center">
+                <div class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-green-500 border rounded-md shadow-lg justicy-center">
                     <x-icon-spin class="mr-2" />
                     <div id="divNotify">{{__('Processing the payment')}}</div>
                 </div>
@@ -269,7 +268,7 @@
                             first_name: firstName.value,
                             last_name: lastName.value,
                             avs_address: address.value,
-                            avs_zip: postalCode.value,                           
+                            avs_zip: postalCode.value,
                             description: `Payment for Order ${orderNumber.value}`,
                         };
                         const response = await fetchData("{{ url('/api/sale') }}", "POST", formData);
@@ -369,12 +368,12 @@
                 const addStyle = () => {
                     spinPayment.classList.remove('hidden');
                     divPaymentProccess.classList.remove('hidden');
-                    btnPayment.toggleAttribute('disabled', '');
+                    btnPayment.setAttribute('disabled', 'disabled');
                 }
                 const removeStyle = () => {
                     spinPayment.classList.add('hidden');
                     divPaymentProccess.classList.add('hidden');
-                    btnPayment.toggleAttribute('disabled');
+                    btnPayment.removeAttribute('disabled');
                 }
                 //begin process the payment
                 btnSubmit.addEventListener('submit', async (e) => {

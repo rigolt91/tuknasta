@@ -60,20 +60,20 @@
                         </div>
                     </x-dropdown-link>
                 @endforeach
+                <div class="flex justify-center px-6 py-1 mt-2 overflow-hidden text-sm uppercase font-bold text-gray-700">
+                    {{ __('Total Cost') }}: ${{ number_format($total_amount, 2) }}
+                </div>
+                <div className="flex justify-center">
+                    <a href="{{ route('cart.details') }}"
+                        class="flex justify-center -mb-1 rounded-b-md py-1.5 font-bold text-gray-100 uppercase text-sm bg-green-800 hover:bg-green-700 focus:bg-green-700">
+                        {{ __('Go To Cart') }}
+                    </a>
+                </div>
             @else
-                <div class="flex justify-center px-4 py-2 text-gray-700 border-b">
+                <div class="flex justify-center px-4 py-2 text-gray-700">
                     {{ __('Add products to cart') }}
                 </div>
             @endif
-            <div class="flex justify-center px-6 py-1 mt-2 overflow-hidden font-bold text-gray-700 border-b-2">
-                {{ __('Total Cost') }}: ${{ number_format($total_amount, 2) }}
-            </div>
-            <div className="flex justify-center px-2 py-2 -mb-0.2 bg-green-800 text-white font-bold uppercase">
-                <a href="{{ route('cart.details') }}"
-                    class="flex justify-center py-2 mx-2 mt-2 font-bold text-gray-100 bg-green-800 rounded hover:bg-green-700 focus:bg-green-700">
-                    {{ __('Go To Cart') }}
-                </a>
-            </div>
         </x-slot>
     </x-dropdown>
 </div>
