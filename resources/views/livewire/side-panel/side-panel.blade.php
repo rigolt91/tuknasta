@@ -4,17 +4,17 @@
         <div x-show="open" x-cloak x-transition:enter="ease-in-out duration-200" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-500"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-            class="fixed inset-0 transition-opacity bg-gray-300 bg-opacity-30" @click="open = false"></div>
+            class="fixed inset-0 transition-opacity bg-gray-300 bg-opacity-30"></div>
 
         <div class="fixed inset-0 overflow-hidden">
             <div class="absolute inset-0 overflow-hidden">
-                <div class="fixed left-0 flex max-w-full pointer-events-none top-20 bottom-20">
+                <div class="fixed left-0 flex max-w-full pointer-events-none top-1 bottom-1">
                     <div x-show="open" x-cloak
                         x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
                         x-transition:enter-start="-translate-x-full" x-transition:enter-end="-translate-x-0"
                         x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
                         x-transition:leave-start="-translate-x-0" x-transition:leave-end="-translate-x-full"
-                        class="w-screen max-w-md pointer-events-auto" @click.away="open = true">
+                        class="w-screen max-w-md pointer-events-auto" @click.away="open = !open">
                         <div class="flex flex-col w-4/5 h-full py-6 bg-white shadow-xl rounded-r-md">
                             <header class="px-4 sm:px-6">
                                 <div class="flex items-start justify-between border-b-2 border-green-300">

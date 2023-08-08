@@ -24,6 +24,7 @@ use App\Http\Livewire\Product\ProductDetailComponent;
 use App\Http\Livewire\Profile\MyOrder\MyOrderComponent;
 use App\Http\Livewire\WelcomeComponent;
 use App\Http\Livewire\WholesalerComponent;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 
