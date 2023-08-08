@@ -79,7 +79,7 @@
                                     <x-tr wire:loading.class="opacity-60">
                                         <x-td>{{ ++$key }}</x-td>
                                         <x-td>
-                                            <img src="{{ Storage::url($product->image) }}" class="flex items-center justify-center text-xs w-12 h-12 bg-green-100 border border-green-400 rounded" alt="{{ $product->name }}">
+                                            <img src="{{ Storage::url($product->image) }}" class="flex items-center justify-center text-xs w-12 h-12 bg-green-100 border border-green-400 rounded" alt="img">
                                         </x-td>
                                         <x-td>{{ $product->sku }}</x-td>
                                         <x-td>{{ $product->name }}</x-td>

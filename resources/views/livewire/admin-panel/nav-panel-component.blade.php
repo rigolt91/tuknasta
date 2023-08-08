@@ -219,14 +219,16 @@
             </x-slot>
         </x-dropdown>
 
-        <!--Slider Panel-->
-        <x-link href="{{ route('sliders') }}" :active="request()->routeIs('sliders')" class="ml-2 hidden sm:block px-1">
-            {{ __('Sliders') }}
-        </x-link>
+        @hasrole('administrator')
+            <!--Slider Panel-->
+            <x-link href="{{ route('sliders') }}" :active="request()->routeIs('sliders')" class="ml-2 hidden sm:block px-1">
+                <span class="text-gray-500 hover:text-gray-700">{{ __('Sliders') }}</span>
+            </x-link>
 
-        <!--UpagosDirect Panel-->
-        <x-link href="{{ route('upagosdirect') }}" :active="request()->routeIs('upagosdirect')" class="ml-2 hidden sm:block px-1">
-            {{ __('Settings') }}
-        </x-link>
+            <!--UpagosDirect Panel-->
+            <x-link href="{{ route('upagosdirect') }}" :active="request()->routeIs('upagosdirect')" class="ml-2 hidden sm:block px-1">
+                <span class="text-gray-500 hover:text-gray-700">{{ __('Settings') }}</span>
+            </x-link>
+        @endhasrole
     </div>
 </div>

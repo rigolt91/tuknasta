@@ -52,7 +52,25 @@
                         {{__('Delivery Times and Costs')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('The times, costs and delivery areas vary according to the supplier and the type of product. This information can be found by consulting each of the products for sale. Home Delivery Time: Approximately between 48 hours and up to 5 business days. Rate: Las Tunas: 4 USD Havana: 8 USD')}}
+                        {{__('The times, costs and delivery areas vary according to the supplier and the type of product. This information can be found by consulting each of the products for sale.')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        {{__('The delivery to the recipient after the purchase will be as follows:')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        {{__('In the case of users residing in the Las Tunas province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        a) {{__('users residing in the municipality of Las Tunas $5.00 US dollars,')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        b) {{__('for residents of the municipalities Jobabo, Majibacoa, Manatí and Puerto Padre $6.00 US dollars,')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        c) {{__('for residents in the municipalities of Amancio, Colombia and Jesús Menéndez $7.00 US dollars')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        {{__('In the case of users residing in the Havana province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
                     </p>
                 </div>
             </div>
