@@ -79,10 +79,8 @@ Route::middleware([
     Route::get('/admin-panel/report/weekly-sales', WeeklySales::class)->name('admin-panel.report.weekly-sales');
     Route::get('/admin-panel/report/monthly-sales', MonthlySales::class)->name('admin-panel.report.monthly-sales');
     Route::get('/admin-panel/users', UserComponent::class)->name('admin-panel.users');
-    Route::middleware(['role:administrador'])->group(function() {
-        Route::get('/admin-panel/sliders', SliderComponent::class)->name('sliders');
-        Route::get('/admin-panel/upagosdirect', UpagosDirectComponent::class)->name('upagosdirect');
-    });
+    Route::get('/admin-panel/sliders', SliderComponent::class)->name('sliders');
+    Route::get('/admin-panel/upagosdirect', UpagosDirectComponent::class)->name('upagosdirect');
 });
 
 Route::get('/', WelcomeComponent::class)->name('dashboard');
