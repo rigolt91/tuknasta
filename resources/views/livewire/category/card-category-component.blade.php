@@ -16,8 +16,7 @@
                     class="flex items-center justify-start h-full mx-4 transition duration-700 ease-out gap-x-8">
                     @if($categories->count() > 0)
                         @foreach ($categories as $category)
-                            <div wire:click="getProducts({{ $category->id }})"
-                                class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110">
+                            <div id="divCategory" wire:click="getProducts({{ $category->id }})" class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110">
                                 <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}"
                                     class="flex items-center justify-center object-cover object-center w-auto h-[200px] text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" />
                                 <div
@@ -29,7 +28,7 @@
                     @else
                         @for($i=0;$i<5;$i++)
                             <div class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110 animate-pulse">
-                                <div class="flex items-center w-auto h-[200px] justify-center object-cover object-center  text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" /></div>
+                                <div id="divCategory" class="flex items-center w-auto sm:w-[260px] h-[200px] justify-center object-cover object-center  text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" /></div>
                                 <div class="absolute flex items-center justify-center w-full pt-2 text-sm font-bold text-center text-gray-800 uppercase sm:w-64">
                                 </div>
                             </div>
@@ -52,11 +51,14 @@
     <script>
         let next = document.getElementById('btnNext');
         let prev = document.getElementById('btnPrev');
+        let screenWidth = screen.width;
         let defaultTransform = 0;
         var sliderCategories = document.getElementById('sliderCategories');
+        let trnslateWidth = screenWidth > 600 ? 290 : screenWidth-32; 
+        console.log(screenWidth);
 
         function goNext() {
-            defaultTransform = defaultTransform - 399;
+            defaultTransform = defaultTransform - parseInt(trnslateWidth);
             if (Math.abs(defaultTransform) >= sliderCategories.scrollWidth / 1.7) defaultTransform = 0;
             sliderCategories.style.transform = "translateX(" + defaultTransform + "px)";
         }
@@ -64,7 +66,7 @@
 
         function goPrev() {
             if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
-            else defaultTransform = defaultTransform + 399;
+            else defaultTransform = defaultTransform + parseInt(trnslateWidth);
             sliderCategories.style.transform = "translateX(" + defaultTransform + "px)";
         }
         prev.addEventListener("click", goPrev);
