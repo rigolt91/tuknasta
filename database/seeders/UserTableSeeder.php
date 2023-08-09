@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
             'name'     => 'Administrator',
             'last_name' => 'TuKnasta',
             'email'    => 'admin@tuknasta.com',
-            'password' => bcrypt('tuknasta'),
+            'password' => bcrypt('TUknasta*/2023'),
             'email_verified_at' => date('Y-m-d h:m:s'),
         ]);
 

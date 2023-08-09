@@ -1,6 +1,6 @@
 <div>
-    <div x-data="{ open: false }" class="flex items-center justify-center w-full h-200">
-        <div @mouseover="open = true" @mouseout="open = false"
+    <div x-data="{ open: true }" class="flex items-center justify-center w-full h-200">
+        <div @mouseover="open = true"
             class="w-full h-[270px] relative flex items-center justify-center">
             <button x-show="open"
                 :class="open == true ? 'block transition duration-300 easy-in-out' : 'sm:hidden'"
@@ -27,9 +27,9 @@
                             </div>
                         @endforeach
                     @else
-                        @for ($i=0;$i<5;$i++)
-                            <div class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110">
-                                <div class="flex items-center justify-center object-cover object-center  text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" /></div>
+                        @for($i=0;$i<5;$i++)
+                            <div class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110 animate-pulse">
+                                <div class="flex items-center w-auto h-[200px] justify-center object-cover object-center  text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" /></div>
                                 <div class="absolute flex items-center justify-center w-full pt-2 text-sm font-bold text-center text-gray-800 uppercase sm:w-64">
                                 </div>
                             </div>

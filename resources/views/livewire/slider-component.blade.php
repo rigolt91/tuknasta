@@ -98,5 +98,12 @@
                 }, 8000);
             </script>
         @endsection
+    @else
+        <div class="slide relative flex items-center w-full sm:h-[350px] h-[450px] bg-no-repeat bg-center bg-cover bg-gray-200 object-cover animate-pulse shadow-md sm:rounded">
+            <div class="px-8 sm:px-28">
+                <div class="sm:text-4xl text-2xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4"></div>
+                <div class="sm:text-2xl text-lg text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4"></div>
+            </div>
+        </div>
     @endif
 </div>
