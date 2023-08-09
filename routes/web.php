@@ -52,6 +52,7 @@ Route::middleware([
     'auth:sanctum',
     'user.enabled',
     config('jetstream.auth_session'),
+    'verified',
 ])->group(function () {
     Route::get('/cart/cart-details', CartDetailComponent::class)->name('cart.details');
     Route::get('/payment', PaymentComponent::class)->name('payment.payment');
