@@ -14,17 +14,27 @@
             <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
                 <div id="sliderCategories"
                     class="flex items-center justify-start h-full mx-4 transition duration-700 ease-out gap-x-8">
-                    @foreach ($categories as $category)
-                        <div wire:click="getProducts({{ $category->id }})"
-                            class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110">
-                            <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}"
-                                class="flex items-center justify-center object-cover object-center w-auto h-[200px] text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" />
-                            <div
-                                class="absolute flex items-center justify-center w-full pt-2 text-sm font-bold text-center text-gray-800 uppercase sm:w-64">
-                                {{ $category->name }}
+                    @if($categories->count() > 0)
+                        @foreach ($categories as $category)
+                            <div wire:click="getProducts({{ $category->id }})"
+                                class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110">
+                                <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}"
+                                    class="flex items-center justify-center object-cover object-center w-auto h-[200px] text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" />
+                                <div
+                                    class="absolute flex items-center justify-center w-full pt-2 text-sm font-bold text-center text-gray-800 uppercase sm:w-64">
+                                    {{ $category->name }}
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        @for ($i=0;$i<5;$i++)
+                            <div class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 sm:w-auto hover:scale-110">
+                                <div class="flex items-center justify-center object-cover object-center  text-xs bg-gray-200 rounded-md shadow-md sm:w-64 sm:h-36" /></div>
+                                <div class="absolute flex items-center justify-center w-full pt-2 text-sm font-bold text-center text-gray-800 uppercase sm:w-64">
+                                </div>
+                            </div>
+                        @endfor
+                    @endif
                 </div>
             </div>
             <button x-show="open"
