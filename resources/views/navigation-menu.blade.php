@@ -223,7 +223,7 @@
         <div class="flex bg-green-700 py-4 rounded shadow">
             <div class="text-gray-800">
                 <!-- Navigation Links -->
-                <div class="space-x-2 sm:-my-px mx-4 sm:m-4 sm:flex">
+                <div class="space-x-1  sm:space-x-2 sm:-my-px mx-2 sm:m-4 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="uppercase">
                         {{ __('Home') }}
                     </x-nav-link>

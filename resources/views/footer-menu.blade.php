@@ -147,7 +147,7 @@
                                     </svg>
                                 </div>
                             </a>
-                            <a href="{{ $google }}" target="blank">
+                            <a href="{{ $google }}" target="blank" class="hidden sm:block">
                                 <div class="mb-2 border p-1.5 hover:bg-green-700 hover:text-white cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
