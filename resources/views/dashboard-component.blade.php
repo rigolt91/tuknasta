@@ -37,12 +37,20 @@
                     </div>
                 @else
                     <div class="mx-2">
-                        <x-card>
-                            <x-card-body>
-                                <div class="text-gray-700">{{ __('There are no products available at the moment.') }}
+                        <div wire:loading.class="animate-pulse">
+                            <div
+                                class="flex h-full transition ease-in-out bg-white border border-gray-100 sm:rounded hover:shadow-xl hover:-translate-y-1 duration-450">
+                                <div class="flex items-center bg-white rounded">
+                                    <div class="object-cover object-center w-32 h-32 text-xs flex items-center justify-center m-2 bg-gray-200 sm:rounded-l"></div>
                                 </div>
-                            </x-card-body>
-                        </x-card>
+
+                                <div class="w-full m-2">
+                                    <div class="py-4 text-sm font-bold text-gray-800 bg-gray-50 sm:text-md "></div>
+                                    <div class="py-6 text-sm text-gray-700 bg-gray-50 mt-1 sm:block"></div>
+                                    <div class="bg-gray-50 float-right mt-1 py-4 px-12 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 @endif
             </div>

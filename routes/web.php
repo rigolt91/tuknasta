@@ -97,3 +97,9 @@ Route::get('/return-policy', function () {
 Route::get('/delivery-policy', function () {
     return view('policy.delivery-policy');
 })->name('delivery-policy');
+Route::get('/terms', function () {
+    return view('policy.terms');
+})->name('terms');
+Route::get('/policy', function () {
+    return view('policy.policy');
+})->name('policy');

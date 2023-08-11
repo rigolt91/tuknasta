@@ -9,7 +9,7 @@
                             <div class="mb-2 text-xl font-bold text-gray-800 border-b">
                                 {{ __('Wholesaler') }}
                             </div>
-                            {{ __('Do you need to make wholesale purchases for your business in Cuba? Tukanasta has a variety of wholesale options to always offer you the best and at the best price. Learn about all the offers available on the online platform and contact our sales team by email.') }}
+                            {{ __('Do you need to make wholesale purchases for your business in Cuba? Tuknasta has a variety of wholesale options to always offer you the best and at the best price. Learn about all the offers available on the online platform and contact our sales team by email.') }}
                         </div>
 
                         <div class="p-3 bg-white rounded sm:p-0">
