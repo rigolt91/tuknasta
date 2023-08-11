@@ -10,14 +10,15 @@
                 <livewire:category.card-category-component />
             </div>
 
-            <div class="pt-8 mx-4 mb-4 sm:mx-2">
-                <div class="py-4 mb-8 text-2xl font-bold text-center text-gray-700 uppercase border-y">
-                    {{ __('Featured Products') }}
+            @if($recomendedProduct > 0)
+                <div class="pt-8 mx-4 mb-4 sm:mx-2">
+                    <div class="py-4 mb-8 text-2xl font-bold text-center text-gray-700 uppercase border-y">
+                        {{ __('Featured Products') }}
+                    </div>
+                    <livewire:product.prefer-product-component>
                 </div>
-                <livewire:product.prefer-product-component>
-            </div>
+            @endif
         </div>
     </div>
-
     <livewire:side-panel.side-panel />
 </div>

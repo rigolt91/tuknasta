@@ -4,10 +4,10 @@
             class="w-full h-[270px] relative flex items-center justify-center">
             <button x-show="open"
                 :class="open == true ? 'block transition duration-300 easy-in-out' : 'sm:hidden'"
-                class="block absolute z-30 left-0 ml-5 py-2.5 px-3.5 rounded-md bg-white/20 hover:bg-white/50 text-white cursor-pointer"
+                class="block absolute z-30 left-0 ml-5 py-2.5 px-3.5 rounded-md bg-white/50 hover:bg-white/60 text-white cursor-pointer"
                 id="btnPrev"
             >
-                <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none">
+                <svg class="text-gray-700" width="8" height="14" viewBox="0 0 8 14" fill="none">
                     <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
@@ -38,10 +38,10 @@
             </div>
             <button x-show="open"
                 :class="open == true ? 'block transition duration-300 easy-in-out' : 'sm:hidden'"
-                class="block absolute z-30 right-0 mr-5 py-2.5 px-3.5 rounded-md bg-white/20 hover:bg-white/50 text-white cursor-pointer"
+                class="block absolute z-30 right-0 mr-5 py-2.5 px-3.5 rounded-md bg-white/50 hover:bg-white/60 text-white cursor-pointer"
                 id="btnNext"
             >
-                <svg class="text-white" width="8" height="14" viewBox="0 0 8 14" fill="none">
+                <svg class="text-gray-700" width="8" height="14" viewBox="0 0 8 14" fill="none">
                     <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>

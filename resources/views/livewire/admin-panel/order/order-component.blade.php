@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-        <div class="mx-2">
+        <div class="mx-4 sm:mx-2">
             <x-card>
                 <x-card-body>
                     <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">

@@ -180,7 +180,7 @@
                                         </svg>
                                     </div>
                                 </a>
-                                <a href="{{ $google }}" target="blank" class="hidden sm:block">
+                                <a href="{{ $google }}" target="blank">
                                     <div class="mb-2 border p-1.5 hover:bg-green-700 hover:text-white cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
@@ -200,8 +200,7 @@
             </footer>
         </div>
     </div>
-    <div class="sm:flex sm:items-center sm:justify-center bg-green-800 py-4">
-        <span class="text-sm text-gray-100 sm:text-center">© 2023 <a class="hover:underline">Rcarmenate</a>.
-            All rights reserved. v1.0</span>
+    <div class="flex items-center justify-center bg-green-800 py-4">
+        <span class="text-sm text-gray-100 text-center">© 2023 <a class="hover:underline">Rcarmenate</a>. All rights reserved. v1.0</span>
     </div>
 <div>

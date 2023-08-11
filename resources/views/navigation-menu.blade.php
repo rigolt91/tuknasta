@@ -4,7 +4,7 @@
     <nav class="bg-green-700 shadow">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-10 mb-1 border-b sm:mb-0 sm:border-none">
-                <div class="space-x-2 sm:-my-px mx-4 sm:m-0 sm:flex">
+                <div class="space-x-2 sm:-my-px m-0 sm:flex">
                     <!--Idioma -->
                     <div>
                         @livewire('lang-app')
@@ -33,13 +33,10 @@
                                                     <path
                                                         d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                                 </svg>
-                                                <div class="hidden md:block">{{ Auth::user()->name }}</div>
+                                                <div>{{ Auth::user()->name }}</div>
 
-                                                <svg height="24" width="24"
-                                                    class="ml-2 -mr-0.5 h-4 w-4 hidden sm:block" fill="none"
-                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                <svg height="24" width="24" class="ml-2 -mr-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                                 </svg>
                                             </button>
                                         </span>

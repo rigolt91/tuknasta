@@ -5,7 +5,7 @@
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="sm:grid sm:grid-cols-2">
-            <div class="mx-2">
+            <div class="mx-4 sm:mx-2">
                 <x-card>
                     <x-card-body>
                         <form wire:submit.prevent='store' method="post">
@@ -70,9 +70,9 @@
                 </x-card>
             </div>
 
-            <div class="mx-2">
+            <div class="mx-4 sm:mx-2 mt-6 sm:mt-0">
                 @foreach($images as $key => $img)
-                    <div class="shadow-md rounded-md flex items-center p-3 my-2 justify-end bg-right bg-no-repeat bg-cover h-16" style="background-image: url('{{ Storage::url($img->image) }}')">
+                    <div class="shadow-md rounded-md flex items-center p-3 my-4 justify-end bg-right bg-no-repeat bg-cover h-16" style="background-image: url('{{ Storage::url($img->image) }}')">
                         <x-button wire:click="edit({{ $img }})" wire.target="edit" wire:loading.attr="disabled" class="flex items-center mr-2 h-8 disabled:opacity-60">
                             <x-icon-edit />
                             <span class="hidden ml-2 sm:block">{{ __('Edit') }}</span>
