@@ -13,7 +13,7 @@ class UPagosDirectService extends Controller
 
     private $url = 'https://www.upagosdirect.com/api/';
 
-    private $demo_mode = false;
+    private $demo_mode = true;
 
     public function __construct()
     {

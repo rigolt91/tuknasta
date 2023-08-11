@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\UPagosDirectService;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {

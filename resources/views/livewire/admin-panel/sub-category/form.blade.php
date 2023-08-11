@@ -11,7 +11,7 @@
             <div class="relative">
                 <x-label for="category" :value="__('Category')" />
                 <x-select wire:model='category_id'>
-                    <option value="" selected disabled>{{ __('Category name') }}</option>
+                    <option value="" selected>{{ __('Category name') }}</option>
 
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>

@@ -86,7 +86,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('terms') }}" class="text-gray-600 hover:underline hover:cursor-pointer flex items center font-semibold">
+                                    <a href="{{ route('terms') }}" class="text-gray-600 hover:underline hover:cursor-pointer flex items-center center font-semibold">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right mr-1" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
                                             <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -200,7 +200,7 @@
             </footer>
         </div>
     </div>
-    <div class="flex items-center justify-center bg-green-800 py-4">
+    <div class="flex items-center justify-center bg-green-800 py-4 mt-4">
         <span class="text-sm text-gray-100 text-center">© 2023 <a class="hover:underline">Rcarmenate</a>. All rights reserved. v1.0</span>
     </div>
 <div>
