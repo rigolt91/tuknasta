@@ -79,6 +79,12 @@
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('In the case of users residing in the Havana province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
                     </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        a) {{__('users residing in the municipality Playa, La Lisa, Marianao, Plaza de la Revolución, Cerro, Centro Habana, Habana Vieja, 10 de Octubre 6 US dollars,')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        b) {{__('users residing in the municipality of Habana del Este, Guanabacoa, Regla, Boyero, Cotorro, San Miguel del Padrón and Arroyo Naranjo 8 US dollars.')}}
+                    </p>
                 </div>
             </div>
         </div>

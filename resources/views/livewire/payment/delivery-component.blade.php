@@ -3,37 +3,6 @@
         <div class="mx-4 mb-4 sm:mx-2">
             @include('livewire.payment.steps.steps-bars-delivery')
         </div>
-        <div x-data="{ open: true }">
-            <div x-show="open"
-                class="flex items-center justify-center px-2 py-1 mx-4 mb-4 font-medium text-green-700 bg-green-100 border border-green-300 shadow sm:mx-2 sm:rounded-md ">
-                <div slot="avatar">
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="w-8 h-8 mx-2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                    </svg>
-                </div>
-                <div class="flex-initial max-w-full text-lg font-normal">
-                    <div class="py-1">{{ __('Delivery information') }}
-                        <div class="text-sm font-base">
-                            {{ __('The home delivery service is only available for the province of Las Tunas') }}.</div>
-                    </div>
-                </div>
-                <div class="flex flex-row-reverse flex-auto">
-                    <div @click="open = !open">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="w-5 h-5 ml-2 rounded-full cursor-pointer feather feather-x hover:text-yellow-400">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="sm:flex">
             <div class="mx-4 sm:mx-2 sm:w-9/12">
                 <div class="px-4 py-6 mb-4 shadow sm:px-6 sm:rounded-lg">

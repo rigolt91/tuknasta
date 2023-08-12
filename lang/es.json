@@ -243,7 +243,6 @@
     "Street": "Calle",
     "Phone": "Teléfono",
     "Delivery information": "Información de Entrega",
-    "The home delivery service is only available for the province of Las Tunas": "El servicio de entrega a domicilio solo está disponible para la provincia de Las Tunas",
     "Receiver": "Receptor",
     "Method of Delivery": "Método de Entrega",
     "Home delivery": "Entrega en la vivienda",
@@ -444,7 +443,7 @@
     "We have the right at any time to demand proof of the identity of any person requesting access to and use of the Website, and we may deny access if we are not satisfied with such proof.": "Tenemos derecho en cualquier momento a exigir prueba de la identidad de cualquier persona que solicite acceso y uso del sitio web, y podemos denegar el acceso si no estamos satisfechos con dicha prueba.",
     "You are fully responsible for the security of your account name and password and for all uses and/or abuses.": "Usted es totalmente responsable de la seguridad de su nombre de cuenta y contraseña y de todos los usos y/o abusos.",
     "You agree to notify us immediately of any unauthorized use of your account.": "Usted acepta notificarnos inmediatamente de cualquier uso no autorizado de su cuenta.",
-    "Tuknasta assumes no responsibility, and will not be liable, for any damages arising from or related to your failure to maintain the security of your password.": "Tukanasta no asume ninguna responsabilidad, y no será responsable, por ningún daño que surja o esté relacionado con su falta de mantenimiento de la seguridad de su contraseña.",
+    "Tuknasta assumes no responsibility, and will not be liable, for any damages arising from or related to your failure to maintain the security of your password.": "Tuknasta no asume ninguna responsabilidad, y no será responsable, por ningún daño que surja o esté relacionado con su falta de mantenimiento de la seguridad de su contraseña.",
     "Terms and Conditions": "Términos y Condiciones ",
     "Delivery Policy": "Política de Entrega",
     "Important information about purchases on tuknasta.com": "Información importante sobre las compras en tuknasta.com",
@@ -527,7 +526,7 @@
     "The telephone data and/or email address of the recipient may be used by the carrier or the management team to coordinate the delivery schedule and other details of the service with the recipient.": "Los datos telefónicos y/o la dirección de correo electrónico del destinatario podrán ser utilizados por el transportista o el equipo de gestión para coordinar el horario de entrega y otros detalles del servicio con el destinatario.",
     "The delivery terms of the shipments or the provision of the purchased services, begin to apply from the approval of the order once its authenticity has been verified.": "Los plazos de entrega de los envíos o la prestación de los servicios adquiridos, comienzan a regir desde la aprobación del pedido una vez comprobada su autenticidad.",
     "users residing in the municipality of Las Tunas $5.00 US dollars,": "usuarios domiciliados en el municipio de Las Tunas $5.00 dólares americanos,",
-    "for residents of the municipalities Jobabo, Majibacoa, Manatí and Puerto Padre $6.00 US dollars,": "for residents of the municipalities Jobabo, Majibacoa, Manatí and Puerto Padre $6.00 US dollars,",
+    "for residents of the municipalities Jobabo, Majibacoa, Manatí and Puerto Padre $6.00 US dollars,": "para residentes de los municipios Jobabo, Majibacoa, Manatí y Puerto Padre $6.00 dólares americanos,",
     "At the time of delivery, the recipient must check together with the carrier that the products and the quantities declared on the invoice match the merchandise received to avoid subsequent claims for breakage, deterioration, shortages or quality problems and food safety.": "En el momento de la entrega, el destinatario deberá comprobar junto con el transportista que los productos y las cantidades declaradas en la factura coinciden con la mercancía recibida para evitar posteriores reclamaciones por roturas, deterioros, faltantes o problemas de calidad y seguridad alimentaria.",
     "The recipient will sign the delivery voucher with the products received.": "El destinatario firmará el comprobante de entrega con los productos recibidos.",
     "Orders can be received at various times, taking into account if they include products that require special transportation or if they correspond to different suppliers.": "Los pedidos se pueden recibir en varios momentos, teniendo en cuenta si incluyen productos que requieren un transporte especial o si corresponden a diferentes proveedores.",
@@ -566,5 +565,9 @@
     "We have national and foreign suppliers that supply our different purchasing departments, for the moment, in Havana and Las Tunas.": "Contamos con proveedores nacionales y extranjeros que abastecen a nuestros diferentes departamentos de compras, por el momento, en La Habana y Las Tunas.",
     "Now, with just one click, www.tuknasta.com offers you an unforgettable experience to satisfy your tastes.": "Ahora, con un solo clic, www.tuknasta.com te ofrece una experiencia inolvidable para satisfacer tus gustos.",
     "Do you need to make wholesale purchases for your business in Cuba? Tuknasta has a variety of wholesale options to always offer you the best and at the best price. Learn about all the offers available on the online platform and contact our sales team by email.": "¿Necesita realizar compras al por mayor para su negocio en Cuba? Tuknasta cuenta con una variedad de opciones mayoristas para ofrecerte siempre lo mejor y al mejor precio. Conoce todas las ofertas disponibles en la plataforma online y contacta con nuestro equipo comercial por email.",
-    "Buy now": "Comprar Ahora"
+    "Buy now": "Comprar Ahora",
+    "FORM OF PURCHASE OF THE PRODUCTS:": "FORMA DE COMPRA DE LOS PRODUCTOS:",
+    "Tuknasta undertakes not to disclose the data to third parties and to use it only for exchange purposes between us and you. The data can be modified at any time you wish.": "Tuknasta se compromete a no divulgar los datos a terceros y a utilizarlos únicamente con fines de intercambio entre usted y nosotros. Los datos pueden ser modificados en cualquier momento que desee.",
+    "users residing in the municipality Playa, La Lisa, Marianao, Plaza de la Revolución, Cerro, Centro Habana, Habana Vieja, 10 de Octubre 6 US dollars,": "usuarios residentes en el municipio Playa, La Lisa, Marianao, Plaza de la Revolución, Cerro, Centro Habana, Habana Vieja, 10 de Octubre 6 dólares estadounidenses,",
+    "users residing in the municipality of Habana del Este, Guanabacoa, Regla, Boyero, Cotorro, San Miguel del Padrón and Arroyo Naranjo 8 US dollars.": "usuarios residentes en el municipio Habana del Este, Guanabacoa, Regla, Boyero, Cotorro, San Miguel del Padrón y Arroyo Naranjo 8 dólares estadounidenses."
 }
