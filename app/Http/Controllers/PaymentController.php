@@ -50,6 +50,8 @@ class PaymentController extends Controller
 
     public function sale(Request $request)
     {
-        return $this->uPagosDirect->postData('creditcard/sale', $request->all());
+        $response = $this->uPagosDirect->postData('creditcard/sale', $request->all());
+        Log::error($response);
+        return $response;
     }
 }

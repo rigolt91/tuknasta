@@ -199,6 +199,8 @@
                     try {
                         const response = await fetch(url, options);
                         let data = await response.json();
+
+                        console.log(data);
                         return data;
                     } catch (error) {
                         return error;
@@ -247,9 +249,6 @@
                             avs_zip: postalCode.value,
                             description: `Payment for Order ${orderNumber.value}`,
                         };
-
-                        console.log(formData);
-
                         const response = await fetchData("{{ url('/api/sale') }}", "POST", formData);
                         return response;
                     } catch (error) {
@@ -369,6 +368,7 @@
                         (async () => {
                             try {
                                 addStyle();
+                                console.log(geoInfo);
                                 if (bypass3ds2Country.includes(geoInfo.countryCode)) {
                                     const paymentResult = await paymentWithout3DS2();
                                 } else {

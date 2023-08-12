@@ -32,7 +32,7 @@
                 <x-dropdown-link href="{{ route('admin-panel.categories') }}" class="flex items-center">
                     {{ __('List of Categories') }}
                 </x-dropdown-link>
-                @hasrole('administrator')
+                @hasrole(['administrator', 'editor'])
                     <x-dropdown-link wire:click="createCategory" class="flex items-center cursor-pointer">
                         {{ __('Add Category') }}
                     </x-dropdown-link>
@@ -60,7 +60,7 @@
                 <x-dropdown-link href="{{ route('admin-panel.subcategories') }}" class="flex items-center">
                     {{ __('List of Subcategories') }}
                 </x-dropdown-link>
-                @hasrole('administrator')
+                @hasrole(['administrator', 'editor'])
                     <x-dropdown-link wire:click="createCategory" class="flex items-center cursor-pointer">
                         {{ __('Add Subcategory') }}
                     </x-dropdown-link>
@@ -87,7 +87,7 @@
                 <x-dropdown-link href="{{ route('admin-panel.products') }}" class="flex items-center">
                     {{ __('List of Products') }}
                 </x-dropdown-link>
-                @hasrole('administrator')
+                @hasrole(['administrator', 'editor'])
                     <x-dropdown-link wire:click="createProduct" class="flex items-center cursor-pointer">
                         {{ __('Add Product') }}
                     </x-dropdown-link>
@@ -95,6 +95,7 @@
             </x-slot>
         </x-dropdown>
 
+        @hasrole('administrator')
         <!--Branches Panel-->
         <x-dropdown align="left" width="48">
             <x-slot name="trigger">
@@ -115,13 +116,12 @@
                 <x-dropdown-link href="{{ route('admin-panel.branches') }}" class="flex items-center">
                     {{ __('List of Suppliers') }}
                 </x-dropdown-link>
-                @hasrole('administrator')
                     <x-dropdown-link wire:click="createBranch" class="flex items-center cursor-pointer">
                         {{ __('Add Suppliers') }}
                     </x-dropdown-link>
-                @endhasrole
             </x-slot>
         </x-dropdown>
+        @endhasrole
 
         <!--Orders Panel-->
         <x-dropdown align="none" width="48">

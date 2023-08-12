@@ -10,7 +10,7 @@
                     <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
                         {{ __('List of Products') }}
 
-                        @hasrole('administrator')
+                        @hasrole(['administrator', 'editor'])
                             <x-button-inline wire:click="create" class="flex float-right ml-2 -mt-2">
                                 <x-icon-file-plus />
                                 <span class="ml-1">{{ __('Add') }}</span>
@@ -67,7 +67,7 @@
                                     <x-th>{{ __('Stock') }}</x-th>
                                     <x-th>{{ __('Subcategory') }}</x-th>
                                     <x-th>{{ __('Category') }}</x-th>
-                                    @hasrole('administrator')
+                                    @hasrole(['administrator', 'editor'])
                                         <x-th>{{ __('Show') }}</x-th>
                                         <x-th>{{ __('Recommend') }}</x-th>
                                         <x-th class="float-right">{{ __('Options') }}</x-th>
@@ -88,7 +88,7 @@
                                         <x-td>{{ $product->stock }}</x-td>
                                         <x-td>{{ $product->subcategory->name }}</x-td>
                                         <x-td>{{ $product->category->name }}</x-td>
-                                        @hasrole('administrator')
+                                        @hasrole(['administrator', 'editor'])
                                             <x-td>
                                                 <label class="relative inline-flex items-center mr-5 cursor-pointer">
                                                     <input type="checkbox" wire:click="setShow({{ $product }})" wire:loading.attr="disabled" class="sr-only peer" @if($product->show) checked @endif >

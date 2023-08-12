@@ -10,7 +10,7 @@
                     <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
                         {{ __('List of Categories') }}
 
-                        @hasrole('administrator')
+                        @hasrole(['administrator', 'editor'])
                             <x-button-inline wire:click="create" class="flex float-right -mt-2">
                                 <x-icon-file-plus />
                                 <span class="ml-1">{{ __('Add') }}</span>
@@ -27,7 +27,7 @@
                                     <x-th>{{ __('Description') }}</x-th>
                                     <x-th>{{ __('Subcategories') }}</x-th>
                                     <x-th>{{ __('Products') }}</x-th>
-                                    @hasrole('administrator')
+                                    @hasrole(['administrator', 'editor'])
                                         <x-th>{{ __('Show') }}</x-th>
                                         <x-th class="float-right">{{ __('Options') }}</x-th>
                                     @endhasrole
@@ -46,7 +46,7 @@
                                         <x-td>{{ $category->description }}</x-td>
                                         <x-td>{{ $category->subcategory->count() }}</x-td>
                                         <x-td>{{ $category->product->count() }}</x-td>
-                                        @hasrole('administrator')
+                                        @hasrole(['administrator', 'editor'])
                                             <x-td>
                                                 <label class="relative inline-flex items-center mr-5 cursor-pointer">
                                                     <input type="checkbox" wire:click="setShow({{ $category }})"

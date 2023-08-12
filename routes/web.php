@@ -66,21 +66,24 @@ Route::middleware([
     'user.enabled',
     config('jetstream.auth_session'),
     'verified',
-    'role:administrator|editor',
 ])->group(function () {
-    Route::get('/admin-panel', AdminPanelComponent::class)->name('admin-panel.panel');
-    Route::get('/admin-panel/products', ProductComponent::class)->name('admin-panel.products');
-    Route::get('/admin-panel/categories', CategoryComponent::class)->name('admin-panel.categories');
-    Route::get('/admin-panel/subcategories', SubCategoryComponent::class)->name('admin-panel.subcategories');
-    Route::get('/admin-panel/branches', BranchComponent::class)->name('admin-panel.branches');
-    Route::get('/admin-panel/orders', OrderComponent::class)->name('admin-panel.orders');
-    Route::get('/admin-panel/report/year-sales', YearSales::class)->name('admin-panel.report.year-sales');
-    Route::get('/admin-panel/report/daily-sales', DailySales::class)->name('admin-panel.report.daily-sales');
-    Route::get('/admin-panel/report/weekly-sales', WeeklySales::class)->name('admin-panel.report.weekly-sales');
-    Route::get('/admin-panel/report/monthly-sales', MonthlySales::class)->name('admin-panel.report.monthly-sales');
-    Route::get('/admin-panel/users', UserComponent::class)->name('admin-panel.users');
-    Route::get('/admin-panel/sliders', SliderComponent::class)->name('sliders');
-    Route::get('/admin-panel/upagosdirect', UpagosDirectComponent::class)->name('upagosdirect');
+    Route::middleware(['role:administrator|editor'])->group(function () {
+        Route::get('/admin-panel', AdminPanelComponent::class)->name('admin-panel.panel');
+        Route::get('/admin-panel/products', ProductComponent::class)->name('admin-panel.products');
+        Route::get('/admin-panel/categories', CategoryComponent::class)->name('admin-panel.categories');
+        Route::get('/admin-panel/subcategories', SubCategoryComponent::class)->name('admin-panel.subcategories');
+        Route::get('/admin-panel/orders', OrderComponent::class)->name('admin-panel.orders');
+        Route::get('/admin-panel/report/year-sales', YearSales::class)->name('admin-panel.report.year-sales');
+        Route::get('/admin-panel/report/daily-sales', DailySales::class)->name('admin-panel.report.daily-sales');
+        Route::get('/admin-panel/report/weekly-sales', WeeklySales::class)->name('admin-panel.report.weekly-sales');
+        Route::get('/admin-panel/report/monthly-sales', MonthlySales::class)->name('admin-panel.report.monthly-sales');
+        Route::get('/admin-panel/users', UserComponent::class)->name('admin-panel.users');
+    });
+    Route::middleware(['role:administrator'])->group(function () {
+        Route::get('/admin-panel/branches', BranchComponent::class)->name('admin-panel.branches');
+        Route::get('/admin-panel/sliders', SliderComponent::class)->name('sliders');
+        Route::get('/admin-panel/upagosdirect', UpagosDirectComponent::class)->name('upagosdirect');
+    });
 });
 
 Route::get('/', WelcomeComponent::class)->name('dashboard');
