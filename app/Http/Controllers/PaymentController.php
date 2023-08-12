@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\UPagosDirectService;
 use App\Models\User;
-use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
@@ -50,8 +49,6 @@ class PaymentController extends Controller
 
     public function sale(Request $request)
     {
-        $response = $this->uPagosDirect->postData('creditcard/sale', $request->all());
-        Log::error($response);
-        return $response;
+        return $this->uPagosDirect->postData('creditcard/sale', $request->all());
     }
 }

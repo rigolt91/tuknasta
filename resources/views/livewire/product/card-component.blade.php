@@ -14,7 +14,7 @@
         </x-card-header>
 
         <x-card-body>
-            <div class="sm:-mx-2">
+            <div class="sm:-mx-2 h-24">
                 <h6 class="text-sm font-bold text-gray-900 text-md">{{ $name }}</h6>
                 <div class="flex border-y">
                     @for ($i = 1; $i <= 5; $i++)

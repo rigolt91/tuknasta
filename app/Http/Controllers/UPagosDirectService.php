@@ -29,6 +29,7 @@ class UPagosDirectService extends Controller
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . $token,
             ],
+            'verify' => false,
         ]);
     }
 
@@ -54,8 +55,8 @@ class UPagosDirectService extends Controller
             $response = $this->httpClient->post($endpoint, [
                 'json' => $data,
             ]);
-            $data = json_decode($response->getBody()->getContents());
-            return $data;
+            $data = json_encode($response->getBody()->getContents());
+            return json_decode($data);
         } catch (GuzzleException $e) {
             Log::error('Error calling µPagosDirect: ' . $e->getMessage());
             if (request()->expectsJson()) {

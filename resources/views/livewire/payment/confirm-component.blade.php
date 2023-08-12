@@ -364,27 +364,31 @@
                         toastInfo("{{ __('Field validation error') }}");
                         return;
                     } else {
+                        addStyle();
                         divNotify.innerHTML = "{{ __('Completing the payment') }}";
                         (async () => {
+                            addStyle();
                             try {
-                                addStyle();
-                                console.log(geoInfo);
+                                let paumentResult;
                                 if (bypass3ds2Country.includes(geoInfo.countryCode)) {
-                                    const paymentResult = await paymentWithout3DS2();
+                                    paymentResult = await paymentWithout3DS2();
                                 } else {
-                                    const paymentResult = await paymentWith3DS2();
+                                    paymentResult = await paymentWith3DS2();
                                 }
+                                addStyle();
                                 if (paymentResult.errorCode) {
                                     removeStyle();
                                     toastError(`Error payment ${paymentResult.errorCode}: ${paymentResult.errorMessage}`);
                                     return;
                                 }
-                                if (paymentResult && typeof paymentResult.result === 'string' && paymentResult.result === '0')
+                                if (paymentResult.result === '0')
                                 {
-                                    removeStyle();
                                     toastSuccess("{{ __('The payment was made successfully') }}");
                                     @this.paymentConfirm();
+                                    dispatchEvent('refreshCart');
+                                    removeStyle();
                                     window.location.href = "{{ url('/cart/cart-details') }}";
+                                    return;
                                 }else {
                                     removeStyle();
                                     toastError("{{ __('An error has occurred') }}: {{ __('response.somethingWentWrong') }}");
@@ -392,7 +396,6 @@
                                 }
                             } catch (error) {
                                 removeStyle();
-                                toastError(`${error}`);
                                 return;
                             }
                         })();

@@ -61,12 +61,9 @@ class ConfirmComponent extends Component
             'payment' => true,
             'user_contact_id' => $this->contact->id,
         ]);
-
         $this->purchasedProduct($user_order);
-
         $this->emit('deleteUserJob');
-        $this->emit('refreshCart');
-
+        $this->emit('refreshCart');       
         Mail::to($this->user)
             ->cc($this->contact)
             ->bcc(config('mail.from.address'))
