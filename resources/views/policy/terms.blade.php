@@ -25,7 +25,7 @@
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         c) {{__('knows that when placing orders through www.tuknasta.com, you must provide various personal data which will be confirmed and collected before the shipment is made.')}}
                     </p>
-                    <p class="mb-4 text-sm text-justify font-bold text-gray-700">
+                    <p class="mb-4 text-sm font-bold text-justify text-gray-700">
                         1. {{__('FORM OF PURCHASE OF THE PRODUCTS:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
@@ -162,7 +162,7 @@
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         1.4.9.- {{__('Very large orders or orders that contain hardware, electronics or household appliances will be delivered as established in the previous section and the time to complete the delivery cannot exceed 10 business days.')}}
                     </p>
-                    <p class="mb-4 text-sm text-justify font-bold text-gray-700">
+                    <p class="mb-4 text-sm font-bold text-justify text-gray-700">
                         2.- {{__('COMMERCIAL GUARANTEES:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
@@ -241,7 +241,7 @@
                         2.11.- {{__('The tuknasta.com site may be modified at any time by its operators, and the modification will correspond to the changes that may exist in terms, conditions or types of products, for which we urge users to users to constantly visit the site, so that they are kept updated and do not incur errors when using the site.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        2.12.- {{__('Any doubt, concern, suggestion or claim will be addressed by the tuknasta.com team, through the email info.tuknasta@gmail.com. You can also communicate by phone +15622201521 and +15622201521 and by WhatsApp associated with those lines.')}}
+                        2.12.- {{__('Any doubt, concern, suggestion or claim will be addressed by the tuknasta.com team, through the email info.tuknasta@gmail.com. You can also communicate by WhatsApp +15622201521.')}}
                     </p>
                 </div>
             </div>
