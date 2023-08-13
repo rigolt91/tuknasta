@@ -85,6 +85,7 @@
                             </div>
 
                             <div class="sm:flex">
+                                <x-input type="hidden" id="transportation" wire:model.lazy="transportation" class="sm:mr-2" />
                                 <x-input type="hidden" id="amount" wire:model.lazy="amount" class="sm:mr-2" />
                                 <x-input type="hidden" id="order_number" wire:model.lazy="order_number"
                                     class="sm:ml-2" />
@@ -134,7 +135,22 @@
                         @include('livewire.payment.component.products')
                     </div>
 
-                    @include('livewire.cart.component.total-cost')
+                    <div class="px-4 py-4 mb-4 shadow sm:px-6 sm:rounded-lg">
+                        @if($method == 2)
+                            <div class="mb-2 border-b">
+                                <span class="mr-4 text-gray-800 text-md">{{__('Transportation')}}</span>
+                                <span class="float-right font-bold text-gray-700 text-md">${{ number_format($transportation, 2) }}</span>
+                            </div>
+                            <div class="mb-2 border-b">
+                                <span class="mr-4 text-gray-800 text-md">{{__('Purchase value')}}</span>
+                                <span class="float-right font-bold text-gray-700 text-md">${{ number_format($amount, 2) }}</span>
+                            </div>
+                        @endif
+                        <div>
+                            <span class="mr-4 font-bold text-gray-800 uppercase text-md">{{__('Total Cost')}}</span>
+                            <span class="float-right font-bold text-gray-700 text-md">${{ number_format($amount+$transportation, 2) }}</span>
+                        </div>
+                    </div>
 
                     @include('livewire.cart.component.politics')
 
@@ -145,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div id="divPaymentProccess" class="fixed flex items-center justify-center inset-0 overflow-hidden hidden fadeIn">
+            <div id="divPaymentProccess" class="fixed inset-0 flex items-center justify-center hidden overflow-hidden fadeIn">
                 <div class="absolute top-0 left-0 w-full h-full bg-gray-200 opacity-60"></div>
                 <div class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-green-500 border rounded-md shadow-lg justicy-center">
                     <x-icon-spin class="mr-2" />
@@ -178,6 +194,7 @@
                 const postalCode = document.getElementById('postal_code');
                 const orderNumber = document.getElementById('order_number');
                 const amount = document.getElementById('amount');
+                const transportation = document.getElementById('transportation');
                 //div message validation data form
                 const errorFirstName = document.getElementById('error_first_name');
                 const errorLastName =  document.getElementById('error_last_name');
@@ -199,8 +216,6 @@
                     try {
                         const response = await fetch(url, options);
                         let data = await response.json();
-
-                        console.log(data);
                         return data;
                     } catch (error) {
                         return error;
@@ -236,7 +251,7 @@
                 //payment without 3dsecure
                 const paymentWithout3DS2 = async () => {
                     try {
-                        let amountOrder = parseFloat(amount.value);
+                        let amountOrder = parseFloat(amount.value) + parseFloat(transportation.value);
                         var formData = {
                             amount: amountOrder.toFixed(2),
                             merchant_txn_id: orderNumber.value,
@@ -265,7 +280,7 @@
                             token: efsToken,
                             el: 'holder'
                         });
-                        let amountOrder = parseFloat(amount.value);
+                        let amountOrder = parseFloat(amount.value) + parseFloat(transportation.value);
                         var request = {
                             purchaseAmount: parseInt(amountOrder.toFixed(2) * 100),
                             acctNumber: cardNumber.value,
@@ -337,7 +352,7 @@
                         card_number: cardNumber.value,
                         exp_date: expDate.value,
                         cvv2cvc2: cvv2cvc2.value,
-                        amount: amount.value,
+                        amount: parseFloat(amount.value) + parseFloat(transportation.value),
                     };
                     let response = await fetchData("{{ url('/api/validateform') }}", "POST", formData);
                     return response;

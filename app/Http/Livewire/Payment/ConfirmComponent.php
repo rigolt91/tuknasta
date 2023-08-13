@@ -8,7 +8,7 @@ use Livewire\Component;
 use App\Models\UserOrder;
 use App\Models\DeliveryMethod;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\UPagosDirectService;
+use App\Models\RateTransportation;
 
 class ConfirmComponent extends Component
 {
@@ -24,6 +24,8 @@ class ConfirmComponent extends Component
     public $exp_date;
     public $cvv2cvc2;
     public $amount;
+    public $transportation = 0;
+    public $method;
 
     protected $listeners = ['refreshConfirm' => '$refresh'];
 
@@ -31,6 +33,7 @@ class ConfirmComponent extends Component
     {
         $this->delivery_method = DeliveryMethod::findOrFail($method);
         $this->order_number = $this->generateOrderNumber();
+        $this->method = $method;
     }
 
     public function mountConfirm()
@@ -40,6 +43,13 @@ class ConfirmComponent extends Component
         $this->first_name = $this->user->name;
         $this->last_name = $this->user->last_name;
         $this->amount = $this->total_amount;
+
+        if($this->method == 2) {
+            $rateTransportation = RateTransportation::whereMunicipality($this->contact->municipality_id)->first();
+            if($rateTransportation) {
+                $this->transportation = $rateTransportation->amount;
+            }
+        }
 
         if ($this->total_products == 0) {
             return redirect()->route('cart.details');
@@ -63,7 +73,7 @@ class ConfirmComponent extends Component
         ]);
         $this->purchasedProduct($user_order);
         $this->emit('deleteUserJob');
-        $this->emit('refreshCart');       
+        $this->emit('refreshCart');
         Mail::to($this->user)
             ->cc($this->contact)
             ->bcc(config('mail.from.address'))

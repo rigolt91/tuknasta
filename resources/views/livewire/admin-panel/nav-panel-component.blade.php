@@ -182,12 +182,16 @@
         </x-dropdown>
 
         @hasrole('administrator')
+            <!--Rate Transportation Panel-->
+            <x-link href="{{ route('rate-transportation') }}" :active="request()->routeIs('rate-transportation')" class="hidden px-1 ml-2 sm:block">
+                <span class="text-gray-500 hover:text-gray-700">{{ __('Rate Transportation') }}</span>
+            </x-link>
             <!--Slider Panel-->
-            <x-link href="{{ route('sliders') }}" :active="request()->routeIs('sliders')" class="ml-2 hidden sm:block px-1">
+            <x-link href="{{ route('sliders') }}" :active="request()->routeIs('sliders')" class="hidden px-1 ml-2 sm:block">
                 <span class="text-gray-500 hover:text-gray-700">{{ __('Sliders') }}</span>
             </x-link>
             <!--UpagosDirect Panel-->
-            <x-link href="{{ route('upagosdirect') }}" :active="request()->routeIs('upagosdirect')" class="ml-2 hidden sm:block px-1">
+            <x-link href="{{ route('upagosdirect') }}" :active="request()->routeIs('upagosdirect')" class="hidden px-1 ml-2 sm:block">
                 <span class="text-gray-500 hover:text-gray-700">{{ __('Settings') }}</span>
             </x-link>
         @endhasrole

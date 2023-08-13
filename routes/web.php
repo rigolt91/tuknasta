@@ -5,6 +5,7 @@ use App\Http\Livewire\AdminPanel\Branch\BranchComponent;
 use App\Http\Livewire\AdminPanel\Category\CategoryComponent;
 use App\Http\Livewire\AdminPanel\Order\OrderComponent;
 use App\Http\Livewire\AdminPanel\Product\ProductComponent;
+use App\Http\Livewire\AdminPanel\RateTransportation\RateTransportationComponent;
 use App\Http\Livewire\AdminPanel\Reports\YearSales;
 use App\Http\Livewire\AdminPanel\Reports\DailySales;
 use App\Http\Livewire\AdminPanel\Reports\MonthlySales;
@@ -18,13 +19,10 @@ use App\Http\Livewire\DashboardComponent;
 use App\Http\Livewire\Payment\ConfirmComponent;
 use App\Http\Livewire\Payment\DeliveryComponent;
 use App\Http\Livewire\Payment\PaymentComponent;
-use App\Http\Livewire\Policy\AboutUs;
-use App\Http\Livewire\Policy\RefundPolicy;
 use App\Http\Livewire\Product\ProductDetailComponent;
 use App\Http\Livewire\Profile\MyOrder\MyOrderComponent;
 use App\Http\Livewire\WelcomeComponent;
 use App\Http\Livewire\WholesalerComponent;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 
@@ -80,6 +78,7 @@ Route::middleware([
         Route::get('/admin-panel/users', UserComponent::class)->name('admin-panel.users');
     });
     Route::middleware(['role:administrator'])->group(function () {
+        Route::get('/admin-panel/rate-transportation', RateTransportationComponent::class)->name('rate-transportation');
         Route::get('/admin-panel/branches', BranchComponent::class)->name('admin-panel.branches');
         Route::get('/admin-panel/sliders', SliderComponent::class)->name('sliders');
         Route::get('/admin-panel/upagosdirect', UpagosDirectComponent::class)->name('upagosdirect');

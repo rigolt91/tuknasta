@@ -39,7 +39,7 @@
                                         <x-td>{{ ++$key }}</x-td>
                                         <x-td>
                                             <img src="{{ Storage::url($category->image) }}"
-                                                class="flex items-center justify-center text-xs w-12 h-12 bg-green-100 border border-green-400 rounded"
+                                                class="flex items-center justify-center w-12 h-12 text-xs bg-green-100 border border-green-400 rounded"
                                                 alt="img">
                                         </x-td>
                                         <x-td>{{ $category->name }}</x-td>
