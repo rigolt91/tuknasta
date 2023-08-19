@@ -13,7 +13,7 @@
                     {{ $name }}
                 </div>
 
-                <div class="h-16 py-0 text-sm text-gray-700 border-b sm:h-auto sm:py-1 sm:block">{{ substr($short_description, 0, 50) }}...</div>
+                <div class="h-16 py-0 text-sm text-gray-700 sm:h-auto sm:py-1 sm:block">{{ substr($short_description, 0, 50) }}...</div>
 
                 <div class="py-1">
                     <div class="absolute bottom-0 flex items-center">
