@@ -1,17 +1,17 @@
 <div>
-    <nav id="navBarFixed" class="hidden fixed z-50 bg-gray-100 w-full opacity-90 shadow-md scroll-mt-2">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 mb-1 border-b sm:mb-0 sm:border-none">
-                <div class="sm:-my-px mx-4 sm:m-0 flex">
+    <nav id="navBarFixed" class="fixed z-50 hidden w-full bg-gray-100 shadow-md opacity-90 scroll-mt-2">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:mb-0 sm:border-none">
+                <div class="relative flex items-center sm:-my-px sm:m-0">
                     <!-- Logo -->
-                    <div class="flex items-center sm:mr-12">
+                    <div class="absolute left-0 flex items-center -top-3">
                         <a href="{{ route('dashboard') }}">
-                            <x-application-logo width="90" height="24" class="hidden sm:block -ml-4 sm:ml-0" />
-                            <x-application-sm width="60" height="60" class="block sm:hidden -ml-4 sm:ml-0" />
+                            <x-application-logo width="90" height="24" class="hidden md:block md:ml-0" />
+                            <x-application-sm width="50" height="50" class="block md:hidden md:ml-0" />
                         </a>
                     </div>
                     <!-- Navigation Links -->
-                    <div class="space-x-2 sm:space-x-4 sm:-my-px mx-4 sm:mx-4 flex items-center">
+                    <div class="flex items-center mx-12 space-x-2 sm:space-x-4 sm:-my-px md:mx-28">
                         <x-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="uppercase sm:block">
                             <span class="text-xs sm:text-sm">{{ __('Home') }}</span>
                         </x-link>
@@ -26,11 +26,11 @@
                     </div>
                 </div>
 
-                <div class="flex items-center w-auto">
-                    <form action="{{ route('products') }}" class="flex w-full hidden sm:block" method="get">
+                <div class="relative flex items-center w-auto">
+                    <form action="{{ route('products') }}" class="absolute flex hidden w-full right-16 sm:block" method="get">
                         <div class="flex items-center justify-end mr-4">
                             <input name="search" type="search"
-                                class="px-6 w-56 h-9 rounded-l-md border-green-700 focus:border-white focus:ring-green-500 shadow"
+                                class="w-48 px-6 border-green-700 shadow md:w-56 h-9 rounded-l-md focus:border-white focus:ring-green-500"
                                 placeholder="{{ __('Search products') }}..." />
                             <x-button-inline type="submit"
                                 class="px-3 bg-green-700 border border-green-700 rounded-l-none shadow">
@@ -44,7 +44,7 @@
                     </form>
 
                     <!--Shopping Cart-->
-                    <div class="flex items-center justify-end">
+                    <div class="absolute flex justify-end iems-center right-1">
                         @include('livewire.cart.cart-component')
                     </div>
                 </div>

@@ -2,16 +2,17 @@
     @if($sliders->count() > 0)
         <div @mouseover="open = true" @mouseout="open = false" class="relative">
             @foreach ($sliders as $slider)
-                <div class="slide hidden relative flex items-center w-full lg:h-[350px] h-[105px] sm:h-[180px] md:h-[230px] xl:h-[350px] bg-no-repeat bg-center object-contain bg-cover sm:bg-cover md:bg-cover lg:bg-contain xl:bg-cover sm:rounded" style="background-image: url('{{ Storage::url($slider->image) }}')" alt="{{ $slider->title }}">
-                    <div class="px-8 sm:px-28">
-                        <div class="sm:text-4xl sm:block hidden text-2xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
+                <div class="relative flex items-center hidden w-full slide sm:rounded">
+                    <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="rounded-md shadow-md">
+                    <div class="absolute px-8 sm:px-28">
+                        <div class="lg:text-4xl md:block hidden text-2xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
                             {{ __($slider->title) }}
                         </div>
-                        <div class="sm:text-2xl  sm:block hidden text-lg text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
-                            {{ __($slider->text) }}
+                        <div class="sm:text-xl md:block hidden text-lg text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
+                            {{ __(substr($slider->text, 0, 150)) }}
                         </div>
                         @if($slider->text)
-                        <a href="{{ url($slider->link) }}" class="w-[150px] text-center items-center sm:block hidden px-2 py-2 text-xs font-semibold tracking-widest text-gray-800 uppercase transition duration-150 ease-in-out bg-green-100 border rounded-md border-green hover:scale-105 hover:bg-green-500 hover:shadow-md focus:bg-green-500 hover:border-green-600 active:bg-green-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-green-500">
+                        <a href="{{ url($slider->link) }}" class="w-[150px] text-center items-center md:block hidden px-2 py-2 text-xs font-semibold tracking-widest text-gray-800 uppercase transition duration-150 ease-in-out bg-green-100 border rounded-md border-green hover:scale-105 hover:bg-green-500 hover:shadow-md focus:bg-green-500 hover:border-green-600 active:bg-green-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-green-500">
                             {{ __('Buy now') }}
                         </a>
                         @endif

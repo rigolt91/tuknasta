@@ -4,26 +4,26 @@
             class="flex h-full transition ease-in-out bg-white border border-gray-100 sm:rounded hover:shadow-xl hover:-translate-y-1 duration-450">
             <div class="flex items-center bg-white rounded sm:w-4/12">
                 <a href="{{ route('product.details', $slug) }}" wire:loading.class="animation-pulse">
-                    <img src="{{ Storage::url($product->image) }}" class="object-cover object-center w-32 h-32 text-xs flex items-center justify-center bg-gray-200 sm:rounded-l" alt="{{ $product->name }}">
+                    <img src="{{ Storage::url($product->image) }}" class="flex items-center justify-center object-cover object-center w-32 h-32 text-xs bg-gray-200 sm:rounded-l" alt="{{ $product->name }}">
                 </a>
             </div>
 
-            <div class="w-8/12 mx-2 my-1">
-                <div class="py-2 text-sm font-bold text-gray-800 border-b sm:text-md ">
+            <div class="relative w-8/12 mx-2 my-1">
+                <div class="py-1 text-sm font-bold text-gray-800 border-b sm:py-2 sm:text-md ">
                     {{ $name }}
                 </div>
 
-                <div class="py-1 text-sm text-gray-700 sm:block">{{ substr($short_description, 0, 50) }}...</div>
+                <div class="h-16 py-0 text-sm text-gray-700 border-b sm:h-auto sm:py-1 sm:block">{{ substr($short_description, 0, 50) }}...</div>
 
-                <div class="border-t py-1">
-                    <div class="flex items-center">
+                <div class="py-1">
+                    <div class="absolute bottom-0 flex items-center">
                         <div class="font-bold text-gray-800 text-md">${{ number_format($price, 2) }}</div>
                         <div class="ml-2 text-sm font-bold text-gray-500">
                             {{ $previous_price ? '$' . number_format($previous_price, 2) : '' }}</div>
                     </div>
 
                     <div wire:click='addProductCart({{ $product }})' wire:loading.attr='disabled'
-                        class="float-right w-6 h-6 -mt-6 cursor-pointer disabled:opacity-60">
+                        class="absolute float-right w-6 h-6 -mt-6 cursor-pointer bottom-1 -right-1 disabled:opacity-60">
                         <svg height="24" width="24" fill="green"
                             class="h-6 -mx-2 duration-150 bi bi-cart4 hover:scale-125" viewBox="0 0 16 16">
                             <path
