@@ -18,6 +18,7 @@ class Branch extends Model
         'email',
         'contract_number',
         'person_contact',
+        'sub_branch',
     ];
 
     public function product()

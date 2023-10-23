@@ -16,6 +16,8 @@ class EditComponent extends ModalComponent
     public $email;
     public $contract_number;
     public $person_contact;
+    public $sub_branch;
+    public $check_sub_supplier = false;
 
     protected $rules = [
         'name' => 'required|string',
@@ -23,6 +25,7 @@ class EditComponent extends ModalComponent
         'email' => 'required|email',
         'contract_number' => 'required|string',
         'person_contact' => 'required|string',
+        'sub_branch' => 'nullable',
     ];
 
     public function mount()
@@ -32,6 +35,10 @@ class EditComponent extends ModalComponent
         $this->email  = $this->branch->email;
         $this->contract_number = $this->branch->contract_number;
         $this->person_contact  = $this->branch->person_contact;
+        $this->sub_branch = $this->branch->sub_branch;
+        if($this->sub_branch) {
+            $this->check_sub_supplier = true;
+        }
     }
 
     public function update()
@@ -43,6 +50,11 @@ class EditComponent extends ModalComponent
         $this->closeModalWithEvents([ BranchComponent::getName() => 'refreshBranches' ]);
     }
 
+    public function setCheckSubSupplier() {
+        $this->check_sub_supplier = !$this->check_sub_supplier;
+        $this->sub_branch = null;
+    }
+
     public static function modalMaxWidth(): string
     {
         return 'lg';
@@ -50,6 +62,8 @@ class EditComponent extends ModalComponent
 
     public function render()
     {
-        return view('livewire.admin-panel.branch.edit-component');
+        return view('livewire.admin-panel.branch.edit-component', [
+            'branches' => Branch::all()->except($this->branch->id)
+        ]);
     }
 }

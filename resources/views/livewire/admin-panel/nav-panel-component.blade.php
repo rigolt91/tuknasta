@@ -166,6 +166,9 @@
                 </span>
             </x-slot>
             <x-slot name="content">
+                <x-dropdown-link href="{{ route('admin-panel.report.sales-in-the-week-by-supplier') }}" class="flex items-center cursor-pointer">
+                    {{ __('Sales in the Week by Supplier') }}
+                </x-dropdown-link>
                 <x-dropdown-link wire:click="dailySales" class="flex items-center cursor-pointer">
                     {{ __('Daily Sales') }}
                 </x-dropdown-link>

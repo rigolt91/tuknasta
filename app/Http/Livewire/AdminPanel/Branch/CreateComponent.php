@@ -15,6 +15,8 @@ class CreateComponent extends ModalComponent
     public $email;
     public $contract_number;
     public $person_contact;
+    public $sub_branch;
+    public $check_sub_supplier = false;
 
     protected $rules = [
         'name' => 'required|string|unique:branches,name',
@@ -22,6 +24,7 @@ class CreateComponent extends ModalComponent
         'email' => 'required|email|unique:branches,email',
         'contract_number' => 'required|string',
         'person_contact' => 'required|string|unique:branches,person_contact',
+        'sub_branch' => 'nullable',
     ];
 
     public function store(Branch $branch)
@@ -35,6 +38,11 @@ class CreateComponent extends ModalComponent
         $this->closeModalWithEvents([ BranchComponent::getName() => 'refreshBranches' ]);
     }
 
+    public function setCheckSubSupplier() {
+        $this->check_sub_supplier = !$this->check_sub_supplier;
+        $this->sub_branch = null;
+    }
+
     public static function modalMaxWidth(): string
     {
         return 'lg';
@@ -42,6 +50,8 @@ class CreateComponent extends ModalComponent
 
     public function render()
     {
-        return view('livewire.admin-panel.branch.create-component');
+        return view('livewire.admin-panel.branch.create-component', [
+            'branches' => Branch::all()
+        ]);
     }
 }

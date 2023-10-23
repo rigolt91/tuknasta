@@ -192,5 +192,7 @@
     "Entregada": "Delivered",
     "Nombre y Apellidos": "Name and surname",
     "Preferido": "Favorite",
-    "Opciones": "Options"
+    "Opciones": "Options",
+    "Sub Supplier": "Sub Supplier",
+    "Sales in the Week by Supplier": "Sales in the Week by Supplier"
 }

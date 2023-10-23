@@ -9,6 +9,7 @@ use App\Http\Livewire\AdminPanel\RateTransportation\RateTransportationComponent;
 use App\Http\Livewire\AdminPanel\Reports\YearSales;
 use App\Http\Livewire\AdminPanel\Reports\DailySales;
 use App\Http\Livewire\AdminPanel\Reports\MonthlySales;
+use App\Http\Livewire\AdminPanel\Reports\SalesInTheWeekBySupplier;
 use App\Http\Livewire\AdminPanel\Reports\WeeklySales;
 use App\Http\Livewire\AdminPanel\SubCategory\SubCategoryComponent;
 use App\Http\Livewire\AdminPanel\User\UserComponent;
@@ -71,10 +72,11 @@ Route::middleware([
         Route::get('/admin-panel/categories', CategoryComponent::class)->name('admin-panel.categories');
         Route::get('/admin-panel/subcategories', SubCategoryComponent::class)->name('admin-panel.subcategories');
         Route::get('/admin-panel/orders', OrderComponent::class)->name('admin-panel.orders');
-        Route::get('/admin-panel/report/year-sales', YearSales::class)->name('admin-panel.report.year-sales');
+        Route::get('/admin-panel/report/sales-in-the-week-by-supplier', SalesInTheWeekBySupplier::class)->name('admin-panel.report.sales-in-the-week-by-supplier');
         Route::get('/admin-panel/report/daily-sales', DailySales::class)->name('admin-panel.report.daily-sales');
         Route::get('/admin-panel/report/weekly-sales', WeeklySales::class)->name('admin-panel.report.weekly-sales');
         Route::get('/admin-panel/report/monthly-sales', MonthlySales::class)->name('admin-panel.report.monthly-sales');
+        Route::get('/admin-panel/report/year-sales', YearSales::class)->name('admin-panel.report.year-sales');
         Route::get('/admin-panel/users', UserComponent::class)->name('admin-panel.users');
     });
     Route::middleware(['role:administrator'])->group(function () {
