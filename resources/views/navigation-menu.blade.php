@@ -4,7 +4,7 @@
     <nav class="bg-green-700 shadow">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-10 mb-1 border-b sm:mb-0 sm:border-none">
-                <div class="space-x-2 sm:-my-px mx-4 sm:m-0 sm:flex">
+                <div class="m-0 space-x-2 sm:-my-px sm:flex">
                     <!--Idioma -->
                     <div>
                         @livewire('lang-app')
@@ -33,13 +33,10 @@
                                                     <path
                                                         d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                                 </svg>
-                                                <div class="hidden md:block">{{ Auth::user()->name }}</div>
+                                                <div>{{ Auth::user()->name }}</div>
 
-                                                <svg height="24" width="24"
-                                                    class="ml-2 -mr-0.5 h-4 w-4 hidden sm:block" fill="none"
-                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                <svg height="24" width="24" class="ml-2 -mr-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -156,14 +153,14 @@
                                     </svg>
                                 </x-link>
                                 <x-link :href="route('login')" :active="request()->routeIs('login')">
-                                    <div class="hidden sm:block text-white active:text-gray-200">{{ __('Account') }}
+                                    <div class="hidden text-white sm:block active:text-gray-200">{{ __('Account') }}
                                     </div>
                                 </x-link>
 
-                                <span class="mx-1 hidden sm:block pt-1 text-gray-400">/</span>
+                                <span class="hidden pt-1 mx-1 text-gray-400 sm:block">/</span>
 
                                 <x-link :href="route('register')" :active="request()->routeIs('register')">
-                                    <div class="hidden sm:block text-white active:text-gray-200">{{ __('Register') }}
+                                    <div class="hidden text-white sm:block active:text-gray-200">{{ __('Register') }}
                                     </div>
                                 </x-link>
                             </div>
@@ -182,7 +179,8 @@
                     <!-- Logo -->
                     <div class="flex items-center shrink-0">
                         <a href="{{ route('dashboard') }}">
-                            <x-application-mark class="w-auto h-16 sm:block" />
+                            <x-application-mark class="hidden w-auto h-16 md:block" />
+                            <x-application-sm width="50" height="50" class="block md:hidden" />
                         </a>
                     </div>
                 </div>
@@ -208,7 +206,7 @@
                     <input name="search" type="search"
                         class="block w-full px-2 border-green-700 rounded rounded-r-none focus:border-white focus:ring-green-500"
                         placeholder="{{ __('Search products') }}" />
-                    <x-button-inline type="submit" class="bg-green-700 border border-green-700 px-4 rounded-l-none">
+                    <x-button-inline type="submit" class="px-4 bg-green-700 border border-green-700 rounded-l-none">
                         <svg width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                             <path
                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -220,10 +218,10 @@
     </nav>
 
     <div class="px-4 mx-auto max-w-7xl sm:px-8">
-        <div class="flex bg-green-700 py-4 rounded shadow">
+        <div class="flex py-4 bg-green-700 rounded shadow">
             <div class="text-gray-800">
                 <!-- Navigation Links -->
-                <div class="space-x-2 sm:-my-px mx-4 sm:m-4 sm:flex">
+                <div class="mx-2 space-x-1 sm:space-x-2 sm:-my-px sm:m-4 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="uppercase">
                         {{ __('Home') }}
                     </x-nav-link>

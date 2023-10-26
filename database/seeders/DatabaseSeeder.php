@@ -16,8 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->truncateTables([
             'roles',
             'users',
-            'categories',
-            'subcategories',
             'provinces',
             'municipalities',
             'delivery_methods',
@@ -28,8 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleTableSeeder::class,
             UserTableSeeder::class,
-            CategoryTableSeeder::class,
-            SubcategoryTableSeeder::class,
             ProvinceTableSeeder::class,
             MunicipalityTableSeeder::class,
             DeliveryMethodTableSeeder::class,

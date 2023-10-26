@@ -18,8 +18,9 @@
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('ATTENTION: The orders will be delivered to the beneficiary according to the data provided by the Client at the time of making the purchase, at the address or place specified when making the purchase. Exceptionally, if the beneficiary is not present at the time of delivery, the order can be delivered to another person as long as we have received approval from the client or beneficiary and a copy or photo of the identification will be requested.')}}
-                        <br>
-                        {{__('Contact us at info@tuknasta.com to coordinate the details.')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        {{__('Contact us at info.tuknasta@gmail.com to coordinate the details.')}}
                     </p>
                     <p class="mb-4 text-sm font-bold text-justify text-gray-700">
                         {{__('Delivery conditions:')}}
@@ -40,13 +41,19 @@
                         {{__('Orders that present errors or incomplete information that does not allow delivery to be made safely, will be temporarily withheld until the client provides the necessary information, if it is not corrected within a period of up to 48 hours, the order can be canceled and the money returned. to the buyer.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('The telephone data and/or email address of the beneficiary may be used by the carrier or the management team to coordinate the delivery schedule and other details of the service with the beneficiary.')}}
+                        {{__('When there are products in the order with which the recipient does not agree, they will proceed to reject it and sign for the rest of the products, the store will replace the product within the next 24 hours.')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        {{__('This same procedure will be taken into account when products that are not physically found are reflected in the delivery voucher.')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        {{__("The recipient's telephone and/or email address may be used by the carrier or the management team to coordinate the delivery schedule and other details of the service with the recipient.")}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('For protection against fraud and/or improper use of credit cards, tuknasta.com attributes the right to delay the delivery of products and/or services until the authenticity of the purchase is verified and, if deemed appropriate, it will deepen at the origin of any transaction carried out on the site, as established in the existing regulations.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('ATTENTION: The delivery times of the shipments or the provision of the purchased services, begin to apply from the approval of the order once its authenticity has been verified. If you need to ask any questions or comments, you can contact us by email info@tuknasta.com.')}}
+                        {{__('ATTENTION: The delivery times of the shipments or the provision of the purchased services, begin to apply from the approval of the order once its authenticity has been verified. If you need to ask any questions or comments, you can contact us by email info.tuknasta@gmail.com.')}}
                     </p>
                     <p class="mb-4 text-sm font-bold text-justify text-gray-700">
                         {{__('Delivery Times and Costs')}}
@@ -71,6 +78,12 @@
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('In the case of users residing in the Havana province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        a) {{__('users residing in the municipality Playa, La Lisa, Marianao, Plaza de la Revolución, Cerro, Centro Habana, Habana Vieja, 10 de Octubre 6 US dollars,')}}
+                    </p>
+                    <p class="mb-4 text-sm text-justify text-gray-700">
+                        b) {{__('users residing in the municipality of Habana del Este, Guanabacoa, Regla, Boyero, Cotorro, San Miguel del Padrón and Arroyo Naranjo 8 US dollars.')}}
                     </p>
                 </div>
             </div>

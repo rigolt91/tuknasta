@@ -20,7 +20,7 @@
                         <span class="pr-4 ml-4 border-r border-gray-300">{{ $starts }} {{ __('Starts') }}</span>
                     </span>
                     <div class="py-4 text-gray-700 border-b">
-                        {{ $description }}
+                        {!! $description !!}
                     </div>
                     <div class="pt-4 sm:pb-8">
                         <span

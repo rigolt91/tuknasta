@@ -20,6 +20,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Product' => 'App\Policies\UserRolePolicy',
         'App\Models\Order' => 'App\Policies\UserRolePolicy',
         'App\Models\Report' => 'App\Policies\UserRolePolicy',
+        'App\Models\RateTransportation' => 'App\Policies\UserRolePolicy',
     ];
 
     /**

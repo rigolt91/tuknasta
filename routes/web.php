@@ -5,9 +5,11 @@ use App\Http\Livewire\AdminPanel\Branch\BranchComponent;
 use App\Http\Livewire\AdminPanel\Category\CategoryComponent;
 use App\Http\Livewire\AdminPanel\Order\OrderComponent;
 use App\Http\Livewire\AdminPanel\Product\ProductComponent;
+use App\Http\Livewire\AdminPanel\RateTransportation\RateTransportationComponent;
 use App\Http\Livewire\AdminPanel\Reports\YearSales;
 use App\Http\Livewire\AdminPanel\Reports\DailySales;
 use App\Http\Livewire\AdminPanel\Reports\MonthlySales;
+use App\Http\Livewire\AdminPanel\Reports\SalesInTheWeekBySupplier;
 use App\Http\Livewire\AdminPanel\Reports\WeeklySales;
 use App\Http\Livewire\AdminPanel\SubCategory\SubCategoryComponent;
 use App\Http\Livewire\AdminPanel\User\UserComponent;
@@ -18,13 +20,10 @@ use App\Http\Livewire\DashboardComponent;
 use App\Http\Livewire\Payment\ConfirmComponent;
 use App\Http\Livewire\Payment\DeliveryComponent;
 use App\Http\Livewire\Payment\PaymentComponent;
-use App\Http\Livewire\Policy\AboutUs;
-use App\Http\Livewire\Policy\RefundPolicy;
 use App\Http\Livewire\Product\ProductDetailComponent;
 use App\Http\Livewire\Profile\MyOrder\MyOrderComponent;
 use App\Http\Livewire\WelcomeComponent;
 use App\Http\Livewire\WholesalerComponent;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 
@@ -66,21 +65,26 @@ Route::middleware([
     'user.enabled',
     config('jetstream.auth_session'),
     'verified',
-    'role:administrator|editor',
 ])->group(function () {
-    Route::get('/admin-panel', AdminPanelComponent::class)->name('admin-panel.panel');
-    Route::get('/admin-panel/products', ProductComponent::class)->name('admin-panel.products');
-    Route::get('/admin-panel/categories', CategoryComponent::class)->name('admin-panel.categories');
-    Route::get('/admin-panel/subcategories', SubCategoryComponent::class)->name('admin-panel.subcategories');
-    Route::get('/admin-panel/branches', BranchComponent::class)->name('admin-panel.branches');
-    Route::get('/admin-panel/orders', OrderComponent::class)->name('admin-panel.orders');
-    Route::get('/admin-panel/report/year-sales', YearSales::class)->name('admin-panel.report.year-sales');
-    Route::get('/admin-panel/report/daily-sales', DailySales::class)->name('admin-panel.report.daily-sales');
-    Route::get('/admin-panel/report/weekly-sales', WeeklySales::class)->name('admin-panel.report.weekly-sales');
-    Route::get('/admin-panel/report/monthly-sales', MonthlySales::class)->name('admin-panel.report.monthly-sales');
-    Route::get('/admin-panel/users', UserComponent::class)->name('admin-panel.users');
-    Route::get('/admin-panel/sliders', SliderComponent::class)->name('sliders');
-    Route::get('/admin-panel/upagosdirect', UpagosDirectComponent::class)->name('upagosdirect');
+    Route::middleware(['role:administrator|editor'])->group(function () {
+        Route::get('/admin-panel', AdminPanelComponent::class)->name('admin-panel.panel');
+        Route::get('/admin-panel/products', ProductComponent::class)->name('admin-panel.products');
+        Route::get('/admin-panel/categories', CategoryComponent::class)->name('admin-panel.categories');
+        Route::get('/admin-panel/subcategories', SubCategoryComponent::class)->name('admin-panel.subcategories');
+        Route::get('/admin-panel/orders', OrderComponent::class)->name('admin-panel.orders');
+        Route::get('/admin-panel/report/sales-in-the-week-by-supplier', SalesInTheWeekBySupplier::class)->name('admin-panel.report.sales-in-the-week-by-supplier');
+        Route::get('/admin-panel/report/daily-sales', DailySales::class)->name('admin-panel.report.daily-sales');
+        Route::get('/admin-panel/report/weekly-sales', WeeklySales::class)->name('admin-panel.report.weekly-sales');
+        Route::get('/admin-panel/report/monthly-sales', MonthlySales::class)->name('admin-panel.report.monthly-sales');
+        Route::get('/admin-panel/report/year-sales', YearSales::class)->name('admin-panel.report.year-sales');
+        Route::get('/admin-panel/users', UserComponent::class)->name('admin-panel.users');
+    });
+    Route::middleware(['role:administrator'])->group(function () {
+        Route::get('/admin-panel/rate-transportation', RateTransportationComponent::class)->name('rate-transportation');
+        Route::get('/admin-panel/branches', BranchComponent::class)->name('admin-panel.branches');
+        Route::get('/admin-panel/sliders', SliderComponent::class)->name('sliders');
+        Route::get('/admin-panel/upagosdirect', UpagosDirectComponent::class)->name('upagosdirect');
+    });
 });
 
 Route::get('/', WelcomeComponent::class)->name('dashboard');
@@ -97,3 +101,9 @@ Route::get('/return-policy', function () {
 Route::get('/delivery-policy', function () {
     return view('policy.delivery-policy');
 })->name('delivery-policy');
+Route::get('/terms', function () {
+    return view('policy.terms');
+})->name('terms');
+Route::get('/policy', function () {
+    return view('policy.policy');
+})->name('policy');

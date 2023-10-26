@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-        <div class="mx-2">
+        <div class="mx-4 sm:mx-2">
             <x-card>
                 <x-card-body>
                     <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
@@ -29,6 +29,7 @@
                                     <x-th>{{ __('Contract Number') }}</x-th>
                                     <x-th>{{ __('Person Contact') }}</x-th>
                                     <x-th>{{ __('Products') }}</x-th>
+                                    <x-th>{{ __('Supplier') }}</x-th>
                                     <x-th></x-th>
                                 </x-tr>
                             </x-thead>
@@ -42,6 +43,13 @@
                                         <x-td>{{ $branch->contract_number }}</x-td>
                                         <x-td>{{ $branch->person_contact }}</x-td>
                                         <x-td>{{ $branch->product->count() }}</x-td>
+                                        <x-td>
+                                            @foreach ($branches as $bran)
+                                                @if ($bran->id == $branch->sub_branch)
+                                                    {{ $bran->name }}
+                                                @endif
+                                            @endforeach
+                                        </x-td>
                                         @hasrole('administrator')
                                             <x-td class="flex float-right">
                                                 <x-button wire:click="edit({{ $branch }})" wire:loading.attr="disabled" class="flex items-center mx-1 disabled:opacity-60">

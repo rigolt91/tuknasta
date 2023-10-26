@@ -14,8 +14,8 @@ class UpagosDirectTableSeeder extends Seeder
     public function run(): void
     {
         UpagosDirect::create([
-            'phone' => '000 000 0000',
-            'email' => 'info@tukanasta.cu',
+            'phone' => '+15622201521',
+            'email' => 'info.tuknasta@gmail.com',
             'facebook' => 'https://www.facebook.com/',
             'instagram' => 'https://www.instagram.com/',
             'twitter' => 'https://twitter.com',

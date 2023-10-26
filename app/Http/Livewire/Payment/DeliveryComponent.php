@@ -30,15 +30,7 @@ class DeliveryComponent extends Component
 
     public function paymentConfirm()
     {
-        try {
-            if ($this->delivery_method == 2 && $this->contact->province_id <> 11) {
-                $this->emit('openModal', 'error-modal-component', ['message' => 'The home delivery service is only available for the province of Las Tunas.']);
-            } else {
-                return redirect()->route('payment.confirm', $this->delivery_method);
-            }
-        } catch (\Throwable $th) {
-            $this->emit('openModal', 'error-modal-component', ['message' => $th->getMessage()]);
-        }
+        return redirect()->route('payment.confirm', $this->delivery_method);
     }
 
     public function render()
