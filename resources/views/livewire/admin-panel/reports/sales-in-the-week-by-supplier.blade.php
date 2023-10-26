@@ -22,21 +22,27 @@
                             <x-thead>
                                 <x-tr>
                                     <x-th>Nro</x-th>
-                                    <x-th>{{ __('Products') }}</x-th>
-                                    <x-th>{{ __('Units') }}</x-th>
-                                    <x-th>{{ __('Price') }}</x-th>
+                                    <x-th>{{ __('Suppliers') }}</x-th>
                                     <x-th>{{ __('Amount') }}</x-th>
                                 </x-tr>
                             </x-thead>
                             <tbody>
-                                @foreach ($branches as $key => $branch)
-                                    <x-tr>
-                                        <x-th>Nro</x-th>
-                                        <x-th>{{ __('Products') }}</x-th>
-                                        <x-th>{{ __('Units') }}</x-th>
-                                        <x-th>{{ __('Price') }}</x-th>
-                                        <x-th>{{ __('Amount') }}</x-th>
-                                    </x-tr>
+                                @foreach($branches as $key => $branch)
+                                <x-tr>
+                                    <x-th>{{ ++$key }}</x-th>
+                                    <x-th>{{ $branch->name }}</x-th>
+                                    <x-th>
+                                        @if($branch->product->count() > 0)
+                                            @foreach ($branch->product as $product)
+                                                @if($product->userPurchasedProduct->count() > 0)
+                                                    $ {{ number_format($product->userPurchasedProduct->sum('amount'), 2) }}
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            {{ '0' }}
+                                        @endif
+                                    </x-th>
+                                </x-tr>
                                 @endforeach
                             </tbody>
                         </x-table>

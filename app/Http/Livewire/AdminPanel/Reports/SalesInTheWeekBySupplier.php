@@ -22,10 +22,14 @@ class SalesInTheWeekBySupplier extends Component
 
     public function mount(Request $request)
     {
-        $this->carbon = new Carbon;
-        $this->start_date = $request->start_date ?: Carbon::now()->subWeek()->startOfWeek()->format('Y-m-d');
-        $this->end_date = $request->end_date ?: Carbon::now()->startOfWeek()->format('Y-m-d');
-        $this->branches = Branch::all();
+        $this->start_date = Carbon::now()->startOfWeek(Carbon::THURSDAY)->format('Y-m-d');
+        $this->end_date = Carbon::now()->endOfWeek(Carbon::THURSDAY)->format('Y-m-d');
+        $this->branches = Branch::with(['product' => function($query) {
+            $query->with(['userPurchasedProduct' => function($query) {
+                $query->whereBetween('created_at', [$this->start_date, $this->end_date]);
+            }]);
+        }])
+        ->get();
     }
 
     public function render()
