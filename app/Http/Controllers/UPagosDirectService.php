@@ -20,7 +20,7 @@ class UPagosDirectService extends Controller
         $uPagosDirect = UpagosDirect::first();
         $this->demo_mode = $uPagosDirect->mode;
 
-        $token = !empty($uPagosDirect->token) ? $uPagosDirect->token : 'qnZzK9PXG6XDjXouF9u14xveuBeuukHR8bcQwHCp';
+        $token = !empty($uPagosDirect->token) ? $uPagosDirect->token : config('services.upagos.token');
 
         $this->httpClient = new Client([
             'base_uri' => $this->url,

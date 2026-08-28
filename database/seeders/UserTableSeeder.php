@@ -16,9 +16,9 @@ class UserTableSeeder extends Seeder
         //Create User for Administration
         $administrator = User::create([
             'name'     => 'Administrator',
-            'last_name' => 'TuKnasta',
-            'email'    => 'admin@tuknasta.com',
-            'password' => bcrypt('TUknasta*/2023'),
+            'last_name' => 'MarketPlaza',
+            'email'    => 'admin@marketplace.example.com',
+            'password' => bcrypt('Demo12345!'),
             'email_verified_at' => date('Y-m-d h:m:s'),
         ]);
 
