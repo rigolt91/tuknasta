@@ -9,7 +9,7 @@
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('The data provided by you is incorporated into our database, being used solely for registration authentication and processing the order.')}}
-                        {{__('Tuknasta undertakes not to disclose the data to third parties and to use it only for exchange purposes between us and you. The data can be modified at any time you wish.')}}
+                        {{__('MarketPlaza undertakes not to disclose the data to third parties and to use it only for exchange purposes between us and you. The data can be modified at any time you wish.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('We may terminate or suspend your account name and password at any time without notice to you or any other person if we believe that you have breached our policies, terms and conditions.')}}
@@ -21,7 +21,7 @@
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('You agree to notify us immediately of any unauthorized use of your account.')}}
-                        {{__('Tuknasta assumes no responsibility, and will not be liable, for any damages arising from or related to your failure to maintain the security of your password.')}}
+                        {{__('MarketPlaza assumes no responsibility, and will not be liable, for any damages arising from or related to your failure to maintain the security of your password.')}}
                     </p>
                 </div>
             </div>

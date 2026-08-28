@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "rigoberto/marketplace-demo",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "MarketPlaza - multi-vendor e-commerce marketplace built with Laravel, Livewire and Jetstream.",
+    "keywords": ["framework", "laravel", "e-commerce", "marketplace"],
     "license": "MIT",
     "require": {
         "php": "^8.1",

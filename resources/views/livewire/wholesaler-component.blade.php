@@ -1,15 +1,14 @@
 <div class="py-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 sm:mx-2">
-            <x-card class="bg-right bg-no-repeat bg-cover sm:bg-auto"
-                style="background-image: url({{ asset('tukanasta.png') }})">
+            <x-card class="bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-500">
                 <x-card-body class="flex">
                     <div class="sm:w-2/3">
                         <div class="w-full mb-6 text-gray-700">
                             <div class="mb-2 text-xl font-bold text-gray-800 border-b">
                                 {{ __('Wholesaler') }}
                             </div>
-                            {{ __('Do you need to make wholesale purchases for your business in Cuba? Tuknasta has a variety of wholesale options to always offer you the best and at the best price. Learn about all the offers available on the online platform and contact our sales team by email.') }}
+                            {{ __('Do you need to make wholesale purchases for your business? MarketPlaza has a variety of wholesale options to always offer you the best and at the best price. Learn about all the offers available on the online platform and contact our sales team by email.') }}
                         </div>
 
                         <div class="p-3 bg-white rounded sm:p-0">

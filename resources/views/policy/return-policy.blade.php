@@ -6,13 +6,13 @@
                     <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Return Policy') }}</p>
 
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('The person who receives the order in Cuba must make sure to verify that the products they receive match the order placed. Also, check the packaging very well and verify that they are in perfect condition in the company of the carrier before signing the invoice. By signing without verifying, the right to claim is lost. We are not responsible for defects that are visible, nor for differences in the quantity and assortment of the products that the consumer/recipient has accepted at the time of delivery and that he should have noticed at the time of delivery.')}}
+                        {{__('The person who receives the order must make sure to verify that the products they receive match the order placed. Also, check the packaging very well and verify that they are in perfect condition in the company of the carrier before signing the invoice. By signing without verifying, the right to claim is lost. We are not responsible for defects that are visible, nor for differences in the quantity and assortment of the products that the consumer/recipient has accepted at the time of delivery and that he should have noticed at the time of delivery.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify font-bold text-gray-700">
                         {{__('Claims')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('The recipient can establish a claim only for quality problems of the products within the term of 24 hours after receipt, to establish a claim you can direct your request to the following email info.tuknasta@gmail.com, and for this you must provide a photo of the product with which is dissatisfied.')}}
+                        {{__('The recipient can establish a claim only for quality problems of the products within the term of 24 hours after receipt, to establish a claim you can direct your request to the following email info@marketplace.example.com, and for this you must provide a photo of the product with which is dissatisfied.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('TIn the cases in which there is a claim, the store will offer you a credit so that at any other time you can buy any other product for the amount not consumed in the initial order.')}}
@@ -42,7 +42,7 @@
                         {{__('Delayed Delivery of the Product/Order:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('If the order or any of its products are not delivered within the estimated period of 10 - 12 days due to failures in our service, you have the right to be reimbursed without any additional compensation. Keep in mind that it is required to have all the updated contact information of the person who will receive the order in Cuba.')}}
+                        {{__('If the order or any of its products are not delivered within the estimated period of 10 - 12 days due to failures in our service, you have the right to be reimbursed without any additional compensation. Keep in mind that it is required to have all the updated contact information of the person who will receive the order.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify font-bold text-gray-700">
                         {{__('CANCELLATION OF ORDERS:')}}

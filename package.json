@@ -1,4 +1,5 @@
 {
+    "name": "marketplace",
     "private": true,
     "scripts": {
         "dev": "vite",

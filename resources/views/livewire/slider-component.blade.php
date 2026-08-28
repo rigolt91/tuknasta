@@ -2,8 +2,8 @@
     @if($sliders->count() > 0)
         <div @mouseover="open = true" @mouseout="open = false" class="relative">
             @foreach ($sliders as $slider)
-                <div class="relative flex items-center hidden w-full slide sm:rounded">
-                    <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="rounded-md shadow-md">
+                <div class="relative flex items-center hidden w-full slide sm:rounded bg-image bg-no-repeat bg-center bg-cover sm:h-[350px] h-[450px] shadow-md" style="background-image: url('{{ Storage::url($slider->image) }}')">
+                    <!--img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="rounded-md shadow-md" height="150px" width="100%" -->
                     <div class="absolute px-8 sm:px-28">
                         <div class="lg:text-4xl md:block hidden text-2xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
                             {{ __($slider->title) }}

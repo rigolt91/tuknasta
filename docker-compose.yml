@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: tuknasta-app
-    container_name: tuknasta-app
+    image: marketplace-app
+    container_name: marketplace-app
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
@@ -14,7 +14,7 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 3306
-      DB_DATABASE: tuknasta
+      DB_DATABASE: marketplace
       DB_USERNAME: root
       DB_PASSWORD: ""
       MAIL_HOST: mailpit
@@ -25,7 +25,7 @@ services:
 
   web:
     image: nginx:stable-alpine
-    container_name: tuknasta-web
+    container_name: marketplace-web
     restart: unless-stopped
     ports:
       - "8081:80"
@@ -37,11 +37,11 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: tuknasta-db
+    container_name: marketplace-db
     restart: unless-stopped
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: tuknasta
+      MYSQL_DATABASE: marketplace
       MYSQL_ROOT_PASSWORD: ""
     volumes:
       - dbdata:/var/lib/mysql
@@ -50,15 +50,29 @@ services:
 
   mailpit:
     image: axllent/mailpit
-    container_name: tuknasta-mailpit
+    container_name: marketplace-mailpit
     restart: unless-stopped
     ports:
       - "8025:8025"
       - "1025:1025"
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: marketplace-phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: ""
+    ports:
+      - "8082:80"
+    depends_on:
+      - db
+
   node:
     image: node:18
-    container_name: tuknasta-node
+    container_name: marketplace-node
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html

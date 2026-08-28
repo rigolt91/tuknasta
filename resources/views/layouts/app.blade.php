@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="author" content="Rigoberto Carmenate Mayo, Fullstack Developer">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -12,8 +13,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('logo-sm.png') }}">
-    <link rel="shortcut icon" sizes="192x192" href="{{ asset('logo-sm.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <style>
         @-webkit-keyframes fadeIn {
             0% {
@@ -39,7 +39,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="{{ asset('js/tukanasta.js') }}"></script>
+    <script src="{{ asset('js/site.js') }}"></script>
 
     @livewireStyles
 </head>

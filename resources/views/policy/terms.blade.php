@@ -5,10 +5,10 @@
                 <div class="p-2 mt-6 mb-4 bg-white shadow-md sm:p-6 sm:rounded-lg">
                     <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Terms and Conditions') }}</p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('Tuknasta is an E-commerce website that markets products and services purchased from anywhere in the world for delivery or enjoyment by Cuban families, in accordance with the terms and conditions set forth herein.')}}
+                        {{__('MarketPlaza is an E-commerce website that markets products and services purchased from anywhere in the world for delivery or enjoyment by our customers' families, in accordance with the terms and conditions set forth herein.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('The companies that sell their products or services in tuknasta, have the permits and authorizations required by law, and guarantee to the clients the fulfillment of any obligation that they acquire before them, according to the terms and conditions expressed here.')}}
+                        {{__('The companies that sell their products or services in marketplace, have the permits and authorizations required by law, and guarantee to the clients the fulfillment of any obligation that they acquire before them, according to the terms and conditions expressed here.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('The terms established herein are valid to regulate commercial relationships that may arise between the provider, the client and the recipient, which will always be aimed at protecting the integrity and satisfaction of the client.')}}
@@ -23,13 +23,13 @@
                         b) {{__('read and accepts these conditions,')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        c) {{__('knows that when placing orders through www.tuknasta.com, you must provide various personal data which will be confirmed and collected before the shipment is made.')}}
+                        c) {{__('knows that when placing orders through www.marketplace.example.com, you must provide various personal data which will be confirmed and collected before the shipment is made.')}}
                     </p>
                     <p class="mb-4 text-sm font-bold text-justify text-gray-700">
                         1. {{__('FORM OF PURCHASE OF THE PRODUCTS:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.1.1.- {{__('The products can only be purchased through the tuknasta.com website. Orders by phone or any other means of communication will not be accepted.')}}
+                        1.1.1.- {{__('The products can only be purchased through the marketplace.example.com website. Orders by phone or any other means of communication will not be accepted.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         1.1.2.- {{__('For the acquisition of the goods, the client will access the site, register and request the products that he wishes to acquire, declare the name of the recipient or his substitute and finally make the payment through credit or debit cards.')}}
@@ -41,16 +41,16 @@
                         1.1.4.- {{__('The user and the recipient will receive an email by which they will be able to know the status of their purchase.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.1.5.- {{__('The offers and prices of the products will be valid while they are displayed on the website www.tuknasta.com, in correspondence with existing inventories.')}}
+                        1.1.5.- {{__('The offers and prices of the products will be valid while they are displayed on the website www.marketplace.example.com, in correspondence with existing inventories.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.1.6.- {{__('If an incident occurs related to the purchase of a product and that is not in stock at that time, Tuknasta undertakes to manage and/or provide alternative products that satisfy the customer.')}}
+                        1.1.6.- {{__('If an incident occurs related to the purchase of a product and that is not in stock at that time, MarketPlaza undertakes to manage and/or provide alternative products that satisfy the customer.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.1.7.- {{__("The user can request the cancellation of the purchase within the first 24 hours of making it, by sending an email to the following address info.tuknasta@gmail.com, with the Subject 'Cancellation of order', for this you must provide the order data.")}}
+                        1.1.7.- {{__("The user can request the cancellation of the purchase within the first 24 hours of making it, by sending an email to the following address info@marketplace.example.com, with the Subject 'Cancellation of order', for this you must provide the order data.")}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.1.8.- {{__('When the cancellation occurs by decision of the user, and in which tuknasta had no involvement, a surcharge of 6% of the total amount of the order will be applied as compensation for bank charges and the payment gateway, Otherwise, when the cancellation is due to a Tuknasta error, the user will be reimbursed 100% of the amount paid.')}}
+                        1.1.8.- {{__('When the cancellation occurs by decision of the user, and in which marketplace had no involvement, a surcharge of 6% of the total amount of the order will be applied as compensation for bank charges and the payment gateway, Otherwise, when the cancellation is due to a MarketPlaza error, the user will be reimbursed 100% of the amount paid.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         1.2- {{__('Prices')}}
@@ -80,13 +80,13 @@
                         d) {{__('Union Pay.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.3.2.- {{__('To avoid fraud in online payment methods and protect our customers, the payment gateways used by tuknasta.com are verified by the associated financial entities and verify the reliability of the data provided during the execution of the transaction. the purchase.')}}
+                        1.3.2.- {{__('To avoid fraud in online payment methods and protect our customers, the payment gateways used by marketplace.example.com are verified by the associated financial entities and verify the reliability of the data provided during the execution of the transaction. the purchase.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         1.3.3.- {{__("All the transactions that are carried out are in the most absolute confidentiality, not having any access to the user's bank details, nor does it register them on its servers.")}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.3.4.- {{__('If the user presents a problem when making the payment, they can contact us through our telephone numbers or write to us by email: info.tuknasta@gmail.com.')}}
+                        1.3.4.- {{__('If the user presents a problem when making the payment, they can contact us through our telephone numbers or write to us by email: info@marketplace.example.com.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         1.3.5.- {{__('If the purchase made exceeds 50 kilograms, then the user will be charged an additional amount:')}}
@@ -113,7 +113,7 @@
                         1.3.6.- {{__('Household appliances are exempt from the application of this formula and do not have a cost for distribution, the delivery time will be extended to 10 business days because specialized transport is needed for their transfer.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.3.7 {{__('To protect the platform and guarantee secure transactions in case a suspicious payment is detected that cannot be clarified between the bank, financial entity and tuknasta.com and the products have been delivered without payment being received from it, The following action will be taken:')}}
+                        1.3.7 {{__('To protect the platform and guarantee secure transactions in case a suspicious payment is detected that cannot be clarified between the bank, financial entity and marketplace.example.com and the products have been delivered without payment being received from it, The following action will be taken:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         a) {{__('The User, the card used for payment, and the recipient(s) will be banned and will not be able to make future purchases in the store.')}}
@@ -137,19 +137,19 @@
                         1.4.5.- {{__('The delivery to the recipient after the purchase will be as follows:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.4.5.1.- {{__('In the case of users residing in the Las Tunas province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
+                        1.4.5.1.- {{__('In the case of users residing in Region B from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        a) {{__('users residing in the municipality of Las Tunas $5.00 US dollars,')}}
+                        a) {{__('users residing in Zone B1 $5.00 US dollars,')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        b) {{__('for residents of the municipalities Jobabo, Majibacoa, Manatí and Puerto Padre $6.00 US dollars,')}}
+                        b) {{__('for residents of Zone B2 $6.00 US dollars,')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        c) {{__('for residents in the municipalities of Amancio, Colombia and Jesús Menéndez $7.00 US dollars')}}
+                        c) {{__('for residents of Zone B3 $7.00 US dollars')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        1.4.5.2 {{__('In the case of users residing in the Havana province from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
+                        1.4.5.2 {{__('In the case of users residing in Region A from 2 to 7 business days, and the rates to be charged for shipping will be the following:')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         1.4.6.- {{__('At the time of delivery, the recipient must check together with the carrier that the products and the quantities declared on the invoice match the merchandise received to avoid subsequent claims for breakage, deterioration, shortages or quality problems and food safety.')}}
@@ -196,7 +196,7 @@
                         • {{__('The commercial invoice issued by the virtual store')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        2.3.- {{__('The recipient can establish a claim only for quality problems of the products within the term of 24 hours after receipt, to establish a claim you can direct your request to the following email info.tuknasta@gmail.com, and for this you must provide photo of the product with which you are dissatisfied.')}}
+                        2.3.- {{__('The recipient can establish a claim only for quality problems of the products within the term of 24 hours after receipt, to establish a claim you can direct your request to the following email info@marketplace.example.com, and for this you must provide photo of the product with which you are dissatisfied.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         2.4.- {{__('When there are products in the order with which the recipient does not agree, he will proceed to reject it and sign the rest of the products, the store will replace the product within the next 24 hours.')}}
@@ -235,13 +235,13 @@
                         2.9.- {{__('The site is not responsible for the fraudulent, incorrect or unauthorized use of the magnetic card used to make the purchase, so no refund will be made for these reasons. This incident will be notified to the services of the card in question.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        2.10.- {{__('The products offered by tuknasta will be in accordance with the legislation in force for this type of service, both in the country of origin and the country of destination, so it will be guaranteed that the photographs and images, as well as their description, faithfully represent the product. offered.')}}
+                        2.10.- {{__('The products offered by marketplace will be in accordance with the legislation in force for this type of service, both in the country of origin and the country of destination, so it will be guaranteed that the photographs and images, as well as their description, faithfully represent the product. offered.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        2.11.- {{__('The tuknasta.com site may be modified at any time by its operators, and the modification will correspond to the changes that may exist in terms, conditions or types of products, for which we urge users to users to constantly visit the site, so that they are kept updated and do not incur errors when using the site.')}}
+                        2.11.- {{__('The marketplace.example.com site may be modified at any time by its operators, and the modification will correspond to the changes that may exist in terms, conditions or types of products, for which we urge users to users to constantly visit the site, so that they are kept updated and do not incur errors when using the site.')}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        2.12.- {{__('Any doubt, concern, suggestion or claim will be addressed by the tuknasta.com team, through the email info.tuknasta@gmail.com. You can also communicate by WhatsApp +15622201521.')}}
+                        2.12.- {{__('Any doubt, concern, suggestion or claim will be addressed by the marketplace.example.com team, through the email info@marketplace.example.com. You can also communicate by WhatsApp +1 555 0100.')}}
                     </p>
                 </div>
             </div>
