@@ -46,7 +46,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div id="content" class="hidden min-h-screen bg-white">
+    <div id="content" class="hidden min-h-screen bg-white flex flex-col">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
@@ -61,7 +61,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="flex-1">
             {{ $slot }}
         </main>
 
