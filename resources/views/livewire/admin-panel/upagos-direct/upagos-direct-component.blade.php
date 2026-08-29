@@ -16,11 +16,11 @@
                                 </div>
 
                                 <div class="mt-2 mb-4">
-                                    <div class="relative border rounded-md border-green-400">
+                                    <div class="relative border rounded-md border-indigo-400">
                                         <x-label for="mode" :value="__('Test Mode')" />
                                         <label class="relative inline-flex items-center mt-4 ml-3 cursor-pointer">
                                             <input type="checkbox" wire:click="setMode" class="sr-only peer" @if($mode) checked @endif >
-                                            <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                                            <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-indigo-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                         </label>
                                     </div>
                                     <x-input-error for="mode" class="mt-2" />

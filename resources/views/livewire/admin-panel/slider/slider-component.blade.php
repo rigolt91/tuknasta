@@ -11,7 +11,7 @@
                         <form wire:submit.prevent='store' method="post">
                             @csrf
 
-                            <div class="flex items-center justify-center w-full mr-4 mb-4 text-sm text-gray-500 border border-green-400 rounded-md" style="height: 80px;">
+                            <div class="flex items-center justify-center w-full mr-4 mb-4 text-sm text-gray-500 border border-indigo-400 rounded-md" style="height: 80px;">
                                 @if($image)
                                     <img wire:loading.class='opacity-25' wire:target='image' src="{{ Storage::exists($image) ? Storage::url($image) : $image->temporaryUrl() }}" class="rounded-md flex items-center justify-center text-xs w-full" style="height: 80px;" alt="{{__('Image')}}">
                                 @else
@@ -24,7 +24,7 @@
                                 <div class="mb-4">
                                     <div class="relative">
                                         <x-label for="image" :value="__('Image')" />
-                                        <x-input wire:model='image' type="file" class="text-sm file:p-2 file:border-none file:bg-green-200 file:text-gray-500 file:cursor-pointer focus:outline-none focus:shadow-[0_0_0_1px] focus:shadow-green-500 hover:file:bg-green-700 hover:file:text-white block w-full" :value="old('image', $image)" autofocus autocomplete="image" />
+                                        <x-input wire:model='image' type="file" class="text-sm file:p-2 file:border-none file:bg-indigo-200 file:text-gray-500 file:cursor-pointer focus:outline-none focus:shadow-[0_0_0_1px] focus:shadow-indigo-500 hover:file:bg-indigo-700 hover:file:text-white block w-full" :value="old('image', $image)" autofocus autocomplete="image" />
                                     </div>
                                     <x-input-error for="image" class="mt-2" />
                                 </div>

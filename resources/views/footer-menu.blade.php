@@ -145,7 +145,7 @@
                             </h3>
                             <div class="flex mt-4 space-x-1 sm:justify-left sm:mt-0">
                                 <a href="{{ $facebook }}" target="blank">
-                                    <div class="mb-2 border p-1.5 hover:bg-green-700 hover:text-white cursor-pointer">
+                                    <div class="mb-2 border p-1.5 hover:bg-indigo-700 hover:text-white cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                                             <path
@@ -154,7 +154,7 @@
                                     </div>
                                 </a>
                                 <a href="{{ $instagram }}" target="blank">
-                                    <div class="mb-2 border p-1.5 hover:bg-green-700 hover:text-white cursor-pointer">
+                                    <div class="mb-2 border p-1.5 hover:bg-indigo-700 hover:text-white cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
                                             <path
@@ -162,7 +162,7 @@
                                         </svg>
                                     </div>
                                 </a>
-                                <div class="mb-2 border p-1.5 hover:bg-green-700 hover:text-white cursor-pointer">
+                                <div class="mb-2 border p-1.5 hover:bg-indigo-700 hover:text-white cursor-pointer">
                                     <a href="{{ $twitter }}" target="blank">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
@@ -172,7 +172,7 @@
                                     </a>
                                 </div>
                                 <a href="{{ $linkedin }}" target="blank">
-                                    <div class="mb-2 border p-1.5 hover:bg-green-700 hover:text-white cursor-pointer">
+                                    <div class="mb-2 border p-1.5 hover:bg-indigo-700 hover:text-white cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                                             <path
@@ -181,7 +181,7 @@
                                     </div>
                                 </a>
                                 <a href="{{ $google }}" target="blank">
-                                    <div class="mb-2 border p-1.5 hover:bg-green-700 hover:text-white cursor-pointer">
+                                    <div class="mb-2 border p-1.5 hover:bg-indigo-700 hover:text-white cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
                                             <path
@@ -200,7 +200,7 @@
             </footer>
         </div>
     </div>
-    <div class="flex items-center justify-center bg-green-800 py-4 mt-4">
+    <div class="flex items-center justify-center bg-indigo-800 py-4 mt-4">
         <span class="text-sm text-gray-100 text-center">© 2023 <a class="hover:underline">Rcarmenate</a>. All rights reserved. v1.0</span>
     </div>
 <div>

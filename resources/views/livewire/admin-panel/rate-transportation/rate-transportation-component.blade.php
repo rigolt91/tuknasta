@@ -7,7 +7,7 @@
         <div class="mx-4 sm:mx-2">
             <x-card>
                 <x-card-body>
-                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
+                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-indigo-300">
                         {{ __('Transportation') }}
 
                         @hasrole(['administrator'])
@@ -16,7 +16,7 @@
                                 <span class="ml-1">{{ __('Add') }}</span>
                             </x-button-inline>
                             <div class="flex items-center hidden float-right w-48 mr-2 -mt-2 sm:block">
-                                <select wire:model='province_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-green-500 focus:border-green-500 focus:placeholder:opacity-100">
+                                <select wire:model='province_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder:opacity-100">
                                     <option value="" selected>{{__('All provinces')}}</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province->id }}">{{ __($province->name) }}</option>

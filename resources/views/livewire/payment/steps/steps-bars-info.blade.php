@@ -3,8 +3,8 @@
 
     <div class="after:mt-4 after:block after:h-1 after:w-full after:rounded-lg after:bg-gray-200">
         <ol class="grid grid-cols-3 text-sm font-medium text-gray-500">
-            <li class="relative text-left text-green-600">
-                <span class="absolute left-0 -bottom-[1.75rem] rounded-full bg-green-600 text-white">
+            <li class="relative text-left text-indigo-600">
+                <span class="absolute left-0 -bottom-[1.75rem] rounded-full bg-indigo-600 text-white">
                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             fill-rule="evenodd"
@@ -26,7 +26,7 @@
             </li>
 
             <li class="relative text-center">
-                <span class="absolute left-1/2 -bottom-[1.75rem] -translate-x-1/2 rounded-full bg-green-600 text-white">
+                <span class="absolute left-1/2 -bottom-[1.75rem] -translate-x-1/2 rounded-full bg-indigo-600 text-white">
                     <svg fill="currentColor" class="bi bi-circle-fill m-0.5 h-4 w-4 border-0.5 border-green" viewBox="0 0 16 16">
                         <circle cx="8" cy="8" r="8"/>
                     </svg>
@@ -49,7 +49,7 @@
             </li>
 
             <li class="relative text-right mr-2">
-                <span class="absolute left-2/2 -bottom-[1.75rem] -translate-x-1/2 rounded-full bg-green-600 text-white">
+                <span class="absolute left-2/2 -bottom-[1.75rem] -translate-x-1/2 rounded-full bg-indigo-600 text-white">
                     <svg fill="currentColor" class="bi bi-circle-fill m-0.5 h-4 w-4 border-0.5 border-green" viewBox="0 0 16 16">
                         <circle cx="8" cy="8" r="8"/>
                     </svg>

@@ -8,7 +8,7 @@
             <div class="grid grid-cols-3">
                 <div class="mx-2 mb-4">
                     <a href="{{ route('admin-panel.categories') }}">
-                        <x-card class="mb-2 bg-emerald-700 hover:shadow-md">
+                        <x-card class="mb-2 bg-indigo-700 hover:shadow-md">
                             <x-card-header class="-m-2 text-lg font-bold text-white border-none">
                                 <div class="flex items-center">
                                     <svg width="28" height="28" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
@@ -23,7 +23,7 @@
                     </a>
 
                     <a href="{{ route('admin-panel.subcategories') }}">
-                        <x-card class="mb-2 bg-emerald-600 hover:shadow-md">
+                        <x-card class="mb-2 bg-indigo-600 hover:shadow-md">
                             <x-card-header class="-m-2 text-lg font-bold text-white border-none">
                                 <div class="flex items-center">
                                     <svg width="28" height="28" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
@@ -38,7 +38,7 @@
                     </a>
 
                     <a href="{{ route('admin-panel.products') }}">
-                        <x-card class="bg-emerald-500 hover:shadow-md">
+                        <x-card class="bg-indigo-500 hover:shadow-md">
                             <x-card-header class="-m-2 text-lg font-bold text-white border-none">
                                 <div class="flex items-center">
                                     <svg width="28" height="28" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
@@ -54,7 +54,7 @@
 
                 <div class="mx-2 mb-4">
                     <a href="{{ route('admin-panel.orders') }}">
-                        <x-card class="mb-2 bg-teal-700 hover:shadow-md">
+                        <x-card class="mb-2 bg-indigo-700 hover:shadow-md">
                             <x-card-header class="-m-2 text-lg font-bold text-white border-none">
                                 <div class="flex items-center">
                                     <svg width="28" height="28" fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
@@ -68,7 +68,7 @@
                     </a>
 
                     <a href="{{ route('admin-panel.orders') }}">
-                        <x-card class="mb-2 bg-teal-600 hover:shadow-md">
+                        <x-card class="mb-2 bg-indigo-600 hover:shadow-md">
                             <x-card-header class="-m-2 font-bold text-white border-none text-md">
                                 <div class="pb-2 border-b">
                                     <div class="flex items-center">
@@ -108,7 +108,7 @@
 
                 <div class="mx-2 mb-2">
                     <a href="{{ route('admin-panel.branches') }}">
-                        <x-card class="mb-2 bg-emerald-600 hover:shadow-md">
+                        <x-card class="mb-2 bg-indigo-600 hover:shadow-md">
                             <x-card-header class="-m-2 text-lg font-bold text-white border-none">
                                 <div class="flex items-center">
                                     <svg width="28" height="28" fill="currentColor" class="bi bi-houses" viewBox="0 0 16 16">
@@ -121,7 +121,7 @@
                         </x-card>
                     </a>
 
-                    <x-card class="mb-2 bg-teal-500 hover:shadow-md">
+                    <x-card class="mb-2 bg-indigo-500 hover:shadow-md">
                         <x-card-header class="-m-2 text-lg font-bold text-white border-none">
                             <div class="flex items-center">
                                 <svg width="28" height="28" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">

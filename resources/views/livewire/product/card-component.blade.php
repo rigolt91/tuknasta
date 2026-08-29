@@ -6,7 +6,7 @@
                 <img class="flex items-center justify-center object-cover object-center w-full text-xs bg-gray-200 sm:w-[230px] sm:h-[230px] sm:rounded-t-md"
                     src="{{ Storage::url($image) }}" alt="{{ $product->name }}" />
                 @if ($out_of_stock)
-                    <div class="absolute top-0 px-1 text-sm font-bold text-white uppercase bg-green-700 right-2">
+                    <div class="absolute top-0 px-1 text-sm font-bold text-white uppercase bg-indigo-700 right-2">
                         {{ __('Out Of Stock') }}
                     </div>
                 @endif

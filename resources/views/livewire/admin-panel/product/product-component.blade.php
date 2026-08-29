@@ -7,7 +7,7 @@
         <div class="mx-4 sm:mx-2">
             <x-card>
                 <x-card-body>
-                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
+                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-indigo-300">
                         {{ __('List of Products') }}
 
                         @hasrole(['administrator', 'editor'])
@@ -18,7 +18,7 @@
                         @endhasrole
 
                         <div class="hidden float-right w-48 -mt-2 sm:block">
-                            <select wire:model='branch_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-green-500 focus:border-green-500 focus:placeholder:opacity-100">
+                            <select wire:model='branch_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder:opacity-100">
                                 <option value="" selected>{{__('Branches')}}</option>
                                 @foreach ($branches as $branch)
                                     <option value="{{ $branch->id }}">{{ $branch->name }}</option>
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="hidden float-right w-48 mr-2 -mt-2 sm:block">
-                            <select wire:model='subcategory_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-green-500 focus:border-green-500 focus:placeholder:opacity-100">
+                            <select wire:model='subcategory_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder:opacity-100">
                                 <option value="" selected>{{__('All Subcategories')}}</option>
                                 @foreach ($subcategories as $subcategory)
                                     <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="hidden float-right w-48 mr-2 -mt-2 sm:block">
-                            <select wire:model='category_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-green-500 focus:border-green-500 focus:placeholder:opacity-100">
+                            <select wire:model='category_id' class="peer font-normal h-9 w-full rounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder:opacity-100">
                                 <option value="" selected>{{__('Categories')}}</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="hidden float-right w-48 mr-2 -mt-2">
-                            <select wire:model='category_id' class="peer font-normal h-9 w-full rblockounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-green-500 focus:border-green-500 focus:placeholder:opacity-100">
+                            <select wire:model='category_id' class="peer font-normal h-9 w-full rblockounded border border-solid border-gray-200 bg-white cursor-pointer text-gray-500 focus:text-gray-700 blur:text-gray-700 bg-transparent py-0 px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder:opacity-100">
                                 <option value="" selected>{{__('All Categories')}}</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -79,7 +79,7 @@
                                     <x-tr wire:loading.class="opacity-60">
                                         <x-td>{{ ++$key }}</x-td>
                                         <x-td>
-                                            <img src="{{ Storage::url($product->image) }}" class="flex items-center justify-center text-xs w-12 h-12 bg-green-100 border border-green-400 rounded" alt="img">
+                                            <img src="{{ Storage::url($product->image) }}" class="flex items-center justify-center text-xs w-12 h-12 bg-indigo-100 border border-indigo-400 rounded" alt="img">
                                         </x-td>
                                         <x-td>{{ $product->sku }}</x-td>
                                         <x-td>{{ $product->name }}</x-td>
@@ -92,13 +92,13 @@
                                             <x-td>
                                                 <label class="relative inline-flex items-center mr-5 cursor-pointer">
                                                     <input type="checkbox" wire:click="setShow({{ $product }})" wire:loading.attr="disabled" class="sr-only peer" @if($product->show) checked @endif >
-                                                    <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                                                    <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-indigo-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                                 </label>
                                             </x-td>
                                             <x-td>
                                                 <label class="relative inline-flex items-center mr-5 cursor-pointer">
                                                     <input type="checkbox" wire:click="setRecommend({{ $product }})" wire:loading.attr="disabled" class="sr-only peer" @if($product->recommend) checked @endif >
-                                                    <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                                                    <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-indigo-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                                 </label>
                                             </x-td>
                                             <x-td class="flex float-right">

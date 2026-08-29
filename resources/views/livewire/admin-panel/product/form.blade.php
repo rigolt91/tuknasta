@@ -2,7 +2,7 @@
     <div class="sm:grid sm:grid-cols-2">
         <div class="mr-2">
             <div class="flex my-2">
-                <div class="flex items-center justify-center w-40 mr-4 text-sm text-gray-500 border border-green-400 rounded-md" style="height: 112px; width:140px;">
+                <div class="flex items-center justify-center w-40 mr-4 text-sm text-gray-500 border border-indigo-400 rounded-md" style="height: 112px; width:140px;">
                     @if($image)
                         @isset($product)
                             <img wire:loading.class='opacity-25' wire:target='image' src="{{ ($image !== $product->image) ? $image->temporaryUrl() : Storage::url($product->image) }}" class="rounded-md flex items-center justify-center text-xs w-full h-full" alt="{{ $product->name }}">
@@ -20,7 +20,7 @@
                     <div class="mb-4">
                         <div class="relative">
                             <x-label for="image" :value="__('Image')" />
-                            <x-input wire:model='image' type="file" class="text-sm file:p-2 file:border-none file:bg-green-200 file:text-gray-500 file:cursor-pointer focus:outline-none focus:shadow-[0_0_0_1px] focus:shadow-green-500 hover:file:bg-green-700 hover:file:text-white block w-full" :value="old('image', $image)" autofocus autocomplete="image" />
+                            <x-input wire:model='image' type="file" class="text-sm file:p-2 file:border-none file:bg-indigo-200 file:text-gray-500 file:cursor-pointer focus:outline-none focus:shadow-[0_0_0_1px] focus:shadow-indigo-500 hover:file:bg-indigo-700 hover:file:text-white block w-full" :value="old('image', $image)" autofocus autocomplete="image" />
                         </div>
                         <x-input-error for="image" class="mt-2" />
                     </div>

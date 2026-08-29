@@ -7,7 +7,7 @@
         <div class="mx-4 sm:mx-2">
             <x-card>
                 <x-card-body>
-                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
+                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-indigo-300">
                         {{ __('List of Suppliers') }}
 
                         @hasrole('administrator')

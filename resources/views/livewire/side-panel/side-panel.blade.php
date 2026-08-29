@@ -17,13 +17,13 @@
                         class="w-screen max-w-md pointer-events-auto" @click.away="open = !open">
                         <div class="flex flex-col w-4/5 h-full py-6 bg-white shadow-xl rounded-r-md">
                             <header class="px-4 sm:px-6">
-                                <div class="flex items-start justify-between border-b-2 border-green-300">
+                                <div class="flex items-start justify-between border-b-2 border-indigo-300">
                                     <h2 class="pb-2 text-lg font-medium text-gray-900" id="slide-over-title">
                                         {{ __($this->title) }}
                                     </h2>
                                     <div class="flex items-center ml-3 h-7">
                                         <button wire:click='closePanel' type="button"
-                                            class="text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 hover:p-1 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                            class="text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 hover:p-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                             @click="open = false">
                                             <span class="sr-only">Close panel</span>
                                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

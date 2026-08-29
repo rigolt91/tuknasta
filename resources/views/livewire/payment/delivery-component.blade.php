@@ -43,7 +43,7 @@
                                     <input wire:loading.attr="disabled" wire:click="deliveryMethod({{ $method->id }})"
                                         id="{{ $method->id }}" name="method_delivery" type="checkbox"
                                         @if ($method->id == $delivery_method) checked @endif
-                                        class="p-2 text-green-600 border border-green-500 rounded shadow-sm cursor-pointer focus:ring-green-500" />
+                                        class="p-2 text-indigo-600 border border-indigo-500 rounded shadow-sm cursor-pointer focus:ring-indigo-500" />
                                     <span class="ml-2 text-sm text-gray-600">{{ __($method->name) }}</span>
                                 </label>
                             </div>

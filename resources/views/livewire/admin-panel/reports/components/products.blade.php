@@ -1,4 +1,4 @@
-<x-card class="mb-2 bg-green-600 hover:shadow-md">
+<x-card class="mb-2 bg-indigo-600 hover:shadow-md">
     <x-card-header class="-m-2 text-lg font-bold text-white border-none">
         <div class="flex items-center">
             <svg width="28" height="28" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">

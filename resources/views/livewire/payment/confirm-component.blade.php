@@ -163,7 +163,7 @@
             </div>
             <div id="divPaymentProccess" class="fixed inset-0 flex items-center justify-center hidden overflow-hidden fadeIn">
                 <div class="absolute top-0 left-0 w-full h-full bg-gray-200 opacity-60"></div>
-                <div class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-green-500 border rounded-md shadow-lg justicy-center">
+                <div class="absolute z-50 flex items-center px-6 py-6 text-center text-white bg-indigo-500 border rounded-md shadow-lg justicy-center">
                     <x-icon-spin class="mr-2" />
                     <div id="divNotify">{{__('Processing the payment')}}</div>
                 </div>

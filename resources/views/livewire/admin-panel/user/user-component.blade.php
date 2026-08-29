@@ -7,7 +7,7 @@
         <div class="mx-2">
             <x-card>
                 <x-card-body>
-                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
+                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-indigo-300">
                         {{ __('Users') }} <span>({{ $users->count() }})</span>
 
                         <x-button-inline wire:click="create" class="flex float-right -mt-2">
@@ -39,7 +39,7 @@
                                         <x-td>
                                             <label class="relative inline-flex items-center mr-5 cursor-pointer">
                                                 <input type="checkbox" wire:click="disabled({{ $user}})" wire:loading.attr="disabled" class="sr-only peer disabled:opacity-60" @if($user->disabled) checked @endif >
-                                                <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                                                <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-indigo-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                             </label>
                                         </x-td>
                                         <x-td class="flex float-right">

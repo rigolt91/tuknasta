@@ -12,7 +12,7 @@
                             {{ __(substr($slider->text, 0, 150)) }}
                         </div>
                         @if($slider->text)
-                        <a href="{{ url($slider->link) }}" class="w-[150px] text-center items-center md:block hidden px-2 py-2 text-xs font-semibold tracking-widest text-gray-800 uppercase transition duration-150 ease-in-out bg-green-100 border rounded-md border-green hover:scale-105 hover:bg-green-500 hover:shadow-md focus:bg-green-500 hover:border-green-600 active:bg-green-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-green-500">
+                        <a href="{{ url($slider->link) }}" class="w-[150px] text-center items-center md:block hidden px-2 py-2 text-xs font-semibold tracking-widest text-gray-800 uppercase transition duration-150 ease-in-out bg-indigo-100 border rounded-md border-green hover:scale-105 hover:bg-indigo-500 hover:shadow-md focus:bg-indigo-500 hover:border-indigo-600 active:bg-indigo-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-indigo-500">
                             {{ __('Buy now') }}
                         </a>
                         @endif
@@ -71,7 +71,7 @@
                     }
 
                     for (i = 0; i < dots.length; i++) {
-                        dots[i].classList.remove('bg-green-700');
+                        dots[i].classList.remove('bg-indigo-700');
                         dots[i].classList.add('bg-white/20');
                     }
 
@@ -89,7 +89,7 @@
                     })();
 
                     dots[slideIndex - 1].classList.remove('bg-white/20');
-                    dots[slideIndex - 1].classList.add('bg-green-700');
+                    dots[slideIndex - 1].classList.add('bg-indigo-700');
                 }
 
                 setInterval(() => {

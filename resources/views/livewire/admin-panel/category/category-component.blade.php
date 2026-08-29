@@ -7,7 +7,7 @@
         <div class="mx-4 sm:mx-2">
             <x-card>
                 <x-card-body>
-                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-green-300">
+                    <div class="pb-2 mb-2 -mt-2 font-bold border-b border-indigo-300">
                         {{ __('List of Categories') }}
 
                         @hasrole(['administrator', 'editor'])
@@ -39,7 +39,7 @@
                                         <x-td>{{ ++$key }}</x-td>
                                         <x-td>
                                             <img src="{{ Storage::url($category->image) }}"
-                                                class="flex items-center justify-center w-12 h-12 text-xs bg-green-100 border border-green-400 rounded"
+                                                class="flex items-center justify-center w-12 h-12 text-xs bg-indigo-100 border border-indigo-400 rounded"
                                                 alt="img">
                                         </x-td>
                                         <x-td>{{ $category->name }}</x-td>
@@ -53,7 +53,7 @@
                                                         wire:loading.attr="disabled" class="sr-only peer"
                                                         @if ($category->show) checked @endif>
                                                     <div
-                                                        class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600">
+                                                        class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-indigo-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600">
                                                     </div>
                                                 </label>
                                             </x-td>

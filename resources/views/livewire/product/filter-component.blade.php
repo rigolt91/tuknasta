@@ -9,7 +9,7 @@
         </div>
     @endforeach
 
-    <div class="mt-4 font-bold text-gray-700 border-b border-green-300">
+    <div class="mt-4 font-bold text-gray-700 border-b border-indigo-300">
         {{ __('Filter By Price') }}
     </div>
 
@@ -18,17 +18,17 @@
             <div class="w-1/2">
                 <div class="flex items-center">
                     <span
-                        class="py-[0.32rem] leading-[1.5] px-2 rounded-l text-gray-500 bg-green-200 border-l border-y border-solid border-green-400">$</span>
+                        class="py-[0.32rem] leading-[1.5] px-2 rounded-l text-gray-500 bg-indigo-200 border-l border-y border-solid border-indigo-400">$</span>
                     <input type="number" wire:model.lazy='price_min' min="1" placeholder="{{ __('Min') }}"
-                        class="peer block w-full py-[0.32rem] px-3 mr-2 leading-[1.5] rounded-r border-r border-y border-solid border-green-400 bg-white text-gray-500 placeholder:text-gray-500 bg-transparent outline-none transition-all duration-200 ease-linear focus:ring-green-500 focus:border-green-500 focus:text-gray-700" />
+                        class="peer block w-full py-[0.32rem] px-3 mr-2 leading-[1.5] rounded-r border-r border-y border-solid border-indigo-400 bg-white text-gray-500 placeholder:text-gray-500 bg-transparent outline-none transition-all duration-200 ease-linear focus:ring-indigo-500 focus:border-indigo-500 focus:text-gray-700" />
                 </div>
             </div>
             <div class="w-1/2">
                 <div class="flex items-center">
                     <span
-                        class="py-[0.32rem] leading-[1.5] px-2 rounded-l text-gray-500 bg-green-200 border-l border-y border-solid border-green-400">$</span>
+                        class="py-[0.32rem] leading-[1.5] px-2 rounded-l text-gray-500 bg-indigo-200 border-l border-y border-solid border-indigo-400">$</span>
                     <input type="number" wire:model.lazy='price_max' min="1" placeholder="{{ __('Max') }}"
-                        class="peer block w-full py-[0.32rem] px-3 mr-2 leading-[1.5] rounded-r border-r border-y border-solid border-green-400 bg-white text-gray-500 placeholder:text-gray-500 bg-transparent outline-none transition-all duration-200 ease-linear focus:ring-green-500 focus:border-green-500 focus:text-gray-700" />
+                        class="peer block w-full py-[0.32rem] px-3 mr-2 leading-[1.5] rounded-r border-r border-y border-solid border-indigo-400 bg-white text-gray-500 placeholder:text-gray-500 bg-transparent outline-none transition-all duration-200 ease-linear focus:ring-indigo-500 focus:border-indigo-500 focus:text-gray-700" />
                 </div>
             </div>
         </div>

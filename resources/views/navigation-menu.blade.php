@@ -1,7 +1,7 @@
 <div>
     <livewire:navigation-menu-sm />
 
-    <nav class="bg-green-700 shadow">
+    <nav class="bg-indigo-700 shadow">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-10 mb-1 border-b sm:mb-0 sm:border-none">
                 <div class="m-0 space-x-2 sm:-my-px sm:flex">
@@ -204,9 +204,9 @@
             <div class="items-center justify-center w-full mb-2 sm:hidden">
                 <form action="{{ route('dashboard') }}" class="flex" method="get">
                     <input name="search" type="search"
-                        class="block w-full px-2 border-green-700 rounded rounded-r-none focus:border-white focus:ring-green-500"
+                        class="block w-full px-2 border-indigo-700 rounded rounded-r-none focus:border-white focus:ring-indigo-500"
                         placeholder="{{ __('Search products') }}" />
-                    <x-button-inline type="submit" class="px-4 bg-green-700 border border-green-700 rounded-l-none">
+                    <x-button-inline type="submit" class="px-4 bg-indigo-700 border border-indigo-700 rounded-l-none">
                         <svg width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                             <path
                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -218,7 +218,7 @@
     </nav>
 
     <div class="px-4 mx-auto max-w-7xl sm:px-8">
-        <div class="flex py-4 bg-green-700 rounded shadow">
+        <div class="flex py-4 bg-indigo-700 rounded shadow">
             <div class="text-gray-800">
                 <!-- Navigation Links -->
                 <div class="mx-2 space-x-1 sm:space-x-2 sm:-my-px sm:m-4 sm:flex">

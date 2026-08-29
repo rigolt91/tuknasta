@@ -6,7 +6,7 @@
                 <div class="relative">
                     <div class="absolute left-5">
                         <p
-                            class="flex h-6 w-6 items-center justify-center rounded bg-green-700 p-2.5 text-md text-gray-100">
+                            class="flex h-6 w-6 items-center justify-center rounded bg-indigo-700 p-2.5 text-md text-gray-100">
                             <span wire:loading.class="hidden">{{ $total_products }}</span>
 
                             <svg wire:loading.class.remove="hidden" fill="white" class="hidden -mx-2" width="24" height="24" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@
                 </div>
                 <div className="flex justify-center">
                     <a href="{{ route('cart.details') }}"
-                        class="flex justify-center -mb-1 rounded-b-md py-1.5 font-bold text-gray-100 uppercase text-sm bg-green-800 hover:bg-green-700 focus:bg-green-700">
+                        class="flex justify-center -mb-1 rounded-b-md py-1.5 font-bold text-gray-100 uppercase text-sm bg-indigo-800 hover:bg-indigo-700 focus:bg-indigo-700">
                         {{ __('Go To Cart') }}
                     </a>
                 </div>

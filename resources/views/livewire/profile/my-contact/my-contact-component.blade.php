@@ -1,10 +1,10 @@
 <div>
     <x-card>
-        <x-card-header  class="-m-6 bg-green-700">
+        <x-card-header  class="-m-6 bg-indigo-700">
             <div class="flex py-2 mx-4 text-lg font-bold text-white">
                 <span class="mt-2 ml-2">{{ __('My Contacts') }}</span>
 
-                <button wire:click="$emit('closeModal')" type="button" class="float-right sm:ml-auto ml-auto mt-2 sm:-mx-1.5 text-gray-800 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-100 hover:text-green-900 inline-flex h-8 w-8"  aria-label="Close">
+                <button wire:click="$emit('closeModal')" type="button" class="float-right sm:ml-auto ml-auto mt-2 sm:-mx-1.5 text-gray-800 rounded-lg focus:ring-2 focus:ring-indigo-400 p-1.5 hover:bg-indigo-100 hover:text-indigo-900 inline-flex h-8 w-8"  aria-label="Close">
                     <span class="sr-only">{{__('Close')}}</span>
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -34,12 +34,12 @@
                                 <x-td>
                                     <label class="relative inline-flex items-center mr-5 cursor-pointer">
                                         <input wire:click='setPrefer({{ $contact->id }})' wire:loading.attr='disabled' type="checkbox" class="sr-only peer" @if($contact->prefer) checked @endif />
-                                        <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                                        <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-indigo-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                     </label>
                                 </x-td>
                                 <x-td>
                                     <div class="flex items-center">
-                                        <x-icon-edit wire:click="edit({{ $contact }})" wire:loading.attr="disabled" class="mr-1 text-green-700 rounded disabled:opacity-60 hover:text-green-400 hover:cursor-pointer" width="24" height="24"/>
+                                        <x-icon-edit wire:click="edit({{ $contact }})" wire:loading.attr="disabled" class="mr-1 text-indigo-700 rounded disabled:opacity-60 hover:text-indigo-400 hover:cursor-pointer" width="24" height="24"/>
                                         <x-icon-trash wire:click="delete({{ $contact }})" wire:loading.attr="disabled" class="ml-1 text-red-700 rounded disabled:opacity-60 hover:text-red-500 hover:cursor-pointer" width="24" height="24" />
                                     </div>
                                 </x-td>

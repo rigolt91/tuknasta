@@ -13,13 +13,13 @@
                                 </div>
 
                                 @foreach ($carts as $cart)
-                                    <div wire:loading.class="opacity-60" class="flex items-center bg-white overflow-hidden border-b py-2.5 hover:bg-green-50 hover:mx-0.5 hover:cursor-pointer duration-200">
+                                    <div wire:loading.class="opacity-60" class="flex items-center bg-white overflow-hidden border-b py-2.5 hover:bg-indigo-50 hover:mx-0.5 hover:cursor-pointer duration-200">
                                         <div class="w-24 h-24 mr-4">
                                             <a href="{{ route('product.details', $cart->product->slug) }}">
                                                 <img class="relative w-24 h-24 mr-2 bg-cover border rounded cursor-pointer" src="{{ Storage::url($cart->product->image) }}" />
                                             </a>
                                             <div class="-mt-1 -mr-1 text-center">
-                                                <div class="text-gray-700 float-right relative text-sm font-bold -mt-24 -mr-0.5 w-6 h-6 bg-green-600 rounded-full shadow-md">
+                                                <div class="text-gray-700 float-right relative text-sm font-bold -mt-24 -mr-0.5 w-6 h-6 bg-indigo-600 rounded-full shadow-md">
                                                     <span class="relative text-white">{{ $cart->units }}</span>
                                                 </div>
                                             </div>
@@ -33,13 +33,13 @@
                                             <div class="mr-2 text-sm font-bold text-gray-700 text-md">${{ number_format(($cart->price), 2) }}</div>
 
                                             <div class="flex pt-2 mr-2 text-sm font-bold text-gray-700 text-md">
-                                                <x-button-inline wire:click="$emit('removeProductCart',[{{ $cart->id }}])" wire:loading.attr="disabled" class="flex items-center justify-center h-8 mr-1 text-green-800 hover:text-white">
+                                                <x-button-inline wire:click="$emit('removeProductCart',[{{ $cart->id }}])" wire:loading.attr="disabled" class="flex items-center justify-center h-8 mr-1 text-indigo-800 hover:text-white">
                                                     <svg fill="currentColor" class="h-5 -m-1 bi bi-dash-square-fill" viewBox="0 0 16 16">
                                                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>
                                                       </svg>
                                                 </x-button-inline>
 
-                                                <x-button-inline wire:click="$emit('addProductCart', [{{ $cart->product_id }}])" wire:loading.attr="disabled" class="flex items-center justify-center h-8 mr-1 text-green-800 hover:text-white">
+                                                <x-button-inline wire:click="$emit('addProductCart', [{{ $cart->product_id }}])" wire:loading.attr="disabled" class="flex items-center justify-center h-8 mr-1 text-indigo-800 hover:text-white">
                                                     <svg fill="currentColor" class="h-5 -m-1 bi bi-plus-square-fill" viewBox="0 0 16 16">
                                                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
                                                       </svg>

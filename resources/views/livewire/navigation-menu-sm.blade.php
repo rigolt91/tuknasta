@@ -30,10 +30,10 @@
                     <form action="{{ route('products') }}" class="absolute flex hidden w-full right-16 sm:block" method="get">
                         <div class="flex items-center justify-end mr-4">
                             <input name="search" type="search"
-                                class="w-48 px-6 border-green-700 shadow md:w-56 h-9 rounded-l-md focus:border-white focus:ring-green-500"
+                                class="w-48 px-6 border-indigo-700 shadow md:w-56 h-9 rounded-l-md focus:border-white focus:ring-indigo-500"
                                 placeholder="{{ __('Search products') }}..." />
                             <x-button-inline type="submit"
-                                class="px-3 bg-green-700 border border-green-700 rounded-l-none shadow">
+                                class="px-3 bg-indigo-700 border border-indigo-700 rounded-l-none shadow">
                                 <svg height="18" width="18" fill="white" class="bi bi-search"
                                     viewBox="0 0 16 16">
                                     <path

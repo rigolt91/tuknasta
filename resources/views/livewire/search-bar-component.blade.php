@@ -25,7 +25,7 @@
                 class="relative">
                 <button x-ref="button" x-on:click="toggle()" :aria-expanded="open"
                     :aria-controls="$id('dropdown-button')" type="button"
-                    class="flex items-center justify-center w-64 px-2 py-3 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-green-700 border border-green-700 border-r-none rounded-l-md hover:scale-105 hover:bg-green-500 hover:shadow-md focus:bg-green-500 hover:border-green-600 active:bg-green-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-green-500">
+                    class="flex items-center justify-center w-64 px-2 py-3 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-indigo-700 border border-indigo-700 border-r-none rounded-l-md hover:scale-105 hover:bg-indigo-500 hover:shadow-md focus:bg-indigo-500 hover:border-indigo-600 active:bg-indigo-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-indigo-500">
 
                     <span x-text="textButton">{{ __('All Categories') }}</span>
 
@@ -52,10 +52,10 @@
         </div>
         <input name="category_id" type="hidden" wire:model="category_id">
         <input name="search" type="search"
-            class="w-full px-6 border-green-700 focus:border-white focus:ring-green-500"
+            class="w-full px-6 border-indigo-700 focus:border-white focus:ring-indigo-500"
             placeholder="{{ __('Search products') }}..." />
 
-        <x-button-inline type="submit" class="px-3 bg-green-700 border border-green-700 rounded-l-none">
+        <x-button-inline type="submit" class="px-3 bg-indigo-700 border border-indigo-700 rounded-l-none">
             <svg height="18" width="18" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                 <path
                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
