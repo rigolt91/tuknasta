@@ -1,3 +1,10 @@
 *
-!public/
 !.gitignore
+!public/
+!public/categories/
+!public/categories/**
+!public/products/
+!public/products/demo/
+!public/products/demo/**
+!public/slider/
+!public/slider/**
