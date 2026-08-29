@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             OrderStatusTableSeeder::class,
             UpagosDirectTableSeeder::class,
             SampleCatalogSeeder::class,
+            SliderTableSeeder::class,
             DemoSalesSeeder::class,
         ]);
     }
