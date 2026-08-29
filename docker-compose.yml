@@ -77,6 +77,8 @@ services:
     volumes:
       - ./:/var/www/html
       - node_modules:/var/www/html/node_modules
+    ports:
+      - "5173:5173"
     command: ["tail", "-f", "/dev/null"]
 
 volumes:
