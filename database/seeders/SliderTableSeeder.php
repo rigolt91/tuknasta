@@ -14,19 +14,19 @@ class SliderTableSeeder extends Seeder
     {
         $sliders = [
             [
-                'image' => 'slider/Frutas y Verduras/af7166a5d6.jpg',
+                'image' => 'slider/banner-frescos.jpg',
                 'title' => 'Frutas y vegetales frescos',
                 'text' => 'Recibe en tu casa los productos más frescos de nuestros proveedores, seleccionados a diario.',
                 'link' => '/products',
             ],
             [
-                'image' => 'slider/Vegetales/812ed4562d.jpg',
+                'image' => 'slider/banner-despensa.jpg',
                 'title' => 'Todo para tu despensa',
                 'text' => 'Encuentra vegetales, carnes, lácteos y bebidas en un solo lugar, con entrega rápida y segura.',
                 'link' => '/products',
             ],
             [
-                'image' => 'categories/carnes-embutidos.jpg',
+                'image' => 'slider/banner-mayorista.jpg',
                 'title' => 'Compras al por mayor',
                 'text' => 'Opciones mayoristas para tu negocio, con los mejores precios de nuestros proveedores.',
                 'link' => '/wholesaler',
