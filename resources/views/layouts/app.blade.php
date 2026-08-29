@@ -51,9 +51,9 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-            <div class="px-4 mx-auto -mt-1 max-w-7xl sm:px-8">
-                <header class="bg-white rounded-b-lg shadow ">
-                    <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="px-4 mx-auto -mt-1 max-w-7xl sm:px-6 lg:px-6">
+                <header class="bg-white rounded-b-lg shadow">
+                    <div class="px-4 py-4">
                         {{ $header }}
                     </div>
                 </header>
