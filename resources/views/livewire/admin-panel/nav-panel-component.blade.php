@@ -1,5 +1,4 @@
-<div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
-    <div class="flex">
+<div class="flex flex-wrap items-center">
         <!--Manage Storage-->
         <span class="inline-flex items-center -ml-4 rounded-md">
             <a href="{{ route('admin-panel.panel') }}"
@@ -198,5 +197,4 @@
                 <span class="text-gray-500 hover:text-gray-700">{{ __('Settings') }}</span>
             </x-link>
         @endhasrole
-    </div>
 </div>
