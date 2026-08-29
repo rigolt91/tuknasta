@@ -133,7 +133,7 @@
                         </x-card-header>
                     </x-card>
 
-                    <x-card class="mb-2 bg-yellow-700 opacity-80 hover:shadow-md">
+                    <x-card class="mb-2 bg-indigo-400 hover:shadow-md">
                         <x-card-header class="-m-2 text-lg font-bold text-white border-none">
                             <div class="flex items-center">
                                 <svg width="28" height="28" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
