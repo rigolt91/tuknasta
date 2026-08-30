@@ -201,6 +201,6 @@
         </div>
     </div>
     <div class="flex items-center justify-center bg-indigo-800 py-4 mt-4">
-        <span class="text-sm text-gray-100 text-center">© 2023 <a class="hover:underline">Rcarmenate</a>. All rights reserved. v1.0</span>
+        <span class="text-sm text-gray-100 text-center">© {{ date('Y') }} <a class="hover:underline">RCM Web Studio</a>. {{ __('All rights reserved.') }} v1.0</span>
     </div>
 <div>

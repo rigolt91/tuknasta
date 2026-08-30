@@ -5,10 +5,10 @@
                 <div class="p-2 mt-6 mb-4 bg-white shadow-md sm:p-6 sm:rounded-lg">
                     <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Terms and Conditions') }}</p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('MarketPlaza is an E-commerce website that markets products and services purchased from anywhere in the world for delivery or enjoyment by our customers' families, in accordance with the terms and conditions set forth herein.')}}
+                        {{__("MarketPlaza is an E-commerce website that markets products and services purchased from anywhere in the world for delivery or enjoyment by our customers' families, in accordance with the terms and conditions set forth herein.")}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
-                        {{__('The companies that sell their products or services in marketplace, have the permits and authorizations required by law, and guarantee to the clients the fulfillment of any obligation that they acquire before them, according to the terms and conditions expressed here.')}}
+                        {{__("The companies that sell their products or services in marketplace, have the permits and authorizations required by law, and guarantee to the clients the fulfillment of any obligation that they acquire before them, according to the terms and conditions expressed here.")}}
                     </p>
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('The terms established herein are valid to regulate commercial relationships that may arise between the provider, the client and the recipient, which will always be aimed at protecting the integrity and satisfaction of the client.')}}
