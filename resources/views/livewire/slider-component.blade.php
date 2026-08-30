@@ -5,14 +5,14 @@
                 <div class="relative flex items-center hidden w-full slide sm:rounded bg-image bg-no-repeat bg-center bg-cover sm:h-[350px] h-[450px] shadow-md" style="background-image: url('{{ Storage::url($slider->image) }}')">
                     <!--img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}" class="rounded-md shadow-md" height="150px" width="100%" -->
                     <div class="absolute px-8 sm:px-28">
-                        <div class="lg:text-4xl md:block hidden text-2xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
+                        <div class="text-xl sm:text-2xl lg:text-4xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
                             {{ __($slider->title) }}
                         </div>
-                        <div class="sm:text-xl md:block hidden text-lg text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
+                        <div class="text-sm sm:text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.3)] mb-4">
                             {{ __(substr($slider->text, 0, 150)) }}
                         </div>
                         @if($slider->text)
-                        <a href="{{ url($slider->link) }}" class="w-[150px] text-center items-center md:block hidden px-2 py-2 text-xs font-semibold tracking-widest text-gray-800 uppercase transition duration-150 ease-in-out bg-indigo-100 border rounded-md border-green hover:scale-105 hover:bg-indigo-500 hover:shadow-md focus:bg-indigo-500 hover:border-indigo-600 active:bg-indigo-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-indigo-500">
+                        <a href="{{ url($slider->link) }}" class="w-[150px] text-center items-center inline-block px-2 py-2 text-xs font-semibold tracking-widest text-gray-800 uppercase transition duration-150 ease-in-out bg-indigo-100 border rounded-md border-indigo-200 hover:scale-105 hover:bg-indigo-500 hover:shadow-md focus:bg-indigo-500 hover:border-indigo-600 active:bg-indigo-600 active:shadow-md focus:outline-none focus:ring-offset-2 focus:ring-indigo-500">
                             {{ __('Buy now') }}
                         </a>
                         @endif
