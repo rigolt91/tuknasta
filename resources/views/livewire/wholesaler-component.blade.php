@@ -1,9 +1,9 @@
 <div class="py-8">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 sm:mx-2">
-            <x-card class="bg-gradient-to-br from-indigo-700 via-indigo-600 to-indigo-500">
+            <x-card class="">
                 <x-card-body class="flex">
-                    <div class="sm:w-2/3">
+                    <div class="sm:w-full">
                         <div class="w-full mb-6 text-gray-700">
                             <div class="mb-2 text-xl font-bold text-gray-800 border-b">
                                 {{ __('Wholesaler') }}
