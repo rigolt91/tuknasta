@@ -73,7 +73,7 @@ php artisan serve
 
 ## Pendientes conocidos (fuera del alcance de esta limpieza)
 
-- El `composer.lock` tiene dependencias con CVEs conocidas (incluye una vulnerabilidad crítica en `dompdf`); antes de exponer este proyecto como demo pública en vivo, conviene actualizar dependencias.
+- El `composer.lock` todavía tiene otras dependencias con CVEs conocidos (Guzzle, Symfony, Livewire 2.x, y el propio Laravel 10, que ya no recibe parches de seguridad y requeriría migrar a 12.x/13.x); antes de exponer este proyecto como demo pública en vivo, conviene actualizarlas. La vulnerabilidad crítica que había en `dompdf` (RCE vía `phenx/php-svg-lib`) ya se corrigió actualizando `barryvdh/laravel-dompdf` a `^3.0` (dompdf 3.1.6).
 - El favicon se generó a partir del logo original del cliente; se puede regenerar a partir del nuevo logo SVG en `resources/views/components/`.
 
 ## Licencia
