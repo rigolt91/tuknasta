@@ -46,7 +46,7 @@ class Wholesaler extends Mailable implements ShouldQueue
     {
         return new Content(
             view: 'emails.wholesaler',
-            with: ['message' => $this->message],
+            with: ['body' => $this->message],
         );
     }
 
