@@ -28,7 +28,7 @@ class SliderComponent extends Component
         } else {
             $validate = $this->validate();
 
-            $image = $this->image->storeAs("public/slider/$this->title", substr(sha1(rand(1, 999)), 0, -30) . '.jpg');
+            $image = $this->image->storeAs("slider/$this->title", substr(sha1(rand(1, 999)), 0, -30) .  '.jpg', 'uploads');
 
             Slider::create([
                 'title' => $this->title,
@@ -62,7 +62,7 @@ class SliderComponent extends Component
         if (Storage::exists($this->image)) {
             $image = $this->image;
         } else {
-            $image = $this->image->storeAs("public/slider/$this->title", substr(sha1(rand(1, 999)), 0, -30) . '.jpg');
+            $image = $this->image->storeAs("slider/$this->title", substr(sha1(rand(1, 999)), 0, -30) . '.jpg', 'uploads');
         }
 
         $this->slider->update([

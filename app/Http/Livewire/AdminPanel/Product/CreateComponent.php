@@ -43,7 +43,7 @@ class CreateComponent extends ModalComponent
     {
         $this->validate();
 
-        $image = $this->image->storeAs("public/products/$this->sku", substr(sha1(rand(1,999)),0,-30).'.jpg');
+        $image = $this->image->storeAs("products/$this->sku", substr(sha1(rand(1,999)),0,-30).'.jpg', 'uploads');
 
         Product::create([
             'image' => $image,

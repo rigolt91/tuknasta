@@ -35,7 +35,7 @@ class EditComponent extends ModalComponent
         $this->validate();
 
         $image = ($this->image !== $this->category->image)
-            ? $this->image->storeAs("public/categories/", substr(sha1(rand(1, 999)), 0, -30) . '.jpg')
+            ? $this->image->storeAs("categories/", substr(sha1(rand(1, 999)), 0, -30) . '.jpg', 'uploads')
             : $this->image;
 
         $this->category->update([

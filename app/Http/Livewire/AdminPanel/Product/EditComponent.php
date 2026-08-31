@@ -60,7 +60,7 @@ class EditComponent extends ModalComponent
         $this->validate();
 
         $image = ($this->image !== $this->product->image)
-            ? $this->image->storeAs("public/products/$this->sku", substr(sha1(rand(1,999)),0,-30).'.jpg')
+            ? $this->image->storeAs("products/$this->sku", substr(sha1(rand(1,999)),0,-30).'.jpg', 'uploads')
             : $this->image;
 
         $this->product->update([

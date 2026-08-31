@@ -26,7 +26,7 @@ class CreateComponent extends ModalComponent
         $this->authorize('create', $category);
         $this->validate();
 
-        $image = $this->image->storeAs("public/categories/", substr(sha1(rand(1, 999)), 0, -30) . '.jpg');
+        $image = $this->image->storeAs("categories/", substr(sha1(rand(1, 999)), 0, -30) . '.jpg', 'uploads');
 
         $category->create([
             'image' => $image,
