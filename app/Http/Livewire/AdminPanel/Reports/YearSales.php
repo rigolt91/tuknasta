@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\LaravelChart;
-
+use App\Http\Traits\SalesGrowthTrait;
 
 class YearSales extends Component
 {
+    use SalesGrowthTrait;
+
     public $date;
     public $carbon;
     public $products;
@@ -30,18 +32,6 @@ class YearSales extends Component
                             ->get();
         $this->growth = $this->products->toArray();
         $this->overallGrowth();
-    }
-
-    public function overallGrowth()
-    {
-        $this->overall_growth = 0;
-        $this->full_percent = 0;
-
-        foreach($this->products as $key => $product)
-        {
-            $this->overall_growth += ($key > 0) ? ($product->amount - $this->growth[$key-1]['amount']) : $this->growth[$key]['amount'];
-            $this->full_percent += ($key > 0) ? (($percent = ((($product->amount - $this->growth[$key-1]['amount'])/$product->amount) * 100)) > 0 ? $percent : 0) : 100;
-        }
     }
 
     public function chartUnitsProducts()

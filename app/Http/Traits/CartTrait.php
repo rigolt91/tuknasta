@@ -45,6 +45,6 @@ trait CartTrait {
 
     public function totalProducts()
     {
-        $this->total_products = $this->user->cart->count();
+        $this->total_products = $this->user->cart->sum('units');
     }
 }

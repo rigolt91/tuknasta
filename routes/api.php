@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('validateform', [PaymentController::class, 'validateForm']);
-Route::get('efstoken', [PaymentController::class, 'getToken']);
-Route::post('verify', [PaymentController::class, 'verify']);
-Route::post('sale', [PaymentController::class, 'sale']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('validateform', [PaymentController::class, 'validateForm']);
+    Route::get('efstoken', [PaymentController::class, 'getToken']);
+    Route::post('verify', [PaymentController::class, 'verify']);
+    Route::post('sale', [PaymentController::class, 'sale']);
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

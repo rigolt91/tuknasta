@@ -1,4 +1,4 @@
-<div class="py-8">
+<div>
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 sm:mx-2">
             <x-card class="">

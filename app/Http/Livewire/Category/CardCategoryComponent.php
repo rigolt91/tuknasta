@@ -15,7 +15,7 @@ class CardCategoryComponent extends Component
     public function render()
     {
         return view('livewire.category.card-category-component', [
-            'categories' => Category::whereShow(true)->get()
+            'categories' => Category::whereShow(true)->withCount('subcategory')->get()
         ]);
     }
 }

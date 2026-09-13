@@ -1,5 +1,5 @@
 <div>
-    <div class="grid -mx-2 sm:grid-cols-3">
+    <div class="grid -mx-2 sm:grid-cols-3 lg:grid-cols-4">
         @foreach ($products as $product)
             @livewire('product.card-prefer-component', ['product' => $product], ['key' => $product->id])
         @endforeach

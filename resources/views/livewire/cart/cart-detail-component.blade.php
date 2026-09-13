@@ -1,4 +1,4 @@
-<div class="py-8">
+<div>
     @if($total_products == 0)
         @include('livewire.cart.empty-cart-component')
     @else

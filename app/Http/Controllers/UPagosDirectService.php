@@ -29,7 +29,7 @@ class UPagosDirectService extends Controller
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . $token,
             ],
-            'verify' => false,
+            'verify' => true,
         ]);
     }
 
@@ -50,7 +50,6 @@ class UPagosDirectService extends Controller
 
     public function postData($endpoint, $data)
     {
-        Log::debug($endpoint, $data);
         try {
             $response = $this->httpClient->post($endpoint, [
                 'json' => $data,

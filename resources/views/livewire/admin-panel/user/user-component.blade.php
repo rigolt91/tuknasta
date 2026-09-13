@@ -35,7 +35,7 @@
                                         <x-td>{{ $user->name }}</x-td>
                                         <x-td>{{ $user->last_name }}</x-td>
                                         <x-td>{{ $user->email }}</x-td>
-                                        <x-td>{{ ucfirst($user->modelHasRole->role->name) }}</x-td>
+                                        <x-td>{{ ucfirst($user->roles->first()->name) }}</x-td>
                                         <x-td>
                                             <label class="relative inline-flex items-center mr-5 cursor-pointer">
                                                 <input type="checkbox" wire:click="disabled({{ $user}})" wire:loading.attr="disabled" class="sr-only peer disabled:opacity-60" @if($user->disabled) checked @endif >

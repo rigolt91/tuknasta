@@ -13,7 +13,7 @@
 
                             <div class="flex items-center justify-center w-full mr-4 mb-4 text-sm text-gray-500 border border-indigo-400 rounded-md" style="height: 80px;">
                                 @if($image)
-                                    <img wire:loading.class='opacity-25' wire:target='image' src="{{ Storage::exists($image) ? Storage::url($image) : $image->temporaryUrl() }}" class="rounded-md flex items-center justify-center text-xs w-full" style="height: 80px;" alt="{{__('Image')}}">
+                                    <img wire:loading.class='opacity-25' wire:target='image' src="{{ Storage::url($image) ? Storage::url($image) : $image->temporaryUrl() }}" class="rounded-md flex items-center justify-center text-xs w-full" style="height: 80px;" alt="{{__('Image')}}">
                                 @else
                                     <span wire:loading.class='hidden'>"JPEG"</span>
                                 @endif

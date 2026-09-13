@@ -25,4 +25,14 @@ class Branch extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function parentBranch()
+    {
+        return $this->belongsTo(Branch::class, 'sub_branch');
+    }
+
+    public function subBranches()
+    {
+        return $this->hasMany(Branch::class, 'sub_branch');
+    }
 }

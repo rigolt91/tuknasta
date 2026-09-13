@@ -1,17 +1,59 @@
-<div>
-    <livewire:navigation-menu-sm />
-
-    <nav class="bg-indigo-700 shadow">
+<div class="contents">
+    <div class="border-b bg-indigo-50/60 border-indigo-100/80">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-10 mb-1 border-b sm:mb-0 sm:border-none">
-                <div class="m-0 space-x-2 sm:-my-px sm:flex">
+            <div class="flex items-center justify-between h-10 mb-1 sm:mb-0 text-xs">
+                <span class="hidden text-indigo-800/80 sm:block">
+                    {{ __('Shipping by municipality') }} · {{ __('secure card payment') }}
+                </span>
+
+                <div class="flex items-center gap-3">
+                    @auth
+                        <span class="hidden text-indigo-800/80 sm:block">{{ Auth::user()->name }}</span>
+                    @endauth
+
                     <!--Idioma -->
                     <div>
                         @livewire('lang-app')
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="sm:flex sm:items-center sm:ml-4">
+    <nav x-data="{ open: false }" class="sticky top-0 z-40 border-b border-gray-100 shadow-sm bg-white/90 backdrop-blur">
+        <!-- Primary Navigation Menu -->
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4 mb-1 border-b sm:mb-0 sm:border-none">
+                <!-- Logo -->
+                <div class="flex items-center shrink-0">
+                    <a href="{{ route('dashboard') }}">
+                        <x-application-mark class="hidden w-auto h-12 md:block -ml-4" />
+                        <x-application-sm width="42" height="42" class="block md:hidden" />
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="items-center gap-6 lg:flex">
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+
+                    <x-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')">
+                        {{ __('Products') }}
+                    </x-nav-link>
+
+                    <x-nav-link href="{{ route('wholesaler') }}" :active="request()->routeIs('wholesaler')">
+                        {{ __('Wholesaler') }}
+                    </x-nav-link>
+                </div>
+
+                <!-- Searh -->
+                <div class="items-center justify-center flex-1 hidden max-w-md sm:flex">
+                    @livewire('search-bar-component')
+                </div>
+
+                <!--Account + Shopping Cart-->
+                <div class="flex items-center justify-end gap-2 shrink-0">
                     <!-- Settings Dropdown -->
                     <div class="relative">
                         @auth
@@ -20,26 +62,18 @@
                                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                         <button
                                             class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
-                                            <img class="object-cover w-8 h-8 rounded-full"
+                                            <img class="object-cover w-10 h-10 rounded-full"
                                                 src="{{ Auth::user()->profile_photo_url }}"
                                                 alt="{{ Auth::user()->name }}" />
                                         </button>
                                     @else
-                                        <span class="inline-flex rounded-md">
-                                            <button type="button"
-                                                class="inline-flex items-center my-4 ml-8 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out border border-transparent rounded-full sm:ml-6 sm:px-2 sm:py-2 sm:rounded-md hover:text-gray-200 focus:outline-none">
-                                                <svg height="32" width="32" fill="currentColor"
-                                                    class="sm:h-5 h-7 sm:mr-1 bi bi-person-fill" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                                </svg>
-                                                <div>{{ Auth::user()->name }}</div>
-
-                                                <svg height="24" width="24" class="ml-2 -mr-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                                </svg>
-                                            </button>
-                                        </span>
+                                        <button type="button"
+                                            class="relative flex items-center justify-center w-10 h-10 text-indigo-700 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-full hover:border-indigo-300 focus:outline-none">
+                                            <svg height="18" width="18" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                            </svg>
+                                        </button>
                                     @endif
                                 </x-slot>
 
@@ -146,95 +180,45 @@
                         @else
                             <div class="flex items-center pb-1">
                                 <x-link :href="route('login')" :active="request()->routeIs('login')">
-                                    <svg height="32" width="32" fill="white" class="bi bi-person-fill"
+                                    <svg height="32" width="32" fill="currentColor" class="text-indigo-800 bi bi-person-fill"
                                         viewBox="0 0 16 16">
                                         <path
                                             d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                     </svg>
                                 </x-link>
                                 <x-link :href="route('login')" :active="request()->routeIs('login')">
-                                    <div class="hidden text-white sm:block active:text-gray-200">{{ __('Account') }}
+                                    <div class="hidden text-indigo-800 sm:block active:text-indigo-600">{{ __('Account') }}
                                     </div>
                                 </x-link>
 
                                 <span class="hidden pt-1 mx-1 text-gray-400 sm:block">/</span>
 
                                 <x-link :href="route('register')" :active="request()->routeIs('register')">
-                                    <div class="hidden text-white sm:block active:text-gray-200">{{ __('Register') }}
+                                    <div class="hidden text-indigo-800 sm:block active:text-indigo-600">{{ __('Register') }}
                                     </div>
                                 </x-link>
                             </div>
                         @endauth
                     </div>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <nav x-data="{ open: false }">
-        <!-- Primary Navigation Menu -->
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-24 mb-1 border-b sm:mb-0 sm:border-none">
-                <div class="flex w-auto">
-                    <!-- Logo -->
-                    <div class="flex items-center shrink-0">
-                        <a href="{{ route('dashboard') }}">
-                            <x-application-mark class="hidden w-auto h-16 md:block" />
-                            <x-application-sm width="50" height="50" class="block md:hidden" />
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-center w-auto">
-                    <!-- Searh -->
-                    <div class="items-center justify-center hidden w-full sm:block">
-                        @livewire('search-bar-component')
-                    </div>
-                </div>
-
-                <div class="flex items-center w-auto">
-                    <!--Shopping Cart-->
-                    <div class="flex items-center justify-end">
-                        @livewire('cart.cart-component')
-                    </div>
+                    @livewire('cart.cart-component')
                 </div>
             </div>
 
             <!-- Searh -->
             <div class="items-center justify-center w-full mb-2 sm:hidden">
-                <form action="{{ route('dashboard') }}" class="flex" method="get">
+                <form action="{{ route('dashboard') }}" class="flex overflow-hidden border border-gray-200 rounded-full" method="get">
                     <input name="search" type="search"
-                        class="block w-full px-2 border-indigo-700 rounded rounded-r-none focus:border-white focus:ring-indigo-500"
+                        class="block w-full border-none focus:ring-indigo-500"
                         placeholder="{{ __('Search products') }}" />
-                    <x-button-inline type="submit" class="px-4 bg-indigo-700 border border-indigo-700 rounded-l-none">
+                    <button type="submit" class="flex items-center justify-center px-4 text-white bg-indigo-700">
                         <svg width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                             <path
                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                         </svg>
-                    </x-button-inline>
+                    </button>
                 </form>
             </div>
         </div>
     </nav>
-
-    <div class="px-4 mx-auto max-w-7xl sm:px-8">
-        <div class="flex py-4 bg-indigo-700 rounded shadow">
-            <div class="text-gray-800">
-                <!-- Navigation Links -->
-                <div class="mx-2 space-x-1 sm:space-x-2 sm:-my-px sm:m-4 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="uppercase">
-                        {{ __('Home') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')" class="uppercase">
-                        {{ __('Products') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="{{ route('wholesaler') }}" :active="request()->routeIs('wholesaler')" class="uppercase">
-                        {{ __('Wholesaler') }}
-                    </x-nav-link>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

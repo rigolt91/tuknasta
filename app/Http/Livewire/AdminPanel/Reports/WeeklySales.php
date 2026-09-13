@@ -8,9 +8,12 @@ use Carbon\Carbon;
 use App\Models\UserPurchasedProduct;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\LaravelChart;
+use App\Http\Traits\SalesGrowthTrait;
 
 class WeeklySales extends Component
 {
+    use SalesGrowthTrait;
+
     public $carbon;
     public $start_date;
     public $end_date;
@@ -31,18 +34,6 @@ class WeeklySales extends Component
                             ->get();
         $this->growth = $this->products->toArray();
         $this->overallGrowth();
-    }
-
-    public function overallGrowth()
-    {
-        $this->overall_growth = 0;
-        $this->full_percent = 0;
-
-        foreach($this->products as $key => $product)
-        {
-            $this->overall_growth += ($key > 0) ? ($product->amount - $this->growth[$key-1]['amount']) : $this->growth[$key]['amount'];
-            $this->full_percent += ($key > 0) ? (($percent = ((($product->amount - $this->growth[$key-1]['amount'])/$product->amount) * 100)) > 0 ? $percent : 0) : 100;
-        }
     }
 
     public function chartUnitsProducts()

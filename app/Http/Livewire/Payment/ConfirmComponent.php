@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Payment;
 
 use App\Http\Traits\CartTrait;
+use App\Http\Controllers\UPagosDirectService;
 use App\Mail\OrderShipped;
 use Livewire\Component;
 use App\Models\UserOrder;
@@ -63,7 +64,16 @@ class ConfirmComponent extends Component
         return $order->count() > 0 ? $this->generateOrderNumber() : $number;
     }
 
-    public function paymentConfirm() {
+    public function paymentConfirm(UPagosDirectService $uPagosDirect) {
+        $verification = $uPagosDirect->postData('creditcard/verify', [
+            'merchant_txn_id' => $this->order_number,
+        ]);
+
+        if (!isset($verification->result) || $verification->result !== '0') {
+            $this->addError('payment', __('We could not verify the payment with the payment gateway.'));
+            return;
+        }
+
         $user_order = $this->user->userOrder()->create([
             'number' => $this->order_number,
             'order_status_id' => 1,

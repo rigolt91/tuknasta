@@ -14,7 +14,6 @@ use App\Models\Cart;
 use App\Models\UserContact;
 use App\Models\UserOrder;
 use App\Models\UserJob;
-use App\Models\ModelHasRole;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -100,10 +99,5 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userJob()
     {
         return $this->hasMany(UserJob::class);
-    }
-
-    public function modelHasRole()
-    {
-        return $this->belongsTo(ModelHasRole::class, 'id', 'model_id');
     }
 }

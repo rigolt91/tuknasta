@@ -11,7 +11,7 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|space-grotesk:500,600,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
@@ -46,22 +46,24 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div id="content" class="hidden min-h-screen bg-white flex flex-col">
+    <div id="content" class="hidden min-h-screen bg-gradient-to-br from-indigo-50 to-white flex flex-col">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
         @if (isset($header))
-            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-6">
-                <header class="bg-white rounded-b-lg shadow">
-                    <div class="px-4 py-4">
-                        {{ $header }}
-                    </div>
-                </header>
+            <div>
+                <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-6">
+                    <header class="bg-white rounded-b-lg shadow">
+                        <div class="px-4 py-4">
+                            {{ $header }}
+                        </div>
+                    </header>
+                </div>
             </div>
         @endif
 
         <!-- Page Content -->
-        <main class="flex-1">
+        <main class="flex-1 my-12">
             {{ $slot }}
         </main>
 

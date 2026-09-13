@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\AdminPanel\User;
 
 use App\Actions\Fortify\PasswordValidationRules;
-use App\Models\Role;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use LivewireUI\Modal\ModalComponent;
 
@@ -25,7 +25,7 @@ class EditComponent extends ModalComponent
         $this->name = $this->user->name;
         $this->last_name = $this->user->last_name;
         $this->email = $this->user->email;
-        $this->role = $this->user->modelHasRole->role->id;
+        $this->role = $this->user->roles->first()->id;
     }
 
     public function update()
@@ -45,9 +45,7 @@ class EditComponent extends ModalComponent
 
         !empty($this->password) ? $this->user->update(['password' => Hash::make($this->password)]) : '';
 
-        $this->user->removeRole($this->user->modelHasRole->role->name);
-
-        $this->user->assignRole(Role::find($this->role)->name);
+        $this->user->syncRoles([Role::find($this->role)->name]);
 
         $this->closeModalWithEvents([ UserComponent::getName() => 'refreshUsers' ]);
     }

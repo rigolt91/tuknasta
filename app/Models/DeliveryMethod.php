@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Order;
+use App\Models\UserOrder;
 
 class DeliveryMethod extends Model
 {
@@ -14,8 +14,8 @@ class DeliveryMethod extends Model
         'name'
     ];
 
-    public function order()
+    public function userOrder()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(UserOrder::class);
     }
 }

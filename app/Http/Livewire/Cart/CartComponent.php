@@ -3,20 +3,18 @@
 namespace App\Http\Livewire\Cart;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Providers\AddProductCart;
+use App\Http\Traits\CartSummaryTrait;
 
 class CartComponent extends Component
 {
-    public $user;
+    use CartSummaryTrait;
+
     public $product;
     public $units;
-    public $carts;
-    public $total_products = 0;
-    public $total_amount = 0;
 
     protected $listeners = [
         'refreshCart' => '$refresh',
@@ -27,16 +25,6 @@ class CartComponent extends Component
         'deleteUserJob' => 'deleteUserJob',
         'restoreProductStock' => 'restoreProductStock',
     ];
-
-    public function mountCart()
-    {
-        if (Auth::user()) {
-            $this->user = Auth::user();
-            $this->carts = $this->user->cart;
-            $this->total_products = $this->carts->sum('units');
-            $this->total_amount = $this->user->cartAmount();
-        }
-    }
 
     public function addProductCart(Product $product, $units = 1)
     {

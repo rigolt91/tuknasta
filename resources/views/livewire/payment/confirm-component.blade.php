@@ -1,4 +1,4 @@
-<div class="my-8">
+<div>
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 mb-4 sm:mx-2">
             @include('livewire.payment.steps.steps-bars-payment')
@@ -207,9 +207,11 @@
                 const fetchData = async (url, method, data='') => {
                     var options = {
                         method: method,
+                        credentials: 'same-origin',
                         headers: {
                             'Accept': 'application.json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
                         },
                         body: JSON.stringify(data)
                     }

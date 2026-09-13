@@ -12,12 +12,10 @@ window.addEventListener('DOMContentLoaded', function(e) {
 
     window.onscroll = function() {
         const btnUp = document.getElementById('btnUp');
-        const navBarFixed = document.getElementById('navBarFixed');
 
         var y = window.scrollY;
 
         if(y > 0) {
-            navBarFixed.classList.remove('hidden');
             btnUp.classList.remove('hidden');
             fade();
         }
@@ -26,7 +24,6 @@ window.addEventListener('DOMContentLoaded', function(e) {
             btnUp.style.opacity = 0;
             fade();
             btnUp.classList.add('hidden');
-            navBarFixed.classList.add('hidden');
         }
 
         function fade() {

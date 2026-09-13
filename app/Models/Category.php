@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Subcategory;
 use App\Models\Product;
-use App\Models\UserContact;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -35,10 +34,5 @@ class Category extends Model
     public function product()
     {
         return $this->hasMany(Product::class);
-    }
-
-    public function userContact()
-    {
-        return $this->hasMany(UserContact::class);
     }
 }

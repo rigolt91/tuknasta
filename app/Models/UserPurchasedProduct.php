@@ -13,7 +13,7 @@ class UserPurchasedProduct extends Model
     use HasFactory;
 
     protected $fillable = [
-        'order_id',
+        'user_order_id',
         'product_id',
         'units',
         'price',

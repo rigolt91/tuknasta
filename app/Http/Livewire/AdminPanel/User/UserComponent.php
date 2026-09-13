@@ -35,6 +35,6 @@ class UserComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin-panel.user.user-component', ['users' => User::paginate(10), 'userId' => Auth::id()]);
+        return view('livewire.admin-panel.user.user-component', ['users' => User::with('roles')->paginate(10), 'userId' => Auth::id()]);
     }
 }

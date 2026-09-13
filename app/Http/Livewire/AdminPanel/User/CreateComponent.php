@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\AdminPanel\User;
 
 use App\Actions\Fortify\PasswordValidationRules;
-use App\Models\Role;
 use App\Models\User;
 use Carbon\Carbon;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use LivewireUI\Modal\ModalComponent;
 

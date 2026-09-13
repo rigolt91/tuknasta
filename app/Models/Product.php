@@ -29,7 +29,6 @@ class Product extends Model
         'previous_price',
         'stock',
         'show',
-        'starts',
         'recommend',
         'category_id',
         'subcategory_id',
@@ -43,7 +42,7 @@ class Product extends Model
 
     public function scopeRecommend(Builder $query, $recommend): void
     {
-        $query->select('id', 'image', 'name', 'slug', 'short_description', 'price')
+        $query->select('id', 'image', 'name', 'slug', 'short_description', 'price', 'previous_price', 'branch_id')
             ->where('recommend', $recommend)
             ->show(true);
     }

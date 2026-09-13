@@ -1,10 +1,10 @@
 <div>
     <div x-data="{ open: true }" class="flex items-center justify-center w-full h-200">
         <div @mouseover="open = true"
-            class="w-full h-[270px] relative flex items-center justify-center">
+            class="w-full h-[168px] relative flex items-center justify-center">
             <button x-show="open"
                 :class="open == true ? 'block transition duration-300 easy-in-out' : 'sm:hidden'"
-                class="block absolute z-30 left-0 ml-5 py-2.5 px-3.5 rounded-md bg-white/50 hover:bg-white/60 text-white cursor-pointer"
+                class="block absolute z-30 left-0 rounded-md bg-white/50 hover:bg-white/60 text-white cursor-pointer"
                 id="btnPrev"
             >
                 <svg class="text-gray-700" width="8" height="14" viewBox="0 0 8 14" fill="none">
@@ -16,14 +16,21 @@
                     class="flex items-center justify-start h-full mx-4 transition duration-700 ease-out gap-x-8">
                     @if($categories->count() > 0)
                         @foreach ($categories as $category)
-                            <div id="divCategory" wire:click="getProducts({{ $category->id }})" class="relative w-full transition duration-700 ease-in-out cursor-pointer shrink-0 md:w-auto hover:scale-110">
-                                <img id="image" src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}"
-                                    class="flex items-center justify-center object-contain object-center w-auto text-xs bg-gray-200 rounded-md shadow-md md:h-48" />
-                                <div
-                                    class="absolute flex items-center justify-center w-full pt-2 text-sm font-bold text-center text-gray-800 uppercase md:w-64">
-                                    {{ $category->name }}
+                            <button type="button" wire:click="getProducts({{ $category->id }})"
+                                class="group flex w-[180px] shrink-0 flex-col gap-3 rounded-2xl border border-gray-100 bg-white p-4 text-left transition duration-200 ease-out hover:-translate-y-1 hover:border-indigo-100 hover:shadow-lg sm:w-[200px]">
+                                <div class="flex items-center justify-center w-12 h-12 overflow-hidden rounded-xl bg-indigo-50">
+                                    <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}"
+                                        class="object-contain w-8 h-8" />
                                 </div>
-                            </div>
+                                <div>
+                                    <div class="text-sm font-bold text-gray-900 font-display">
+                                        {{ $category->name }}
+                                    </div>
+                                    <div class="text-xs text-gray-500">
+                                        {{ $category->subcategory_count }} {{ __(Str::plural('subcategory', $category->subcategory_count)) }}
+                                    </div>
+                                </div>
+                            </button>
                         @endforeach
                     @else
                         @for($i=0;$i<5;$i++)
@@ -38,7 +45,7 @@
             </div>
             <button x-show="open"
                 :class="open == true ? 'block transition duration-300 easy-in-out' : 'sm:hidden'"
-                class="block absolute z-30 right-0 mr-5 py-2.5 px-3.5 rounded-md bg-white/50 hover:bg-white/60 text-white cursor-pointer"
+                class="block absolute z-30 right-0 rounded-md bg-white/50 hover:bg-white/60 text-white cursor-pointer"
                 id="btnNext"
             >
                 <svg class="text-gray-700" width="8" height="14" viewBox="0 0 8 14" fill="none">

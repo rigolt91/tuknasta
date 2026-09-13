@@ -20,14 +20,16 @@ class FooterMenu extends Component
     {
         $upagosDirect = UpagosDirect::first();
 
-        $this->email = $upagosDirect->email;
-        $this->phone = $upagosDirect->phone;
-        $this->address = $upagosDirect->address;
-        $this->facebook = $upagosDirect->facebook;
-        $this->instagram = $upagosDirect->instagram;
-        $this->twitter = $upagosDirect->twitter;
-        $this->google = $upagosDirect->google;
-        $this->linkedin = $upagosDirect->linkedin;
+        if ($upagosDirect) {
+            $this->email = $upagosDirect->email;
+            $this->phone = $upagosDirect->phone;
+            $this->address = $upagosDirect->address;
+            $this->facebook = $upagosDirect->facebook;
+            $this->instagram = $upagosDirect->instagram;
+            $this->twitter = $upagosDirect->twitter;
+            $this->google = $upagosDirect->google;
+            $this->linkedin = $upagosDirect->linkedin;
+        }
     }
 
     public function render()

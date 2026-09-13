@@ -1,4 +1,4 @@
-<div class="my-8">
+<div>
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
         <div class="mx-4 mb-4 sm:mx-2">
             @include('livewire.payment.steps.steps-bars-info')
