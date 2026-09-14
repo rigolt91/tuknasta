@@ -1,8 +1,8 @@
 <div>
     <x-dropdown align="right" width="64">
         <x-slot name="trigger">
-            <button
-                class="relative flex items-center justify-center w-10 h-10 text-indigo-700 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-full hover:border-indigo-300 focus:outline-none">
+            <button type="button" aria-haspopup="menu" :aria-expanded="open" aria-label="{{ __('Shopping Cart') }}"
+                class="relative flex items-center justify-center w-10 h-10 text-indigo-700 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-full hover:border-indigo-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
                 <svg height="18" fill="currentColor" width="18" class="bi bi-cart3" viewBox="0 0 16 16">
                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                 </svg>

@@ -37,6 +37,10 @@ class WholesalerComponent extends Component
 
     public function render()
     {
-        return view('livewire.wholesaler-component');
+        return view('livewire.wholesaler-component')
+            ->layout('layouts.app', [
+                'title' => __('Wholesaler'),
+                'description' => __('Contáctanos para comprar al por mayor y recibir precios especiales para tu negocio.'),
+            ]);
     }
 }

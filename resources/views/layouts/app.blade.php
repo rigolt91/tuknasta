@@ -7,7 +7,24 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="Rigoberto Carmenate Mayo, Fullstack Developer">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @php
+        $metaTitle = isset($title) ? $title . ' · ' . config('app.name') : config('app.name', 'Laravel');
+        $metaDescription = $description ?? __('Marketplace de venta de productos por municipio, con pago seguro con tarjeta y múltiples vendedores.');
+    @endphp
+
+    <title>{{ $metaTitle }}</title>
+    <meta name="description" content="{{ $metaDescription }}">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+    <meta property="og:title" content="{{ $metaTitle }}">
+    <meta property="og:description" content="{{ $metaDescription }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ $image ?? asset('favicon.svg') }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $metaTitle }}">
+    <meta name="twitter:description" content="{{ $metaDescription }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -46,6 +63,10 @@
 </head>
 
 <body class="font-sans antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-indigo-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">
+        {{ __('Skip to content') }}
+    </a>
+
     <div id="content" class="hidden min-h-screen bg-gradient-to-br from-indigo-50 to-white flex flex-col">
         @livewire('navigation-menu')
 
@@ -63,7 +84,7 @@
         @endif
 
         <!-- Page Content -->
-        <main class="flex-1 my-12">
+        <main id="main-content" class="flex-1 my-12">
             {{ $slot }}
         </main>
 

@@ -20,6 +20,7 @@ class CartDetailComponent extends Component
     {
         $this->cartsTrait();
 
-        return view('livewire.cart.cart-detail-component');
+        return view('livewire.cart.cart-detail-component')
+            ->layout('layouts.app', ['title' => __('Shopping Cart')]);
     }
 }

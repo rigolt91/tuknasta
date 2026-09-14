@@ -43,6 +43,10 @@ class ProductDetailComponent extends Component
 
         return view('livewire.product.product-detail-component', [
             'products' => Product::where('id', $this->product->id)->show(true)->get(),
+        ])->layout('layouts.app', [
+            'title' => $this->product->name,
+            'description' => \Illuminate\Support\Str::limit(strip_tags($this->product->short_description ?? $this->product->name), 155),
+            'image' => url(\Illuminate\Support\Facades\Storage::url($this->product->image)),
         ]);
     }
 }

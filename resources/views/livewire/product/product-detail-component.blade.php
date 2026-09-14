@@ -9,8 +9,8 @@
 
             <div class="w-full mx-4 sm:mx-2 sm:flex">
                 <div class="w-full p-6 border border-gray-100 sm:rounded">
-                    <h4 class="mt-2 mb-2 font-semibold text-gray-600 uppercase text-md">{{ __('Product Details') }}</h4>
-                    <h2 class="text-2xl font-bold text-gray-700">{{ $name }}</h2>
+                    <h2 class="mt-2 mb-2 font-semibold text-gray-600 uppercase text-md">{{ __('Product Details') }}</h2>
+                    <h1 class="text-2xl font-bold text-gray-700">{{ $name }}</h1>
                     <span class="flex items-center py-3 border-b border-gray-100">
                         @for ($i = 1; $i <= 5; $i++)
                             <x-icon-star wire:click='setStarts({{ $i }})' class="w-6 h-6 cursor-pointer"

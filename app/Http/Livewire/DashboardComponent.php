@@ -52,6 +52,9 @@ class DashboardComponent extends Component
                 ->show(true)
                 ->orderBy($this->order)
                 ->get()
+        ])->layout('layouts.app', [
+            'title' => __('Products'),
+            'description' => __('Explora todos los productos disponibles, filtra por categoría y precio, y compra con envío por municipio.'),
         ]);
     }
 }

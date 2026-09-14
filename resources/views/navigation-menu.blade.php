@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <nav x-data="{ open: false }" class="sticky top-0 z-40 border-b border-gray-100 shadow-sm bg-white/90 backdrop-blur">
+    <nav class="sticky top-0 z-40 border-b border-gray-100 shadow-sm bg-white/90 backdrop-blur">
         <!-- Primary Navigation Menu -->
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 gap-4 mb-1 border-b sm:mb-0 sm:border-none">
@@ -33,7 +33,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="items-center gap-6 lg:flex">
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-1">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
@@ -60,15 +60,17 @@
                             <x-dropdown align="right" width="64" dropdownClasses="-mt-4">
                                 <x-slot name="trigger">
                                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                        <button
-                                            class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
+                                        <button type="button" aria-haspopup="menu" :aria-expanded="open"
+                                            aria-label="{{ __('Account') }} ({{ Auth::user()->name }})"
+                                            class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
                                             <img class="object-cover w-10 h-10 rounded-full"
                                                 src="{{ Auth::user()->profile_photo_url }}"
-                                                alt="{{ Auth::user()->name }}" />
+                                                alt="" />
                                         </button>
                                     @else
-                                        <button type="button"
-                                            class="relative flex items-center justify-center w-10 h-10 text-indigo-700 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-full hover:border-indigo-300 focus:outline-none">
+                                        <button type="button" aria-haspopup="menu" :aria-expanded="open"
+                                            aria-label="{{ __('Account') }} ({{ Auth::user()->name }})"
+                                            class="relative flex items-center justify-center w-10 h-10 text-indigo-700 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-full hover:border-indigo-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
                                             <svg height="18" width="18" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                                 <path
                                                     d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
@@ -179,21 +181,21 @@
                             </x-dropdown>
                         @else
                             <div class="flex items-center pb-1">
-                                <x-link :href="route('login')" :active="request()->routeIs('login')">
+                                <x-link :href="route('login')" :active="request()->routeIs('login')" aria-label="{{ __('Account') }}">
                                     <svg height="32" width="32" fill="currentColor" class="text-indigo-800 bi bi-person-fill"
                                         viewBox="0 0 16 16">
                                         <path
                                             d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                     </svg>
                                 </x-link>
-                                <x-link :href="route('login')" :active="request()->routeIs('login')">
+                                <x-link :href="route('login')" :active="request()->routeIs('login')" aria-hidden="true" tabindex="-1">
                                     <div class="hidden text-indigo-800 sm:block active:text-indigo-600">{{ __('Account') }}
                                     </div>
                                 </x-link>
 
                                 <span class="hidden pt-1 mx-1 text-gray-400 sm:block">/</span>
 
-                                <x-link :href="route('register')" :active="request()->routeIs('register')">
+                                <x-link :href="route('register')" :active="request()->routeIs('register')" aria-label="{{ __('Register') }}">
                                     <div class="hidden text-indigo-800 sm:block active:text-indigo-600">{{ __('Register') }}
                                     </div>
                                 </x-link>
@@ -208,10 +210,11 @@
             <!-- Searh -->
             <div class="items-center justify-center w-full mb-2 sm:hidden">
                 <form action="{{ route('dashboard') }}" class="flex overflow-hidden border border-gray-200 rounded-full" method="get">
-                    <input name="search" type="search"
+                    <label for="search-products-mobile" class="sr-only">{{ __('Search products') }}</label>
+                    <input id="search-products-mobile" name="search" type="search"
                         class="block w-full border-none focus:ring-indigo-500"
                         placeholder="{{ __('Search products') }}" />
-                    <button type="submit" class="flex items-center justify-center px-4 text-white bg-indigo-700">
+                    <button type="submit" aria-label="{{ __('Search products') }}" class="flex items-center justify-center px-4 text-white bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
                         <svg width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                             <path
                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />

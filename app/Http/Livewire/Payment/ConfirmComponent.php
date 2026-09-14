@@ -107,6 +107,7 @@ class ConfirmComponent extends Component
     public function render()
     {
         $this->mountConfirm();
-        return view('livewire.payment.confirm-component');
+        return view('livewire.payment.confirm-component')
+            ->layout('layouts.app', ['title' => __('Confirm Order')]);
     }
 }

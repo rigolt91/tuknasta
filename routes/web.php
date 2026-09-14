@@ -87,6 +87,11 @@ Route::middleware([
     });
 });
 
+Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+Route::get('/robots.txt', function () {
+    return response()->view('robots')->header('Content-Type', 'text/plain');
+})->name('robots');
+
 Route::get('/', WelcomeComponent::class)->name('dashboard');
 Route::get('/products/{search?}', DashboardComponent::class)->name('products');
 Route::get('/about-us', function () {

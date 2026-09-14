@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="__('Log in')">
     <x-authentication-card>
         <x-slot name="logo">
 

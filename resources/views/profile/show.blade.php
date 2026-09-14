@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="__('Profile')">
     <div>
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())

@@ -16,6 +16,9 @@ class WelcomeComponent extends Component
 
     public function render()
     {
-        return view('welcome-component');
+        return view('welcome-component')
+            ->layout('layouts.app', [
+                'description' => __('Compra frutas, carnes, lácteos y más con envío por municipio y pago seguro con tarjeta.'),
+            ]);
     }
 }

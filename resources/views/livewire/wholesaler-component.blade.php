@@ -5,9 +5,9 @@
                 <x-card-body class="flex">
                     <div class="sm:w-full">
                         <div class="w-full mb-6 text-gray-700">
-                            <div class="mb-2 text-xl font-bold text-gray-800 border-b">
+                            <h1 class="mb-2 text-xl font-bold text-gray-800 border-b">
                                 {{ __('Wholesaler') }}
-                            </div>
+                            </h1>
                             {{ __('Do you need to make wholesale purchases for your business? MarketPlaza has a variety of wholesale options to always offer you the best and at the best price. Learn about all the offers available on the online platform and contact our sales team by email.') }}
                         </div>
 

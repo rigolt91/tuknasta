@@ -36,6 +36,7 @@ class PaymentComponent extends Component
     {
         $this->mountPayment();
 
-        return view('livewire.payment.payment-component');
+        return view('livewire.payment.payment-component')
+            ->layout('layouts.app', ['title' => __('Payment')]);
     }
 }

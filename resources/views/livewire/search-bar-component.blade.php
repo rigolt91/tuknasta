@@ -23,9 +23,9 @@
             }" x-on:keydown.escape.prevent.stop="close($refs.button)"
                 x-on:focusin.window="! $refs.panel.contains($event.target) && close()" x-id="['dropdown-button']"
                 class="relative">
-                <button x-ref="button" x-on:click="toggle()" :aria-expanded="open"
+                <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" aria-haspopup="listbox"
                     :aria-controls="$id('dropdown-button')" type="button"
-                    class="flex items-center justify-center gap-1 py-2.5 pl-4 pr-2 text-xs font-semibold tracking-wide text-gray-600 uppercase transition duration-150 ease-in-out border-r border-gray-200 hover:text-indigo-700 focus:outline-none">
+                    class="flex items-center justify-center gap-1 py-2.5 pl-4 pr-2 text-xs font-semibold tracking-wide text-gray-600 uppercase transition duration-150 ease-in-out border-r border-gray-200 hover:text-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
 
                     <span x-text="textButton" class="truncate max-w-[7rem]">{{ __('All Categories') }}</span>
 
@@ -38,12 +38,13 @@
                 </button>
 
                 <div x-ref="panel" x-show="open" x-transition.origin.top.left x-on:click.outside="close($refs.button)"
-                    :id="$id('dropdown-button')" style="display: none;"
+                    x-on:keydown.escape.prevent.stop="close($refs.button)"
+                    :id="$id('dropdown-button')" style="display: none;" role="listbox"
                     class="absolute left-0 z-50 w-64 mt-2 bg-white border rounded-lg shadow-lg">
                     @foreach ($categories as $category)
-                        <a href="#"
+                        <a href="#" role="option"
                             @click="$wire.setCategory({{ $category->id }}), textButton = '{{ $category->name }}', open = false"
-                            class="flex items-center gap-2 w-full first-of-type:rounded-t-lg last-of-type:rounded-b-lg px-4 py-1.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
+                            class="flex items-center gap-2 w-full first-of-type:rounded-t-lg last-of-type:rounded-b-lg px-4 py-1.5 text-left text-sm hover:bg-gray-50 focus:outline-none focus-visible:bg-gray-50 focus-visible:text-indigo-700 disabled:text-gray-500">
                             <span class="text-gray-600">{{ $category->name }}</span>
                         </a>
                     @endforeach
@@ -51,7 +52,8 @@
             </div>
         </div>
         <input name="category_id" type="hidden" wire:model="category_id">
-        <input name="search" type="search"
+        <label for="search-products" class="sr-only">{{ __('Search products') }}</label>
+        <input id="search-products" name="search" type="search"
             class="w-full px-4 text-sm bg-transparent border-none focus:ring-0"
             placeholder="{{ __('Search products') }}..." />
 

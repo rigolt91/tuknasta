@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'MarketPlaza') }}</title>
+    @php
+        $metaTitle = isset($title) ? $title . ' · ' . config('app.name') : config('app.name', 'MarketPlaza');
+    @endphp
+
+    <title>{{ $metaTitle }}</title>
+    <meta name="description" content="{{ $description ?? __('Marketplace de venta de productos por municipio, con pago seguro con tarjeta y múltiples vendedores.') }}">
+    <link rel="canonical" href="{{ url()->current() }}">
 
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">

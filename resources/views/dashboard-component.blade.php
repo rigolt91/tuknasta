@@ -1,4 +1,6 @@
 <div>
+    <h1 class="sr-only">{{ __('Products') }}</h1>
+
     <div wire:load. >
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
             <div class="flex items-center justify-between py-2 mx-4 mb-4 sm:mx-2 border-y">

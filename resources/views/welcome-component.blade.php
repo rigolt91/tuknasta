@@ -1,4 +1,6 @@
 <div>
+    <h1 class="sr-only">{{ __('MarketPlaza · Shop by municipality with secure card payment') }}</h1>
+
     <div wire:load. >
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
             <div>

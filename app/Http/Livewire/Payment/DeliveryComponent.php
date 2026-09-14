@@ -39,6 +39,6 @@ class DeliveryComponent extends Component
 
         return view('livewire.payment.delivery-component', [
             'delivery_methods' => DeliveryMethod::select('id', 'name')->get(),
-        ]);
+        ])->layout('layouts.app', ['title' => __('Delivery')]);
     }
 }

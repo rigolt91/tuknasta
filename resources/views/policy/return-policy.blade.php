@@ -1,9 +1,9 @@
-<x-app-layout>
+<x-app-layout :title="__('Return Policy')">
     <div>
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-6">
             <div class="mx-4 sm:mx-2">
                 <div class="p-2 bg-white shadow-md sm:p-6 sm:rounded-lg">
-                    <p class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Return Policy') }}</p>
+                    <h1 class="pb-2 mb-4 text-lg font-bold text-gray-800 border-b">{{ __('Return Policy') }}</h1>
 
                     <p class="mb-4 text-sm text-justify text-gray-700">
                         {{__('The person who receives the order must make sure to verify that the products they receive match the order placed. Also, check the packaging very well and verify that they are in perfect condition in the company of the carrier before signing the invoice. By signing without verifying, the right to claim is lost. We are not responsible for defects that are visible, nor for differences in the quantity and assortment of the products that the consumer/recipient has accepted at the time of delivery and that he should have noticed at the time of delivery.')}}
