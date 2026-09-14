@@ -101,7 +101,7 @@
 
     <div id="loadding" class="grid h-screen place-items-center">
         <div class="flex items-center">
-            <svg fill="green" width="48" class="mr-2 animate-spin" height="48" viewBox="0 0 24 24">
+            <svg fill="gray" width="48" class="mr-2 animate-spin" height="48" viewBox="0 0 24 24">
                 <g>
                     <circle cx="3" cy="12" r="2" />
                     <circle cx="21" cy="12" r="2" />
@@ -114,7 +114,7 @@
                     <animateTransform attributeName="transform" type="rotate" dur="2s" values="0 12 12;360 12 12" repeatCount="indefinite" />
                 </g>
             </svg>
-            <div class="font-bold text-indigo-700 uppercase text-md">{{ __('Loadding') }}...</div>
+            <div class="font-bold text-indigo-700 uppercase text-md">{{ __('Loading') }}...</div>
         </div>
     </div>
 
