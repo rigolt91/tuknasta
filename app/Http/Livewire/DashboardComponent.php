@@ -44,7 +44,7 @@ class DashboardComponent extends Component
     public function render()
     {
         return view('dashboard-component', [
-            'products' => Product::select('id', 'image', 'name', 'slug', 'short_description', 'price', 'previous_price', 'stock')
+            'products' => Product::select('id', 'image', 'name', 'slug', 'short_description', 'price', 'previous_price', 'stock', 'branch_id')
                 ->whereInCategory($this->categories)
                 ->whereCategory($this->category_id)
                 ->whereName($this->search)

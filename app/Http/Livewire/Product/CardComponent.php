@@ -18,6 +18,8 @@ class CardComponent extends Component
     public $starts;
     public $previous_price;
     public $out_of_stock;
+    public $branch;
+    public $reviews;
 
     public function mount($product)
     {
@@ -29,6 +31,11 @@ class CardComponent extends Component
         $this->price = $product->price;
         $this->previous_price = $product->previous_price;
         $this->out_of_stock = $product->stock > 0 ? false : true;
+        $this->branch = $product->branch?->name;
+        $this->reviews = $product->productStart
+            ? $product->productStart->one + $product->productStart->two + $product->productStart->three
+                + $product->productStart->four + $product->productStart->five
+            : 0;
     }
 
     public function addProductCart($product)

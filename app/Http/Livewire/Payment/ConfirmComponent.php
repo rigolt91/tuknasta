@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Payment;
 
 use App\Http\Traits\CartTrait;
-use App\Http\Controllers\UPagosDirectService;
+use App\Http\Controllers\StripePaymentService;
 use App\Mail\OrderShipped;
 use Livewire\Component;
 use App\Models\UserOrder;
@@ -15,18 +15,14 @@ class ConfirmComponent extends Component
 {
     use CartTrait;
 
-    public $first_name;
-    public $last_name;
-    public $address;
-    public $postal_code;
     public $order_number;
     public $delivery_method;
-    public $card_number;
-    public $exp_date;
-    public $cvv2cvc2;
     public $amount;
     public $transportation = 0;
     public $method;
+    public $stripeKey;
+    public $clientSecret;
+    public $paymentIntentId;
 
     protected $listeners = ['refreshConfirm' => '$refresh'];
 
@@ -41,8 +37,6 @@ class ConfirmComponent extends Component
     {
         $this->cartsTrait();
 
-        $this->first_name = $this->user->name;
-        $this->last_name = $this->user->last_name;
         $this->amount = $this->total_amount;
 
         if($this->method == 2) {
@@ -55,6 +49,21 @@ class ConfirmComponent extends Component
         if ($this->total_products == 0) {
             return redirect()->route('cart.details');
         }
+
+        $this->stripeKey = config('services.stripe.key');
+
+        if (!$this->paymentIntentId) {
+            $stripe = app(StripePaymentService::class);
+            $paymentIntent = $stripe->createPaymentIntent($this->amount + $this->transportation, $this->order_number);
+
+            if (isset($paymentIntent->errorCode)) {
+                $this->addError('payment', $paymentIntent->errorMessage);
+                return;
+            }
+
+            $this->paymentIntentId = $paymentIntent->id;
+            $this->clientSecret = $paymentIntent->client_secret;
+        }
     }
 
     public function generateOrderNumber()
@@ -64,12 +73,10 @@ class ConfirmComponent extends Component
         return $order->count() > 0 ? $this->generateOrderNumber() : $number;
     }
 
-    public function paymentConfirm(UPagosDirectService $uPagosDirect) {
-        $verification = $uPagosDirect->postData('creditcard/verify', [
-            'merchant_txn_id' => $this->order_number,
-        ]);
+    public function paymentConfirm($paymentIntentId, StripePaymentService $stripe) {
+        $paymentIntent = $stripe->retrievePaymentIntent($paymentIntentId);
 
-        if (!isset($verification->result) || $verification->result !== '0') {
+        if (!isset($paymentIntent->status) || $paymentIntent->status !== 'succeeded') {
             $this->addError('payment', __('We could not verify the payment with the payment gateway.'));
             return;
         }
@@ -80,6 +87,8 @@ class ConfirmComponent extends Component
             'delivery_method_id' => $this->delivery_method->id,
             'payment' => true,
             'user_contact_id' => $this->contact->id,
+            'stripe_payment_intent_id' => $paymentIntent->id,
+            'amount' => $this->amount + $this->transportation,
         ]);
         $this->purchasedProduct($user_order);
         $this->emit('deleteUserJob');

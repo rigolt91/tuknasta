@@ -8,8 +8,6 @@ use App\Models\UpagosDirect;
 class UpagosDirectComponent extends Component
 {
     public $setting;
-    public $mode = false;
-    public $token;
     public $email;
     public $phone;
     public $address;
@@ -20,8 +18,6 @@ class UpagosDirectComponent extends Component
     public $linkedin;
 
     public $rules = [
-        'mode' => 'boolean|nullable',
-        'token' => 'string|nullable',
         'email' => 'email|nullable',
         'phone' => 'string|nullable',
         'address' => 'string|nullable',
@@ -36,8 +32,6 @@ class UpagosDirectComponent extends Component
         $setting = UpagosDirect::first();
 
         if($setting) {
-            $this->mode = $setting->mode;
-            $this->token = $setting->token;
             $this->email = $setting->email;
             $this->phone = $setting->phone;
             $this->address = $setting->address;
@@ -61,11 +55,6 @@ class UpagosDirectComponent extends Component
         $validate = $this->validate();
         $upagosDirect = $upagosDirect = UpagosDirect::first();
         $upagosDirect->update($validate);
-    }
-
-    public function setMode()
-    {
-        $this->mode = !$this->mode;
     }
 
     public function render()

@@ -32,7 +32,7 @@
 
             <div>
                 @if ($products->count() > 0)
-                    <div class="grid sm:grid-cols-3 lg:grid-cols-5" wire:loading.class='opacity-60'>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" wire:loading.class='opacity-60'>
                         @foreach ($products as $product)
                             <livewire:product.card-component :product="$product" :key="$product->id">
                         @endforeach

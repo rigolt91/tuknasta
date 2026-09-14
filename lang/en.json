@@ -196,5 +196,9 @@
     "Sub Supplier": "Sub Supplier",
     "Sales in the Week by Supplier": "Sales in the Week by Supplier",
     "All rights reserved.": "All rights reserved.",
-    "Loading": "Loading"
+    "Continue": "Continue",
+    "Confirmed": "Confirmed",
+    "Payment gateway is temporarily unavailable. Please try again later.": "Payment gateway is temporarily unavailable. Please try again later.",
+    "We could not verify the payment with the payment gateway.": "We could not verify the payment with the payment gateway.",
+    "Sorry, the requested product is currently out of stock.": "Sorry, the requested product is currently out of stock."
 }

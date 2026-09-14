@@ -1,50 +1,62 @@
-<div class="mx-4 my-2 sm:mx-2">
-    <div wire:loading.class='opacity-60'
-        class="w-full p-2 transition ease-in-out border border-gray-100 sm:p-6 sm:rounded-lg hover:shadow-2xl hover:-translate-y-1 duration-400">
-        <x-card-header class="flex items-center justify-center sm:-mt-6 sm:-mx-6">
-            <a href="{{ route('product.details', $slug) }}" class="relative">
-                <img class="flex items-center justify-center object-cover object-center w-full text-xs bg-gray-200 sm:w-[230px] sm:h-[230px] sm:rounded-t-md"
-                    src="{{ Storage::url($image) }}" alt="{{ $product->name }}" />
-                @if ($out_of_stock)
-                    <div class="absolute top-0 px-1 text-sm font-bold text-white uppercase bg-indigo-700 right-2">
-                        {{ __('Out Of Stock') }}
-                    </div>
+<div>
+    <div class="m-2" wire:loading.class="opacity-60">
+        <div
+            class="flex flex-col h-full overflow-hidden transition duration-200 ease-out bg-white border border-gray-100 rounded-2xl hover:-translate-y-1 hover:shadow-lg">
+            <a href="{{ route('product.details', $slug) }}" wire:loading.class="animation-pulse"
+                class="relative flex items-center justify-center bg-indigo-50 aspect-[4/3]">
+                @if($previous_price)
+                    <span class="absolute z-10 px-2 py-0.5 text-[0.65rem] font-bold text-white rounded-full top-2 left-2 bg-accent">
+                        -{{ round((1 - $price / $previous_price) * 100) }}%
+                    </span>
                 @endif
+                @if($out_of_stock)
+                    <span class="absolute z-10 px-2 py-0.5 text-[0.65rem] font-bold text-white uppercase rounded-full top-2 right-2 bg-gray-700">
+                        {{ __('Out Of Stock') }}
+                    </span>
+                @endif
+                <img src="{{ Storage::url($image) }}" class="object-cover w-full h-full" alt="{{ $name }}">
             </a>
-        </x-card-header>
 
-        <x-card-body>
-            <div class="sm:-mx-2 h-24">
-                <h6 class="text-sm font-bold text-gray-900 text-md">{{ $name }}</h6>
-                <div class="flex border-y">
-                    @for ($i = 1; $i <= 5; $i++)
-                        <x-icon-star wire:click='setStarts({{ $i }})' class="w-5 h-5 cursor-pointer"
-                            color="{{ $starts >= $i ? 'green' : 'gray' }}" />
-                    @endfor
-                </div>
-                <h5 class="text-sm text-gray-800">{{ substr($short_description, 0, 50) }}...</h5>
-            </div>
-        </x-card-body>
+            <div class="relative flex flex-col flex-1 gap-1 px-3 py-3">
+                @if($branch)
+                    <span class="text-[0.65rem] font-bold tracking-wide uppercase text-indigo-700">{{ $branch }}</span>
+                @endif
 
-        <x-card-footer class="sm:-mx-6">
-            <div class="flex items-center h-8 mt-2 -mx-4 sm:mx-0 sm:-mb-4">
-                <div class="font-bold">
-                    <span class="text-lg">${{ number_format($price, 2) }}</span>
-                    <p class="-mt-2 text-sm text-gray-500">
-                        {{ $previous_price ? '$' . number_format($previous_price, 2) : '' }}</p>
+                <div class="text-sm font-bold leading-snug text-gray-900 font-display">
+                    {{ $name }}
                 </div>
 
-                <div class="w-full">
-                    <x-button wire:click='addProductCart({{ $product->id }})' wire:loading.attr='disabled'
-                        class="float-right duration-150 disabled:opacity-60 hover:scale-110">
-                        <svg height="24" width="24" fill="white" class="h-5 text-gray-100 bi bi-cart4"
-                            viewBox="0 0 16 16">
+                <div class="flex items-center gap-1">
+                    <div class="flex items-center gap-0.5">
+                        @for ($i = 1; $i <= 5; $i++)
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="{{ $starts >= $i ? '#dd7f31' : '#e5e7eb' }}">
+                                <path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1L12 2Z"/>
+                            </svg>
+                        @endfor
+                    </div>
+                    @if($reviews > 0)
+                        <span class="text-[0.65rem] text-gray-400">({{ $reviews }})</span>
+                    @endif
+                </div>
+
+                <div class="flex items-end justify-between mt-auto pt-1">
+                    <div class="font-display">
+                        <span class="text-base font-bold text-gray-900">${{ number_format($price, 2) }}</span>
+                        @if($previous_price)
+                            <span class="ml-1 text-xs font-medium text-gray-400 line-through">${{ number_format($previous_price, 2) }}</span>
+                        @endif
+                    </div>
+
+                    <button type="button" wire:click='addProductCart({{ $product->id }})' wire:loading.attr='disabled'
+                        aria-label="{{ __('Add to cart') }}"
+                        class="flex items-center justify-center w-8 h-8 text-indigo-700 transition rounded-full bg-indigo-50 hover:bg-indigo-700 hover:text-white disabled:opacity-60">
+                        <svg height="16" width="16" fill="currentColor" viewBox="0 0 16 16">
                             <path
                                 d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
                         </svg>
-                    </x-button>
+                    </button>
                 </div>
             </div>
-        </x-card-footer>
+        </div>
     </div>
 </div>

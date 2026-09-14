@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('validateform', [PaymentController::class, 'validateForm']);
-    Route::get('efstoken', [PaymentController::class, 'getToken']);
-    Route::post('verify', [PaymentController::class, 'verify']);
-    Route::post('sale', [PaymentController::class, 'sale']);
+    Route::post('payment/create-intent', [PaymentController::class, 'createIntent']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

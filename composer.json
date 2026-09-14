@@ -15,6 +15,7 @@
         "livewire/livewire": "^2.11",
         "php-http/guzzle7-adapter": "^1.0",
         "spatie/laravel-permission": "^5.10",
+        "stripe/stripe-php": "^21.3",
         "wire-elements/modal": "^1.0"
     },
     "require-dev": {

@@ -4,29 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\UPagosDirectService;
-use App\Models\User;
+use App\Http\Controllers\StripePaymentService;
 
 class PaymentController extends Controller
 {
-    private $uPagosDirect;
+    private $stripe;
 
-    public function __construct(UPagosDirectService $uPagosDirect)
+    public function __construct(StripePaymentService $stripe)
     {
-        $this->uPagosDirect = $uPagosDirect;
+        $this->stripe = $stripe;
     }
 
     public function validateForm(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'address' => 'required|string',
-            'postal_code' => 'required|numeric|digits_between:0,10',
             'order_number' => 'required|string',
-            'card_number' => 'required|numeric|digits_between:8,16',
-            'exp_date' => 'required|date_format:m/y',
-            'cvv2cvc2' => 'required',
             'amount' => 'required'
         ]);
 
@@ -37,18 +29,22 @@ class PaymentController extends Controller
         return response()->json(['status' => true]);
     }
 
-    public function getToken()
+    public function createIntent(Request $request)
     {
-        return $this->uPagosDirect->getEfsToken();
-    }
+        $request->validate([
+            'amount' => 'required|numeric',
+            'order_number' => 'required|string',
+        ]);
 
-    public function verify(Request $request)
-    {
-        return $this->uPagosDirect->postData('creditcard/verify', $request->all());
-    }
+        $paymentIntent = $this->stripe->createPaymentIntent($request->amount, $request->order_number);
 
-    public function sale(Request $request)
-    {
-        return $this->uPagosDirect->postData('creditcard/sale', $request->all());
+        if (isset($paymentIntent->errorCode)) {
+            return response()->json($paymentIntent, 502);
+        }
+
+        return response()->json([
+            'client_secret' => $paymentIntent->client_secret,
+            'id' => $paymentIntent->id,
+        ]);
     }
 }

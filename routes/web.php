@@ -112,3 +112,5 @@ Route::get('/terms', function () {
 Route::get('/policy', function () {
     return view('policy.policy');
 })->name('policy');
+
+Route::post('/stripe/webhook', [\App\Http\Controllers\StripeWebhookController::class, 'handle'])->name('stripe.webhook');

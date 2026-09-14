@@ -592,5 +592,9 @@
     "Sub Supplier": "Sub Proveedor",
     "Sales in the Week by Supplier": "Ventas en la Semana por Proveedor",
     "All rights reserved.": "Todos los derechos reservados.",
-    "Loading": "Cargando"
+    "Continue": "Continuar",
+    "Confirmed": "Confirmar",
+    "Payment gateway is temporarily unavailable. Please try again later.": "La pasarela de pago no está disponible temporalmente. Por favor, inténtelo de nuevo más tarde.",
+    "We could not verify the payment with the payment gateway.": "No pudimos verificar el pago con la pasarela de pago.",
+    "Sorry, the requested product is currently out of stock.": "Lo sentimos, el producto solicitado no está disponible actualmente."
 }

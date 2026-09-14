@@ -24,7 +24,7 @@
 
             <div class="mx-4 sm:mx-2 sm:w-3/12">
                 <x-button-payment wire:click="paymentConfirm" class="mb-4 cursor-pointer">
-                    {{ __('Continuar') }}
+                    {{ __('Continue') }}
                     <div class="flex justify-end w-full">
                         <x-icon-spin wire:loading wire:target="paymentConfirm" class="ml-1" />
                     </div>

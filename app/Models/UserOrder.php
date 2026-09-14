@@ -22,6 +22,8 @@ class UserOrder extends Model
         'user_id',
         'user_contact_id',
         'payment',
+        'stripe_payment_intent_id',
+        'amount',
     ];
 
     public function scopeWhereStatus(Builder $query, $status)
